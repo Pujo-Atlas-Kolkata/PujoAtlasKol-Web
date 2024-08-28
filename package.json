@@ -1,0 +1,41 @@
+{
+  "name": "pujo-atlas-web",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "format": "prettier '**/*.{cjs,mjs,ts,tsx,md,json,astro}' --ignore-path ../.gitignore --ignore-unknown --write",
+    "format:check": "prettier '**/*.{cjs,mjs,ts,tsx,md,json,astro}' --ignore-path ../.gitignore --ignore-unknown --check",
+    "lint": "eslint . --report-unused-disable-directives",
+    "lint:fix": "npm run lint --fix",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.3",
+    "@astrojs/react": "^3.6.2",
+    "@astrojs/tailwind": "^5.1.0",
+    "@types/react": "^18.3.4",
+    "@types/react-dom": "^18.3.0",
+    "astro": "^4.14.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^3.4.10",
+    "typescript": "^5.5.4"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.9.1",
+    "@typescript-eslint/parser": "^8.3.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-astro": "^1.2.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.35.0",
+    "eslint-plugin-unused-imports": "^4.1.3",
+    "globals": "^15.9.0",
+    "prettier": "^3.3.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "typescript-eslint": "^8.3.0"
+  }
+}
