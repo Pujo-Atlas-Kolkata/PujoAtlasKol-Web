@@ -6,6 +6,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
+    "test": "echo \"Error: no test specified\" && exit 0",
     "preview": "astro preview",
     "format": "prettier '**/*.{cjs,mjs,ts,tsx,md,json,astro}' --ignore-path ../.gitignore --ignore-unknown --write",
     "format:check": "prettier '**/*.{cjs,mjs,ts,tsx,md,json,astro}' --ignore-path ../.gitignore --ignore-unknown --check",
