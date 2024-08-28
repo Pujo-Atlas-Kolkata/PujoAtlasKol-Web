@@ -5,6 +5,9 @@ import pluginReact from 'eslint-plugin-react';
 import eslintPluginAstro from 'eslint-plugin-astro';
 
 export default [
+  {
+    ignores: ['node_modules', 'dist', '.astro'],
+  },
   { files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'] },
   { languageOptions: { globals: globals.browser } },
   pluginJs.configs.recommended,
