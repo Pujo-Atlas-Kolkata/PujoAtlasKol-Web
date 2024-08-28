@@ -23,4 +23,3 @@ if [[ ! "$username" =~ ^[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*$ ]]; then
 fi
 
 echo "Branch name is valid. Proceeding with push."
-exit 1
