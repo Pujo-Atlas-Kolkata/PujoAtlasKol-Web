@@ -17,6 +17,8 @@
     "@astrojs/check": "^0.9.3",
     "@astrojs/react": "^3.6.2",
     "@astrojs/tailwind": "^5.1.0",
+    "@fontsource-variable/inter": "^5.0.20",
+    "@fontsource-variable/work-sans": "^5.0.20",
     "@types/react": "^18.3.4",
     "@types/react-dom": "^18.3.0",
     "astro": "^4.14.5",
