@@ -12,6 +12,19 @@ When contributing to `PujoAtlasKol-Web`, whether on GitHub or in other community
 
 In order to not waste your time implementing a change that has already been declined, or is generally not needed, start by [opening an issue](https://github.com/Pujo-Atlas-Kolkata/PujoAtlasKol-Web/issues/new) describing the problem you would like to solve.
 
+### ⭐ Recommended VSCode Extensions
+
+> To ensure a consistent development environment and code quality, please install the following VSCode extensions before contributing:
+
+1. **[Astro VSCode Extension](https://marketplace.visualstudio.com/items?itemName=astro-build.astro-vscode)**: Provides support for Astro framework with syntax highlighting, snippets, and more.
+2. **[Prettier - Code Formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)**: Automatically formats your code according to our project's style guide.
+3. **[ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)**: Lints JavaScript/TypeScript code to catch common errors and enforce coding standards.
+4. **[Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)**: Offers utilities for working with Tailwind CSS, including autocompletion and linting.
+5. **[GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)**: Enhances Git capabilities within VSCode with advanced visualization tools and features.
+6. **[TypeScript Next](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-next)**: Provides access to the latest TypeScript features and updates.
+7. **[PostCSS Language Support](https://marketplace.visualstudio.com/items?itemName=csstools.postcss)**: Adds syntax highlighting and linting for PostCSS files.
+8. **[ES7+ React/Redux/React-Native snippets](https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets)**: A collection of useful snippets for React and Redux development.
+
 ### Setup your environment locally
 
 _Some commands will assume you have the Github CLI installed, if you haven't, consider [installing it](https://github.com/cli/cli#installation), but you can always use the Web UI if you prefer that instead._
@@ -52,15 +65,15 @@ npm run dev
 
 Now you're all setup and can start implementing your changes. Here are some useful scripts for when you are developing:
 
-| Command                | Description                                             |
-| -----------------------| ------------------------------------------------------- |
-| `npm run dev`          | Starts the development server for the site              |   
-| `npm run build`        | Builds the Astro project                                |
-| `npm run format`       | Formats the code                                        |
-| `npm run format:check` | Checks formatting of the code                           |
-| `npm run lint`         | Checks Lint issues                                      |
-| `npm run lint:fix`     | Lints the code and fixes any errors                     |
-| `npm run prepare`      | Setup the Husky environment for pre-commit hooks        |
+| Command                | Description                                      |
+| ---------------------- | ------------------------------------------------ |
+| `npm run dev`          | Starts the development server for the site       |
+| `npm run build`        | Builds the Astro project                         |
+| `npm run format`       | Formats the code                                 |
+| `npm run format:check` | Checks formatting of the code                    |
+| `npm run lint`         | Checks Lint issues                               |
+| `npm run lint:fix`     | Lints the code and fixes any errors              |
+| `npm run prepare`      | Setup the Husky environment for pre-commit hooks |
 
 When making commits, make sure to follow the [conventional commit](https://www.conventionalcommits.org/en/v1.0.0/) guidelines, i.e. prepending the message with `feat:`, `fix:`, `chore:`, `docs:`. You can use `git status` to double check which files have not yet been staged for commit:
 
@@ -75,4 +88,5 @@ Please keep in mind that you will not be able to push commits if you're not foll
 When you're done implementing your changes, please also make a manual, functional test of your changes. When all that's done, it's time to file a pull request to upstream, and fill out the title and body appropriately. Again, make sure to follow the [conventional commit](https://www.conventionalcommits.org/en/v1.0.0/) guidelines for your title.
 
 ### Community
+
 For help, discussion about best practices, or any other conversation that would benefit this project: [Join the Pujo Atlas Discord Server.](https://discord.com/invite/xxSXWYf6d4)
