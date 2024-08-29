@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Get the commit message
 commit_msg="$(cat $1)"
 

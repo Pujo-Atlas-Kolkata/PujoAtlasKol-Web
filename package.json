@@ -12,7 +12,8 @@
     "format:check": "prettier '**/*.{cjs,mjs,ts,tsx,md,json,astro}' --ignore-path ../.gitignore --ignore-unknown --check",
     "lint": "eslint . --report-unused-disable-directives",
     "lint:fix": "npm run lint --fix",
-    "astro": "astro"
+    "astro": "astro",
+    "prepare": "husky"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.3",
