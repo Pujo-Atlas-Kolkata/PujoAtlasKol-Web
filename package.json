@@ -36,8 +36,18 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.35.0",
     "globals": "^15.9.0",
+    "lint-staged": "^15.2.9",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1",
     "typescript-eslint": "^8.3.0"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx,astro}": [
+      "npm run format",
+      "npm run lint:fix"
+    ],
+    "**/*.{json,js,ts,jsx,tsx,html}": [
+      "prettier --write --ignore-unknown"
+    ]
   }
 }
