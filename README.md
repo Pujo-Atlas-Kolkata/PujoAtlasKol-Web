@@ -1,72 +1,13 @@
-# Astro Starter Kit: Minimal
+# Pujo Atlas Site
+Welcome to Pujo Atlas - your ultimate guide for Pandal Hopping during Durga Puja in Kolkata! This open-source project aims to provide a comprehensive and user-friendly app that lists all the Durga Pujas happening around Kolkata and offers a host of features to make your pandal hopping experience seamless and enjoyable.
 
-```sh
-npm create astro@latest -- --template minimal
-```
+## Community
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+For help, discussion about best practices, or any other conversation that would benefit **PujoAtlasKol-Web**: [Join the Pujo Atlas Discord Server](https://discord.com/invite/xxSXWYf6d4)
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Contributors
 
-## 🚀 Project Structure
+We 💖 contributors! Feel free to contribute to this project but **please read the [Contributing Guidelines](CONTRIBUTING.md) before opening an issue or PR** so you understand the branching strategy and local development environment. We also welcome you to join our [Discord](https://discord.com/invite/xxSXWYf6d4) community for either support or contributing guidance.
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-> **Run these commands in the project directory after you clone the project.**
-
-### 📦 Install dependencies
-
-```sh
-npm install
-```
-
-### 🐺 Prepare husky environment
-
-```sh
-npm run prepare
-```
-
-### 🚀 Start the dev server
-
-```sh
-npm run dev
-```
-
-Some other commonly used commands are given below:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run prepare`         | Prepares husky to set up hooks                   |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-| `npm run format`          | Format entire codebase with `prettier`           |
-| `npm run lint:fix`        | Format entire codebase with `eslint`             |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
