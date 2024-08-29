@@ -1,7 +1,9 @@
 import globals from 'globals';
 import pluginJs from '@eslint/js';
 import tseslint from 'typescript-eslint';
-import pluginReact from 'eslint-plugin-react';
+import eslintPluginReact from 'eslint-plugin-react';
+import eslintPluginReactHooks from 'eslint-plugin-react-hooks';
+import { fixupPluginRules } from '@eslint/compat';
 import eslintPluginAstro from 'eslint-plugin-astro';
 
 export default [
@@ -11,9 +13,16 @@ export default [
   { languageOptions: { globals: globals.browser } },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
-  pluginReact.configs.flat.recommended,
+  eslintPluginReact.configs.flat.recommended,
   ...eslintPluginAstro.configs.recommended,
-
+  {
+    plugins: {
+      'react-hooks': fixupPluginRules(eslintPluginReactHooks),
+    },
+    rules: {
+      ...eslintPluginReactHooks.configs.recommended.rules,
+    },
+  },
   {
     rules: {
       'react/jsx-uses-react': 'off',
