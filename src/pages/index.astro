@@ -1,20 +1,12 @@
 ---
-import '@fontsource-variable/inter/wght.css';
-import '@fontsource-variable/work-sans';
+import Layout from '@/layouts/Layout.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer';
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Puja Atlas</title>
-  </head>
-  <body class="bg-[#ffedc9] w-screen h-screen p-8 flex flex-col justify-between">
+<Layout>
+  <main class="flex-1 flex flex-col justify-between">
     <Header />
-    <Footer author="Puja Atlas Kolkata" />
-  </body>
-</html>
+    <Footer author="Pujo Atlas Kolkata" />
+  </main>
+</Layout>

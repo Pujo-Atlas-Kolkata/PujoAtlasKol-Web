@@ -1,0 +1,25 @@
+---
+import '@fontsource-variable/inter/wght.css';
+import '@fontsource-variable/work-sans';
+
+const {
+  title = 'Pujo Atlas',
+  description = 'Welcome to Pujo Atlas - your ultimate guide for Pandal Hopping during Durga Puja in Kolkata!',
+} = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body
+    class="bg-primary-background text-primary-foreground [&_*]:text-primary-foreground min-w-screen min-h-screen p-8 flex"
+  >
+    <slot />
+  </body>
+</html>
