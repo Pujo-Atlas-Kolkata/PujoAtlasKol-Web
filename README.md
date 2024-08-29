@@ -33,14 +33,39 @@ Any static assets, like images, can be placed in the `public/` directory.
 
 All commands are run from the root of the project, from a terminal:
 
+> **Run these commands in the project directory after you clone the project.**
+
+### 📦 Install dependencies
+
+```sh
+npm install
+```
+
+### 🐺 Prepare husky environment
+
+```sh
+npm run prepare
+```
+
+### 🚀 Start the dev server
+
+```sh
+npm run dev
+```
+
+Some other commonly used commands are given below:
+
 | Command                   | Action                                           |
 | :------------------------ | :----------------------------------------------- |
 | `npm install`             | Installs dependencies                            |
+| `npm run prepare`         | Prepares husky to set up hooks                   |
 | `npm run dev`             | Starts local dev server at `localhost:4321`      |
 | `npm run build`           | Build your production site to `./dist/`          |
 | `npm run preview`         | Preview your build locally, before deploying     |
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
+| `npm run format`          | Format entire codebase with `prettier`           |
+| `npm run lint:fix`        | Format entire codebase with `eslint`             |
 
 ## 👀 Want to learn more?
 
