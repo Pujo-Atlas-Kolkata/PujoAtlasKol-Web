@@ -10,7 +10,7 @@ When contributing to `PujoAtlasKol-Web`, whether on GitHub or in other community
 
 ### Prerequisites
 
-In order to not waste your time implementing a change that has already been declined, or is generally not needed, start by [opening an issue](https://github.com/Pujo-Atlas-Kolkata/PujoAtlasKol-Web/issues) describing the problem you would like to solve.
+In order to not waste your time implementing a change that has already been declined, or is generally not needed, start by [opening an issue](https://github.com/Pujo-Atlas-Kolkata/PujoAtlasKol-Web/issues/new) describing the problem you would like to solve.
 
 ### Setup your environment locally
 
