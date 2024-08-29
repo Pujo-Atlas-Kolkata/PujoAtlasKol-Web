@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# Get the commit message
+commit_msg="$(cat $1)"
+
+# Regex to match the desired commit message format
+regex="^(feat|fix|docs|chore|build)(\([a-z0-9\-]+\))?(!)?: .+"
+
+# Check if the commit message matches the regex
+if ! echo "$commit_msg" | grep -Eq "$regex"; then
+  echo "ERROR: Commit message does not follow the correct format."
+  echo "Please use a format similar to following formats:"
+  echo "  chore: chore description"
+  echo "  docs(api): api docs change description"
+  echo "  feat(api)!:  api feature breaking change description"
+  echo "  fix!: breaking change bugfix description"
+  echo "=========================================================================="
+  echo "|| For more info visit: https://www.conventionalcommits.org/en/v1.0.0/  ||"
+  echo "=========================================================================="
+  exit 1
+fi
