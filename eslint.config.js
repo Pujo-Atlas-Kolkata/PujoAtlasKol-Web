@@ -8,23 +8,37 @@ export default [
   {
     ignores: ['node_modules', 'dist', '.astro'],
   },
-  { files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'] },
   { languageOptions: { globals: globals.browser } },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
+  ...eslintPluginAstro.configs.recommended,
+
   {
-    files: ['**/*.astro'],
     rules: {
+      'react/jsx-uses-react': 'off',
       'react/react-in-jsx-scope': 'off',
-      'react/no-unknown-property': 'off',
+      'no-restricted-imports': [
+        'error',
+        {
+          paths: [
+            {
+              name: 'react',
+              importNames: ['default'],
+              message:
+                'You do not need to import React namespace, use destructured imports instead',
+            },
+          ],
+        },
+      ],
     },
   },
-  ...eslintPluginAstro.configs.recommended,
   {
     files: ['**/*.astro'],
     rules: {
+      'react/no-unknown-property': 'off',
       // override/add rules settings here, such as:
+
       'astro/no-set-html-directive': 'error',
     },
   },
