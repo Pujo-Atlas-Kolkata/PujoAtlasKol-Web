@@ -4,6 +4,7 @@ import '@fontsource-variable/work-sans';
 
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
+import Navbar from '@/components/Navbar';
 
 const {
   title = 'Pujo Atlas',
@@ -24,7 +25,12 @@ const {
     class="bg-secondary-background text-primary-foreground [&_*]:text-primary-foreground min-w-screen min-h-screen flex flex-col"
   >
     <Header />
-    <slot />
+    <div class="flex flex-1">
+      <aside class="grid place-items-center">
+        <Navbar client:load />
+      </aside>
+      <slot />
+    </div>
     <Footer />
   </body>
 </html>
