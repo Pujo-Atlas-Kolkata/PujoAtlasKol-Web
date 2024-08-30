@@ -1,8 +1,6 @@
 #!/bin/sh
 
-npm run lint
-npm run build
-npm run test
+npm run validate
 
 # Array of special branch names that are allowed to be pushed
 allowed_branches=("main" "dev")
