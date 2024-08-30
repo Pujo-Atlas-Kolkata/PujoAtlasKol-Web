@@ -14,7 +14,7 @@ In order to not waste your time implementing a change that has already been decl
 
 ### Recommended VSCode Extensions
 
-> To ensure a consistent development environment and code quality, please install the following VSCode extensions before contributing:
+To ensure a consistent development environment and code quality, please install the following VSCode extensions before contributing:
 
 1. **[Astro VSCode Extension](https://marketplace.visualstudio.com/items?itemName=astro-build.astro-vscode)**: Provides support for Astro framework with syntax highlighting, snippets, and more.
 2. **[Prettier - Code Formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)**: Automatically formats your code according to our project's style guide.
