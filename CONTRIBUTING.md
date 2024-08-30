@@ -52,15 +52,15 @@ npm run dev
 
 Now you're all setup and can start implementing your changes. Here are some useful scripts for when you are developing:
 
-| Command                | Description                                             |
-| -----------------------| ------------------------------------------------------- |
-| `npm run dev`          | Starts the development server for the site              |   
-| `npm run build`        | Builds the Astro project                                |
-| `npm run format`       | Formats the code                                        |
-| `npm run format:check` | Checks formatting of the code                           |
-| `npm run lint`         | Checks Lint issues                                      |
-| `npm run lint:fix`     | Lints the code and fixes any errors                     |
-| `npm run prepare`      | Setup the Husky environment for pre-commit hooks        |
+| Command                | Description                                      |
+| ---------------------- | ------------------------------------------------ |
+| `npm run dev`          | Starts the development server for the site       |
+| `npm run build`        | Builds the Astro project                         |
+| `npm run format`       | Formats the code                                 |
+| `npm run format:check` | Checks formatting of the code                    |
+| `npm run lint`         | Checks Lint issues                               |
+| `npm run lint:fix`     | Lints the code and fixes any errors              |
+| `npm run prepare`      | Setup the Husky environment for pre-commit hooks |
 
 When making commits, make sure to follow the [conventional commit](https://www.conventionalcommits.org/en/v1.0.0/) guidelines, i.e. prepending the message with `feat:`, `fix:`, `chore:`, `docs:`. You can use `git status` to double check which files have not yet been staged for commit:
 
@@ -75,4 +75,5 @@ Please keep in mind that you will not be able to push commits if you're not foll
 When you're done implementing your changes, please also make a manual, functional test of your changes. When all that's done, it's time to file a pull request to upstream, and fill out the title and body appropriately. Again, make sure to follow the [conventional commit](https://www.conventionalcommits.org/en/v1.0.0/) guidelines for your title.
 
 ### Community
+
 For help, discussion about best practices, or any other conversation that would benefit this project: [Join the Pujo Atlas Discord Server.](https://discord.com/invite/xxSXWYf6d4)

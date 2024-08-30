@@ -9,6 +9,15 @@ export default {
         sans: ['Inter Variable', ...defaultTheme.fontFamily.sans],
         work: ['Work Sans Variable', ...defaultTheme.fontFamily.sans],
       },
+      colors: {
+        primary: {
+          background: '#ffedc9',
+          foreground: '#332f28',
+        },
+        secondary: {
+          background: '#ccbea1',
+        },
+      },
     },
   },
   plugins: [],
