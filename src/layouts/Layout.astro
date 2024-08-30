@@ -2,6 +2,9 @@
 import '@fontsource-variable/inter/wght.css';
 import '@fontsource-variable/work-sans';
 
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+
 const {
   title = 'Pujo Atlas',
   description = 'Welcome to Pujo Atlas - your ultimate guide for Pandal Hopping during Durga Puja in Kolkata!',
@@ -18,8 +21,10 @@ const {
     <title>{title}</title>
   </head>
   <body
-    class="bg-primary-background text-primary-foreground [&_*]:text-primary-foreground min-w-screen min-h-screen p-8 flex"
+    class="bg-secondary-background text-primary-foreground [&_*]:text-primary-foreground min-w-screen min-h-screen flex flex-col"
   >
+    <Header />
     <slot />
+    <Footer />
   </body>
 </html>

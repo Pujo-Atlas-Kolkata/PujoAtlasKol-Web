@@ -14,6 +14,9 @@ export default {
           background: '#ffedc9',
           foreground: '#332f28',
         },
+        secondary: {
+          background: '#ccbea1',
+        },
       },
     },
   },
