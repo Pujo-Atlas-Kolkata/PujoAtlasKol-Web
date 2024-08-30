@@ -12,7 +12,7 @@ When contributing to `PujoAtlasKol-Web`, whether on GitHub or in other community
 
 In order to not waste your time implementing a change that has already been declined, or is generally not needed, start by [opening an issue](https://github.com/Pujo-Atlas-Kolkata/PujoAtlasKol-Web/issues/new) describing the problem you would like to solve.
 
-### ⭐ Recommended VSCode Extensions
+### Recommended VSCode Extensions
 
 > To ensure a consistent development environment and code quality, please install the following VSCode extensions before contributing:
 
