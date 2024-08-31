@@ -8,7 +8,7 @@ green="\033[1;32m"
 cyan="\033[1;36m"
 reset="\033[0m"
 
-printf "${yellow}Validating commit changes...${reset}\n"
+printf "${yellow}Validating commit changes...${reset} 🚀\n"
 
 npx lint-staged
 
