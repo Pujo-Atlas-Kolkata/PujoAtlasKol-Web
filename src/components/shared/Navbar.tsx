@@ -1,4 +1,5 @@
 import { HomeIcon, GitHubIcon, TranslateIcon } from '@/icons';
+import clsx from 'clsx';
 
 type NavItem = {
   label: string;
@@ -28,7 +29,11 @@ export const Navbar = ({ path }: Props) => {
           key={index}
           href={item.href}
           data-active={item.href === path}
-          className="outline outline-primary-foreground outline-1 data-[active=true]:outline-2 bg-primary-background p-2 grid place-items-center rounded-lg"
+          className={clsx(
+            'outline outline-primary-foreground outline-1',
+            'data-[active=true]:outline-2 bg-primary-background',
+            'p-2 grid place-items-center rounded-lg',
+          )}
         >
           {item.icon}
           <span className="font-work text-xs font-medium">{item.label}</span>

@@ -5,6 +5,7 @@ import '@fontsource-variable/work-sans';
 import Header from '@/components/shared/Header.astro';
 import Footer from '@/components/shared/Footer.astro';
 import Navbar from '@/components/shared/Navbar';
+import clsx from 'clsx';
 
 const currentPath = Astro.url.pathname;
 
@@ -24,7 +25,11 @@ const {
     <title>{title}</title>
   </head>
   <body
-    class="bg-secondary-background text-primary-foreground [&_*]:text-primary-foreground min-w-screen min-h-screen flex flex-col"
+    class={clsx(
+      'bg-secondary-background',
+      'text-primary-foreground [&_*]:text-primary-foreground',
+      'min-w-screen min-h-screen flex flex-col',
+    )}
   >
     <Header />
     <div class="flex flex-1">
