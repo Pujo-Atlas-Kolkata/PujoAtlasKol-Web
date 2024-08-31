@@ -2,8 +2,11 @@
 import '@fontsource-variable/inter/wght.css';
 import '@fontsource-variable/work-sans';
 
-import Header from '@/components/Header.astro';
-import Footer from '@/components/Footer.astro';
+import Header from '@/components/shared/Header.astro';
+import Footer from '@/components/shared/Footer.astro';
+import Navbar from '@/components/shared/Navbar';
+
+const currentPath = Astro.url.pathname;
 
 const {
   title = 'Pujo Atlas',
@@ -24,7 +27,12 @@ const {
     class="bg-secondary-background text-primary-foreground [&_*]:text-primary-foreground min-w-screen min-h-screen flex flex-col"
   >
     <Header />
-    <slot />
+    <div class="flex flex-1">
+      <aside class="grid place-items-center">
+        <Navbar path={currentPath} />
+      </aside>
+      <slot />
+    </div>
     <Footer />
   </body>
 </html>

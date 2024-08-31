@@ -45,6 +45,7 @@ export default [
   {
     files: ['**/*.astro'],
     rules: {
+      'react/jsx-key': 'off',
       'react/no-unknown-property': 'off',
       // override/add rules settings here, such as:
 

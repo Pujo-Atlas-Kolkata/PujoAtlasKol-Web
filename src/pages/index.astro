@@ -1,11 +1,32 @@
 ---
+import { PlaystoreIcon } from '@/icons';
 import Layout from '@/layouts/Layout.astro';
 ---
 
 <Layout>
-  <main
-    class="flex-1 flex flex-col justify-between bg-primary-background p-8 mx-16 rounded-xl shadow-xl"
-  >
+  <main class="flex-1 flex flex-col gap-6 bg-primary-background p-16 mr-16 rounded-xl shadow-xl">
     <h1 class="font-work font-semibold text-6xl">Pujo Atlas.</h1>
+    <p class="font-work">The most advanced pandal hopping experience.</p>
+    <div class="text-xs py-1 px-4 outline outline-1 rounded-xl w-fit flex items-center gap-2">
+      <PlaystoreIcon />
+      <span class="font-semibold"> Google Play </span>
+      <span>|</span>
+      <span> Coming Soon </span>
+    </div>
+    <section class="flex flex-col gap-3">
+      <h2 class="uppercase text-sm">Trending Pandals</h2>
+      <div class="flex gap-4">
+        {
+          Array.from({ length: 3 }).map((_, id) => (
+            <div
+              id={`pandal-${id + 1}`}
+              class="p-6 w-1/4 h-64 font-work bg-white/50 outline outline-1 outline-primary-foreground rounded-lg hover:w-1/2 flex items-end font-semibold transition-all text-2xl"
+            >
+              Pandal {id + 1}
+            </div>
+          ))
+        }
+      </div>
+    </section>
   </main>
 </Layout>
