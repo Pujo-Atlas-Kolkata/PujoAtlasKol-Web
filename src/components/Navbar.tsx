@@ -1,5 +1,4 @@
 import { HomeIcon, GitHubIcon, TranslateIcon } from '@/icons';
-import { useEffect, useState } from 'react';
 
 type NavItem = {
   label: string;
@@ -17,13 +16,11 @@ const navItems: Array<NavItem> = [
   { label: 'EN/BN', href: '/bn', icon: <TranslateIcon /> },
 ];
 
-export const Navbar = () => {
-  const [path, setPath] = useState('');
+type Props = {
+  path: string;
+};
 
-  useEffect(() => {
-    setPath(window.location.pathname);
-  }, []);
-
+export const Navbar = ({ path }: Props) => {
   return (
     <nav className="flex flex-col gap-4 p-2">
       {navItems.map((item, index) => (
