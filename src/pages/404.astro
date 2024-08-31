@@ -1,14 +1,18 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import { cn } from '@/libs/utils';
 ---
 
 <Layout title="404 | Page Not Found">
   <main
-    class="flex-1 flex flex-col items-center justify-center gap-4 bg-primary-background p-8 mr-16 rounded-xl shadow-xl"
+    class={cn(
+      'flex-1 flex flex-col items-center justify-center gap-4',
+      'bg-primary-background p-8 mr-16 rounded-xl shadow-xl',
+    )}
   >
     <h1 class="text-9xl font-bold">404.</h1>
     <p class="font-work">Uh oh! Looks like you lost your way.</p>
-    <a class="italic flex py-1 px-20 rounded-full outline outline-1" href="/">
+    <a class={cn('italic flex py-1 px-20', 'rounded-full outline outline-1')} href="/">
       Go back to homepage -&gt;
     </a>
   </main>
