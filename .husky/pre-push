@@ -8,39 +8,7 @@ green="\033[1;32m"
 cyan="\033[1;36m"
 reset="\033[0m"
 
-printf "${yellow}Validating branch name...${reset}\n"
-
-# Array of special branch names that are allowed to be pushed
-allowed_branches=("main" "dev")
-
-# Regular expression for validating username-issuenumber format
-branch_name_regex="^[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*-[0-9]+-[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*$"
-
-# Get the current branch name
-branch_name=$(git rev-parse --abbrev-ref HEAD)
-
-# Check if the branch name is in the allowed branches array
-for allowed_branch in "${allowed_branches[@]}"; do
-  if [ "$branch_name" = "$allowed_branch" ]; then
-    printf "${green}Branch '$branch_name' is allowed. Proceeding with push.${reset} ✨\n"
-    exit 0
-  fi
-done
-
-# Check if the branch name matches the regex
-if [[ ! "$branch_name" =~ $branch_name_regex ]]; then
-  printf "${red}Error: ${white}Branch name '$branch_name' does not match the required format ${cyan}'username-issuenumber-descripition.'${reset}\n"
-  exit 1
-fi
-
-# Check if the username part is a valid GitHub username
-username=$(echo "$branch_name" | cut -d'-' -f1)
-if [[ ! "$username" =~ ^[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*$ ]]; then
-  echo "${red}Error:${white} Username part ${cyan}'$username'${white} is not a valid GitHub username.${reset}\n"
-  exit 1
-fi
-
-printf "${green}Branch name '$branch_name' is valid. Proceeding with branch contents. ${reset} ✨\n"
+printf "${yellow} Validating branch contents... ${reset} 🚀\n"
 
 npm run validate
 
