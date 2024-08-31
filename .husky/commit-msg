@@ -8,7 +8,7 @@ green="\033[1;32m"
 cyan="\033[1;36m"
 reset="\033[0m"
 
-printf "${yellow}Validating commit message...${reset}\n"
+printf "${yellow}Validating commit message...${reset} 🚀\n"
 
 # Get the commit message
 commit_msg="$(cat $1)"
