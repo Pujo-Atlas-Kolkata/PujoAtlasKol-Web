@@ -1,12 +1,12 @@
 ---
 import { PlaystoreIcon } from '@/icons';
 import Layout from '@/layouts/Layout.astro';
-import clsx from 'clsx';
+import { cn } from '@/libs/utils';
 ---
 
 <Layout>
   <main
-    class={clsx(
+    class={cn(
       'flex-1 flex flex-col gap-6',
       'bg-primary-background p-16 mr-16',
       'rounded-xl shadow-xl',
@@ -15,10 +15,7 @@ import clsx from 'clsx';
     <h1 class="font-work font-semibold text-6xl">Pujo Atlas.</h1>
     <p class="font-work">The most advanced pandal hopping experience.</p>
     <div
-      class={clsx(
-        'text-xs py-1 px-4 outline outline-1',
-        'rounded-xl w-fit flex items-center gap-2',
-      )}
+      class={cn('text-xs py-1 px-4 outline outline-1', 'rounded-xl w-fit flex items-center gap-2')}
     >
       <PlaystoreIcon />
       <span class="font-semibold"> Google Play </span>
@@ -32,7 +29,7 @@ import clsx from 'clsx';
           Array.from({ length: 3 }).map((_, id) => (
             <div
               id={`pandal-${id + 1}`}
-              class={clsx(
+              class={cn(
                 'p-6 w-1/4 h-64 font-work bg-white/50 outline outline-1',
                 'outline-primary-foreground rounded-lg hover:w-1/2 flex',
                 'items-end font-semibold transition-all text-2xl',
