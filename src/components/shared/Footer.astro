@@ -1,1 +1,31 @@
-<footer class="p-4 text-center">Made with ❤️ by Pujo Atlas Kolkata</footer>
+---
+import { DiscordIcon, RedditIcon } from '@/icons';
+---
+
+<footer class="flex justify-between p-4">
+  <span class="text-left pl-16"
+    >Made with ❤️ by <span class="font-semibold">Pujo Atlas Kolkata</span></span
+  >
+  <span class="text-right flex flex-row gap-x-2">
+    <span class="font-bold">Find us on:</span>
+    <!-- <a
+      href="https://github.com/Pujo-Atlas-Kolkata"
+      class="underline underline-offset-1 decoration-2">GitHub</a
+    >&nbsp;|&nbsp; -->
+    <a
+      href="https://discord.com/invite/xxSXWYf6d4"
+      target="_blank"
+      rel="noreferrer"
+      class="underline underline-offset-1 decoration-2 decoration-blue-600 flex flex-row gap-x-2"
+      ><DiscordIcon />Discord</a
+    >
+    &nbsp;|&nbsp;
+    <a
+      href="https://www.reddit.com/r/kolkata"
+      target="_blank"
+      rel="noreferrer"
+      class="underline underline-offset-1 decoration-2 decoration-orange-600 flex flex-row gap-x-2"
+      ><RedditIcon />Reddit</a
+    >
+  </span>
+</footer>
