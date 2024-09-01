@@ -6,6 +6,7 @@ import Header from '@/components/shared/Header.astro';
 import Footer from '@/components/shared/Footer.astro';
 import Navbar from '@/components/shared/Navbar';
 import { cn } from '@/libs/utils';
+import { ViewTransitions } from 'astro:transitions';
 
 const currentPath = Astro.url.pathname;
 
@@ -22,6 +23,7 @@ const {
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
+    <ViewTransitions />
     <title>{title}</title>
   </head>
   <body
