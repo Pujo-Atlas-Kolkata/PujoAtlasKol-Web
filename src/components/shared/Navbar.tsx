@@ -20,7 +20,7 @@ function generateNavItems(path: string, currentLang: 'en' | 'bn'): Array<NavItem
   const oppositeLang = getAlternateLanguage(currentLang);
 
   return [
-    { label: 'Home', href: currentLang === 'bn' ? '/bn/' : '/', icon: <HomeIcon /> },
+    { label: 'Home', href: currentLang === 'bn' ? '/bn' : '/', icon: <HomeIcon /> },
     {
       label: 'GitHub',
       href: 'https://github.com/Pujo-Atlas-Kolkata/PujoAtlasKol-Web',
