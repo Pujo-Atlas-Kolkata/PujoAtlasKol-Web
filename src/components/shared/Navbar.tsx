@@ -34,7 +34,7 @@ function generateNavItems(path: string, currentLang: 'en' | 'bn'): Array<NavItem
     },
     {
       label: oppositeLang === 'en' ? 'EN' : 'BN',
-      href: getAlternateLanguagePath(`/${currentLang}`),
+      href: getAlternateLanguagePath(path),
       icon: <TranslateIcon />,
     },
   ];
