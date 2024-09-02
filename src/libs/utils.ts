@@ -15,18 +15,20 @@ export const getAlternateLanguage = (lang: 'en' | 'bn'): 'en' | 'bn' => {
 
 export const getAlternateLanguagePath = (path: string): string => {
   let newPath = path;
-  const currentLang = getCurrentLanguage(path);
-  const alternateLanguage = getAlternateLanguage(currentLang);
 
-  if (currentLang !== alternateLanguage) {
-    if (path.startsWith('/bn')) {
-      // Remove '/bn/' from the beginning of the path for Bengali URLs
-      newPath = path.slice(3);
+  if (path.startsWith('/bn')) {
+    // Remove '/bn/' from the beginning of the path for Bengali URLs
+    newPath = path.slice(3);
+
+    if (newPath === '') newPath = '/';
+  } else {
+    // Add '/bn/' to the beginning of the path for English URLs
+    if (newPath === '/') {
+      newPath = '/bn';
     } else {
-      // Add '/bn/' to the beginning of the path for English URLs
       newPath = '/bn' + newPath;
     }
   }
-
+  console.log('newPath=', newPath);
   return newPath;
 };
