@@ -22,9 +22,16 @@ export const getAlternateLanguagePath = (path: string): string => {
     if (path.startsWith('/bn')) {
       // Remove '/bn/' from the beginning of the path for Bengali URLs
       newPath = path.slice(3);
+      if (newPath === '') newPath = '/';
     } else {
       // Add '/bn/' to the beginning of the path for English URLs
-      newPath = '/bn' + newPath;
+      newPath = '/bn';
+
+      if (path !== '/') {
+        newPath += path;
+      } else {
+        newPath = '/bn';
+      }
     }
   }
 
