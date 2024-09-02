@@ -31,8 +31,21 @@ export const getAlternateLanguage = (lang: 'en' | 'bn'): 'en' | 'bn' => {
  * @param {string} path - The current URL path.
  * @returns {'/' | '/bn'} The path for the alternate language.
  */
-export const getAlternateLanguagePath = (path: string): '/' | '/bn' => {
+export const getAlternateLanguagePath = (path: string) => {
   const currentLang = getCurrentLanguage(path);
   const alternateLanguage = getAlternateLanguage(currentLang);
-  return alternateLanguage === 'en' ? '/' : '/bn';
+
+  let newPath = path;
+
+  if (currentLang !== alternateLanguage) {
+    if (path.startsWith('/bn')) {
+      // Remove '/bn/' from the beginning of the path for Bengali URLs
+      newPath = path.slice(3); // Slice off the first 3 characters ('/bn/')
+    } else {
+      // Add '/bn/' to the beginning of the path for English URLs
+      newPath = '/bn' + newPath;
+    }
+  }
+
+  return newPath;
 };
