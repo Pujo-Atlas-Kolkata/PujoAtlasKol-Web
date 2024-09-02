@@ -8,6 +8,12 @@ export default defineConfig({
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'bn'],
+    fallback: {
+      bn: 'en',
+    },
+    routing: {
+      fallbackType: 'rewrite',
+    },
   },
   integrations: [react(), tailwind()],
 });
