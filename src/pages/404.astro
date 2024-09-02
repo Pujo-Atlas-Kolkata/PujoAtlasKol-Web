@@ -3,7 +3,7 @@ import Layout from '@/layouts/Layout.astro';
 import { cn, getCurrentLanguage } from '@/libs/utils';
 
 const pathname = Astro.url.pathname;
-const homePagePath = getCurrentLanguage(pathname) === 'bn' ? '/bn' : '/';
+const homePagePath = getCurrentLanguage(pathname) === 'bn' ? '/bn/' : '/';
 ---
 
 <Layout title="404 | Page Not Found">
