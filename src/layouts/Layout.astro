@@ -9,6 +9,7 @@ import { cn } from '@/libs/utils';
 import { ViewTransitions } from 'astro:transitions';
 
 const currentPath = Astro.url.pathname;
+const currentOrigin = Astro.url.hostname;
 
 const {
   title = 'Pujo Atlas',
@@ -36,7 +37,7 @@ const {
     <Header />
     <div class="flex flex-1">
       <aside class="grid place-items-center">
-        <Navbar path={currentPath} />
+        <Navbar path={currentPath} origin={currentOrigin} />
       </aside>
       <slot />
     </div>
