@@ -5,7 +5,10 @@ import { cn, getCurrentLanguage } from '@/libs/utils';
 
 const pathname = Astro.url.pathname;
 const currentLang = getCurrentLanguage(pathname);
-const homePagePath = getRelativeLocaleUrl(currentLang);
+const homePagePath =
+  currentLang === 'en'
+    ? getRelativeLocaleUrl(currentLang)
+    : getRelativeLocaleUrl(currentLang).replace(/\/$/, '');
 ---
 
 <Layout title="404 | Page Not Found">

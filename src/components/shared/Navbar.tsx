@@ -18,7 +18,10 @@ type Props = {
 };
 
 function generateNavItems(path: string, currentLang: 'en' | 'bn'): Array<NavItem> {
-  const homePagePath = getRelativeLocaleUrl(currentLang);
+  const homePagePath =
+    currentLang === 'en'
+      ? getRelativeLocaleUrl(currentLang)
+      : getRelativeLocaleUrl(currentLang).replace(/\/$/, '');
   const oppositeLang = getAlternateLanguage(currentLang);
 
   return [
