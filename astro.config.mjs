@@ -9,11 +9,11 @@ export default defineConfig({
     defaultLocale: 'en',
     locales: ['en', 'bn'],
     fallback: {
-      bn: "en"
+      bn: 'en',
     },
     routing: {
-      fallbackType: "rewrite"
-    }
+      fallbackType: 'rewrite',
+    },
   },
   integrations: [react(), tailwind()],
 });

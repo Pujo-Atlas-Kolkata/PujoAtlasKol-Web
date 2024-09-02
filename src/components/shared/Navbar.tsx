@@ -49,10 +49,10 @@ export const Navbar = ({ path }: Props) => {
         <a
           key={index}
           href={item.href}
-          // data-active={item.href === path}
+          data-active={item.href === path}
           className={cn(
             'outline outline-primary-foreground outline-1 bg-primary-background',
-            'data-[active=true]:outline-2',
+            'data-[active=true]:outline-2 data-[active=true]:bg-[#fed7aa]',
             'p-2 grid place-items-center rounded-lg w-16',
           )}
         >
