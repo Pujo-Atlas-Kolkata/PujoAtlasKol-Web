@@ -1,3 +1,4 @@
+import { getRelativeLocaleUrl } from 'astro:i18n';
 import { HomeIcon, GitHubIcon, TranslateIcon } from '@/icons';
 import {
   cn,
@@ -17,10 +18,11 @@ type Props = {
 };
 
 function generateNavItems(path: string, currentLang: 'en' | 'bn'): Array<NavItem> {
+  const homePagePath = getRelativeLocaleUrl(currentLang);
   const oppositeLang = getAlternateLanguage(currentLang);
 
   return [
-    { label: 'Home', href: currentLang === 'bn' ? '/bn' : '/', icon: <HomeIcon /> },
+    { label: 'Home', href: homePagePath, icon: <HomeIcon /> },
     {
       label: 'GitHub',
       href: 'https://github.com/Pujo-Atlas-Kolkata/PujoAtlasKol-Web',

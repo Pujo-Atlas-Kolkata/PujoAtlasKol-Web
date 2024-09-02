@@ -29,6 +29,6 @@ export const getAlternateLanguagePath = (path: string): string => {
       newPath = '/bn' + newPath;
     }
   }
-  console.log('newPath=', newPath);
+  // console.log('newPath=', newPath);
   return newPath;
 };
