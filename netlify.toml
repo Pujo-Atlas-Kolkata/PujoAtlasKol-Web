@@ -4,3 +4,9 @@
   # optional, deploy the lighthouse report to a path under your site
   [plugins.inputs.audits]
     output_path = "reports/lighthouse.html"
+
+# show a custom 404 for this path
+[[redirects]]
+from = "/*"
+to = "/404"
+status = 404
