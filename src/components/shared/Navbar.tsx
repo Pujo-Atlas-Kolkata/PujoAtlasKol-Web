@@ -42,7 +42,6 @@ function generateNavItems(path: string, currentLang: 'en' | 'bn'): Array<NavItem
 export const Navbar = ({ path }: Props) => {
   const currentLang = getCurrentLanguage(path);
   const navItems = generateNavItems(path, currentLang);
-  console.log('path=', path);
 
   return (
     <nav className="flex flex-col gap-4 p-2">
