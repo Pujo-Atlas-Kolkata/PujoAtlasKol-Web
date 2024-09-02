@@ -49,7 +49,7 @@ export const Navbar = ({ path }: Props) => {
         <a
           key={index}
           href={item.href}
-          data-active={item.href === path}
+          data-active={item.href === path || item.href === `${path}/`} // hotfix for netlify hidden trailing slash issue
           className={cn(
             'outline outline-primary-foreground outline-1 bg-primary-background',
             'data-[active=true]:outline-2 data-[active=true]:bg-[#fed7aa]',
