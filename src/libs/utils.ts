@@ -13,22 +13,16 @@ export const getAlternateLanguage = (lang: 'en' | 'bn'): 'en' | 'bn' => {
   return lang === 'en' ? 'bn' : 'en';
 };
 
-export const getAlternateLanguagePath = (path: string): string => {
-  let newPath = path;
+export const getAlternateLanguagePath = (currentPath: string): string => {
+  const isBengaliPath = currentPath.startsWith('/bn');
 
-  if (path.startsWith('/bn')) {
-    // Remove '/bn/' from the beginning of the path for Bengali URLs
-    newPath = path.slice(3);
-
-    if (newPath === '') newPath = '/';
-  } else {
-    // Add '/bn/' to the beginning of the path for English URLs
-    if (newPath === '/') {
-      newPath = '/bn';
-    } else {
-      newPath = '/bn' + newPath;
-    }
+  // For Bengali URLs, remove '/bn' prefix
+  if (isBengaliPath) {
+    const newPath = currentPath.slice(3);
+    return newPath === '' ? '/' : newPath;
   }
-  // console.log('newPath=', newPath);
+
+  // For English URLs, add '/bn' prefix
+  const newPath = currentPath === '/' ? '/bn' : `/bn${currentPath}`;
   return newPath;
 };
