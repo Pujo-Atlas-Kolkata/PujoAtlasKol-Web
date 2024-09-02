@@ -16,24 +16,18 @@ type Props = {
   path: string;
 };
 
-/**
- * Generates an array of navigation items based on the current language.
- *
- * @param {'en' | 'bn'} currentLang - The current language code, either 'en' for English or 'bn' for Bengali.
- * @returns {Array<NavItem>} An array of navigation items where each item contains a label, href, and icon.
- */
 function generateNavItems(path: string, currentLang: 'en' | 'bn'): Array<NavItem> {
   const oppositeLang = getAlternateLanguage(currentLang);
 
   return [
-    { label: 'Home', href: currentLang === 'bn' ? '/bn' : '/', icon: <HomeIcon /> },
+    { label: 'Home', href: currentLang === 'bn' ? '/bn/' : '/', icon: <HomeIcon /> },
     {
       label: 'GitHub',
       href: 'https://github.com/Pujo-Atlas-Kolkata/PujoAtlasKol-Web',
       icon: <GitHubIcon />,
     },
     {
-      label: oppositeLang === 'en' ? 'EN' : 'BN',
+      label: oppositeLang === 'en' ? 'English' : 'বাংলা',
       href: getAlternateLanguagePath(path),
       icon: <TranslateIcon />,
     },
@@ -52,13 +46,13 @@ export const Navbar = ({ path }: Props) => {
           href={item.href}
           data-active={item.href === path}
           className={cn(
-            'outline outline-primary-foreground outline-1',
-            'data-[active=true]:outline-2 bg-primary-background',
-            'p-2 grid place-items-center rounded-lg',
+            'outline outline-primary-foreground outline-1 bg-primary-background',
+            'data-[active=true]:outline-2 data-[active=true]:bg-[#fed7aa]',
+            'p-2 grid place-items-center rounded-lg w-16',
           )}
         >
           {item.icon}
-          <span className="font-work text-xs font-medium">{item.label}</span>
+          <span className="font-work text-xs font-semibold">{item.label}</span>
         </a>
       ))}
     </nav>
