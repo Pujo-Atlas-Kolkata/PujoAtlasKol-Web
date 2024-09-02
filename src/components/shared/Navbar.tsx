@@ -1,5 +1,10 @@
 import { HomeIcon, GitHubIcon, TranslateIcon } from '@/icons';
-import { cn } from '@/libs/utils';
+import {
+  cn,
+  getAlternateLanguage,
+  getAlternateLanguagePath,
+  getCurrentLanguage,
+} from '@/libs/utils';
 
 type NavItem = {
   label: string;
@@ -7,21 +12,38 @@ type NavItem = {
   icon: React.JSX.Element;
 };
 
-const navItems: Array<NavItem> = [
-  { label: 'Home', href: '/', icon: <HomeIcon /> },
-  {
-    label: 'GitHub',
-    href: 'https://github.com/Pujo-Atlas-Kolkata/PujoAtlasKol-Web',
-    icon: <GitHubIcon />,
-  },
-  { label: 'EN/BN', href: '/bn', icon: <TranslateIcon /> },
-];
-
 type Props = {
   path: string;
 };
 
+/**
+ * Generates an array of navigation items based on the current language.
+ *
+ * @param {'en' | 'bn'} currentLang - The current language code, either 'en' for English or 'bn' for Bengali.
+ * @returns {Array<NavItem>} An array of navigation items where each item contains a label, href, and icon.
+ */
+function generateNavItems(path: string, currentLang: 'en' | 'bn'): Array<NavItem> {
+  const oppositeLang = getAlternateLanguage(currentLang);
+
+  return [
+    { label: 'Home', href: currentLang === 'bn' ? '/bn' : '/', icon: <HomeIcon /> },
+    {
+      label: 'GitHub',
+      href: 'https://github.com/Pujo-Atlas-Kolkata/PujoAtlasKol-Web',
+      icon: <GitHubIcon />,
+    },
+    {
+      label: oppositeLang === 'en' ? 'EN' : 'BN',
+      href: getAlternateLanguagePath(`/${currentLang}`),
+      icon: <TranslateIcon />,
+    },
+  ];
+}
+
 export const Navbar = ({ path }: Props) => {
+  const currentLang = getCurrentLanguage(path);
+  const navItems = generateNavItems(path, currentLang);
+
   return (
     <nav className="flex flex-col gap-4 p-2">
       {navItems.map((item, index) => (
