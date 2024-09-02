@@ -42,6 +42,7 @@ function generateNavItems(path: string, currentLang: 'en' | 'bn'): Array<NavItem
 export const Navbar = ({ path }: Props) => {
   const currentLang = getCurrentLanguage(path);
   const navItems = generateNavItems(path, currentLang);
+  console.log('path=', path);
 
   return (
     <nav className="flex flex-col gap-4 p-2">
@@ -49,7 +50,7 @@ export const Navbar = ({ path }: Props) => {
         <a
           key={index}
           href={item.href}
-          data-active={item.href === '/' || item.href === '/bn'} // hotfix for netlify hidden trailing slash issue
+          data-active={(item.href === path || item.href === '/bn') && index === 0} // hotfix for netlify hidden trailing slash issue
           className={cn(
             'outline outline-primary-foreground outline-1 bg-primary-background',
             'data-[active=true]:outline-2 data-[active=true]:bg-[#fed7aa]',

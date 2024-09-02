@@ -1,14 +1,6 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import { getRelativeLocaleUrl } from 'astro:i18n';
-import { cn, getCurrentLanguage } from '@/libs/utils';
-
-const pathname = Astro.url.pathname;
-const currentLang = getCurrentLanguage(pathname);
-const homePagePath =
-  currentLang === 'en'
-    ? getRelativeLocaleUrl(currentLang)
-    : getRelativeLocaleUrl(currentLang).replace(/\/$/, '');
+import { cn } from '@/libs/utils';
 ---
 
 <Layout title="404 | Page Not Found">
@@ -21,7 +13,7 @@ const homePagePath =
   >
     <h1 class="text-9xl font-bold">404.</h1>
     <p class="font-work">Uh oh! Looks like you lost your way.</p>
-    <a class={cn('italic flex py-1 px-20', 'rounded-full outline outline-1')} href={homePagePath}>
+    <a class={cn('italic flex py-1 px-20', 'rounded-full outline outline-1')} href="/">
       Go back to homepage -&gt;
     </a>
   </main>
