@@ -6,6 +6,7 @@ import {
   getAlternateLanguagePath,
   getCurrentLanguage,
 } from '@/libs/utils';
+import { Socials } from '@/constants';
 
 type NavItem = {
   label: string;
@@ -28,7 +29,7 @@ function generateNavItems(path: string, currentLang: 'en' | 'bn'): Array<NavItem
     { label: 'Home', href: homePagePath, icon: <HomeIcon /> },
     {
       label: 'GitHub',
-      href: 'https://github.com/Pujo-Atlas-Kolkata/PujoAtlasKol-Web',
+      href: Socials.GitHub,
       icon: <GitHubIcon />,
     },
     {
