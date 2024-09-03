@@ -1,6 +1,8 @@
 ---
 import '@fontsource-variable/inter/wght.css';
 import '@fontsource-variable/work-sans';
+import interWoff2 from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
+import workSansWoff2 from '@fontsource-variable/work-sans/files/work-sans-latin-wght-normal.woff2?url';
 
 import Header from '@/components/shared/Header.astro';
 import Footer from '@/components/shared/Footer.astro';
@@ -19,6 +21,8 @@ const {
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <link rel="preload" as="font" type="font/woff2" href={workSansWoff2} crossorigin="anonymous" />
+    <link rel="preload" as="font" type="font/woff2" href={interWoff2} crossorigin="anonymous" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
