@@ -1,0 +1,26 @@
+name: Developer Chore
+description: Suggest a task related to refactoring, developer experience improvements, or other internal maintenance
+title: "chore(dev): "
+body:
+  - type: textarea
+    attributes:
+      label: Is this chore related to a codebase issue or technical debt? Please describe.
+      description: A clear and concise description of the issue or technical debt. Ex. This part of the code is difficult to maintain because [...]
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Describe the changes or refactoring needed
+      description: A clear and concise description of what changes or refactoring should happen.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Describe any potential impacts or risks
+      description: A clear and concise description of any risks or side effects of the changes.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Additional information
+      description: Add any other information related to this chore here. If this chore is related to any issues or discussions, link them here.
