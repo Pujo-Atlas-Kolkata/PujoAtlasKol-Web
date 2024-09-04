@@ -16,3 +16,11 @@
   for = "/_astro/icon.Db3K-ucu_Z2tceI0.webp"
     [headers.values]
     Cache-Control = "public, max-age=31536000"
+[[headers]]
+  for = "/_astro/alkatra-latin-wght-normal.BjYTiUgM.woff2"
+    [headers.values]
+    Cache-Control = "public, max-age=31536000"
+[[headers]]
+  for = "/_astro/noto-sans-bengali-latin-wght-normal.fcB03Oxl.woff2"
+    [headers.values]
+    Cache-Control = "public, max-age=31536000"
