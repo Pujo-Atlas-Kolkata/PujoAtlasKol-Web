@@ -4,11 +4,39 @@
   # optional, deploy the lighthouse report to a path under your site
   [plugins.inputs.audits]
     output_path = "reports/lighthouse.html"
-    
+
 [[headers]]
-  for = "/_astro/*"
-  [headers.values]
-    cache-control = '''
-    max-age=365000000,
-    public
-    immutable'''
+  for = "/_astro/icon.Db3K-ucu_Z2tceI0.webp"
+    [headers.values]
+      cache-control = '''
+      max-age=365000000,
+      public
+      immutable'''
+[[headers]]
+  for = "/_astro/work-sans-latin-wght-normal.CkJCGd27.woff2"
+    [headers.values]
+      cache-control = '''
+      max-age=365000000,
+      public
+      immutable'''
+[[headers]]
+  for = "/_astro/inter-latin-wght-normal.C2S99t-D.woff2"
+    [headers.values]
+      cache-control = '''
+      max-age=365000000,
+      public
+      immutable'''
+[[headers]]
+  for = "/_astro/alkatra-latin-wght-normal.BjYTiUgM.woff2"
+    [headers.values]
+      cache-control = '''
+      max-age=365000000,
+      public
+      immutable'''
+[[headers]]
+  for = "/_astro/noto-sans-bengali-latin-wght-normal.fcB03Oxl.woff2"
+    [headers.values]
+      cache-control = '''
+      max-age=365000000,
+      public
+      immutable'''
