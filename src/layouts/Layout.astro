@@ -12,7 +12,7 @@ import Header from '@/components/shared/Header.astro';
 import Footer from '@/components/shared/Footer.astro';
 import Navbar from '@/components/shared/Navbar';
 import { cn } from '@/libs/utils';
-import { slide, ViewTransitions } from 'astro:transitions';
+import { ViewTransitions } from 'astro:transitions';
 
 const currentPath = Astro.url.pathname;
 
@@ -42,7 +42,6 @@ const {
       'text-primary-foreground [&_*]:text-primary-foreground',
       'min-w-screen min-h-screen flex flex-col overflow-hidden',
     )}
-    transition:animate={slide({ duration: '1.25s' })}
   >
     <Header />
     <div class="flex flex-1">
