@@ -35,6 +35,22 @@ const {
     <meta name="description" content={description} />
     <ViewTransitions />
     <title>{title}</title>
+    <!-- Google tag (gtag.js) -->
+    <script
+      type="text/partytown"
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-56WWMK6TC4"></script>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        // eslint-disable-next-line prefer-rest-params
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'G-56WWMK6TC4');
+    </script>
+    <!-- Google tag (gtag.js) -->
   </head>
   <body
     class={cn(
