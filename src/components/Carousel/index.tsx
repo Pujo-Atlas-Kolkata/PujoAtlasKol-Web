@@ -1,11 +1,11 @@
 import Slider, { type Settings } from 'react-slick';
+import { cn } from '@/libs/utils';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './index.css';
 
 export const Carousel = () => {
   const settings: Settings = {
-    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 4,
@@ -13,14 +13,13 @@ export const Carousel = () => {
     autoplay: true,
     swipeToSlide: true,
     initialSlide: 0,
+    arrows: false,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
-          infinite: true,
-          dots: true,
         },
       },
       {
@@ -28,9 +27,6 @@ export const Carousel = () => {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          initialSlide: 2,
-          infinite: true,
-          dots: true,
         },
       },
       {
@@ -38,9 +34,6 @@ export const Carousel = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          infinite: true,
-          dots: false,
-          arrows: false,
         },
       },
     ],
@@ -49,12 +42,17 @@ export const Carousel = () => {
     <div className="slider-container">
       <Slider {...settings}>
         {Array.from({ length: 8 }).map((_, index) => {
-          const bgUrl = `/public/idols/${index + 1}.jpg`;
+          const bgUrl = `/idols/${index + 1}.jpg`;
           return (
-            <div key={index} className="rounded-xl overflow-hidden">
+            <div key={index} className="rounded-xl md:rounded-3xl overflow-hidden">
               <img
                 src={bgUrl}
-                className="mx-auto max-w-72 max-h-80 rounded-xl md:rounded-3xl overflow-hidden"
+                className={cn(
+                  'w-48 md:w-72 lg:w-96',
+                  'h-48 md:h-72 lg:h-96',
+                  'max-w-72 max-h-96',
+                  'rounded-xl md:rounded-3xl overflow-hidden',
+                )}
                 key={index}
               />
             </div>
