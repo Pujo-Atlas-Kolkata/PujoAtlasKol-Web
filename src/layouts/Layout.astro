@@ -12,10 +12,15 @@ import { ViewTransitions } from 'astro:transitions';
 
 const currentPath = Astro.url.pathname;
 
+type Props = {
+  title?: string;
+  description?: string;
+};
+
 const {
   title = 'Pujo Atlas',
   description = 'Welcome to Pujo Atlas - your ultimate guide for Pandal Hopping during Durga Puja in Kolkata!',
-} = Astro.props;
+} = Astro.props as Props;
 ---
 
 <html lang="en">

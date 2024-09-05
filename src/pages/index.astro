@@ -1,4 +1,5 @@
 ---
+import { Carousel } from '@/components/Carousel';
 import { PlaystoreIcon } from '@/icons';
 import Layout from '@/layouts/Layout.astro';
 import { cn } from '@/libs/utils';
@@ -24,21 +25,8 @@ import { cn } from '@/libs/utils';
     </div>
     <section class="flex flex-col gap-3">
       <h2 class="uppercase text-sm">Trending Pandals</h2>
-      <div class="flex gap-4">
-        {
-          Array.from({ length: 3 }).map((_, id) => (
-            <div
-              id={`pandal-${id + 1}`}
-              class={cn(
-                'p-6 w-1/4 h-64 font-work bg-white/50 outline outline-1',
-                'outline-primary-foreground rounded-lg hover:w-1/2 flex',
-                'items-end font-semibold transition-all text-2xl',
-              )}
-            >
-              Pandal {id + 1}
-            </div>
-          ))
-        }
+      <div class="w-full">
+        <Carousel client:load client:only="react" />
       </div>
     </section>
   </main>
