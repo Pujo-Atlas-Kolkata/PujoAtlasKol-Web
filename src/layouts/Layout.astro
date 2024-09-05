@@ -1,8 +1,12 @@
 ---
 import '@fontsource-variable/inter/wght.css';
 import '@fontsource-variable/work-sans';
+import '@fontsource-variable/noto-sans-bengali';
+import '@fontsource-variable/alkatra';
 import interWoff2 from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
 import workSansWoff2 from '@fontsource-variable/work-sans/files/work-sans-latin-wght-normal.woff2?url';
+import notoSansWoff2 from '@fontsource-variable/noto-sans-bengali/files/noto-sans-bengali-latin-wght-normal.woff2?url';
+import alkatraWoff2 from '@fontsource-variable/alkatra/files/alkatra-latin-wght-normal.woff2?url';
 
 import Header from '@/components/shared/Header.astro';
 import Footer from '@/components/shared/Footer.astro';
@@ -27,7 +31,9 @@ const {
   <head>
     <meta charset="utf-8" />
     <link rel="preload" as="font" type="font/woff2" href={workSansWoff2} crossorigin="anonymous" />
+    <link rel="preload" as="font" type="font/woff2" href={alkatraWoff2} crossorigin="anonymous" />
     <link rel="preload" as="font" type="font/woff2" href={interWoff2} crossorigin="anonymous" />
+    <link rel="preload" as="font" type="font/woff2" href={notoSansWoff2} crossorigin="anonymous" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />

@@ -8,6 +8,8 @@ export default {
       fontFamily: {
         sans: ['Inter Variable', ...defaultTheme.fontFamily.sans],
         work: ['Work Sans Variable', ...defaultTheme.fontFamily.sans],
+        noto: ['Noto Sans Variable', ...defaultTheme.fontFamily.sans],
+        alkatra: ['Alkatra Variable', ...defaultTheme.fontFamily.sans],
       },
       colors: {
         primary: {
