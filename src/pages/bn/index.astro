@@ -23,11 +23,8 @@ import { cn } from '@/libs/utils';
       <span>|</span>
       <span class="font-noto font-semibold"> শীঘ্রই আসছে </span>
     </div>
-    <section class="flex flex-col gap-3">
-      <h2 class="uppercase text-sm font-noto font-semibold">ইমেজ গ্যালারি</h2>
-      <div class="w-full">
-        <Carousel client:load client:only="react" />
-      </div>
-    </section>
+    <div class="w-full">
+      <Carousel client:load client:only="react" />
+    </div>
   </main>
 </Layout>

@@ -1,4 +1,4 @@
-import Slider, { type Settings } from 'react-slick';
+import Slider, { type Settings } from '@ant-design/react-slick';
 import { cn } from '@/libs/utils';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
