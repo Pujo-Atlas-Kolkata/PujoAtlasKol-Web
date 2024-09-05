@@ -6,6 +6,7 @@ import './index.css';
 
 export const Carousel = () => {
   const settings: Settings = {
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 4,
@@ -13,13 +14,13 @@ export const Carousel = () => {
     autoplay: true,
     swipeToSlide: true,
     initialSlide: 0,
-    arrows: false,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
+          dots: true,
         },
       },
       {
@@ -34,12 +35,14 @@ export const Carousel = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          initialSlide: 1,
+          arrows: false,
         },
       },
     ],
   };
   return (
-    <div className="slider-container">
+    <div className="slider-container rounded-3xl -translate-x-4">
       <Slider {...settings}>
         {Array.from({ length: 8 }).map((_, index) => {
           const bgUrl = `/idols/${index + 1}.jpg`;
@@ -50,8 +53,8 @@ export const Carousel = () => {
                 className={cn(
                   'w-48 md:w-72 lg:w-96',
                   'h-48 md:h-72 lg:h-96',
-                  'max-w-72 max-h-96',
-                  'rounded-xl md:rounded-3xl overflow-hidden',
+                  'mx-auto max-w-72 max-h-96 select-none',
+                  'rounded-xl md:rounded-3xl overflow-hidden outline-none border-none',
                 )}
                 key={index}
               />
