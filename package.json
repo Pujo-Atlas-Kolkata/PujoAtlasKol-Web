@@ -39,7 +39,6 @@
     "@eslint/compat": "^1.1.1",
     "@eslint/js": "^9.9.1",
     "@netlify/plugin-lighthouse": "^6.0.0",
-    "@types/react-slick": "^0.23.13",
     "@typescript-eslint/parser": "^8.3.0",
     "eslint": "^8.57.0",
     "eslint-plugin-astro": "^1.2.3",

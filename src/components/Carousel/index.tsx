@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import { cn } from '@/libs/utils';
@@ -16,12 +15,6 @@ export const Carousel = () => {
     },
     [Autoplay()],
   );
-
-  useEffect(() => {
-    if (emblaApi) {
-      console.log(emblaApi.slideNodes());
-    }
-  }, [emblaApi]);
 
   const slideWidth = '[--slide-size:100%] md:[--slide-size:33.33333%] lg:[--slide-size:25%]';
 
@@ -60,7 +53,7 @@ export const Carousel = () => {
               <img
                 className="overflow-hidden rounded-2xl h-96 w-full md:w-40 lg:w-72"
                 src={`/idols/${index + 1}.webp`}
-                alt={`Idol ${index + 1}`}
+                alt={`Picture of Idol ${index + 1}`}
               />
             </div>
           ))}
