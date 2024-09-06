@@ -45,7 +45,7 @@ export const Carousel = () => {
     <div className="slider-container rounded-3xl -translate-x-4">
       <Slider {...settings}>
         {Array.from({ length: 8 }).map((_, index) => {
-          const bgUrl = `/idols/${index + 1}.jpg`;
+          const bgUrl = `./src/assets/idols/${index + 1}.jpg`;
           return (
             <div key={index} className="rounded-xl md:rounded-3xl overflow-hidden">
               <img
