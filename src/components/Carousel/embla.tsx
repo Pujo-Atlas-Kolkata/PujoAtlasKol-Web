@@ -51,7 +51,7 @@ export const EmblaCarousel = ({ slidesToShow = 4 }: Props) => {
                 <img
                   className="overflow-hidden rounded-xl h-96 w-72"
                   height={400}
-                  src={`./src/assets/idols/${index + 1}.jpg`}
+                  src={`/idols/${index + 1}.jpg`}
                   alt=""
                 />
               </div>
