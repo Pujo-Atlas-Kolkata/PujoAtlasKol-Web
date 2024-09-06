@@ -5,6 +5,7 @@
   [plugins.inputs.audits]
     output_path = "reports/lighthouse.html"
 
+
 [[headers]]
   for = "/_astro/icon.Db3K-ucu_Z2tceI0.webp"
     [headers.values]

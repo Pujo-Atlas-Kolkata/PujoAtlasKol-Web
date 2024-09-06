@@ -35,28 +35,39 @@ export const Carousel = () => {
       <ControlButton
         type="next"
         action={() => emblaApi?.scrollNext()}
-        className="absolute -right-10 top-1/2"
+        className="absolute -right-12 top-1/2"
       />
-
       <div className="overflow-hidden" ref={emblaRef}>
         <div
           className={cn('flex touch-pinch-zoom touch-pan-y', 'ml-[calc(var(--slide-spacing)*-1)]')}
         >
-          {Array.from({ length: 8 }).map((_, index) => (
-            <div
-              className={cn(
-                '[transform:translate3d(0,0,0)]',
-                'pl-[var(--slide-spacing)] flex-[0_0_var(--slide-size)]',
-              )}
-              key={index}
-            >
-              <img
-                className="overflow-hidden rounded-2xl h-96 w-full md:w-40 lg:w-72"
-                src={`/idols/${index + 1}.webp`}
-                alt={`Picture of Idol ${index + 1}`}
-              />
-            </div>
-          ))}
+          {Array.from({ length: 8 }).map((_, index) => {
+            const positionInGroup = index % 4;
+            const isLeftmost = positionInGroup === 0;
+            const isRightmost = positionInGroup === 3;
+            const isInMiddle = positionInGroup === 1 || positionInGroup === 2;
+
+            return (
+              <div
+                className={cn(
+                  '[transform:translate3d(0,0,0)] flex',
+                  'pl-[var(--slide-spacing)] flex-[0_0_var(--slide-size)]',
+                  {
+                    'justify-start': isLeftmost,
+                    'justify-center': isInMiddle,
+                    'justify-end': isRightmost,
+                  },
+                )}
+                key={index}
+              >
+                <img
+                  className="overflow-hidden rounded-2xl h-96 w-full md:w-40 lg:w-72"
+                  src={`/idols/${index + 1}.webp`}
+                  alt={`Picture of Idol ${index + 1}`}
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
