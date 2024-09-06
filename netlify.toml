@@ -5,7 +5,13 @@
   [plugins.inputs.audits]
     output_path = "reports/lighthouse.html"
 
-
+[[headers]]
+  for = "/idols/*"
+    [headers.values]
+      cache-control = '''
+      max-age=365000000,
+      public,
+      immutable'''
 [[headers]]
   for = "/_astro/icon.Db3K-ucu_Z2tceI0.webp"
     [headers.values]
