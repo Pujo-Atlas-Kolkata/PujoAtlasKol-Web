@@ -42,7 +42,7 @@ export const Carousel = () => {
       <ControlButton
         type="next"
         action={() => emblaApi?.scrollNext()}
-        className="absolute -right-12 top-1/2"
+        className="absolute -right-10 top-1/2"
       />
 
       <div className="overflow-hidden" ref={emblaRef}>
