@@ -3,40 +3,37 @@ import { Socials } from '@/constants';
 import { DiscordIcon, RedditIcon } from '@/icons';
 ---
 
-<footer class="relative w-full p-4">
-  <span class="text-left pl-16 hidden sm:inline">
-    Made with ❤️ by
-    <a
-      target="_blank"
-      rel="noreferrer"
-      href={Socials.GitHub}
-      class="font-semibold hidden sm:inline"
-    >
-      Pujo Atlas Kolkata
-    </a>
-  </span>
-  <span class="text-right flex flex-row gap-x-2 justify-end">
-    <span class="font-bold hidden sm:inline">Find us on:</span>
-    <span class="font-bold sm:hidden">Socials:</span>
+<footer class="p-4 h-5 sm:h-auto">
+  <div class="flex justify-between items-center">
+    <div class="items-center space-x-2 hidden sm:flex">
+      <div class="text-left">Made with ❤️ by</div>
+      <a target="_blank" rel="noreferrer" href={Socials.GitHub} class="font-semibold sm:inline">
+        Pujo Atlas Kolkata
+      </a>
+    </div>
+    <span class="flex flex-row gap-x-2 justify-end absolute bottom-0 right-0 p-4">
+      <span class="font-bold hidden sm:inline">Find us on:</span>
+      <span class="font-bold sm:hidden">Socials:</span>
 
-    <a
-      href={Socials.Discord}
-      target="_blank"
-      rel="noreferrer"
-      class="hover:underline hover:underline-offset-1 hover:decoration-2 hover:decoration-blue-600 flex flex-row gap-x-2"
-    >
-      <DiscordIcon />
-      <span class="hidden sm:inline">Discord</span>
-    </a>
-    &nbsp;|&nbsp;
-    <a
-      href={Socials.Reddit}
-      target="_blank"
-      rel="noreferrer"
-      class="hover:underline hover:underline-offset-1 hover:decoration-2 hover:decoration-orange-600 flex flex-row gap-x-2"
-    >
-      <RedditIcon />
-      <span class="hidden sm:inline">Reddit</span>
-    </a>
-  </span>
+      <a
+        href={Socials.Discord}
+        target="_blank"
+        rel="noreferrer"
+        class="hover:underline hover:underline-offset-1 hover:decoration-2 hover:decoration-blue-600 flex flex-row gap-x-2"
+      >
+        <DiscordIcon />
+        <span class="hidden sm:inline">Discord</span>
+      </a>
+      &nbsp;|&nbsp;
+      <a
+        href={Socials.Reddit}
+        target="_blank"
+        rel="noreferrer"
+        class="hover:underline hover:underline-offset-1 hover:decoration-2 hover:decoration-orange-600 flex flex-row gap-x-2"
+      >
+        <RedditIcon />
+        <span class="hidden sm:inline">Reddit</span>
+      </a>
+    </span>
+  </div>
 </footer>

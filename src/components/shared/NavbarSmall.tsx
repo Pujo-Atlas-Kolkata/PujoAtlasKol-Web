@@ -40,31 +40,34 @@ function generateNavItems(path: string, currentLang: 'en' | 'bn'): Array<NavItem
   ];
 }
 
-export const Navbar = ({ path }: Props) => {
+export default function Navbar({ path }: Props) {
   const currentLang = getCurrentLanguage(path);
   const navItems = generateNavItems(path, currentLang);
 
   return (
-    <nav
-      className="flex flex-col gap-4 p-2 <mark>md:flex-row md:justify-between md:items-center</mark>" // Adjusted breakpoint to 'md'
-    >
+    <nav className="flex justify-between items-center gap-8 border-2 border-neutral-900 rounded-full p-3 w-72 fixed bottom-20">
+      {/* <a
+        href="/"
+        className="flex justify-center items-center p-4 border-2 border-black rounded-full bg-#ccbea1 hover:bg-gray-300"
+      >
+        <HomeIcon />
+      </a> */}
+
       {navItems.map((item, index) => (
         <a
           key={index}
           href={item.href}
           data-active={(item.href === path || item.href === '/bn') && index === 0} // hotfix for netlify hidden trailing slash issue
           className={cn(
-            'outline outline-primary-foreground outline-1 bg-primary-background',
+            'outline outline-primary-foreground outline-1 bg-[active=true]:bg-[#fed7aa]',
             'data-[active=true]:outline-2 data-[active=true]:bg-[#fed7aa]',
-            'p-2 grid place-items-center rounded-lg w-16',
+            'flex justify-center items-center p-4 border-2 border-black rounded-full',
           )}
         >
           {item.icon}
-          <span className="font-work text-xs font-semibold">{item.label}</span>
+          {/* <span className="font-work text-xs font-semibold">{item.label}</span> */}
         </a>
       ))}
     </nav>
   );
-};
-
-export default Navbar;
+}
