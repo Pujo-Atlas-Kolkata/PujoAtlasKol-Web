@@ -3,33 +3,64 @@ import { Socials } from '@/constants';
 import { BsDiscord, BsReddit } from 'react-icons/bs';
 ---
 
-<footer class="flex justify-between p-4">
-  <span class="text-left pl-16">
-    Made with ❤️ by
-    <a target="_blank" rel="noreferrer" href={Socials.GitHub} class="font-semibold">
-      Pujo Atlas Kolkata
-    </a>
+<footer class="p-2 lg:p-4">
+  <!-- Mobile Screen Footer -->
+  <span class="flex lg:hidden flex-col justify-center items-center text-sm">
+    <span class="flex text-right text-sm">
+      <span class="font-bold">Find us on:</span>
+
+      &nbsp;<a
+        href={Socials.Discord}
+        target="_blank"
+        rel="noreferrer"
+        class="font-semibold !text-blue-600">Discord</a
+      >,&nbsp;
+      <a
+        href={Socials.Reddit}
+        target="_blank"
+        rel="noreferrer"
+        class="font-semibold !text-orange-600">Reddit</a
+      >&nbsp;&&nbsp;
+      <a href={Socials.Reddit} target="_blank" rel="noreferrer" class="font-semibold">GitHub</a>
+    </span>
+
+    <div>
+      Made with ❤️ by
+      <a target="_blank" rel="noreferrer" href={Socials.GitHub} class="font-semibold">
+        Pujo Atlas Kolkata
+      </a>
+    </div>
   </span>
-  <span class="text-right flex flex-row gap-x-2">
-    <span class="font-bold">Find us on:</span>
-    <a
-      href={Socials.Discord}
-      target="_blank"
-      rel="noreferrer"
-      class="hover:underline hover:underline-offset-1 hover:decoration-2 hover:decoration-blue-600 flex flex-row items-center gap-x-2"
-    >
-      <BsDiscord className="size-6 fill-blue-600" />
-      Discord
-    </a>
-    &nbsp;|&nbsp;
-    <a
-      href={Socials.Reddit}
-      target="_blank"
-      rel="noreferrer"
-      class="hover:underline hover:underline-offset-1 hover:decoration-2 hover:decoration-orange-600 flex flex-row gap-x-2"
-    >
-      <BsReddit className="size-6 fill-orange-600" />
-      Reddit
-    </a>
+
+  <!-- Large Screen Footer -->
+  <span class="hidden lg:flex justify-between">
+    <span class="text-left pl-16">
+      Made with ❤️ by
+      <a target="_blank" rel="noreferrer" href={Socials.GitHub} class="font-semibold">
+        Pujo Atlas Kolkata
+      </a>
+    </span>
+    <span class="text-right flex flex-row gap-x-2">
+      <span class="font-bold">Find us on:</span>
+      <a
+        href={Socials.Discord}
+        target="_blank"
+        rel="noreferrer"
+        class="hover:underline hover:underline-offset-1 hover:decoration-2 hover:decoration-blue-600 flex flex-row items-center gap-x-2"
+      >
+        <BsDiscord className="size-6 fill-blue-600" />
+        Discord
+      </a>
+      &nbsp;|&nbsp;
+      <a
+        href={Socials.Reddit}
+        target="_blank"
+        rel="noreferrer"
+        class="hover:underline hover:underline-offset-1 hover:decoration-2 hover:decoration-orange-600 flex flex-row gap-x-2"
+      >
+        <BsReddit className="size-6 fill-orange-600" />
+        Reddit
+      </a>
+    </span>
   </span>
 </footer>
