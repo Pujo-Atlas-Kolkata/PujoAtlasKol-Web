@@ -8,22 +8,34 @@ import { cn } from '@/libs/utils';
 <Layout>
   <main
     class={cn(
-      'flex-1 flex flex-col gap-6',
-      'bg-primary-background p-4 lg:py-12 lg:px-20',
+      'flex-1 flex flex-col gap-3 gap-y-3 lg:gap-y-0 lg:gap-6',
+      'bg-primary-background p-3 lg:p-4 lg:py-12 lg:px-20',
       'rounded-l-xl shadow-l-xl overflow-y-auto',
     )}
   >
-    <h1 class="font-work font-semibold text-6xl">Pujo Atlas</h1>
-    <p class="font-work">The most advanced pandal hopping experience*</p>
-    <div
-      class={cn('text-xs py-1 px-4 outline outline-1', 'rounded-xl w-fit flex items-center gap-2')}
-    >
-      <PlaystoreIcon />
-      <span class="font-semibold"> Google Play </span>
-      <span>|</span>
-      <span> Coming Soon </span>
-    </div>
-    <div class="w-full">
+    <h1 class="font-work font-semibold text-[55px] lg:text-6xl pt-0 text-center lg:text-left">
+      Pujo Atlas
+    </h1>
+    <p class="block lg:hidden font-work text-center leading-5">
+      The most advanced <br /> pandal hopping experience*
+    </p>
+    <p class="hidden lg:block font-work text-left leading-normal">
+      The most advanced pandal hopping experience*
+    </p>
+    <span class="flex justify-center items-center lg:block">
+      <div
+        class={cn(
+          'text-xs py-1 px-4 outline outline-1',
+          'rounded-xl w-fit flex items-center gap-2',
+        )}
+      >
+        <PlaystoreIcon />
+        <span class="font-semibold"> Google Play </span>
+        <span>|</span>
+        <span> Coming Soon </span>
+      </div>
+    </span>
+    <div class="h-[384px]">
       <Carousel client:load client:only="react" />
     </div>
   </main>
