@@ -10,9 +10,9 @@ import alkatraWoff2 from '@fontsource-variable/alkatra/files/alkatra-latin-wght-
 
 import Header from '@/components/shared/Header.astro';
 import Footer from '@/components/shared/Footer.astro';
-import Navbar from '@/components/shared/Navbar';
 import { cn } from '@/libs/utils';
 import { ViewTransitions } from 'astro:transitions';
+import { LargeNavbar, MobileHamburgerNavbar } from '@/components/shared/Navbar';
 
 const currentPath = Astro.url.pathname;
 
@@ -69,8 +69,9 @@ const {
     <Header />
     <div class="flex flex-1">
       <aside class="hidden lg:grid place-items-center">
-        <Navbar path={currentPath} />
+        <LargeNavbar path={currentPath} />
       </aside>
+      <MobileHamburgerNavbar path={currentPath} />
       <slot />
     </div>
     <Footer />

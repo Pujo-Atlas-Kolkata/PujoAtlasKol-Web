@@ -46,7 +46,7 @@ function generateNavItems(path: string, currentLang: 'en' | 'bn'): Array<NavItem
   ];
 }
 
-export const Navbar = ({ path }: Props) => {
+export const LargeNavbar = ({ path }: Props) => {
   const currentLang = getCurrentLanguage(path);
   const navItems = generateNavItems(path, currentLang);
 
@@ -71,4 +71,29 @@ export const Navbar = ({ path }: Props) => {
   );
 };
 
-export default Navbar;
+export const MobileHamburgerNavbar = ({ path }: Props) => {
+  const currentLang = getCurrentLanguage(path);
+  const navItems = generateNavItems(path, currentLang);
+
+  return (
+    <>
+      <div className="hidden">
+        {navItems.map((item, index) => (
+          <a
+            key={index}
+            href={item.href}
+            data-active={(item.href === path || item.href === '/bn') && index === 0} // hotfix for netlify hidden trailing slash issue
+            className={cn(
+              'outline outline-primary-foreground outline-1 bg-primary-background',
+              'data-[active=true]:outline-2 data-[active=true]:bg-[#fed7aa]',
+              'p-2 grid place-items-center rounded-lg w-16',
+            )}
+          >
+            {item.icon}
+            <span className="font-work text-xs font-semibold">{item.label}</span>
+          </a>
+        ))}
+      </div>
+    </>
+  );
+};
