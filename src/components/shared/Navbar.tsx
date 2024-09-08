@@ -1,5 +1,7 @@
 import { getRelativeLocaleUrl } from 'astro:i18n';
-import { HomeIcon, GitHubIcon, TranslateIcon } from '@/icons';
+import { BsGithub } from 'react-icons/bs';
+import { GoHomeFill } from 'react-icons/go';
+import { MdTranslate } from 'react-icons/md';
 import {
   cn,
   getAlternateLanguage,
@@ -26,16 +28,20 @@ function generateNavItems(path: string, currentLang: 'en' | 'bn'): Array<NavItem
   const oppositeLang = getAlternateLanguage(currentLang);
 
   return [
-    { label: 'Home', href: homePagePath, icon: <HomeIcon /> },
+    {
+      label: 'Home',
+      href: homePagePath,
+      icon: <GoHomeFill className="size-6 fill-primary-foreground" />,
+    },
     {
       label: 'GitHub',
       href: Socials.GitHub,
-      icon: <GitHubIcon />,
+      icon: <BsGithub className="size-6 fill-primary-foreground" />,
     },
     {
       label: oppositeLang === 'en' ? 'English' : 'বাংলা',
       href: getAlternateLanguagePath(path),
-      icon: <TranslateIcon />,
+      icon: <MdTranslate className="size-6 fill-primary-foreground" />,
     },
   ];
 }
