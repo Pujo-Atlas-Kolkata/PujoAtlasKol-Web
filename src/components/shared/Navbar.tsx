@@ -51,6 +51,8 @@ export const Navbar = ({ path }: Props) => {
       {navItems.map((item, index) => (
         <a
           key={index}
+          target={item.href.startsWith('http') ? '_blank' : '_self'}
+          rel="noopener noreferrer"
           href={item.href}
           data-active={(item.href === path || item.href === '/bn') && index === 0} // hotfix for netlify hidden trailing slash issue
           className={cn(
