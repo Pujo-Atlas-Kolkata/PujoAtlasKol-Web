@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.3",
+    "@astrojs/partytown": "^2.1.2",
     "@astrojs/react": "^3.6.2",
     "@astrojs/tailwind": "^5.1.0",
     "@fontsource-variable/alkatra": "^5.0.14",
@@ -27,6 +28,8 @@
     "@types/react-dom": "^18.3.0",
     "astro": "^4.14.5",
     "clsx": "^2.1.1",
+    "embla-carousel-autoplay": "^8.2.1",
+    "embla-carousel-react": "^8.2.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "tailwind-merge": "^2.5.2",

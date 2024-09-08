@@ -16,10 +16,15 @@ import { ViewTransitions } from 'astro:transitions';
 
 const currentPath = Astro.url.pathname;
 
+type Props = {
+  title?: string;
+  description?: string;
+};
+
 const {
   title = 'Pujo Atlas',
   description = 'Welcome to Pujo Atlas - your ultimate guide for Pandal Hopping during Durga Puja in Kolkata!',
-} = Astro.props;
+} = Astro.props as Props;
 ---
 
 <html lang="en">
@@ -35,12 +40,30 @@ const {
     <meta name="description" content={description} />
     <ViewTransitions />
     <title>{title}</title>
+    <!-- Google tag (gtag.js) -->
+    <script
+      type="text/partytown"
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-56WWMK6TC4"></script>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        // eslint-disable-next-line prefer-rest-params
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'G-56WWMK6TC4');
+    </script>
+    <!-- Google tag (gtag.js) -->
   </head>
   <body
     class={cn(
       'bg-secondary-background',
       'text-primary-foreground [&_*]:text-primary-foreground',
       'min-w-screen min-h-screen flex flex-col overflow-hidden',
+      '[&_*::-webkit-scrollbar]:w-2 [&_*::-webkit-scrollbar-track]:bg-primary-foreground',
+      '[&_*::-webkit-scrollbar-thumb]:bg-secondary-background',
     )}
   >
     <Header />
