@@ -1,13 +1,19 @@
 ---
 import { Image } from 'astro:assets';
 import Icon from '~/public/icon.png';
+import { MobileHeaderLangSwitcher } from './Navbar';
+
+const currentPath = Astro.url.pathname;
 ---
 
-<header class="flex w-full p-4">
-  <nav>
+<header class="w-full p-3 lg:p-4">
+  <nav class="flex flex-row justify-between">
     <a class="font-semibold font-work flex items-center gap-2" href="/">
-      <Image src={Icon} alt="Logo" class="w-6 h-6 rounded-md overflow-hidden" />
+      <Image src={Icon} alt="Logo" class="w-5 lg:w-6 h-5 lg:h-6 rounded-md overflow-hidden" />
       Pujo Atlas
     </a>
+    <div class="flex lg:hidden">
+      <MobileHeaderLangSwitcher path={currentPath} />
+    </div>
   </nav>
 </header>

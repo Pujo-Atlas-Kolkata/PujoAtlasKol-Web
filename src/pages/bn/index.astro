@@ -8,22 +8,34 @@ import { cn } from '@/libs/utils';
 <Layout>
   <main
     class={cn(
-      'flex-1 flex flex-col gap-6',
-      'bg-primary-background py-12 px-20',
-      'rounded-l-xl shadow-l-xl max-h-[85vh] overflow-y-auto',
+      'flex-1 flex flex-col gap-3 gap-y-3 lg:gap-y-0 lg:gap-6',
+      'bg-primary-background p-3 lg:p-4 lg:py-12 lg:px-20',
+      'rounded-l-xl shadow-l-xl overflow-y-auto',
     )}
   >
-    <h1 class="font-alkatra font-semibold text-6xl">পুজো অ্যাটলাস</h1>
-    <p class="font-alkatra">সবচেয়ে উন্নত প্যান্ডেল হপিং অ্যাপ*</p>
-    <div
-      class={cn('text-xs py-1 px-4 outline outline-1', 'rounded-xl w-fit flex items-center gap-2')}
-    >
-      <PlaystoreIcon />
-      <span class="font-bold"> Google Play </span>
-      <span>|</span>
-      <span class="font-noto font-semibold"> শীঘ্রই আসছে </span>
-    </div>
-    <div class="w-full">
+    <h1 class="font-alkatra font-semibold text-[55px] lg:text-6xl pt-0 text-center lg:text-left">
+      পুজো অ্যাটলাস
+    </h1>
+    <p class="block lg:hidden font-alkatra text-center leading-5">
+      সবচেয়ে উন্নত <br /> প্যান্ডেল হপিং অ্যাপ*
+    </p>
+    <p class="hidden lg:block font-alkatra text-left leading-normal">
+      সবচেয়ে উন্নত প্যান্ডেল হপিং অ্যাপ*
+    </p>
+    <span class="flex justify-center items-center lg:block">
+      <div
+        class={cn(
+          'text-xs py-1 px-4 outline outline-1',
+          'rounded-xl w-fit flex items-center gap-2',
+        )}
+      >
+        <PlaystoreIcon />
+        <span class="font-bold"> Google Play </span>
+        <span>|</span>
+        <span class="font-noto font-bold"> শীঘ্রই আসছে </span>
+      </div>
+    </span>
+    <div class="h-[500px]">
       <Carousel client:load client:only="react" />
     </div>
   </main>

@@ -10,9 +10,9 @@ import alkatraWoff2 from '@fontsource-variable/alkatra/files/alkatra-latin-wght-
 
 import Header from '@/components/shared/Header.astro';
 import Footer from '@/components/shared/Footer.astro';
-import Navbar from '@/components/shared/Navbar';
 import { cn } from '@/libs/utils';
 import { ViewTransitions } from 'astro:transitions';
+import { LargeNavbar } from '@/components/shared/Navbar';
 
 const currentPath = Astro.url.pathname;
 
@@ -61,15 +61,16 @@ const {
     class={cn(
       'bg-secondary-background',
       'text-primary-foreground [&_*]:text-primary-foreground',
-      'min-w-screen min-h-screen flex flex-col overflow-hidden',
-      '[&_*::-webkit-scrollbar]:w-2 [&_*::-webkit-scrollbar-track]:bg-primary-foreground',
-      '[&_*::-webkit-scrollbar-thumb]:bg-secondary-background',
+      'min-w-screen min-h-screen flex flex-col overflow-x-hidden',
+      '[&_*::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar]:w-2',
+      '[&_*::-webkit-scrollbar-track]:bg-primary-foreground [&::-webkit-scrollbar-track]:bg-primary-foreground',
+      '[&_*::-webkit-scrollbar-thumb]:bg-secondary-background [&::-webkit-scrollbar-thumb]:bg-secondary-background',
     )}
   >
     <Header />
     <div class="flex flex-1">
-      <aside class="grid place-items-center">
-        <Navbar path={currentPath} />
+      <aside class="hidden lg:grid place-items-center">
+        <LargeNavbar path={currentPath} />
       </aside>
       <slot />
     </div>

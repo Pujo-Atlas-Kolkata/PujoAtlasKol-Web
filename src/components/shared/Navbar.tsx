@@ -41,12 +41,12 @@ function generateNavItems(path: string, currentLang: 'en' | 'bn'): Array<NavItem
     {
       label: oppositeLang === 'en' ? 'English' : 'বাংলা',
       href: getAlternateLanguagePath(path),
-      icon: <MdTranslate className="size-6 fill-primary-foreground" />,
+      icon: <MdTranslate className="size-4 lg:size-6 fill-primary-foreground" />,
     },
   ];
 }
 
-export const Navbar = ({ path }: Props) => {
+export const LargeNavbar = ({ path }: Props) => {
   const currentLang = getCurrentLanguage(path);
   const navItems = generateNavItems(path, currentLang);
 
@@ -71,4 +71,20 @@ export const Navbar = ({ path }: Props) => {
   );
 };
 
-export default Navbar;
+export const MobileHeaderLangSwitcher = ({ path }: Props) => {
+  const currentLang = getCurrentLanguage(path);
+  const navItems = generateNavItems(path, currentLang);
+
+  return (
+    <a
+      href={navItems[2].href}
+      className={cn(
+        'outline outline-primary-foreground outline-1 bg-primary-background',
+        'flex items-center justify-center rounded-md p-2 w-8 h-8',
+      )}
+      aria-label={navItems[2].label}
+    >
+      {navItems[2].icon}
+    </a>
+  );
+};
