@@ -1,27 +1,33 @@
 ---
 import { Socials } from '@/constants';
-import { BsDiscord, BsReddit } from 'react-icons/bs';
+import { BsDiscord, BsReddit, BsGithub } from 'react-icons/bs';
 ---
 
 <footer class="p-2 lg:p-4">
   <!-- Mobile Screen Footer -->
   <span class="flex lg:hidden flex-col justify-center items-center text-sm">
     <span class="flex text-right text-sm">
-      <span class="font-bold">Find us on:</span>
-
-      &nbsp;<a
+      <a
         href={Socials.Discord}
         target="_blank"
         rel="noreferrer"
-        class="font-semibold !text-blue-600">Discord</a
-      >,&nbsp;
+        class="font-semibold !text-blue-700 flex flex-row items-center justify-center gap-x-1"
+        ><BsDiscord className="fill-blue-600" />Discord</a
+      >&nbsp;|&nbsp;
       <a
         href={Socials.Reddit}
         target="_blank"
         rel="noreferrer"
-        class="font-semibold !text-orange-600">Reddit</a
-      >&nbsp;&&nbsp;
-      <a href={Socials.Reddit} target="_blank" rel="noreferrer" class="font-semibold">GitHub</a>
+        class="font-semibold !text-orange-700 flex flex-row items-center justify-center gap-x-1"
+        ><BsReddit className="fill-orange-600" />Reddit</a
+      >&nbsp;|&nbsp;
+      <a
+        href={Socials.Reddit}
+        target="_blank"
+        rel="noreferrer"
+        class="font-semibold flex flex-row items-center justify-center gap-x-1"
+        ><BsGithub />GitHub</a
+      >
     </span>
 
     <div>
