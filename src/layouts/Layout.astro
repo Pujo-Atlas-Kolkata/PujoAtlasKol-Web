@@ -12,7 +12,7 @@ import Header from '@/components/shared/Header.astro';
 import Footer from '@/components/shared/Footer.astro';
 import { cn } from '@/libs/utils';
 import { ViewTransitions } from 'astro:transitions';
-import { LargeNavbar, MobileHamburgerNavbar } from '@/components/shared/Navbar';
+import { LargeNavbar } from '@/components/shared/Navbar';
 
 const currentPath = Astro.url.pathname;
 
@@ -71,7 +71,6 @@ const {
       <aside class="hidden lg:grid place-items-center">
         <LargeNavbar path={currentPath} />
       </aside>
-      <MobileHamburgerNavbar path={currentPath} />
       <slot />
     </div>
     <Footer />

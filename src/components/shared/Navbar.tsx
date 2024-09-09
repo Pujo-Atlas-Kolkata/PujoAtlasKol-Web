@@ -2,6 +2,7 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 import { BsGithub } from 'react-icons/bs';
 import { GoHomeFill } from 'react-icons/go';
 import { MdTranslate } from 'react-icons/md';
+import { GiHamburgerMenu } from 'react-icons/gi';
 import {
   cn,
   getAlternateLanguage,
@@ -77,6 +78,10 @@ export const MobileHamburgerNavbar = ({ path }: Props) => {
 
   return (
     <>
+      <button className="outline-none mobile-menu-button mt-5">
+        <GiHamburgerMenu className="h-5 w-5" />
+      </button>
+
       <div className="hidden">
         {navItems.map((item, index) => (
           <a
