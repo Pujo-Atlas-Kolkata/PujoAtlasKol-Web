@@ -61,7 +61,7 @@ export const Carousel = () => {
                 key={index}
               >
                 <img
-                  className="overflow-hidden rounded-2xl h-96 w-full md:w-40 lg:w-72"
+                  className="overflow-hidden rounded-2xl h-[30rem] lg:h-96 w-full md:w-40 lg:w-72"
                   src={`/idols/${index + 1}.webp`}
                   alt={`Picture of Idol ${index + 1}`}
                 />
