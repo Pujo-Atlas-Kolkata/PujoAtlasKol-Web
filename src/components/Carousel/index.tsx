@@ -13,7 +13,7 @@ export const Carousel = () => {
         '(min-width: 1024px)': { slidesToScroll: 4 },
       },
     },
-    [Autoplay()],
+    [Autoplay({ delay: 3000, stopOnMouseEnter: true, stopOnInteraction: false })],
   );
 
   const slideWidth = '[--slide-size:100%] md:[--slide-size:33.33333%] lg:[--slide-size:25%]';
