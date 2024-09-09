@@ -82,6 +82,7 @@ export const MobileHeaderLangSwitcher = ({ path }: Props) => {
         'outline outline-primary-foreground outline-1 bg-primary-background',
         'flex items-center justify-center rounded-md p-2 w-8 h-8',
       )}
+      aria-label={navItems[2].label}
     >
       {navItems[2].icon}
     </a>
