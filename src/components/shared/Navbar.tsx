@@ -56,6 +56,8 @@ export const LargeNavbar = ({ path }: Props) => {
         <a
           key={index}
           href={item.href}
+          target={item.href === Socials.GitHub ? '_blank' : '_self'}
+          rel={item.href === Socials.GitHub ? 'noopener noreferrer' : ''}
           data-active={(item.href === path || item.href === '/bn') && index === 0} // hotfix for netlify hidden trailing slash issue
           className={cn(
             'outline outline-primary-foreground outline-1 bg-primary-background',
