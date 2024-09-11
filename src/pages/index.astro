@@ -3,6 +3,7 @@ import { Carousel } from '@/components/Carousel';
 import { PlaystoreIcon } from '@/icons';
 import Layout from '@/layouts/Layout.astro';
 import { cn } from '@/libs/utils';
+import { FaChevronDown } from 'react-icons/fa';
 ---
 
 <Layout>
@@ -17,7 +18,9 @@ import { cn } from '@/libs/utils';
       Pujo Atlas
     </h1>
     <p class="block lg:hidden font-work text-center leading-5">
-      The most advanced <br /> pandal hopping experience<span class="animate-pulse">*</span>
+      The most advanced <br /> pandal hopping experience<span class="motion-safe:animate-pulse"
+        >*</span
+      >
     </p>
     <p class="hidden lg:block font-work text-left leading-normal">
       The most advanced pandal hopping experience<span class="animate-pulse">*</span>
@@ -37,10 +40,11 @@ import { cn } from '@/libs/utils';
     </span>
     <div class="h-[500px]">
       <Carousel client:load client:only="react" />
+      <FaChevronDown className="h-8 lg:h-16 w-8 mx-auto motion-safe:animate-bounce" />
     </div>
     <section
       class={cn(
-        'w-full p-8 text-amber-950 cursor-pointer',
+        'w-full p-8 mt-5 lg:mt-auto text-amber-950 cursor-pointer',
         'bg-primary hover:bg-[#ffe5b0]',
         'shadow-[2px_5px_1px_0px] shadow-amber-950',
         'border-4 border-amber-950 rounded-lg',
@@ -48,8 +52,11 @@ import { cn } from '@/libs/utils';
         'hover:scale-[1.01] hover:shadow-[2px_6px_2px_0px]',
       )}
     >
-      <span class={cn('font-work font-bold text-3xl', 'bg-orange-300 rounded-md px-[2px] py-0.5')}
-        >What is Pujo Atlas?</span
+      <span
+        class={cn(
+          'font-work font-bold text-3xl',
+          'bg-orange-300 rounded-md px-[2px] py-0.5 whitespace-nowrap',
+        )}>What is Pujo Atlas?</span
       ><br /><br />
       <span class="font-semibold text-lg lg:text-xl leading-none lg:leading-normal"
         ><span class="font-extrabold bg-red-300 rounded-md px-[2px] py-0.5">Pujo Atlas</span> is your
