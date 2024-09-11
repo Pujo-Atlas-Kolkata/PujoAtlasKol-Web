@@ -40,23 +40,24 @@ import { cn } from '@/libs/utils';
     </div>
     <section
       class={cn(
-        'w-full p-8 text-amber-950',
+        'w-full p-6 lg:p-8 text-amber-950',
         'shadow-[2px_5px_1px_0px] shadow-amber-950',
         'border-4 border-amber-950 rounded-lg',
       )}
     >
-      <span class={cn('font-work font-bold text-3xl', 'bg-orange-300 rounded-md px-1 py-0.5')}
+      <span class={cn('font-work font-bold text-3xl', 'bg-orange-300 rounded-md px-[2px] py-0.5')}
         >What is Pujo Atlas?</span
       ><br /><br />
-      <span class="font-sans font-semibold text-xl"
-        >Pujo Atlas is your ultimate guide for Pandal Hopping during Durga Puja in Kolkata! This
-        open-source project aims to provide a comprehensive and user-friendly webapp that lists all
-        the Durga Pujas happening around Kolkata and offers a host of features to make your pandal
-        hopping experience seamless and enjoyable.</span
+      <span class="font-semibold text-lg lg:text-xl leading-none lg:leading-normal"
+        ><span class="font-extrabold bg-red-300 rounded-md px-[2px] py-0.5">Pujo Atlas</span> is your
+        ultimate guide for Pandal Hopping during Durga Puja in Kolkata! This open-source project aims
+        to provide a comprehensive and user-friendly webapp that lists all the Durga Pujas happening
+        around Kolkata and offers a host of features to make your pandal hopping experience seamless
+        and enjoyable.</span
       >
     </section>
 
-    <div class="flex flex-row gap-4">
+    <div class="flex flex-col lg:flex-row gap-4">
       <section
         class={cn(
           'w-full p-8 text-amber-950',
@@ -64,16 +65,18 @@ import { cn } from '@/libs/utils';
           'border-4 border-amber-950 rounded-lg',
         )}
       >
-        <span class={cn('font-work font-bold text-3xl', 'bg-orange-300 rounded-md px-1 py-0.5')}
+        <span class={cn('font-work font-bold text-3xl', 'bg-orange-300 rounded-md px-[2px] py-0.5')}
           >Pandal Listings</span
         ><br /><br />
-        <span class="font-sans font-semibold text-xl"
-          ><span class="font-extrabold bg-red-300 rounded-md px-1 py-0.5">Categorized Lists</span> Discover
-          pandals based on popularity, themes, and locality<br />
-          <span class="font-extrabold bg-red-300 rounded-md px-1 py-0.5">Ratings and Reviews</span> Check
-          out user ratings and reviews to choose the best pandals<br />
-          <span class="font-extrabold bg-red-300 rounded-md px-1 py-0.5">Favorites</span> Save your favorite
-          pandals for quick access<br /></span
+        <span class="font-sans font-semibold text-lg lg:text-xl leading-none lg:leading-normal"
+          ><span class="font-extrabold bg-red-300 rounded-md px-[2px] py-0.5"
+            >Categorized Lists</span
+          > Discover pandals based on popularity, themes, and locality<br />
+          <span class="font-extrabold bg-red-300 rounded-md px-[2px] py-0.5"
+            >Ratings and Reviews</span
+          > Check out user ratings and reviews to choose the best pandals<br />
+          <span class="font-extrabold bg-red-300 rounded-md px-[2px] py-0.5">Favorites</span> Save your
+          favorite pandals for quick access<br /></span
         >
       </section>
       <section
@@ -83,17 +86,58 @@ import { cn } from '@/libs/utils';
           'border-4 border-amber-950 rounded-lg',
         )}
       >
-        <span class={cn('font-work font-bold text-3xl', 'bg-orange-300 rounded-md px-1 py-0.5')}
+        <span class={cn('font-work font-bold text-3xl', 'bg-orange-300 rounded-md px-[2px] py-0.5')}
           >Map Integration</span
         ><br /><br />
-        <span class="font-sans font-semibold text-xl"
-          ><span class="font-extrabold bg-red-300 rounded-md px-1 py-0.5">Interactive Map</span> View
-          the locations of all listed pandals on an interactive map<br />
-          <span class="font-extrabold bg-red-300 rounded-md px-1 py-0.5">Navigation</span> Get directions
+        <span class="font-sans font-semibold text-lg lg:text-xl leading-none lg:leading-normal"
+          ><span class="font-extrabold bg-red-300 rounded-md px-[2px] py-0.5">Interactive Map</span>
+          View the locations of all listed pandals on an interactive map<br />
+          <span class="font-extrabold bg-red-300 rounded-md px-[2px] py-0.5">Navigation</span> Get directions
           and the best routes using public transport or walking<br />
-          <span class="font-extrabold bg-red-300 rounded-md px-1 py-0.5"
+          <span class="font-extrabold bg-red-300 rounded-md px-[2px] py-0.5"
             >Real-time Traffic Updates</span
           > Avoid traffic and enjoy a smoother pandal hopping experience<br /></span
+        >
+      </section>
+    </div>
+
+    <div class="flex flex-col lg:flex-row gap-4">
+      <section
+        class={cn(
+          'w-full p-8 text-amber-950',
+          'shadow-[2px_5px_1px_0px] shadow-amber-950',
+          'border-4 border-amber-950 rounded-lg',
+        )}
+      >
+        <span class={cn('font-work font-bold text-3xl', 'bg-orange-300 rounded-md px-[2px] py-0.5')}
+          >Medical Help</span
+        ><br /><br />
+        <span class="font-sans font-semibold text-lg lg:text-xl leading-none lg:leading-normal"
+          ><span class="font-extrabold bg-red-300 rounded-md px-[2px] py-0.5"
+            >Nearby Hospitals and Clinics</span
+          > Find locations and contact details of nearby healthcare facilities<br />
+          <span class="font-extrabold bg-red-300 rounded-md px-[2px] py-0.5">First Aid Tips</span> Access
+          basic first aid tips for common health issues during pandal hopping<br /></span
+        >
+      </section>
+      <section
+        class={cn(
+          'w-full p-8 text-amber-950',
+          'shadow-[2px_5px_1px_0px] shadow-amber-950',
+          'border-4 border-amber-950 rounded-lg',
+        )}
+      >
+        <span class={cn('font-work font-bold text-3xl', 'bg-orange-300 rounded-md px-[2px] py-0.5')}
+          >Bites and Meals</span
+        ><br /><br />
+        <span class="font-sans font-semibold text-lg lg:text-xl leading-none lg:leading-normal"
+          ><span class="font-extrabold bg-red-300 rounded-md px-[2px] py-0.5">Nearby Eateries</span>
+          Discover restaurants and food stalls near pandals<br />
+          <span class="font-extrabold bg-red-300 rounded-md px-[2px] py-0.5"
+            >Cuisines and Specialties</span
+          > Explore local delicacies and must-try dishes<br />
+          <span class="font-extrabold bg-red-300 rounded-md px-[2px] py-0.5">User Reviews</span> Read
+          user ratings and reviews of food places<br /></span
         >
       </section>
     </div>
@@ -105,14 +149,15 @@ import { cn } from '@/libs/utils';
         'border-4 border-amber-950 rounded-lg',
       )}
     >
-      <span class={cn('font-work font-bold text-3xl', 'bg-orange-300 rounded-md px-1 py-0.5')}
-        >What is Pujo Atlas?</span
+      <span class={cn('font-work font-bold text-3xl', 'bg-orange-300 rounded-md px-[2px] py-0.5')}
+        >Festive Highlights</span
       ><br /><br />
-      <span class="font-sans font-semibold text-xl"
-        >Pujo Atlas is your ultimate guide for Pandal Hopping during Durga Puja in Kolkata! This
-        open-source project aims to provide a comprehensive and user-friendly webapp that lists all
-        the Durga Pujas happening around Kolkata and offers a host of features to make your pandal
-        hopping experience seamless and enjoyable.</span
+      <span class="font-sans font-semibold text-lg lg:text-xl leading-none lg:leading-loose"
+        ><span class="font-extrabold bg-red-300 rounded-md px-[2px] py-0.5">Cultural Programs</span>
+        Stay updated on cultural events happening in various pandals<br />
+        <span class="font-extrabold bg-red-300 rounded-md px-[2px] py-0.5"
+          >Workshops and Competitions</span
+        > Get details of workshops, competitions, and other activities<br /></span
       >
     </section>
   </main>
