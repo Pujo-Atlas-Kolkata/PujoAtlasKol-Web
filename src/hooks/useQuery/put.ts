@@ -1,32 +1,39 @@
 import { useCallback, useEffect, useState } from 'react';
 import { type RequestConfig, type QueryResult } from './types';
 import { request } from '@/libs/request';
+import { cacheStore } from '@/libs/utils';
 
 export const usePut = <Data, Err>(
   input: string | Request | URL,
   init?: RequestInit,
-  config: RequestConfig = { cache: false },
+  config?: RequestConfig,
 ): QueryResult<Data, Err> => {
   const [data, setData] = useState<Data | undefined>(undefined);
   const [error, setError] = useState<Err | undefined>(undefined);
   const [isPending, setIsPending] = useState(true);
 
-  const refetch = useCallback((signal: AbortSignal = new AbortController().signal) => {
-    setIsPending(true);
-    request
-      .put<Data, Err>(input, { ...init, signal }, config)
-      .then((response) => {
-        if (response.error) {
-          setError(response.error);
-        }
-        if (response.data) {
-          setData(response.data);
-        }
-      })
-      .finally(() => {
-        setIsPending(false);
-      });
-  }, []);
+  const refetch = useCallback(
+    (signal: AbortSignal = new AbortController().signal) => {
+      setIsPending(true);
+      request
+        .put<Data, Err>(input, { ...init, signal }, config)
+        .then((response) => {
+          if (response.error) {
+            setError(response.error);
+          }
+          if (response.data) {
+            if (config?.cache) {
+              cacheStore.set(config.key ?? input.toString(), response.data, config.staleTime);
+            }
+            setData(response.data);
+          }
+        })
+        .finally(() => {
+          setIsPending(false);
+        });
+    },
+    [input, init, config],
+  );
 
   useEffect(() => {
     const controller = new AbortController();

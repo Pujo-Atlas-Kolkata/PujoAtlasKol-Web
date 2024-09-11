@@ -6,30 +6,34 @@ import { cacheStore } from '@/libs/utils';
 export const useDelete = <Data, Err>(
   input: string | Request | URL,
   init?: RequestInit,
-  config: RequestConfig = { cache: false },
+  config?: RequestConfig,
 ): QueryResult<Data, Err> => {
   const [data, setData] = useState<Data | undefined>(undefined);
   const [error, setError] = useState<Err | undefined>(undefined);
   const [isPending, setIsPending] = useState(true);
 
-  const refetch = useCallback((signal: AbortSignal = new AbortController().signal) => {
-    setIsPending(true);
-    request
-      .delete<Data, Err>(input, { ...init, signal }, config)
-      .then((response) => {
-        if (response.error) {
-          setError(response.error);
-        }
-        if (response.data) {
-          // invalidate cache
-          cacheStore.delete(config.cache && config.key ? config.key : input.toString());
-          setData(response.data);
-        }
-      })
-      .finally(() => {
-        setIsPending(false);
-      });
-  }, []);
+  const refetch = useCallback(
+    (signal: AbortSignal = new AbortController().signal) => {
+      setIsPending(true);
+      request
+        .delete<Data, Err>(input, { ...init, signal }, config)
+        .then((response) => {
+          if (response.error) {
+            setError(response.error);
+          }
+          if (response.data) {
+            if (config?.cache) {
+              cacheStore.delete(config.key ?? input.toString());
+            }
+            setData(response.data);
+          }
+        })
+        .finally(() => {
+          setIsPending(false);
+        });
+    },
+    [input, init, config],
+  );
 
   useEffect(() => {
     const controller = new AbortController();
