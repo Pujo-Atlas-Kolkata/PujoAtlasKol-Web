@@ -69,8 +69,10 @@ const {
   >
     <Header />
     <div class="flex flex-1">
-      <aside class="hidden lg:grid place-items-center">
-        <LargeNavbar path={currentPath} />
+      <aside class="hidden lg:grid place-items-center relative px-10">
+        <span class="fixed top-1/2 -translate-y-1/2">
+          <LargeNavbar path={currentPath} />
+        </span>
       </aside>
       <slot />
     </div>
