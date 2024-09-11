@@ -11,7 +11,7 @@ import { FaChevronDown } from 'react-icons/fa';
     class={cn(
       'flex-1 flex flex-col gap-3 gap-y-3 lg:gap-y-0 lg:gap-6',
       'bg-primary-background p-3 lg:p-4 lg:py-12 lg:px-20',
-      'rounded-l-xl shadow-l-xl overflow-y-auto',
+      'rounded-l-xl shadow-l-xl overflow-y-auto scroll-smooth',
     )}
   >
     <h1 class="font-work font-semibold text-[55px] lg:text-6xl pt-0 text-center lg:text-left">
@@ -40,9 +40,12 @@ import { FaChevronDown } from 'react-icons/fa';
     </span>
     <div class="h-[500px]">
       <Carousel client:load client:only="react" />
-      <FaChevronDown className="h-8 lg:h-16 w-8 mx-auto motion-safe:animate-bounce" />
+      <a href="#features">
+        <FaChevronDown className="h-8 lg:h-16 w-8 mx-auto motion-safe:animate-bounce" />
+      </a>
     </div>
     <section
+      id="features"
       class={cn(
         'w-full p-8 mt-5 lg:mt-auto text-amber-950 cursor-pointer',
         'bg-primary hover:bg-[#ffe5b0]',
