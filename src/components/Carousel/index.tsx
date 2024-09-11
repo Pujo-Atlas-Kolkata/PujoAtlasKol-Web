@@ -24,7 +24,7 @@ export const Carousel = () => {
         slideWidth,
         '[--slide-spacing:0] lg:[--slide-spacing:2rem]',
         '[--slide-height:5rem] lg:[--slide-height:20rem]',
-        'w-full mx-auto grid place-items-center relative',
+        'w-full mx-auto grid place-items-center relative pb-4',
       )}
     >
       <ControlButton
