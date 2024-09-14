@@ -3,6 +3,7 @@ import { Carousel } from '@/components/Carousel';
 import { PlaystoreIcon } from '@/icons';
 import Layout from '@/layouts/Layout.astro';
 import { cn } from '@/libs/utils';
+import { FaChevronDown } from 'react-icons/fa';
 ---
 
 <Layout>
@@ -17,10 +18,10 @@ import { cn } from '@/libs/utils';
       পুজো অ্যাটলাস
     </h1>
     <p class="block lg:hidden font-alkatra text-center leading-5">
-      সবচেয়ে উন্নত <br /> প্যান্ডেল হপিং অ্যাপ*
+      আপনার প্যান্ডাল পরিক্রমা গাইড, <br /> ভারতের সবচেয়ে মিষ্টি অংশের জন্য।
     </p>
     <p class="hidden lg:block font-alkatra text-left leading-normal">
-      সবচেয়ে উন্নত প্যান্ডেল হপিং অ্যাপ*
+      আপনার প্যান্ডাল পরিক্রমা গাইড, ভারতের সবচেয়ে মিষ্টি অংশের জন্য।
     </p>
     <span class="flex justify-center items-center lg:block">
       <div
@@ -37,6 +38,167 @@ import { cn } from '@/libs/utils';
     </span>
     <div class="h-[500px]">
       <Carousel client:load client:only="react" />
+      <a href="#features" aria-label="scroll to features section">
+        <FaChevronDown className="h-8 lg:h-12 w-8 mx-auto motion-safe:animate-bounce" />
+      </a>
     </div>
+    <span id="features"></span>
+    <section
+      class={cn(
+        'font-noto w-full p-8 mt-5 lg:mt-auto text-amber-950 cursor-pointer',
+        'bg-primary hover:bg-[#ffe5b0]',
+        'shadow-[2px_5px_1px_0px] shadow-amber-950',
+        'border-4 border-amber-950 rounded-lg',
+        'transition-all duration-300 ease-in-out transform-gpu',
+        'hover:scale-[1.01] hover:shadow-[2px_6px_2px_0px]',
+      )}
+    >
+      <span
+        class={cn(
+          'font-alkatra font-bold text-3xl',
+          'bg-orange-300 rounded-md px-1 py-0 whitespace-nowrap',
+        )}>পুজো অ্যাটলাস কি?</span
+      ><br /><br />
+      <span class="font-semibold text-xl lg:text-xl leading-none lg:leading-normal"
+        ><span class="font-extrabold bg-red-300 rounded-md px-1 py-0">পুজো অ্যাটলাস</span> হল দুর্গাপুজার
+        সময় কলকাতায় প্যান্ডেল পরিক্রমার জন্য আপনার সর্বোত্তম গাইড! এই ওপেন-সোর্স প্রকল্পটি একটি বিস্তৃত
+        এবং ব্যবহারকারী-বান্ধব ওয়েবসাইট সরবরাহ করার লক্ষ্য রাখে, যা কলকাতার আশেপাশে অনুষ্ঠিত সমস্ত দুর্গাপুজার
+        তালিকা দেয় এবং আপনার প্যান্ডেল পরিক্রমার অভিজ্ঞতাকে সাবলীল ও আনন্দদায়ক করতে একাধিক বৈশিষ্ট্য
+        অফার করে।</span
+      >
+    </section>
+
+    <div class="flex flex-col lg:flex-row gap-4">
+      <section
+        class={cn(
+          'font-noto w-full p-8 mt-5 lg:mt-auto text-amber-950 cursor-pointer',
+          'bg-primary hover:bg-[#ffe5b0]',
+          'shadow-[2px_5px_1px_0px] shadow-amber-950',
+          'border-4 border-amber-950 rounded-lg',
+          'transition-all duration-300 ease-in-out transform-gpu',
+          'hover:scale-[1.01] hover:shadow-[2px_6px_2px_0px]',
+        )}
+      >
+        <span
+          class={cn(
+            'font-alkatra font-bold text-3xl',
+            'bg-orange-300 rounded-md px-1 py-0 whitespace-nowrap',
+          )}>প্যান্ডেল তালিকা</span
+        ><br /><br />
+        <span class="font-sans font-semibold text-lg lg:text-xl leading-none lg:leading-normal"
+          ><span class="font-extrabold bg-red-300 rounded-md px-1 py-0">বিভাগভিত্তিক তালিকা</span>
+          জনপ্রিয়তা, থিম এবং এলাকার উপর ভিত্তি করে প্যান্ডেলগুলি আবিষ্কার করুন।<br />
+          <span class="font-extrabold bg-red-300 rounded-md px-1 py-0">রেটিং এবং রিভিউ</span> সেরা প্যান্ডেলগুলি
+          বেছে নিতে ব্যবহারকারীর রেটিং এবং রিভিউ দেখে নিন।<br />
+          <span class="font-extrabold bg-red-300 rounded-md px-1 py-0">প্রিয় তালিকা</span> দ্রুত অ্যাক্সেসের
+          জন্য আপনার প্রিয় প্যান্ডেলগুলি সংরক্ষণ করুন।<br /></span
+        >
+      </section>
+      <section
+        class={cn(
+          'font-noto w-full p-8 mt-5 lg:mt-auto text-amber-950 cursor-pointer',
+          'bg-primary hover:bg-[#ffe5b0]',
+          'shadow-[2px_5px_1px_0px] shadow-amber-950',
+          'border-4 border-amber-950 rounded-lg',
+          'transition-all duration-300 ease-in-out transform-gpu',
+          'hover:scale-[1.01] hover:shadow-[2px_6px_2px_0px]',
+        )}
+      >
+        <span
+          class={cn(
+            'font-alkatra font-bold text-3xl',
+            'bg-orange-300 rounded-md px-1 py-0 whitespace-nowrap',
+          )}>ম্যাপ ইন্টিগ্রেশন</span
+        ><br /><br />
+        <span class="font-sans font-semibold text-lg lg:text-xl leading-none lg:leading-normal"
+          ><span class="font-extrabold bg-red-300 rounded-md px-1 py-0">ইন্টারঅ্যাক্টিভ ম্যাপ</span>
+          ইন্টারঅ্যাক্টিভ ম্যাপের মাধ্যমে সমস্ত তালিকাভুক্ত প্যান্ডেলের অবস্থান দেখুন।<br />
+          <span class="font-extrabold bg-red-300 rounded-md px-1 py-0">ন্যাভিগেশন</span> গণপরিবহন বা
+          হাঁটার মাধ্যমে দিকনির্দেশনা এবং সেরা রুটগুলি পান।<br />
+          <span class="font-extrabold bg-red-300 rounded-md px-1 py-0"
+            >রিয়েল-টাইম ট্র্যাফিক আপডেট</span
+          > যানজট এড়িয়ে আরও সাবলীল প্যান্ডেল পরিক্রমার অভিজ্ঞতা উপভোগ করুন।<br /></span
+        >
+      </section>
+    </div>
+
+    <div class="flex flex-col lg:flex-row gap-4">
+      <section
+        class={cn(
+          'font-noto w-full p-8 mt-5 lg:mt-auto text-amber-950 cursor-pointer',
+          'bg-primary hover:bg-[#ffe5b0]',
+          'shadow-[2px_5px_1px_0px] shadow-amber-950',
+          'border-4 border-amber-950 rounded-lg',
+          'transition-all duration-300 ease-in-out transform-gpu',
+          'hover:scale-[1.01] hover:shadow-[2px_6px_2px_0px]',
+        )}
+      >
+        <span
+          class={cn(
+            'font-alkatra font-bold text-3xl',
+            'bg-orange-300 rounded-md px-1 py-0 whitespace-nowrap',
+          )}>চিকিৎসা সহায়তা</span
+        ><br /><br />
+        <span class="font-sans font-semibold text-lg lg:text-xl leading-none lg:leading-normal"
+          ><span class="font-extrabold bg-red-300 rounded-md px-1 py-0"
+            >নিকটবর্তী হাসপাতাল ও ক্লিনিক</span
+          >
+          নিকটবর্তী স্বাস্থ্যসেবা প্রতিষ্ঠানের অবস্থান এবং যোগাযোগের বিবরণ খুঁজে পান।<br />
+          <span class="font-extrabold bg-red-300 rounded-md px-1 py-0">প্রাথমিক চিকিৎসার টিপস</span>
+          প্যান্ডেল পরিক্রমার সময় সাধারণ স্বাস্থ্য সমস্যা মোকাবিলায় প্রাথমিক চিকিৎসার টিপসগুলি পান।<br
+          />
+        </span>
+      </section>
+      <section
+        class={cn(
+          'font-noto w-full p-8 mt-5 lg:mt-auto text-amber-950 cursor-pointer',
+          'bg-primary hover:bg-[#ffe5b0]',
+          'shadow-[2px_5px_1px_0px] shadow-amber-950',
+          'border-4 border-amber-950 rounded-lg',
+          'transition-all duration-300 ease-in-out transform-gpu',
+          'hover:scale-[1.01] hover:shadow-[2px_6px_2px_0px]',
+        )}
+      >
+        <span
+          class={cn(
+            'font-alkatra font-bold text-3xl',
+            'bg-orange-300 rounded-md px-1 py-0 whitespace-nowrap',
+          )}>খাবার ও আহার</span
+        ><br /><br />
+        <span class="font-sans font-semibold text-lg lg:text-xl leading-none lg:leading-normal"
+          ><span class="font-extrabold bg-red-300 rounded-md px-1 py-0">নিকটবর্তী রেস্তোরাঁ</span>
+          প্যান্ডেলের আশেপাশের রেস্তোরাঁ এবং খাবারের স্টলগুলি আবিষ্কার করুন।<br />
+          <span class="font-extrabold bg-red-300 rounded-md px-1 py-0">খাবারের ধরন ও বিশেষত্ব</span>
+          স্থানীয় খাবার এবং অবশ্যই চেষ্টা করার মতো পদগুলি অন্বেষণ করুন।<br />
+          <span class="font-extrabold bg-red-300 rounded-md px-1 py-0">ব্যবহারকারীর রিভিউ</span>
+          খাবারের জায়গাগুলির রেটিং এবং রিভিউ পড়ুন।<br />
+        </span>
+      </section>
+    </div>
+
+    <section
+      class={cn(
+        'font-noto w-full p-8 mt-5 lg:mt-auto text-amber-950 cursor-pointer',
+        'bg-primary hover:bg-[#ffe5b0]',
+        'shadow-[2px_5px_1px_0px] shadow-amber-950',
+        'border-4 border-amber-950 rounded-lg',
+        'transition-all duration-300 ease-in-out transform-gpu',
+        'hover:scale-[1.01] hover:shadow-[2px_6px_2px_0px]',
+      )}
+    >
+      <span
+        class={cn(
+          'font-alkatra font-bold text-3xl',
+          'bg-orange-300 rounded-md px-1 py-0 whitespace-nowrap',
+        )}>উত্সবের হাইলাইটস</span
+      ><br /><br />
+      <span class="font-sans font-semibold text-lg lg:text-xl leading-none lg:leading-normal"
+        ><span class="font-extrabold bg-red-300 rounded-md px-1 py-0">সাংস্কৃতিক অনুষ্ঠান</span>
+        বিভিন্ন প্যান্ডেলে অনুষ্ঠিত সাংস্কৃতিক ইভেন্টগুলির আপডেট পেতে থাকুন।<br />
+        <span class="font-extrabold bg-red-300 rounded-md px-1 py-0">ওয়ার্কশপ এবং প্রতিযোগিতা</span
+        >
+        ওয়ার্কশপ, প্রতিযোগিতা, এবং অন্যান্য কার্যকলাপের বিস্তারিত তথ্য সংগ্রহ করুন।<br />
+      </span>
+    </section>
   </main>
 </Layout>
