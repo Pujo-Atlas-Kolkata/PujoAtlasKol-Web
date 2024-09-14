@@ -1,6 +1,6 @@
 ---
 import { Carousel } from '@/components/Carousel';
-// import { PlaystoreIcon } from '@/icons';
+import { PlaystoreIcon } from '@/icons';
 import Layout from '@/layouts/Layout.astro';
 import { cn } from '@/libs/utils';
 import { FaChevronDown } from 'react-icons/fa';
@@ -25,29 +25,42 @@ import { FaChevronDown } from 'react-icons/fa';
     <p class="hidden lg:block font-work text-left leading-normal">
       The most advanced pandal hopping experience<span class="animate-pulse">*</span>
     </p>
-    <span class="flex justify-center items-center lg:block pt-2">
-      <!-- <div class="flex h-screen items-center justify-around"> -->
-      <button class="rounded-md bg-black">
-        <span
-          class="block -translate-x-1 -translate-y-1.5 rounded-md border-2 border-black bg-amber-500 p-2 text-base
+    <span
+      class="flex flex-col gap-y-4 justify-center items-center lg:justify-start lg:items-start pt-2 lg:pt-0"
+    >
+      <span class="font-sans flex gap-x-3">
+        <button class="rounded-md bg-black lg:hidden block">
+          <span
+            class="block -translate-x-1 -translate-y-1.5 rounded-md border-2 border-black bg-rose-300 p-2 text-base
           active:translate-x-0 active:translate-y-0
           transition-all font-semibold"
-        >
-          Get Started
-        </span>
-      </button>
-      <!-- </div> -->
-      <!-- <div
+          >
+            Features <span class="animate-pulse">&darr;</span>
+          </span>
+        </button>
+        <button class="rounded-md bg-black lg:hidden block">
+          <span
+            class="block -translate-x-1 -translate-y-1.5 rounded-md border-2 border-black bg-amber-500 p-2 text-base
+          active:translate-x-0 active:translate-y-0
+          transition-all font-semibold"
+          >
+            Get Started <span class="">-&gt;</span>
+          </span>
+        </button>
+      </span>
+      <div
         class={cn(
           'text-xs py-1 px-4 outline outline-1',
-          'rounded-full w-fit flex items-center gap-2',
+          'rounded-full w-fit items-center gap-2',
+          // 'hidden',
+          'lg:flex flex',
         )}
       >
         <PlaystoreIcon />
         <span class="font-semibold"> Google Play </span>
         <span>|</span>
         <span> Coming Soon </span>
-      </div> -->
+      </div>
     </span>
     <div class="h-[500px]">
       <Carousel client:load client:only="react" />
