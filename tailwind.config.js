@@ -20,6 +20,20 @@ export default {
           background: '#ccbea1',
         },
       },
+      keyframes: {
+        'arrow-up-down': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(2px)' },
+        },
+        'arrow-left-right': {
+          '0%, 100%': { transform: 'translateX(0)' },
+          '50%': { transform: 'translateX(2px)' },
+        },
+      },
+      animation: {
+        'arrow-up-down': 'arrow-up-down 1s ease-in-out infinite',
+        'arrow-left-right': 'arrow-left-right 1s ease-in-out infinite',
+      },
     },
   },
   plugins: [],
