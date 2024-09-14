@@ -40,14 +40,14 @@ import { FaChevronDown } from 'react-icons/fa';
     </span>
     <div class="h-[500px]">
       <Carousel client:load client:only="react" />
-      <a href="#features" aria-label="scroll to features section">
+      <a href="#features" aria-label="scroll to features section" class="hidden lg:block">
         <FaChevronDown className="h-8 lg:h-12 w-8 mx-auto motion-safe:animate-bounce" />
       </a>
     </div>
     <span id="features"></span>
     <section
       class={cn(
-        'w-full p-8 mt-5 lg:mt-auto text-amber-950 cursor-pointer',
+        'w-full p-8 mt-0 lg:mt-auto text-amber-950 cursor-pointer',
         'bg-primary hover:bg-[#ffe5b0]',
         'shadow-[2px_5px_1px_0px] shadow-amber-950',
         'border-4 border-amber-950 rounded-lg',
