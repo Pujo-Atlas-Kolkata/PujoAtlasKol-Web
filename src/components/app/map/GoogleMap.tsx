@@ -73,10 +73,10 @@ const PandalMarker = ({
               className={cn(
                 'px-2 pt-2 pb-1 bg-blue-300 border-2 border-black text-base whitespace-nowrap',
                 'font-noto font-bold shadow-[0px_4px_2px_0px] rounded-none shadow-stone-950',
-                'flex justify-center items-center', // Added classes for centering text
+                'flex justify-center items-center',
               )}
             >
-              <div className="flex flex-row justify-center items-center gap-x-0">
+              <div className="flex flex-row-reverse justify-center items-center gap-x-1">
                 <FaDirections className="h-5 w-5 mb-1" />
                 &nbsp;Navigate
               </div>
