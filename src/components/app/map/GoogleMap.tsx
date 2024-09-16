@@ -6,7 +6,6 @@ import {
   useMap,
   type MapCameraChangedEvent,
 } from '@vis.gl/react-google-maps';
-
 import { IoMdLocate } from 'react-icons/io';
 import { RxCross2 } from 'react-icons/rx';
 
@@ -18,9 +17,12 @@ interface Pandal {
 }
 
 interface PandalMarkerProps {
+  id: number;
   name: string;
   lat: number;
   lng: number;
+  activePandalId: number | null;
+  setActivePandalId: (id: number | null) => void;
 }
 
 type Props = {
@@ -34,12 +36,17 @@ const Me = () => {
   );
 };
 
-const PandalMarker = ({ name, lat, lng }: PandalMarkerProps) => {
-  const [showDirectionsButton, setShowDirectionsButton] = useState(false);
-
+const PandalMarker = ({
+  id,
+  name,
+  lat,
+  lng,
+  activePandalId,
+  setActivePandalId,
+}: PandalMarkerProps) => {
   const handleMarkerClick = useCallback(() => {
-    setShowDirectionsButton(true);
-  }, []);
+    setActivePandalId(id);
+  }, [id, setActivePandalId]);
 
   const handleGetDirectionsClick = useCallback(() => {
     const url = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
@@ -47,8 +54,10 @@ const PandalMarker = ({ name, lat, lng }: PandalMarkerProps) => {
   }, [lat, lng]);
 
   const handleCloseButtonClick = useCallback(() => {
-    setShowDirectionsButton(false);
-  }, []);
+    setActivePandalId(null);
+  }, [setActivePandalId]);
+
+  const showDirectionsButton = activePandalId === id;
 
   return (
     <AdvancedMarker position={{ lat, lng }} onClick={handleMarkerClick}>
@@ -117,6 +126,7 @@ const Locator = () => {
 export const GoogleMaps = ({ apiKey, pandals }: Props) => {
   const center = useMemo(() => ({ lat: 22.4747061, lng: 88.3642162 }), []);
   const zoom = useMemo(() => 15, []);
+  const [activePandalId, setActivePandalId] = useState<number | null>(null);
 
   return (
     <section className="w-full h-[500px]">
@@ -134,7 +144,15 @@ export const GoogleMaps = ({ apiKey, pandals }: Props) => {
         >
           <Locator />
           {pandals.map((pandal) => (
-            <PandalMarker key={pandal.id} name={pandal.name} lat={pandal.lat} lng={pandal.lng} />
+            <PandalMarker
+              key={pandal.id}
+              id={pandal.id}
+              name={pandal.name}
+              lat={pandal.lat}
+              lng={pandal.lng}
+              activePandalId={activePandalId}
+              setActivePandalId={setActivePandalId}
+            />
           ))}
         </Map>
       </APIProvider>
