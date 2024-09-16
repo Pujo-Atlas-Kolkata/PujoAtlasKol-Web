@@ -1,7 +1,7 @@
 ---
 import Layout from '@/layouts/WebAppLayout.astro';
 import { cn } from '@/libs/utils';
-const API_KEY = import.meta.env.GOOGLE_MAPS_API_KEY;
+// const API_KEY = import.meta.env.GOOGLE_MAPS_API_KEY;
 ---
 
 <Layout>
@@ -16,7 +16,7 @@ const API_KEY = import.meta.env.GOOGLE_MAPS_API_KEY;
 
     Click on &quot;View Larger Map&quot; to navigate
 
-    <iframe
+    <!-- <iframe
       width="auto"
       height="500px"
       loading="eager"
@@ -24,6 +24,11 @@ const API_KEY = import.meta.env.GOOGLE_MAPS_API_KEY;
       referrerpolicy="no-referrer-when-downgrade"
       src=`https://www.google.com/maps/embed/v1/place?key=${API_KEY}&q=Naktala+Udayan+Sangha+Club/@22.4747061,88.3642162`
     >
-    </iframe>
+    </iframe> -->
+
+    <iframe
+      src="https://www.google.com/maps/d/embed?mid=1Tl6Nuuk3U-ASzHefAgRoR6aFFXByqC5r&ehbc=2E312F"
+      width="auto"
+      height="500px"></iframe>
   </main>
 </Layout>
