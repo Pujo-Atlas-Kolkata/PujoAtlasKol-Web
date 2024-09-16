@@ -10,13 +10,26 @@ import {
 import { IoMdLocate } from 'react-icons/io';
 import { RxCross2 } from 'react-icons/rx';
 
+interface Pandal {
+  id: number;
+  name: string;
+  lat: number;
+  lng: number;
+}
+
+interface PandalMarkerProps {
+  name: string;
+  lat: number;
+  lng: number;
+}
+
 const Me = () => {
   return (
     <div className="w-6 h-6 bg-blue-500 rounded-full border-4 border-white shadow shadow-blue-500 animate-pulse" />
   );
 };
 
-const PandalMarker = () => {
+const PandalMarker = ({ name, lat, lng }: PandalMarkerProps) => {
   const [showDirectionsButton, setShowDirectionsButton] = useState(false);
 
   const handleMarkerClick = useCallback(() => {
@@ -24,21 +37,19 @@ const PandalMarker = () => {
   }, []);
 
   const handleGetDirectionsClick = useCallback(() => {
-    const lat = 22.4747061;
-    const lng = 88.3642162;
     const url = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
     window.open(url, '_blank');
-  }, []);
+  }, [lat, lng]);
 
   const handleCloseButtonClick = useCallback(() => {
     setShowDirectionsButton(false);
   }, []);
 
   return (
-    <AdvancedMarker position={{ lat: 22.4747061, lng: 88.3642162 }} onClick={handleMarkerClick}>
+    <AdvancedMarker position={{ lat, lng }} onClick={handleMarkerClick}>
       <div className="relative cursor-pointer">
         <div className="w-6 h-6 bg-red-500 rounded-full border-4 border-white shadow shadow-red-500" />
-        <span className="!text-red-500 text-base font-bold">Pandal 1</span>
+        <span className="!text-red-500 text-base font-bold">{name}</span>
         {showDirectionsButton && (
           <div className="absolute top-10 left-0 mt-2">
             <button
@@ -98,7 +109,7 @@ const Locator = () => {
   );
 };
 
-export const GoogleMaps = ({ apiKey }: { apiKey: string }) => {
+export const GoogleMaps = ({ apiKey, pandals }: { apiKey: string; pandals: Pandal[] }) => {
   const center = useMemo(() => ({ lat: 22.4747061, lng: 88.3642162 }), []);
   const zoom = useMemo(() => 15, []);
 
@@ -117,7 +128,9 @@ export const GoogleMaps = ({ apiKey }: { apiKey: string }) => {
           className="relative w-full h-full"
         >
           <Locator />
-          <PandalMarker />
+          {pandals.map((pandal) => (
+            <PandalMarker key={pandal.id} name={pandal.name} lat={pandal.lat} lng={pandal.lng} />
+          ))}
         </Map>
       </APIProvider>
     </section>
