@@ -138,7 +138,7 @@ export const GoogleMaps = ({ apiKey, pandals }: Props) => {
   const [activePandalId, setActivePandalId] = useState<number | null>(null);
 
   return (
-    <section className="w-full h-[500px]">
+    <section className="max-w-screen h-[500px]">
       <APIProvider apiKey={apiKey} onLoad={() => console.log('Maps API has loaded.')}>
         <Map
           id="map"
