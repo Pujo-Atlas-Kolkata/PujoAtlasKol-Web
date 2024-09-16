@@ -10,7 +10,7 @@ import {
 import { IoMdLocate } from 'react-icons/io';
 import { RxCross2 } from 'react-icons/rx';
 
-export interface Pandal {
+interface Pandal {
   id: number;
   name: string;
   lat: number;
@@ -22,6 +22,11 @@ interface PandalMarkerProps {
   lat: number;
   lng: number;
 }
+
+type Props = {
+  apiKey: string;
+  pandals: Pandal[];
+};
 
 const Me = () => {
   return (
@@ -109,7 +114,7 @@ const Locator = () => {
   );
 };
 
-export const GoogleMaps = ({ apiKey, pandals }: { apiKey: string; pandals: Pandal[] }) => {
+export const GoogleMaps = ({ apiKey, pandals }: Props) => {
   const center = useMemo(() => ({ lat: 22.4747061, lng: 88.3642162 }), []);
   const zoom = useMemo(() => 15, []);
 
