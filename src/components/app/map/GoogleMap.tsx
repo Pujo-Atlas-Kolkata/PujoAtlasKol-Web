@@ -8,6 +8,8 @@ import {
 } from '@vis.gl/react-google-maps';
 import { IoMdLocate } from 'react-icons/io';
 import { RxCross2 } from 'react-icons/rx';
+import { FaDirections } from 'react-icons/fa';
+import { cn } from '@/libs/utils';
 
 interface Pandal {
   id: number;
@@ -65,12 +67,19 @@ const PandalMarker = ({
         <div className="w-6 h-6 bg-red-500 rounded-full border-4 border-white shadow shadow-red-500" />
         <span className="!text-red-500 text-base font-bold">{name}</span>
         {showDirectionsButton && (
-          <div className="absolute top-10 left-0 mt-2">
+          <div className="absolute top-10 left-0 mt-2 flex justify-center items-center">
             <button
               onClick={handleGetDirectionsClick}
-              className="p-2 bg-white border-2 border-black rounded shadow text-sm text-blue-500 whitespace-nowrap"
+              className={cn(
+                'px-2 pt-2 pb-1 bg-blue-300 border-2 border-black text-base whitespace-nowrap',
+                'font-noto font-bold shadow-[0px_4px_2px_0px] rounded-none shadow-stone-950',
+                'flex justify-center items-center', // Added classes for centering text
+              )}
             >
-              Get Directions
+              <div className="flex flex-row justify-center items-center gap-x-0">
+                <FaDirections className="h-5 w-5 mb-1" />
+                &nbsp;Navigate
+              </div>
             </button>
             <div className="absolute -top-2.5 -right-2.5">
               <RxCross2
