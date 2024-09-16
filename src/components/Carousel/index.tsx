@@ -51,7 +51,7 @@ export const Carousel = () => {
               <div
                 className={cn(
                   '[transform:translate3d(0,0,0)] flex',
-                  'pl-[var(--slide-spacing)] flex-[0_0_var(--slide-size)]',
+                  'px-2 md:px-0 md:pl-[var(--slide-spacing)] flex-[0_0_var(--slide-size)]',
                   {
                     'justify-start': isLeftmost,
                     'justify-center': isInMiddle,
