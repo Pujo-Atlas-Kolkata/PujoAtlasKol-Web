@@ -16,11 +16,32 @@ const Me = () => {
 };
 
 const PandalMarker = () => {
+  const [showDirectionsButton, setShowDirectionsButton] = useState(false);
+
+  const handleMarkerClick = useCallback(() => {
+    setShowDirectionsButton(true);
+  }, []);
+
+  const handleGetDirectionsClick = useCallback(() => {
+    const lat = 22.4747061;
+    const lng = 88.3642162;
+    const url = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
+    window.open(url, '_blank');
+  }, []);
+
   return (
-    <AdvancedMarker position={{ lat: 22.4747061, lng: 88.3642162 }}>
-      <div className="relative">
+    <AdvancedMarker position={{ lat: 22.4747061, lng: 88.3642162 }} onClick={handleMarkerClick}>
+      <div className="relative cursor-pointer">
         <div className="w-6 h-6 bg-red-500 rounded-full border-4 border-white shadow shadow-red-500" />
         <span className="!text-red-500 text-base font-bold">Pandal 1</span>
+        {showDirectionsButton && (
+          <button
+            onClick={handleGetDirectionsClick}
+            className="absolute top-10 left-0 mt-2 p-2 bg-white border-2 border-black rounded shadow text-sm text-blue-500 whitespace-nowrap"
+          >
+            Get Directions
+          </button>
+        )}
       </div>
     </AdvancedMarker>
   );
