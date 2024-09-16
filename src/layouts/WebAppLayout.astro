@@ -12,9 +12,9 @@ import Header from '@/components/shared/Header.astro';
 import Footer from '@/components/shared/Footer.astro';
 import { cn } from '@/libs/utils';
 import { ViewTransitions } from 'astro:transitions';
-import { LargeNavbar } from '@/components/shared/Navbar';
+// import { LargeNavbar } from '@/components/shared/Navbar';
 
-const currentPath = Astro.url.pathname;
+// const currentPath = Astro.url.pathname;
 
 type Props = {
   title?: string;
@@ -22,7 +22,7 @@ type Props = {
 };
 
 const {
-  title = 'Pujo Atlas',
+  title = 'Web App',
   description = 'Welcome to Pujo Atlas - your ultimate guide for Pandal Hopping during Durga Puja in Kolkata!',
 } = Astro.props as Props;
 ---
@@ -40,12 +40,25 @@ const {
     <meta name="description" content={description} />
     <ViewTransitions />
     <title>{title}</title>
+    <script is:inline>
+      const MAX_WIDTH = 768;
+
+      // redirect to 404 page if the screen size is greater than 768px
+      function checkScreenSize() {
+        if (window.innerWidth > MAX_WIDTH) {
+          window.location.href = '/404';
+        }
+      }
+
+      window.addEventListener('load', checkScreenSize);
+      window.addEventListener('resize', checkScreenSize);
+    </script>
     <!-- Google tag (gtag.js) -->
     <script
       type="text/partytown"
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-56WWMK6TC4"></script>
-    <script type="text/partytown">
+    <script type="text/partytown" is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         // eslint-disable-next-line prefer-rest-params
@@ -68,14 +81,7 @@ const {
     )}
   >
     <Header />
-    <div class="flex flex-1">
-      <aside class="hidden lg:grid place-items-center relative px-10">
-        <span class="fixed top-1/2 -translate-y-1/2">
-          <LargeNavbar path={currentPath} />
-        </span>
-      </aside>
-      <slot />
-    </div>
+    <slot />
     <Footer />
   </body>
 </html>

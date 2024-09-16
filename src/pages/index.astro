@@ -1,7 +1,7 @@
 ---
 import { Carousel } from '@/components/Carousel';
 // import { PlaystoreIcon } from '@/icons';
-import Layout from '@/layouts/Layout.astro';
+import Layout from '@/layouts/LandingPageLayout.astro';
 import { cn } from '@/libs/utils';
 import { FaChevronDown } from 'react-icons/fa';
 import { IoMdInformationCircle } from 'react-icons/io';
@@ -37,7 +37,7 @@ import { IoMdInformationCircle } from 'react-icons/io';
             Features&nbsp;<span class="animate-arrow-up-down">&darr;</span>
           </span>
         </a>
-        <button class="rounded-md bg-black lg:hidden block">
+        <a class="rounded-md bg-black lg:hidden block" href="/app">
           <span
             class="flex -translate-x-1 -translate-y-1.5 rounded-md border-2 border-black bg-amber-500 p-2 text-base
           active:translate-x-0 active:translate-y-0
@@ -45,7 +45,7 @@ import { IoMdInformationCircle } from 'react-icons/io';
           >
             Get Started&nbsp;<span class="animate-arrow-left-right">-&gt;</span>
           </span>
-        </button>
+        </a>
       </span>
       <!-- <div
         class={cn(

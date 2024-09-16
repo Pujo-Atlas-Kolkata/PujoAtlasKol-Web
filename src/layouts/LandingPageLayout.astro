@@ -1,0 +1,81 @@
+---
+import '@fontsource-variable/inter/wght.css';
+import '@fontsource-variable/work-sans';
+import '@fontsource-variable/noto-sans-bengali';
+import '@fontsource-variable/alkatra';
+import interWoff2 from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
+import workSansWoff2 from '@fontsource-variable/work-sans/files/work-sans-latin-wght-normal.woff2?url';
+import notoSansWoff2 from '@fontsource-variable/noto-sans-bengali/files/noto-sans-bengali-latin-wght-normal.woff2?url';
+import alkatraWoff2 from '@fontsource-variable/alkatra/files/alkatra-latin-wght-normal.woff2?url';
+
+import Header from '@/components/shared/Header.astro';
+import Footer from '@/components/shared/Footer.astro';
+import { cn } from '@/libs/utils';
+import { ViewTransitions } from 'astro:transitions';
+import { LargeNavbar } from '@/components/shared/Navbar';
+
+const currentPath = Astro.url.pathname;
+
+type Props = {
+  title?: string;
+  description?: string;
+};
+
+const {
+  title = 'Pujo Atlas',
+  description = 'Welcome to Pujo Atlas - your ultimate guide for Pandal Hopping during Durga Puja in Kolkata!',
+} = Astro.props as Props;
+---
+
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="preload" as="font" type="font/woff2" href={workSansWoff2} crossorigin="anonymous" />
+    <link rel="preload" as="font" type="font/woff2" href={alkatraWoff2} crossorigin="anonymous" />
+    <link rel="preload" as="font" type="font/woff2" href={interWoff2} crossorigin="anonymous" />
+    <link rel="preload" as="font" type="font/woff2" href={notoSansWoff2} crossorigin="anonymous" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <ViewTransitions />
+    <title>{title}</title>
+    <!-- Google tag (gtag.js) -->
+    <script
+      type="text/partytown"
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-56WWMK6TC4"></script>
+    <script type="text/partytown" is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        // eslint-disable-next-line prefer-rest-params
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'G-56WWMK6TC4');
+    </script>
+    <!-- Google tag (gtag.js) -->
+  </head>
+  <body
+    class={cn(
+      'bg-secondary-background',
+      'text-primary-foreground [&_*]:text-primary-foreground',
+      'min-w-screen min-h-screen flex flex-col overflow-x-hidden',
+      '[&_*::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar]:w-2',
+      '[&_*::-webkit-scrollbar-track]:bg-primary-foreground [&::-webkit-scrollbar-track]:bg-primary-foreground',
+      '[&_*::-webkit-scrollbar-thumb]:bg-secondary-background [&::-webkit-scrollbar-thumb]:bg-secondary-background',
+    )}
+  >
+    <Header />
+    <div class="flex flex-1">
+      <aside class="hidden lg:grid place-items-center relative px-10">
+        <span class="fixed top-1/2 -translate-y-1/2">
+          <LargeNavbar path={currentPath} />
+        </span>
+      </aside>
+      <slot />
+    </div>
+    <Footer />
+  </body>
+</html>
