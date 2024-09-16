@@ -11,10 +11,6 @@ import alkatraWoff2 from '@fontsource-variable/alkatra/files/alkatra-latin-wght-
 import Header from '@/components/shared/Header.astro';
 import Footer from '@/components/shared/Footer.astro';
 import { cn } from '@/libs/utils';
-import { ViewTransitions } from 'astro:transitions';
-// import { LargeNavbar } from '@/components/shared/Navbar';
-
-// const currentPath = Astro.url.pathname;
 
 type Props = {
   title?: string;
@@ -38,7 +34,6 @@ const {
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
-    <ViewTransitions />
     <title>{title}</title>
     <script is:inline>
       const MAX_WIDTH = 768;
