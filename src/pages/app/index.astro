@@ -1,9 +1,9 @@
 ---
-import { GoogleMaps } from '@/components/app/map/GoogleMap';
+import { GoogleMaps, type Pandal } from '@/components/app/map/GoogleMap';
 import Layout from '@/layouts/WebAppLayout.astro';
 import { cn } from '@/libs/utils';
 const API_KEY = import.meta.env.GOOGLE_MAPS_API_KEY;
-const pandals = [
+const pandals: Pandal[] = [
   { id: 1, name: 'Pandal 1', lat: 22.473695, lng: 88.362758 },
   { id: 2, name: 'Pandal 2', lat: 22.472938, lng: 88.366766 },
   { id: 3, name: 'Pandal 3', lat: 22.473213, lng: 88.362905 },

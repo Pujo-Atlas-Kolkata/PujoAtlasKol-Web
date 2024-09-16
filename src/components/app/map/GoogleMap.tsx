@@ -10,7 +10,7 @@ import {
 import { IoMdLocate } from 'react-icons/io';
 import { RxCross2 } from 'react-icons/rx';
 
-interface Pandal {
+export interface Pandal {
   id: number;
   name: string;
   lat: number;
