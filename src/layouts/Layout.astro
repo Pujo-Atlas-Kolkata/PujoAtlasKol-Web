@@ -59,7 +59,7 @@ const {
   </head>
   <body
     class={cn(
-      'bg-secondary-background',
+      'bg-secondary-background lg:overflow-hidden',
       'text-primary-foreground [&_*]:text-primary-foreground',
       'min-w-screen min-h-screen flex flex-col overflow-x-hidden',
       '[&_*::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar]:w-2',
@@ -68,7 +68,7 @@ const {
     )}
   >
     <Header />
-    <div class="flex flex-1">
+    <div class="flex flex-1 lg:max-h-[83vh]">
       <aside class="hidden lg:grid place-items-center relative px-10">
         <span class="fixed top-1/2 -translate-y-1/2">
           <LargeNavbar path={currentPath} />
