@@ -1,7 +1,8 @@
 ---
+import { MapComponent } from '@/components/app/map/MapComponent';
 import Layout from '@/layouts/WebAppLayout.astro';
 import { cn } from '@/libs/utils';
-// const API_KEY = import.meta.env.GOOGLE_MAPS_API_KEY;
+const API_KEY = import.meta.env.GOOGLE_MAPS_API_KEY;
 ---
 
 <Layout>
@@ -16,6 +17,8 @@ import { cn } from '@/libs/utils';
 
     Click on &quot;View Larger Map&quot; to navigate
 
+    <MapComponent apiKey={API_KEY} client:load client:only="react" />
+
     <!-- <iframe
       width="auto"
       height="500px"
@@ -25,10 +28,5 @@ import { cn } from '@/libs/utils';
       src=`https://www.google.com/maps/embed/v1/place?key=${API_KEY}&q=Naktala+Udayan+Sangha+Club/@22.4747061,88.3642162`
     >
     </iframe> -->
-
-    <iframe
-      src="https://www.google.com/maps/d/embed?mid=1Tl6Nuuk3U-ASzHefAgRoR6aFFXByqC5r&ehbc=2E312F"
-      width="auto"
-      height="500px"></iframe>
   </main>
 </Layout>
