@@ -15,6 +15,17 @@ const Me = () => {
   );
 };
 
+const PandalMarker = () => {
+  return (
+    <AdvancedMarker position={{ lat: 22.4747061, lng: 88.3642162 }}>
+      <div className="relative">
+        <div className="w-6 h-6 bg-red-500 rounded-full border-4 border-white shadow shadow-red-500" />
+        <span className="!text-red-500 text-base font-bold">Pandal 1</span>
+      </div>
+    </AdvancedMarker>
+  );
+};
+
 const Locator = () => {
   const map = useMap('map');
   const [userLocation, setUserLocation] = useState<google.maps.LatLngLiteral | null>(null);
@@ -72,6 +83,7 @@ export const GoogleMaps = ({ apiKey }: { apiKey: string }) => {
           className="relative w-full h-full"
         >
           <Locator />
+          <PandalMarker />
         </Map>
       </APIProvider>
     </section>
