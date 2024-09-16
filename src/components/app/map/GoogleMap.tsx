@@ -137,6 +137,11 @@ export const GoogleMaps = ({ apiKey, pandals }: Props) => {
   const zoom = useMemo(() => 15, []);
   const [activePandalId, setActivePandalId] = useState<number | null>(null);
 
+  // Handle clicks on the map to close the active button
+  const handleMapClick = useCallback(() => {
+    setActivePandalId(null);
+  }, []);
+
   return (
     <section className="max-w-screen h-[500px]">
       <APIProvider apiKey={apiKey} onLoad={() => console.log('Maps API has loaded.')}>
@@ -149,6 +154,7 @@ export const GoogleMaps = ({ apiKey, pandals }: Props) => {
           onCameraChanged={(ev: MapCameraChangedEvent) =>
             console.log('camera changed:', ev.detail.center, 'zoom:', ev.detail.zoom)
           }
+          onClick={handleMapClick}
           className="relative w-full h-full"
         >
           <Locator />
