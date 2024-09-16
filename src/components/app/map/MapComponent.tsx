@@ -8,6 +8,7 @@ import {
 } from '@vis.gl/react-google-maps';
 
 import { IoMdLocate } from 'react-icons/io';
+import { RxCross2 } from 'react-icons/rx';
 
 const Me = () => {
   return (
@@ -29,18 +30,30 @@ const PandalMarker = () => {
     window.open(url, '_blank');
   }, []);
 
+  const handleCloseButtonClick = useCallback(() => {
+    setShowDirectionsButton(false);
+  }, []);
+
   return (
     <AdvancedMarker position={{ lat: 22.4747061, lng: 88.3642162 }} onClick={handleMarkerClick}>
       <div className="relative cursor-pointer">
         <div className="w-6 h-6 bg-red-500 rounded-full border-4 border-white shadow shadow-red-500" />
         <span className="!text-red-500 text-base font-bold">Pandal 1</span>
         {showDirectionsButton && (
-          <button
-            onClick={handleGetDirectionsClick}
-            className="absolute top-10 left-0 mt-2 p-2 bg-white border-2 border-black rounded shadow text-sm text-blue-500 whitespace-nowrap"
-          >
-            Get Directions
-          </button>
+          <div className="absolute top-10 left-0 mt-2">
+            <button
+              onClick={handleGetDirectionsClick}
+              className="p-2 bg-white border-2 border-black rounded shadow text-sm text-blue-500 whitespace-nowrap"
+            >
+              Get Directions
+            </button>
+            <div className="absolute -top-2.5 -right-2.5">
+              <RxCross2
+                className="h-6 w-6 bg-white border-2 border-black rounded-full text-red-500"
+                onClick={handleCloseButtonClick}
+              />
+            </div>
+          </div>
         )}
       </div>
     </AdvancedMarker>
