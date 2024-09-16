@@ -1,6 +1,7 @@
 ---
 import Layout from '@/layouts/WebAppLayout.astro';
 import { cn } from '@/libs/utils';
+const API_KEY = import.meta.env.GOOGLE_MAPS_API_KEY;
 ---
 
 <Layout>
@@ -11,6 +12,16 @@ import { cn } from '@/libs/utils';
       'lg:rounded-l-xl lg:shadow-l-xl overflow-y-auto scroll-smooth',
     )}
   >
-    Web App Home Screen BN
+    Web App Home Screen EN
+
+    <iframe
+      width="auto"
+      height="500px"
+      loading="eager"
+      allowfullscreen
+      referrerpolicy="no-referrer-when-downgrade"
+      src=`https://www.google.com/maps/embed/v1/place?key=${API_KEY}&q=Naktala+Udayan+Sangha+club/@22.4747061,88.3642162`
+    >
+    </iframe>
   </main>
 </Layout>
