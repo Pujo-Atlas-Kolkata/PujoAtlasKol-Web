@@ -19,7 +19,10 @@ const currentPath = Astro.url.pathname;
   <a
     href="/app/pandals"
     aria-label="pandals"
-    class={cn(currentPath === '/app/pandals' && 'bg-white/80', 'px-8 py-1.5 rounded-md')}
+    class={cn(
+      (currentPath === '/app/pandals' || currentPath === '/app/pandals/') && 'bg-white/80',
+      'px-8 py-1.5 rounded-md',
+    )}
   >
     <span class="flex flex-col items-center justify-center gap-y-1">
       <MdOutlineFestival className="h-7 w-7" />
