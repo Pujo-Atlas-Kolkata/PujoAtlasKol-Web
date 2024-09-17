@@ -77,8 +77,12 @@ const {
     )}
   >
     <Header />
-    <slot />
-    <BottomNav />
-    <Footer />
+    <div>
+      <slot />
+      <BottomNav />
+    </div>
+    <div class="mt-auto bg-cyan-500">
+      <Footer />
+    </div>
   </body>
 </html>
