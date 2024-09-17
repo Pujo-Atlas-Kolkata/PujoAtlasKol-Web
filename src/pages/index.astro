@@ -3,7 +3,7 @@ import { Carousel } from '@/components/Carousel';
 import { PlaystoreIcon } from '@/icons';
 import Layout from '@/layouts/Layout.astro';
 import { cn } from '@/libs/utils';
-import { FaChevronDown } from 'react-icons/fa';
+import { FaChevronDown, FaAsterisk } from 'react-icons/fa';
 ---
 
 <Layout>
@@ -33,7 +33,7 @@ import { FaChevronDown } from 'react-icons/fa';
         <span> Coming Soon </span>
       </div>
     </span>
-    <div class="h-[500px]">
+    <div>
       <Carousel client:load client:only="react" />
       <a href="#features" aria-label="scroll to features section" class="hidden lg:block">
         <FaChevronDown className="h-8 lg:h-12 w-8 mx-auto motion-safe:animate-bounce" />
@@ -42,178 +42,291 @@ import { FaChevronDown } from 'react-icons/fa';
     <span id="features"></span>
     <section
       class={cn(
-        'w-full p-8 mt-0 lg:mt-auto text-amber-950 cursor-pointer',
-        'bg-primary hover:bg-[#ffe5b0]',
+        'w-full h-full p-8 mt-0 lg:mt-auto text-amber-950 cursor-pointer',
+        'bg-primary md:hover:bg-[#ffe5b0]',
         'shadow-[2px_5px_1px_0px] shadow-amber-950',
         'border-4 border-amber-950 rounded-lg',
         'transition-all duration-300 ease-in-out transform-gpu',
-        'hover:scale-[1.01] hover:shadow-[2px_6px_2px_0px]',
+        'lg:hover:scale-[1.01] lg:hover:shadow-[2px_6px_2px_0px]',
+        'font-work flex flex-col gap-6 tracking-tight',
       )}
     >
-      <span
+      <h2
         class={cn(
-          'font-work font-bold text-3xl',
-          'bg-orange-300 rounded-md px-[2px] py-0.5 whitespace-nowrap',
-        )}>What is Pujo Atlas?</span
-      ><br /><br />
-      <span class="font-semibold text-lg lg:text-xl leading-none lg:leading-normal"
-        ><span class="font-extrabold bg-red-300 rounded-md px-[2px] py-0.5">Pujo Atlas</span> is your
-        ultimate guide for Pandal Hopping during Durga Puja in Kolkata! This open-source project aims
-        to provide a comprehensive and user-friendly website that lists all the Durga Pujas happening
-        around Kolkata and offers a host of features to make your pandal hopping experience seamless
-        and enjoyable.</span
+          'font-bold text-2xl md:text-3xl text-wrap',
+          'bg-orange-300 rounded-md px-1 py-0.5 w-fit',
+        )}
       >
+        What is Pujo Atlas?
+      </h2>
+      <p class="leading-snug text-lg lg:text-xl lg:leading-normal">
+        <span
+          class="font-semibold bg-red-300 rounded-md px-[2px] py-0.5 inline-flex items-center gap-1 whitespace-nowrap"
+        >
+          <FaAsterisk className="text-base" />
+          Pujo Atlas
+        </span>
+        is your ultimate guide for Pandal Hopping during Durga Puja in Kolkata! This open-source project
+        aims to provide a comprehensive and user-friendly website that lists all the Durga Pujas happening
+        around Kolkata and offers a host of features to make your pandal hopping experience seamless
+        and enjoyable.
+      </p>
     </section>
 
-    <div class="flex flex-col lg:flex-row gap-4">
-      <section
+    <section class="flex flex-col lg:flex-row gap-4">
+      <div
         class={cn(
-          'w-full p-8 text-amber-950 cursor-pointer',
-          'bg-primary hover:bg-[#ffe5b0]',
+          'w-full h-full p-8 text-amber-950 cursor-pointer',
+          'bg-primary lg:hover:bg-[#ffe5b0]',
           'shadow-[2px_5px_1px_0px] shadow-amber-950',
           'border-4 border-amber-950 rounded-lg',
           'transition-all duration-300 ease-in-out transform-gpu',
-          'hover:scale-[1.01] hover:shadow-[2px_6px_2px_0px]',
+          'lg:hover:scale-[1.01] lg:hover:shadow-[2px_6px_2px_0px]',
+          'font-work flex flex-col gap-6 tracking-tight',
         )}
       >
-        <span class={cn('font-work font-bold text-3xl', 'bg-orange-300 rounded-md px-[2px] py-0.5')}
-          >Pandal Listings</span
-        ><br /><br />
-        <span class="font-sans font-semibold text-lg lg:text-xl leading-none lg:leading-normal"
-          ><span class="font-extrabold bg-red-300 rounded-md px-[2px] py-0.5"
-            >Categorized Lists:&nbsp;</span
-          > Discover pandals based on popularity, themes, and locality.<span class="block sm:hidden"
-            ><br /><br /></span
-          >
-          <span class="hidden sm:inline"><br /></span>
-          <span class="font-extrabold bg-red-300 rounded-md px-[2px] py-0.5"
-            >Ratings and Reviews:&nbsp;</span
-          > Check out user ratings and reviews to choose the best pandals.<span
-            class="block sm:hidden"><br /><br /></span
-          >
-          <span class="hidden sm:inline"><br /></span>
-          <span class="font-extrabold bg-red-300 rounded-md px-[2px] py-0.5">Favourites:&nbsp;</span
-          > Save your favourite pandals for quick access.<br /></span
+        <h2
+          class={cn(
+            'font-bold text-2xl md:text-3xl text-wrap',
+            'bg-orange-300 rounded-md px-1 py-0.5 w-fit',
+          )}
         >
-      </section>
-      <section
+          Pandal Listings
+        </h2>
+        <ul class="text-lg lg:text-xl leading-snug lg:leading-normal flex flex-col gap-3">
+          <li>
+            <span
+              class={cn(
+                'font-semibold bg-red-300 rounded-md px-[2px]',
+                'py-0.5 inline-flex items-center gap-1 whitespace-nowrap',
+              )}
+            >
+              <FaAsterisk className="text-base" />
+              Categorized Lists:&nbsp;
+            </span> Discover pandals based on popularity, themes, and locality.
+          </li>
+          <li>
+            <span
+              class={cn(
+                'font-semibold bg-red-300 rounded-md px-[2px]',
+                'py-0.5 inline-flex items-center gap-1 whitespace-nowrap',
+              )}
+            >
+              <FaAsterisk className="text-base" />
+              Ratings and Reviews:&nbsp;
+            </span> Check out user ratings and reviews to choose the best pandals.
+          </li>
+          <li>
+            <span
+              class={cn(
+                'font-semibold bg-red-300 rounded-md px-[2px]',
+                'py-0.5 inline-flex items-center gap-1 whitespace-nowrap',
+              )}
+            >
+              <FaAsterisk className="text-base" />
+              Favourites:&nbsp;
+            </span> Save your favourite pandals for quick access.
+          </li>
+        </ul>
+      </div>
+      <div
         class={cn(
-          'w-full p-8 text-amber-950 cursor-pointer',
-          'bg-primary hover:bg-[#ffe5b0]',
+          'w-full h-full p-8 mt-0 lg:mt-auto text-amber-950 cursor-pointer',
+          'bg-primary md:hover:bg-[#ffe5b0]',
           'shadow-[2px_5px_1px_0px] shadow-amber-950',
           'border-4 border-amber-950 rounded-lg',
           'transition-all duration-300 ease-in-out transform-gpu',
-          'hover:scale-[1.01] hover:shadow-[2px_6px_2px_0px]',
+          'lg:hover:scale-[1.01] lg:hover:shadow-[2px_6px_2px_0px]',
+          'font-work flex flex-col gap-6 tracking-tight',
         )}
       >
-        <span class={cn('font-work font-bold text-3xl', 'bg-orange-300 rounded-md px-[2px] py-0.5')}
-          >Map Integration</span
-        ><br /><br />
-        <span class="font-sans font-semibold text-lg lg:text-xl leading-none lg:leading-normal"
-          ><span class="font-extrabold bg-red-300 rounded-md px-[2px] py-0.5"
-            >Interactive Map:&nbsp;</span
-          >
-          View the locations of all listed pandals on an interactive map.<span
-            class="block sm:hidden"><br /><br /></span
-          >
-          <span class="hidden sm:inline"><br /></span>
-          <span class="font-extrabold bg-red-300 rounded-md px-[2px] py-0.5">Navigation:&nbsp;</span
-          > Get directions and the best routes using public transport or walking.<span
-            class="block sm:hidden"><br /><br /></span
-          >
-          <span class="hidden sm:inline"><br /></span>
-          <span class="font-extrabold bg-red-300 rounded-md px-[2px] py-0.5"
-            >Real-time Traffic Updates:&nbsp;</span
-          > Avoid traffic and enjoy a smoother pandal hopping experience.<br /></span
+        <h2
+          class={cn(
+            'font-bold text-2xl md:text-3xl text-wrap',
+            'bg-orange-300 rounded-md px-1 py-0.5 w-fit',
+          )}
         >
-      </section>
-    </div>
-
-    <div class="flex flex-col lg:flex-row gap-4">
-      <section
+          Map Integration
+        </h2>
+        <ul class="text-lg lg:text-xl leading-snug lg:leading-normal flex flex-col gap-3">
+          <li>
+            <span
+              class={cn(
+                'font-semibold bg-red-300 rounded-md px-[2px]',
+                'py-0.5 inline-flex items-center gap-1 whitespace-nowrap',
+              )}
+            >
+              <FaAsterisk className="text-base" />
+              Interactive Map:&nbsp;
+            </span>
+            View the locations of all listed pandals on an interactive map.
+          </li>
+          <li>
+            <span
+              class={cn(
+                'font-semibold bg-red-300 rounded-md px-[2px]',
+                'py-0.5 inline-flex items-center gap-1 whitespace-nowrap',
+              )}
+            >
+              <FaAsterisk className="text-base" />
+              Navigation:&nbsp;</span
+            > Get directions and the best routes using public transport or walking.
+          </li>
+          <li>
+            <span
+              class={cn(
+                'font-semibold bg-red-300 rounded-md px-[2px]',
+                'py-0.5 inline-flex items-center gap-1 whitespace-nowrap',
+              )}
+            >
+              <FaAsterisk className="text-base" />
+              Real-time Traffic Updates:&nbsp;</span
+            > Avoid traffic and enjoy a smoother pandal hopping experience.
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="flex flex-col lg:flex-row gap-4">
+      <div
         class={cn(
-          'w-full p-8 text-amber-950 cursor-pointer',
-          'bg-primary hover:bg-[#ffe5b0]',
+          'w-full h-full p-8 mt-0 lg:mt-auto text-amber-950 cursor-pointer',
+          'bg-primary md:hover:bg-[#ffe5b0]',
           'shadow-[2px_5px_1px_0px] shadow-amber-950',
           'border-4 border-amber-950 rounded-lg',
           'transition-all duration-300 ease-in-out transform-gpu',
-          'hover:scale-[1.01] hover:shadow-[2px_6px_2px_0px]',
+          'lg:hover:scale-[1.01] lg:hover:shadow-[2px_6px_2px_0px]',
+          'font-work flex flex-col gap-6 tracking-tight',
         )}
       >
-        <span class={cn('font-work font-bold text-3xl', 'bg-orange-300 rounded-md px-[2px] py-0.5')}
-          >Medical Help</span
-        ><br /><br />
-        <span class="font-sans font-semibold text-lg lg:text-xl leading-none lg:leading-normal"
-          ><span class="font-extrabold bg-red-300 rounded-md px-[2px] py-0.5"
-            >Nearby Hospitals and Clinics:&nbsp;</span
-          > Find locations and contact details of nearby healthcare facilities.<span
-            class="block sm:hidden"><br /><br /></span
-          >
-          <span class="hidden sm:inline"><br /></span>
-          <span class="font-extrabold bg-red-300 rounded-md px-[2px] py-0.5"
-            >First Aid Tips:&nbsp;</span
-          > Access basic first aid tips for common health issues during pandal hopping.<br /></span
+        <h2
+          class={cn(
+            'font-bold text-2xl md:text-3xl text-wrap',
+            'bg-orange-300 rounded-md px-1 py-0.5 w-fit',
+          )}
         >
-      </section>
-      <section
+          Medical Help
+        </h2>
+        <ul class="text-lg lg:text-xl leading-snug lg:leading-normal flex flex-col gap-3">
+          <li>
+            <span
+              class={cn(
+                'font-semibold bg-red-300 rounded-md px-[2px]',
+                'py-0.5 inline-flex items-center gap-1 whitespace-nowrap',
+              )}
+            >
+              <FaAsterisk className="text-base" />
+              Nearby Hospitals and Clinics:&nbsp;
+            </span>
+            Find locations and contact details of nearby healthcare facilities.
+          </li>
+          <li>
+            <span
+              class={cn(
+                'font-semibold bg-red-300 rounded-md px-[2px]',
+                'py-0.5 inline-flex items-center gap-1 whitespace-nowrap',
+              )}
+            >
+              <FaAsterisk className="text-base" />
+              First Aid Tips:&nbsp;
+            </span>
+            Access basic first aid tips for common health issues during pandal hopping.
+          </li>
+        </ul>
+      </div>
+      <div
         class={cn(
-          'w-full p-8 text-amber-950 cursor-pointer',
-          'bg-primary hover:bg-[#ffe5b0]',
+          'w-full h-full p-8 mt-0 lg:mt-auto text-amber-950 cursor-pointer',
+          'bg-primary md:hover:bg-[#ffe5b0]',
           'shadow-[2px_5px_1px_0px] shadow-amber-950',
           'border-4 border-amber-950 rounded-lg',
           'transition-all duration-300 ease-in-out transform-gpu',
-          'hover:scale-[1.01] hover:shadow-[2px_6px_2px_0px]',
+          'lg:hover:scale-[1.01] lg:hover:shadow-[2px_6px_2px_0px]',
+          'font-work flex flex-col gap-6 tracking-tight',
         )}
       >
-        <span class={cn('font-work font-bold text-3xl', 'bg-orange-300 rounded-md px-[2px] py-0.5')}
-          >Bites and Meals</span
-        ><br /><br />
-        <span class="font-sans font-semibold text-lg lg:text-xl leading-none lg:leading-normal"
-          ><span class="font-extrabold bg-red-300 rounded-md px-[2px] py-0.5"
-            >Nearby Eateries:&nbsp;</span
-          >
-          Discover restaurants and food stalls near pandals.<span class="block sm:hidden"
-            ><br /><br /></span
-          >
-          <span class="hidden sm:inline"><br /></span>
-          <span class="font-extrabold bg-red-300 rounded-md px-[2px] py-0.5"
-            >Cuisines and Specialties:&nbsp;</span
-          > Explore local delicacies and must-try dishes.<span class="block sm:hidden"
-            ><br /><br /></span
-          >
-          <span class="hidden sm:inline"><br /></span>
-          <span class="font-extrabold bg-red-300 rounded-md px-[2px] py-0.5"
-            >User Reviews:&nbsp;</span
-          > Read user ratings and reviews of food places.<br /></span
+        <h2
+          class={cn(
+            'font-bold text-2xl md:text-3xl text-wrap',
+            'bg-orange-300 rounded-md px-1 py-0.5 w-fit',
+          )}
         >
-      </section>
-    </div>
-
+          Bites and Meals
+        </h2>
+        <ul class="text-lg lg:text-xl leading-snug lg:leading-normal">
+          <li>
+            <span
+              class={cn(
+                'font-semibold bg-red-300 rounded-md px-[2px]',
+                'py-0.5 inline-flex items-center gap-1 whitespace-nowrap',
+              )}
+            >
+              <FaAsterisk className="text-base" />
+              Nearby Eateries:&nbsp;
+            </span>
+            Discover restaurants and food stalls near pandals.
+          </li>
+          <li>
+            <span
+              class={cn(
+                'font-semibold bg-red-300 rounded-md px-[2px]',
+                'py-0.5 inline-flex items-center gap-1 whitespace-nowrap',
+              )}
+            >
+              <FaAsterisk className="text-base" />
+              Cuisines and Specialties:&nbsp;
+            </span>
+            Explore local delicacies and must-try dishes.
+          </li>
+          <li>
+            <span
+              class="font-semibold bg-red-300 rounded-md px-[2px] py-0.5 inline-flex items-center gap-1 whitespace-nowrap"
+            >
+              <FaAsterisk className="text-base" />
+              User Reviews:&nbsp;
+            </span> Read user ratings and reviews of food places.
+          </li>
+        </ul>
+      </div>
+    </section>
     <section
       class={cn(
-        'w-full p-8 text-amber-950 cursor-pointer',
-        'bg-primary hover:bg-[#ffe5b0]',
+        'w-full h-full p-8 mt-0 lg:mt-auto text-amber-950 cursor-pointer',
+        'bg-primary md:hover:bg-[#ffe5b0]',
         'shadow-[2px_5px_1px_0px] shadow-amber-950',
         'border-4 border-amber-950 rounded-lg',
         'transition-all duration-300 ease-in-out transform-gpu',
-        'hover:scale-[1.01] hover:shadow-[2px_6px_2px_0px]',
+        'lg:hover:scale-[1.01] lg:hover:shadow-[2px_6px_2px_0px]',
+        'font-work flex flex-col gap-6 tracking-tight',
       )}
     >
-      <span class={cn('font-work font-bold text-3xl', 'bg-orange-300 rounded-md px-[2px] py-0.5')}
-        >Festive Highlights</span
-      ><br /><br />
-      <span class="font-sans font-semibold text-lg lg:text-xl leading-none lg:leading-loose"
-        ><span class="font-extrabold bg-red-300 rounded-md px-[2px] py-0.5"
-          >Cultural Programs:&nbsp;</span
-        >
-        Stay updated on cultural events happening in various pandals.<span class="block sm:hidden"
-          ><br /><br /></span
-        >
-        <span class="hidden sm:inline"><br /></span>
-        <span class="font-extrabold bg-red-300 rounded-md px-[2px] py-0.5"
-          >Workshops and Competitions:&nbsp;</span
-        > Get details of workshops, competitions, and other activities.<br /></span
+      <h2
+        class={cn(
+          'font-bold text-2xl md:text-3xl text-wrap',
+          'bg-orange-300 rounded-md px-1 py-0.5 w-fit',
+        )}
       >
+        Festive Highlights
+      </h2>
+      <ul class="text-lg lg:text-xl leading-snug lg:leading-normal flex flex-col gap-3">
+        <li>
+          <span
+            class="font-semibold bg-red-300 rounded-md px-[2px] py-0.5 inline-flex items-center gap-1 whitespace-nowrap"
+          >
+            <FaAsterisk className="text-base" />
+            Cultural Programs:&nbsp;
+          </span>
+          Stay updated on cultural events happening in various pandals.
+        </li>
+        <li>
+          <span
+            class="font-semibold bg-red-300 rounded-md px-[2px] py-0.5 inline-flex items-center gap-1 whitespace-nowrap"
+          >
+            <FaAsterisk className="text-base" />
+            Workshops and Competitions:&nbsp;
+          </span>
+          Get details of workshops, competitions, and other activities.
+        </li>
+      </ul>
     </section>
   </main>
 </Layout>
