@@ -10,6 +10,7 @@ import alkatraWoff2 from '@fontsource-variable/alkatra/files/alkatra-latin-wght-
 
 import Header from '@/components/shared/Header.astro';
 import Footer from '@/components/shared/Footer.astro';
+import BottomNav from '@/components/app/shared/BottomNav.astro';
 import { cn } from '@/libs/utils';
 
 type Props = {
@@ -77,6 +78,7 @@ const {
   >
     <Header />
     <slot />
+    <BottomNav />
     <Footer />
   </body>
 </html>
