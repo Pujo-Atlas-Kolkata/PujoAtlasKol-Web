@@ -7,7 +7,6 @@ import {
   type MapCameraChangedEvent,
 } from '@vis.gl/react-google-maps';
 import { IoMdLocate } from 'react-icons/io';
-import { RxCross2 } from 'react-icons/rx';
 import { FaDirections } from 'react-icons/fa';
 import { cn } from '@/libs/utils';
 
@@ -55,10 +54,6 @@ const PandalMarker = ({
     window.open(url, '_blank');
   }, [lat, lng]);
 
-  const handleCloseButtonClick = useCallback(() => {
-    setActivePandalId(null);
-  }, [setActivePandalId]);
-
   const showDirectionsButton = activePandalId === id;
 
   return (
@@ -81,12 +76,6 @@ const PandalMarker = ({
                 &nbsp;Navigate
               </div>
             </button>
-            <div className="absolute -top-2.5 -right-2.5">
-              <RxCross2
-                className="h-6 w-6 bg-white border-2 border-black rounded-full"
-                onClick={handleCloseButtonClick}
-              />
-            </div>
           </div>
         )}
       </div>
