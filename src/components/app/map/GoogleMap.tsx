@@ -59,32 +59,28 @@ const PandalMarker = ({
   return (
     <AdvancedMarker position={{ lat, lng }} onClick={handleMarkerClick}>
       <div className="relative cursor-pointer">
-        <div className="w-6 h-6 bg-red-500 rounded-full border-4 border-white shadow shadow-red-500" />
-        <span
-          className={cn(
-            '!text-red-500 text-base font-bold',
-            'whitespace-nowrap bg-white absolute top-[30px] p-1 border-2 border-red-500 rounded-none',
-            'shadow-[0px_4px_0px_0px] shadow-red-700',
-          )}
-        >
-          {name}
-        </span>
+        <img src="/public/pandal-map-marker.svg" alt="pandel marker" className="w-14 h-14" />
         {showDirectionsButton && (
-          <div className="absolute top-16 left-0 mt-2 flex justify-center items-center">
-            <button
-              onClick={handleGetDirectionsClick}
-              className={cn(
-                'px-2 py-1 bg-blue-300 border-2 border-black text-base whitespace-nowrap',
-                'font-sans font-bold shadow-[0px_4px_2px_0px] rounded-none shadow-stone-950',
-                'flex justify-center items-center',
-              )}
-            >
-              <div className="flex flex-row-reverse justify-center items-center gap-x-1">
-                <FaDirections className="h-5 w-5" />
-                &nbsp;Navigate
-              </div>
-            </button>
-          </div>
+          <>
+            <div className="absolute left-12 top-3 font-sans rounded-3xl bg-black !text-white font-bold text-sm py-1.5 px-3 whitespace-nowrap">
+              {name}
+            </div>
+            <div className="absolute left-12 top-10 mt-2 flex justify-center items-center">
+              <button
+                onClick={handleGetDirectionsClick}
+                className={cn(
+                  'py-1.5 px-3 bg-black border-2 text-sm whitespace-nowrap',
+                  'font-sans font-bold rounded-full',
+                  'flex justify-center items-center',
+                )}
+              >
+                <div className="flex flex-row-reverse justify-center items-center gap-x-1">
+                  <FaDirections className="h-4 w-4 animate-arrow-left-right fill-white" />
+                  <span className="!text-white">Navigate</span>
+                </div>
+              </button>
+            </div>
+          </>
         )}
       </div>
     </AdvancedMarker>
