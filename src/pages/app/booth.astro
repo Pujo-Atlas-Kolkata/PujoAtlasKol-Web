@@ -1,0 +1,53 @@
+---
+import Layout from '@/layouts/WebAppLayout.astro';
+import { cn } from '@/libs/utils';
+import { FaSquarePlus } from 'react-icons/fa6';
+import { MdFireTruck } from 'react-icons/md';
+import { MdLocalPolice } from 'react-icons/md';
+import { IoMdSettings } from 'react-icons/io';
+---
+
+<Layout>
+  <main
+    class={cn(
+      'flex-1 flex flex-col gap-3 lg:gap-6 gap-y-3 lg:gap-y-2',
+      'bg-primary-background p-3 lg:p-4 lg:py-12 lg:px-20',
+      'lg:rounded-l-xl lg:shadow-l-xl overflow-y-auto scroll-smooth',
+    )}
+  >
+    <div class="flex text-center justify-between">
+      <div>
+        <span class="text-6xl pt-10 mt-10">Pujo Atlas</span>
+        <button>web</button>
+      </div>
+      <div><IoMdSettings /></div>
+    </div>
+
+    <div class="p-5">
+      <span>Search sign</span>
+      <input placeholder="search" />
+    </div>
+
+    <div class="rounded-xl bg-red-500 w-full h-80">
+      <span>Critical services</span>
+      <div class="flex">
+        <FaSquarePlus />
+
+        <MdFireTruck />
+        <MdLocalPolice />
+      </div>
+    </div>
+
+    <div>
+      <span>Other contacts</span>
+      <br />
+      <ul>
+        <li>Text</li>
+        <br />
+        <li>Text</li>
+        <br />
+        <li>Text</li>
+      </ul>
+    </div>
+  </main>
+</Layout>
