@@ -59,7 +59,7 @@ const PandalMarker = ({
   return (
     <AdvancedMarker position={{ lat, lng }} onClick={handleMarkerClick}>
       <div className="relative cursor-pointer">
-        <img src="/public/pandal-map-marker.svg" alt="pandel marker" className="w-14 h-14" />
+        <img src="/pandal-map-marker.svg" alt="pandel marker" className="w-14 h-14" />
         {showDirectionsButton && (
           <>
             <div className="absolute left-12 top-3 font-sans rounded-3xl bg-black !text-white font-bold text-sm py-1.5 px-3 whitespace-nowrap">
