@@ -17,9 +17,9 @@ const currentPath = Astro.url.pathname;
     </span>
   </a>
   <a
-    href="/pandals"
+    href="/app/pandals"
     aria-label="pandals"
-    class={cn(currentPath === '/app/pandals' && 'bg-white/80', 'px-8 py-1.5rounded-md')}
+    class={cn(currentPath === '/app/pandals' && 'bg-white/80', 'px-8 py-1.5 rounded-md')}
   >
     <span class="flex flex-col items-center justify-center gap-y-1">
       <MdOutlineFestival className="h-7 w-7" />
@@ -27,7 +27,7 @@ const currentPath = Astro.url.pathname;
     </span>
   </a>
   <a
-    href="/booths"
+    href="/app/booths"
     aria-label="booths"
     class={cn(currentPath === '/app/booths' && 'bg-white/80', 'px-8 py-1.5 rounded-md')}
   >
