@@ -1,12 +1,12 @@
 ---
-import Layout from '@/layouts/WebAppLayout.astro';
 import { cn } from '@/libs/utils';
 import { FaSquarePlus } from 'react-icons/fa6';
 import { MdFireTruck, MdChevronRight } from 'react-icons/md';
-import { IoMdSettings } from 'react-icons/io';
-import { IoSearch } from 'react-icons/io5';
 import { TbLocationFilled } from 'react-icons/tb';
 import { PiSirenFill } from 'react-icons/pi';
+import Layout from '@/layouts/WebAppLayout.astro';
+import AppHeader from '@/components/app/shared/AppHeader.astro';
+import SearchBar from '@/components/app/shared/SearchBar.astro';
 ---
 
 <Layout>
@@ -17,24 +17,8 @@ import { PiSirenFill } from 'react-icons/pi';
       'lg:rounded-l-xl lg:shadow-l-xl overflow-y-auto scroll-smooth font-sans',
     )}
   >
-    <div class="flex flex-row items-center justify-between">
-      <h2 class="font-work text-4xl font-medium text-left py-4">Pujo Atlas</h2>
-      <IoMdSettings size="30" className="mb-1" />
-    </div>
-
-    <div
-      id="searchbar"
-      class="rounded-3xl mb-2 pl-2 flex flex-row items-center justify-start bg-[#e6dfcf]"
-    >
-      <IoSearch size="25" />
-      <input
-        type="text"
-        id="search"
-        name="search"
-        placeholder="Search for pandals"
-        class="w-full px-3 py-3 text-sm font-sans bg-[#e6dfcf] font-normal rounded-3xl focus:outline-none text0black"
-      />
-    </div>
+    <AppHeader />
+    <SearchBar />
 
     <div class="rounded-2xl bg-[#ede3ce] p-2">
       <div class="flex gap-x-2.5 text-center items-center">
