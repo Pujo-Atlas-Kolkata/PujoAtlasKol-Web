@@ -61,14 +61,14 @@ const {
     class={cn(
       'bg-secondary-background lg:overflow-hidden',
       'text-primary-foreground [&_*]:text-primary-foreground',
-      'min-w-screen min-h-screen flex flex-col overflow-x-hidden',
+      'min-w-screen min-h-screen flex flex-col justify-between overflow-x-hidden',
       '[&_*::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar]:w-2',
       '[&_*::-webkit-scrollbar-track]:bg-secondary-background [&::-webkit-scrollbar-track]:bg-secondary-background',
       '[&_*::-webkit-scrollbar-thumb]:bg-primary-foreground [&::-webkit-scrollbar-thumb]:bg-primary-foreground',
     )}
   >
     <Header />
-    <div class="flex flex-1 lg:max-h-[85vh]">
+    <div class="flex flex-1 h-full lg:max-h-[88vh]">
       <aside class="hidden lg:grid place-items-center relative px-10">
         <span class="fixed top-1/2 -translate-y-1/2">
           <LargeNavbar path={currentPath} />
