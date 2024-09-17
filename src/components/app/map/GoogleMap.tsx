@@ -74,13 +74,13 @@ const PandalMarker = ({
             <button
               onClick={handleGetDirectionsClick}
               className={cn(
-                'px-2 pt-2 pb-1 bg-blue-300 border-2 border-black text-base whitespace-nowrap',
-                'font-noto font-bold shadow-[0px_4px_2px_0px] rounded-none shadow-stone-950',
+                'px-2 py-1 bg-blue-300 border-2 border-black text-base whitespace-nowrap',
+                'font-sans font-bold shadow-[0px_4px_2px_0px] rounded-none shadow-stone-950',
                 'flex justify-center items-center',
               )}
             >
               <div className="flex flex-row-reverse justify-center items-center gap-x-1">
-                <FaDirections className="h-5 w-5 mb-1" />
+                <FaDirections className="h-5 w-5" />
                 &nbsp;Navigate
               </div>
             </button>
@@ -140,7 +140,7 @@ export const GoogleMaps = ({ apiKey, pandals }: Props) => {
   }, []);
 
   return (
-    <section className="max-w-screen h-[500px]">
+    <section className="max-w-screen h-[500px] overflow-hidden rounded-[22px]">
       <APIProvider apiKey={apiKey} onLoad={() => console.log('Maps API has loaded.')}>
         <Map
           id="map"
