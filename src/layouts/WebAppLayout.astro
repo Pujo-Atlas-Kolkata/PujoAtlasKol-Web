@@ -76,9 +76,13 @@ const {
       '[&_*::-webkit-scrollbar-thumb]:bg-secondary-background [&::-webkit-scrollbar-thumb]:bg-secondary-background',
     )}
   >
-    <Header />
+    <span class="bg-[#e6dfcf]/50">
+      <Header />
+    </span>
     <slot />
-    <Footer />
+    <span class="bg-[#e6dfcf]/30">
+      <Footer />
+    </span>
     <div class="pb-16"></div>
     <div class="fixed bottom-0 left-0 right-0 z-10 bg-secondary-background">
       <BottomNav />
