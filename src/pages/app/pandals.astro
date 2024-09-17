@@ -2,6 +2,7 @@
 import { GoogleMaps } from '@/components/app/map/GoogleMap';
 import { MdOutlineFestival } from 'react-icons/md';
 import { IoSearch } from 'react-icons/io5';
+import { IoMdSettings } from 'react-icons/io';
 import Layout from '@/layouts/WebAppLayout.astro';
 import { cn } from '@/libs/utils';
 const API_KEY = import.meta.env.GOOGLE_MAPS_API_KEY as string;
@@ -27,7 +28,10 @@ const pandals = [
       'lg:rounded-l-xl lg:shadow-l-xl overflow-y-auto scroll-smooth',
     )}
   >
-    <h2 class="font-work text-4xl font-medium text-left py-4">Pujo Atlas</h2>
+    <div class="flex flex-row items-center justify-between">
+      <h2 class="font-work text-4xl font-medium text-left py-4">Pujo Atlas</h2>
+      <IoMdSettings size="30" className="mb-1" />
+    </div>
 
     <div
       id="searchbar"
