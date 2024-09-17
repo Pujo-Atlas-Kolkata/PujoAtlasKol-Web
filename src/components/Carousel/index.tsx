@@ -16,13 +16,14 @@ export const Carousel = () => {
     [Autoplay({ delay: 3000, stopOnMouseEnter: true, stopOnInteraction: false })],
   );
 
-  const slideWidth = '[--slide-size:100%] md:[--slide-size:33.33333%] lg:[--slide-size:25%]';
+  const slideWidth =
+    '[--slide-size:100%] md:[--slide-size:50%] lg:[--slide-size:33.3333%] xl:[--slide-size:25%] 2xl:[--slide-size:20%]';
 
   return (
     <section
       className={cn(
         slideWidth,
-        '[--slide-spacing:0] lg:[--slide-spacing:2rem]',
+        '[--slide-spacing:0] md:[--slide-spacing:1rem] lg:[--slide-spacing:2rem]',
         '[--slide-height:5rem] lg:[--slide-height:20rem]',
         'w-full mx-auto grid place-items-center relative pb-4',
       )}
@@ -42,26 +43,16 @@ export const Carousel = () => {
           className={cn('flex touch-pinch-zoom touch-pan-y', 'ml-[calc(var(--slide-spacing)*-1)]')}
         >
           {Array.from({ length: 8 }).map((_, index) => {
-            const positionInGroup = index % 4;
-            const isLeftmost = positionInGroup === 0;
-            const isRightmost = positionInGroup === 3;
-            const isInMiddle = positionInGroup === 1 || positionInGroup === 2;
-
             return (
               <div
                 className={cn(
-                  '[transform:translate3d(0,0,0)] flex',
-                  'px-2 md:px-0 md:pl-[var(--slide-spacing)] flex-[0_0_var(--slide-size)]',
-                  {
-                    'justify-start': isLeftmost,
-                    'justify-center': isInMiddle,
-                    'justify-end': isRightmost,
-                  },
+                  '[transform:translate3d(0,0,0)] flex justify-center',
+                  'px-2 lg:pl-[var(--slide-spacing)] flex-[0_0_var(--slide-size)]',
                 )}
                 key={index}
               >
                 <img
-                  className="overflow-hidden rounded-2xl h-[30rem] lg:h-96 w-full md:w-40 lg:w-72"
+                  className="overflow-hidden rounded-2xl h-[30rem] w-full"
                   src={`/idols/${index + 1}.webp`}
                   alt={`Picture of Idol ${index + 1}`}
                 />
