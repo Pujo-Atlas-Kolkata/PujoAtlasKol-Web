@@ -60,9 +60,17 @@ const PandalMarker = ({
     <AdvancedMarker position={{ lat, lng }} onClick={handleMarkerClick}>
       <div className="relative cursor-pointer">
         <div className="w-6 h-6 bg-red-500 rounded-full border-4 border-white shadow shadow-red-500" />
-        <span className="!text-red-500 text-base font-bold">{name}</span>
+        <span
+          className={cn(
+            '!text-red-500 text-base font-bold',
+            'whitespace-nowrap bg-white absolute top-[30px] p-1 border-2 border-red-500 rounded-none',
+            'shadow-[0px_4px_0px_0px] shadow-red-700',
+          )}
+        >
+          {name}
+        </span>
         {showDirectionsButton && (
-          <div className="absolute top-10 left-0 mt-2 flex justify-center items-center">
+          <div className="absolute top-16 left-0 mt-2 flex justify-center items-center">
             <button
               onClick={handleGetDirectionsClick}
               className={cn(
