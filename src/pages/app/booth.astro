@@ -1,0 +1,91 @@
+---
+import Layout from '@/layouts/WebAppLayout.astro';
+import { cn } from '@/libs/utils';
+import { FaSquarePlus } from 'react-icons/fa6';
+import { MdFireTruck } from 'react-icons/md';
+import { MdLocalPolice } from 'react-icons/md';
+import { IoMdSettings } from 'react-icons/io';
+import { CiSearch } from 'react-icons/ci';
+import { FaLocationArrow } from 'react-icons/fa';
+import { FaAngleRight } from 'react-icons/fa';
+---
+
+<Layout>
+  <main
+    class={cn(
+      'flex-1 flex flex-col gap-3 lg:gap-6 gap-y-3 lg:gap-y-2 pr-3 pl-4',
+      //   'bg-primary-background' ,
+      'lg:rounded-l-xl lg:shadow-l-xl overflow-y-auto scroll-smooth',
+    )}
+  >
+    <div class="flex text-center justify-between pt-12 items-center">
+      <div class="text-center space-x-3">
+        <span class="text-4xl mt-10 font-work">Pujo Atlas</span>
+        <span class="bg-gray-300 rounded-xl p-2 text-xs">web</span>
+      </div>
+      <div>
+        <IoMdSettings size={32} />
+      </div>
+    </div>
+
+    <div class="pt-4">
+      <div class="flex items-center border border-gray-300 bg-[#ebe5d9] rounded-full w-full p-2">
+        <CiSearch size={'2rem'} />
+        <input
+          class="ml-2 p-2 outline-none w-full bg-transparent placeholder-slate-950 placeholder:text-lg"
+          type="text"
+          placeholder="Search"
+        />
+      </div>
+
+      <div class="rounded-2xl bg-[#ede3ce] h-56 p-2 mt-5">
+        <div class="flex text-center space-x-2 items-center">
+          <div>
+            <FaLocationArrow />
+          </div>
+          <div class="text-xl">Critical Services</div>
+        </div>
+        <div class="flex space-x-2 justify-between mt-4">
+          <div class="flex flex-col items-center justify-center">
+            <div class="rounded-2xl bg-[#fcfcfa] p-9 text-center items-center">
+              <FaSquarePlus size={'4rem'} />
+            </div>
+            <span class="m-2">Ambulance</span>
+          </div>
+          <div class="flex flex-col items-center justify-center">
+            <div class="rounded-2xl bg-[#fcfcfa] p-9 text-center">
+              <MdFireTruck size={'4rem'} />
+            </div>
+            <span class="m-2">Fire</span>
+          </div>
+          <div class="flex flex-col items-center justify-center">
+            <div class="rounded-2xl bg-[#fcfcfa] p-9 text-center">
+              <MdLocalPolice size={'4rem'} />
+            </div>
+            <span class="m-2">Police</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-5 text-2xl scroll-auto">
+        <div class="">Other contacts</div>
+        <br />
+        <div class="flex justify-between p-5">
+          <div>Text</div>
+          <div><FaAngleRight /></div>
+        </div>
+        <hr class="opacity-30 bg-[#000000]" />
+        <div class="flex justify-between p-5">
+          <div>Text</div>
+          <div><FaAngleRight /></div>
+        </div>
+        <hr class="opacity-30 bg-[#000000]" />
+        <div class="flex justify-between p-5">
+          <div>Text</div>
+          <div><FaAngleRight /></div>
+        </div>
+        <hr class="opacity-30 bg-[#000000]" />
+      </div>
+    </div>
+  </main>
+</Layout>
