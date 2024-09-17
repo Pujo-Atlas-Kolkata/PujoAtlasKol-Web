@@ -8,8 +8,6 @@ import workSansWoff2 from '@fontsource-variable/work-sans/files/work-sans-latin-
 import notoSansWoff2 from '@fontsource-variable/noto-sans-bengali/files/noto-sans-bengali-latin-wght-normal.woff2?url';
 import alkatraWoff2 from '@fontsource-variable/alkatra/files/alkatra-latin-wght-normal.woff2?url';
 
-import Header from '@/components/shared/Header.astro';
-import Footer from '@/components/shared/Footer.astro';
 import BottomNav from '@/components/app/shared/BottomNav.astro';
 import { cn } from '@/libs/utils';
 
@@ -76,13 +74,7 @@ const {
       '[&_*::-webkit-scrollbar-thumb]:bg-secondary-background [&::-webkit-scrollbar-thumb]:bg-secondary-background',
     )}
   >
-    <span class="bg-[#e6dfcf]/50">
-      <Header />
-    </span>
     <slot />
-    <span class="bg-[#e6dfcf]/30">
-      <Footer />
-    </span>
     <div class="pb-16"></div>
     <div class="fixed bottom-0 left-0 right-0 z-10 bg-secondary-background">
       <BottomNav />
