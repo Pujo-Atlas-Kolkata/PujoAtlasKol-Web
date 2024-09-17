@@ -9,7 +9,10 @@ const currentPath = Astro.url.pathname;
   <a
     href="/app"
     aria-label="home"
-    class={cn(currentPath === '/app' && 'bg-white/80', 'px-8 py-1.5 rounded-md')}
+    class={cn(
+      (currentPath === '/app' || currentPath === '/app/') && 'bg-white/80',
+      'px-8 py-1.5 rounded-md',
+    )}
   >
     <span class="flex flex-col items-center justify-center gap-y-1">
       <MdHomeFilled className="h-7 w-7" />
@@ -32,7 +35,10 @@ const currentPath = Astro.url.pathname;
   <a
     href="/app/booths"
     aria-label="booths"
-    class={cn(currentPath === '/app/booths' && 'bg-white/80', 'px-8 py-1.5 rounded-md')}
+    class={cn(
+      (currentPath === '/app/booths' || currentPath === '/app/booths/') && 'bg-white/80',
+      'px-8 py-1.5 rounded-md',
+    )}
   >
     <span class="flex flex-col items-center justify-center gap-y-1">
       <PiSirenFill className="h-7 w-7" />
