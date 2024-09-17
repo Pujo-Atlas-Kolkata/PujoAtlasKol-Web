@@ -7,25 +7,32 @@ export const Carousel = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       loop: true,
-      breakpoints: {
-        '(min-width: 0px)': { slidesToScroll: 1 },
-        '(min-width: 768px)': { slidesToScroll: 3 },
-        '(min-width: 1024px)': { slidesToScroll: 4 },
-      },
+      startIndex: 0,
+      slidesToScroll: 1,
+      // breakpoints: {
+      //   '(min-width: 0px)': { slidesToScroll: 1 },
+      //   '(min-width: 768px)': { slidesToScroll: 2 },
+      //   '(min-width: 1024px)': { slidesToScroll: 4 },
+      //   '(min-width: 1440px)': { slidesToScroll: 5 },
+      // },
     },
     [Autoplay({ delay: 3000, stopOnMouseEnter: true, stopOnInteraction: false })],
   );
 
-  const slideWidth =
-    '[--slide-size:100%] md:[--slide-size:50%] lg:[--slide-size:33.3333%] xl:[--slide-size:25%] 2xl:[--slide-size:20%]';
+  const slideWidth = cn(
+    '[--slide-size:100%]',
+    'md:[--slide-size:50%]',
+    'lg:[--slide-size:25%]',
+    'xl:[--slide-size:20%]',
+  );
 
   return (
     <section
       className={cn(
         slideWidth,
-        '[--slide-spacing:0] md:[--slide-spacing:1rem] lg:[--slide-spacing:2rem]',
-        '[--slide-height:5rem] lg:[--slide-height:20rem]',
-        'w-full mx-auto grid place-items-center relative pb-4',
+        '[--slide-spacing:0] md:[--slide-spacing:1rem] lg:[--slide-spacing:1rem]',
+        '[--slide-height:5rem] 2xl:[--slide-height:28rem] rounded-3xl',
+        'w-full mx-auto grid place-items-center relative my-2',
       )}
     >
       <ControlButton
@@ -47,12 +54,12 @@ export const Carousel = () => {
               <div
                 className={cn(
                   '[transform:translate3d(0,0,0)] flex justify-center',
-                  'px-2 lg:pl-[var(--slide-spacing)] flex-[0_0_var(--slide-size)]',
+                  'px-2 md:pl-[var(--slide-spacing)] flex-[0_0_var(--slide-size)]',
                 )}
                 key={index}
               >
                 <img
-                  className="overflow-hidden rounded-2xl h-[30rem] w-full"
+                  className="overflow-hidden rounded-2xl h-full w-full"
                   src={`/idols/${index + 1}.webp`}
                   alt={`Picture of Idol ${index + 1}`}
                 />
