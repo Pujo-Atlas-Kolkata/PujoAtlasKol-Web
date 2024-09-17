@@ -77,12 +77,11 @@ const {
     )}
   >
     <Header />
-    <div>
-      <slot />
+    <slot />
+    <Footer />
+    <div class="pb-16"></div>
+    <div class="fixed bottom-0 left-0 right-0 z-10 bg-secondary-background">
       <BottomNav />
-    </div>
-    <div class="mt-auto bg-cyan-500">
-      <Footer />
     </div>
   </body>
 </html>
