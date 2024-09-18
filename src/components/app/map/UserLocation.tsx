@@ -26,7 +26,7 @@ export const UserLocation = () => {
 
         map.panTo(location);
         setUserLocation(location);
-        map.setZoom(15);
+        map.setZoom(18);
         setError(null);
       },
       () => {
