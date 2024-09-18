@@ -1,72 +1,12 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
-import {
-  AdvancedMarker,
-  APIProvider,
-  Map,
-  useMap,
-  type MapCameraChangedEvent,
-} from '@vis.gl/react-google-maps';
-import { IoMdLocate } from 'react-icons/io';
+import { useCallback, useMemo, useState } from 'react';
+import { APIProvider, Map, type MapCameraChangedEvent } from '@vis.gl/react-google-maps';
+import { UserLocation } from './UserLocation';
+import { DEFAULT_VIEW_LAT_LONG } from '@/libs/config';
+import type { GoogleMapProps } from './types';
 import PandalMarker from './PandalMarker';
 
-interface Pandal {
-  id: number;
-  name: string;
-  lat: number;
-  lng: number;
-}
-
-type Props = {
-  apiKey: string;
-  pandals: Pandal[];
-};
-
-const Me = () => {
-  return (
-    <div className="w-6 h-6 bg-blue-500 rounded-full border-4 border-white shadow shadow-blue-500 animate-pulse" />
-  );
-};
-
-const Locator = () => {
-  const map = useMap('map');
-  const [userLocation, setUserLocation] = useState<google.maps.LatLngLiteral | null>(null);
-
-  const goToUserLocation = useCallback(() => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        if (!map) {
-          return;
-        }
-        map.panTo({ lat: position.coords.latitude, lng: position.coords.longitude });
-        setUserLocation({ lat: position.coords.latitude, lng: position.coords.longitude });
-        map.setZoom(26);
-      });
-    }
-  }, [map, setUserLocation]);
-
-  useEffect(() => {
-    goToUserLocation();
-  }, [goToUserLocation]);
-
-  return (
-    <>
-      <button
-        onClick={() => goToUserLocation()}
-        className="absolute top-14 right-[10px] shadow-slate-400 shadow bg-white p-1"
-      >
-        <IoMdLocate className="w-8 h-8 fill-blue-500" />
-      </button>
-      {userLocation && (
-        <AdvancedMarker position={userLocation}>
-          <Me />
-        </AdvancedMarker>
-      )}
-    </>
-  );
-};
-
-export const GoogleMaps = ({ apiKey, pandals }: Props) => {
-  const center = useMemo(() => ({ lat: 22.4747061, lng: 88.3642162 }), []);
+export const GoogleMaps = ({ apiKey, pandals }: GoogleMapProps) => {
+  const center = useMemo(() => DEFAULT_VIEW_LAT_LONG, []);
   const zoom = useMemo(() => 15, []);
   const [activePandalId, setActivePandalId] = useState<number | null>(null);
 
@@ -90,7 +30,7 @@ export const GoogleMaps = ({ apiKey, pandals }: Props) => {
           onClick={handleMapClick}
           className="relative w-full h-full"
         >
-          <Locator />
+          <UserLocation />
           {pandals.map((pandal) => (
             <PandalMarker
               key={pandal.id}

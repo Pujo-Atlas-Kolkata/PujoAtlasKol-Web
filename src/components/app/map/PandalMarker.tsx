@@ -2,15 +2,7 @@ import { useCallback, memo } from 'react';
 import { cn } from '@/libs/utils';
 import { AdvancedMarker } from '@vis.gl/react-google-maps';
 import { FaDirections } from 'react-icons/fa';
-
-interface PandalMarkerProps {
-  id: number;
-  name: string;
-  lat: number;
-  lng: number;
-  activePandalId: number | null;
-  setActivePandalId: (id: number | null) => void;
-}
+import type { PandalMarkerProps } from './types';
 
 const PandalMarker = ({
   id,
