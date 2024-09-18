@@ -4,7 +4,7 @@ import { MdOutlineFestival } from 'react-icons/md';
 import Layout from '@/layouts/WebAppLayout.astro';
 import { cn } from '@/libs/utils';
 import AppHeader from '@/components/app/shared/AppHeader.astro';
-import SearchBar from '@/components/app/shared/SearchBar.astro';
+import { SearchBar } from '@/components/app/shared/SearchBar';
 import { PANDAL_MARKER_ICON } from '@/constants/location';
 const API_KEY = import.meta.env.GOOGLE_MAPS_API_KEY as string;
 const pandals = [
@@ -30,7 +30,7 @@ const pandals = [
     )}
   >
     <AppHeader />
-    <SearchBar />
+    <SearchBar location="pandals" client:load client:only="react" />
 
     <div
       class="flex flex-col justify-center px-2 py-2 bg-[#e6dfcf] rounded-[22px] drop-shadow-lg shadow-black"

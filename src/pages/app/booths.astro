@@ -6,7 +6,7 @@ import { TbLocationFilled } from 'react-icons/tb';
 import { PiSirenFill } from 'react-icons/pi';
 import Layout from '@/layouts/WebAppLayout.astro';
 import AppHeader from '@/components/app/shared/AppHeader.astro';
-import SearchBar from '@/components/app/shared/SearchBar.astro';
+import { SearchBar } from '@/components/app/shared/SearchBar';
 ---
 
 <Layout title="Booths | Pujo Atlas">
@@ -18,7 +18,7 @@ import SearchBar from '@/components/app/shared/SearchBar.astro';
     )}
   >
     <AppHeader />
-    <SearchBar />
+    <SearchBar location="booths" client:load client:only="react" />
 
     <div class="flex flex-col rounded-3xl bg-[#ede3ce] p-2 drop-shadow-sm">
       <div class="pl-2 pt-1 flex gap-x-2.5 text-center items-center">
