@@ -7,24 +7,32 @@ export const Carousel = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       loop: true,
-      breakpoints: {
-        '(min-width: 0px)': { slidesToScroll: 1 },
-        '(min-width: 768px)': { slidesToScroll: 3 },
-        '(min-width: 1024px)': { slidesToScroll: 4 },
-      },
+      startIndex: 0,
+      slidesToScroll: 1,
+      // breakpoints: {
+      //   '(min-width: 0px)': { slidesToScroll: 1 },
+      //   '(min-width: 768px)': { slidesToScroll: 2 },
+      //   '(min-width: 1024px)': { slidesToScroll: 4 },
+      //   '(min-width: 1440px)': { slidesToScroll: 5 },
+      // },
     },
     [Autoplay({ delay: 3000, stopOnMouseEnter: true, stopOnInteraction: false })],
   );
 
-  const slideWidth = '[--slide-size:100%] md:[--slide-size:33.33333%] lg:[--slide-size:25%]';
+  const slideWidth = cn(
+    '[--slide-size:100%]',
+    'md:[--slide-size:50%]',
+    'lg:[--slide-size:25%]',
+    'xl:[--slide-size:20%]',
+  );
 
   return (
     <section
       className={cn(
         slideWidth,
-        '[--slide-spacing:0] lg:[--slide-spacing:2rem]',
-        '[--slide-height:5rem] lg:[--slide-height:20rem]',
-        'w-full mx-auto grid place-items-center relative pb-4',
+        '[--slide-spacing:0] md:[--slide-spacing:1rem] lg:[--slide-spacing:1rem]',
+        '[--slide-height:5rem] 2xl:[--slide-height:28rem] rounded-3xl',
+        'w-full mx-auto grid place-items-center relative my-2',
       )}
     >
       <ControlButton
@@ -42,26 +50,16 @@ export const Carousel = () => {
           className={cn('flex touch-pinch-zoom touch-pan-y', 'ml-[calc(var(--slide-spacing)*-1)]')}
         >
           {Array.from({ length: 8 }).map((_, index) => {
-            const positionInGroup = index % 4;
-            const isLeftmost = positionInGroup === 0;
-            const isRightmost = positionInGroup === 3;
-            const isInMiddle = positionInGroup === 1 || positionInGroup === 2;
-
             return (
               <div
                 className={cn(
-                  '[transform:translate3d(0,0,0)] flex',
-                  'pl-[var(--slide-spacing)] flex-[0_0_var(--slide-size)]',
-                  {
-                    'justify-start': isLeftmost,
-                    'justify-center': isInMiddle,
-                    'justify-end': isRightmost,
-                  },
+                  '[transform:translate3d(0,0,0)] flex justify-center',
+                  'px-2 md:pl-[var(--slide-spacing)] flex-[0_0_var(--slide-size)]',
                 )}
                 key={index}
               >
                 <img
-                  className="overflow-hidden rounded-2xl h-[30rem] lg:h-96 w-full md:w-40 lg:w-72"
+                  className="overflow-hidden rounded-2xl h-full w-full"
                   src={`/idols/${index + 1}.webp`}
                   alt={`Picture of Idol ${index + 1}`}
                 />
