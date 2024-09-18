@@ -1,20 +1,22 @@
-interface Pandal {
+interface LocationMarker {
   id: number;
   name: string;
   lat: number;
   lng: number;
+}
+
+export interface LocationMarkerProps {
+  id: number;
+  name: string;
+  lat: number;
+  lng: number;
+  icon: string;
+  activeMarkerId: number | null;
+  setActiveMarkerId: (id: number | null) => void;
 }
 
 export interface GoogleMapProps {
   apiKey: string;
-  pandals: Pandal[];
-}
-
-export interface PandalMarkerProps {
-  id: number;
-  name: string;
-  lat: number;
-  lng: number;
-  activePandalId: number | null;
-  setActivePandalId: (id: number | null) => void;
+  locations: LocationMarker[];
+  icon: string;
 }

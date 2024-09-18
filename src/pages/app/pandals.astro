@@ -5,6 +5,7 @@ import Layout from '@/layouts/WebAppLayout.astro';
 import { cn } from '@/libs/utils';
 import AppHeader from '@/components/app/shared/AppHeader.astro';
 import SearchBar from '@/components/app/shared/SearchBar.astro';
+import { PANDAL_MARKER_ICON } from '@/constants/location';
 const API_KEY = import.meta.env.GOOGLE_MAPS_API_KEY as string;
 const pandals = [
   { id: 1, name: 'Lorem ipsum dolor', lat: 22.473695, lng: 88.362758 },
@@ -39,7 +40,13 @@ const pandals = [
           class="font-sans font-normal text-base mb-0.5">Pandal map</span
         ></span
       >
-      <GoogleMaps apiKey={API_KEY} pandals={pandals} client:load client:only="react" />
+      <GoogleMaps
+        apiKey={API_KEY}
+        locations={pandals}
+        icon={PANDAL_MARKER_ICON}
+        client:load
+        client:only="react"
+      />
     </div>
   </main>
 </Layout>

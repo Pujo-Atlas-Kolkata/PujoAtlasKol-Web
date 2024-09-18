@@ -3,34 +3,35 @@ import { APIProvider, Map } from '@vis.gl/react-google-maps';
 import { UserLocation } from './UserLocation';
 import { DEFAULT_VIEW_LAT_LONG } from '@/constants/location';
 import type { GoogleMapProps } from './types';
-import PandalMarker from './PandalMarker';
+import LocationMarker from './LocationMarker';
 
-export const GoogleMaps = ({ apiKey, pandals }: GoogleMapProps) => {
+export const GoogleMaps = ({ apiKey, locations, icon }: GoogleMapProps) => {
   // memoize center and zoom values to avoid unnecessary recalculations
   const center = useMemo(() => DEFAULT_VIEW_LAT_LONG, []);
   const zoom = 15;
-  const [activePandalId, setActivePandalId] = useState<number | null>(null);
+  const [activeLocationId, setActiveLocationId] = useState<number | null>(null);
 
   const handleMapClick = useCallback(() => {
-    // clear active pandal when map is clicked
-    setActivePandalId(null);
+    // clear active location when map is clicked
+    setActiveLocationId(null);
   }, []);
 
-  // memoized PandalMarkers to prevent unnecessary re-renders
-  const pandalMarkers = useMemo(
+  // memoized LocationMarkers to prevent unnecessary re-renders
+  const locationMarkers = useMemo(
     () =>
-      pandals.map((pandal) => (
-        <PandalMarker
-          key={pandal.id}
-          id={pandal.id}
-          name={pandal.name}
-          lat={pandal.lat}
-          lng={pandal.lng}
-          activePandalId={activePandalId}
-          setActivePandalId={setActivePandalId}
+      locations.map((location) => (
+        <LocationMarker
+          key={location.id}
+          id={location.id}
+          name={location.name}
+          lat={location.lat}
+          lng={location.lng}
+          icon={icon}
+          activeMarkerId={activeLocationId}
+          setActiveMarkerId={setActiveLocationId}
         />
       )),
-    [pandals, activePandalId],
+    [locations, icon, activeLocationId],
   );
 
   return (
@@ -46,7 +47,7 @@ export const GoogleMaps = ({ apiKey, pandals }: GoogleMapProps) => {
           className="relative w-full h-full"
         >
           <UserLocation />
-          {pandalMarkers}
+          {locationMarkers}
         </Map>
       </APIProvider>
     </section>

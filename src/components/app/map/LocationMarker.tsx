@@ -2,19 +2,20 @@ import { useCallback, memo } from 'react';
 import { cn } from '@/libs/utils';
 import { AdvancedMarker } from '@vis.gl/react-google-maps';
 import { FaDirections } from 'react-icons/fa';
-import type { PandalMarkerProps } from './types';
+import type { LocationMarkerProps } from './types';
 
-const PandalMarker = ({
+const LocationMarker = ({
   id,
   name,
   lat,
   lng,
-  activePandalId,
-  setActivePandalId,
-}: PandalMarkerProps) => {
+  icon,
+  activeMarkerId,
+  setActiveMarkerId,
+}: LocationMarkerProps) => {
   const handleMarkerClick = useCallback(() => {
-    setActivePandalId(id);
-  }, [id, setActivePandalId]);
+    setActiveMarkerId(id);
+  }, [id, setActiveMarkerId]);
 
   const handleGetDirectionsClick = useCallback(() => {
     const url = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
@@ -25,13 +26,13 @@ const PandalMarker = ({
     }
   }, [lat, lng]);
 
-  const showPandalNameAndNavigateButton = activePandalId === id;
+  const showLocationNameAndNavigateButton = activeMarkerId === id;
 
   return (
     <AdvancedMarker position={{ lat, lng }} onClick={handleMarkerClick}>
       <div className="relative cursor-pointer">
-        <img src="/pandal-map-marker.svg" alt={`${name} marker`} className="w-14 h-14" />
-        {showPandalNameAndNavigateButton && (
+        <img src={icon} alt={`${name} marker`} className="w-14 h-14" />
+        {showLocationNameAndNavigateButton && (
           <>
             <div className="absolute left-12 top-3 rounded-3xl bg-black !text-white font-bold font-sans text-sm py-1.5 px-3 whitespace-nowrap">
               {name}
@@ -59,4 +60,4 @@ const PandalMarker = ({
 };
 
 // memo to prevent unnecessary re-renders
-export default memo(PandalMarker);
+export default memo(LocationMarker);
