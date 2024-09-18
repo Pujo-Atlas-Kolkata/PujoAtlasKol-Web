@@ -1,7 +1,7 @@
 import { useCallback, useMemo, useState } from 'react';
 import { APIProvider, Map } from '@vis.gl/react-google-maps';
 import { UserLocation } from './UserLocation';
-import { DEFAULT_VIEW_LAT_LONG } from '@/libs/config';
+import { DEFAULT_VIEW_LAT_LONG } from '@/constants/location';
 import type { GoogleMapProps } from './types';
 import PandalMarker from './PandalMarker';
 
