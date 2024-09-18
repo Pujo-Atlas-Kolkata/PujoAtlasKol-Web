@@ -8,13 +8,8 @@ import workSansWoff2 from '@fontsource-variable/work-sans/files/work-sans-latin-
 import notoSansWoff2 from '@fontsource-variable/noto-sans-bengali/files/noto-sans-bengali-latin-wght-normal.woff2?url';
 import alkatraWoff2 from '@fontsource-variable/alkatra/files/alkatra-latin-wght-normal.woff2?url';
 
-import Header from '@/components/shared/Header.astro';
-import Footer from '@/components/shared/Footer.astro';
+import BottomNav from '@/components/app/shared/BottomNav.astro';
 import { cn } from '@/libs/utils';
-import { ViewTransitions } from 'astro:transitions';
-import { LargeNavbar } from '@/components/shared/Navbar';
-
-const currentPath = Astro.url.pathname;
 
 type Props = {
   title?: string;
@@ -22,7 +17,7 @@ type Props = {
 };
 
 const {
-  title = 'Pujo Atlas',
+  title = 'Web App',
   description = 'Welcome to Pujo Atlas - your ultimate guide for Pandal Hopping during Durga Puja in Kolkata!',
 } = Astro.props as Props;
 ---
@@ -38,14 +33,26 @@ const {
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
-    <ViewTransitions />
     <title>{title}</title>
+    <script is:inline>
+      const MAX_WIDTH = 768;
+
+      // redirect to 404 page if the screen size is greater than 768px
+      function checkScreenSize() {
+        if (window.innerWidth > MAX_WIDTH) {
+          window.location.href = '/404';
+        }
+      }
+
+      window.addEventListener('load', checkScreenSize);
+      window.addEventListener('resize', checkScreenSize);
+    </script>
     <!-- Google tag (gtag.js) -->
     <script
       type="text/partytown"
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-56WWMK6TC4"></script>
-    <script type="text/partytown">
+    <script type="text/partytown" is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         // eslint-disable-next-line prefer-rest-params
@@ -59,28 +66,18 @@ const {
   </head>
   <body
     class={cn(
-      'bg-secondary-background lg:overflow-hidden',
+      'bg-secondary-background',
       'text-primary-foreground [&_*]:text-primary-foreground',
+      'min-w-screen min-h-screen flex flex-col overflow-x-hidden',
       '[&_*::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar]:w-2',
-      '[&_*::-webkit-scrollbar-track]:bg-secondary-background',
-      '[&::-webkit-scrollbar-track]:bg-secondary-background',
-      '[&_*::-webkit-scrollbar-thumb]:bg-primary-foreground',
-      '[&::-webkit-scrollbar-thumb]:bg-primary-foreground',
-      'min-w-screen min-h-screen flex flex-col justify-between overflow-x-hidden',
-      '[&_*::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar]:w-2',
-      '[&_*::-webkit-scrollbar-track]:bg-secondary-background [&::-webkit-scrollbar-track]:bg-secondary-background',
-      '[&_*::-webkit-scrollbar-thumb]:bg-primary-foreground [&::-webkit-scrollbar-thumb]:bg-primary-foreground',
+      '[&_*::-webkit-scrollbar-track]:bg-primary-foreground [&::-webkit-scrollbar-track]:bg-primary-foreground',
+      '[&_*::-webkit-scrollbar-thumb]:bg-secondary-background [&::-webkit-scrollbar-thumb]:bg-secondary-background',
     )}
   >
-    <Header />
-    <div class="flex flex-1 h-full lg:max-h-[85vh]">
-      <aside class="hidden lg:grid place-items-center relative px-10">
-        <span class="fixed top-1/2 -translate-y-1/2">
-          <LargeNavbar path={currentPath} />
-        </span>
-      </aside>
-      <slot />
+    <slot />
+    <div class="pb-14"></div>
+    <div class="fixed bottom-0 left-0 right-0 z-10 bg-secondary-background">
+      <BottomNav />
     </div>
-    <Footer />
   </body>
 </html>

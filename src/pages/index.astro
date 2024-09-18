@@ -1,15 +1,15 @@
 ---
 import { Carousel } from '@/components/Carousel';
-import { PlaystoreIcon } from '@/icons';
-import Layout from '@/layouts/Layout.astro';
+import Layout from '@/layouts/LandingPageLayout.astro';
 import { cn } from '@/libs/utils';
 import { FaChevronDown, FaAsterisk } from 'react-icons/fa';
+import { IoMdInformationCircle } from 'react-icons/io';
 ---
 
-<Layout>
+<Layout title="Pujo Atlas">
   <main
     class={cn(
-      'flex-1 flex flex-col gap-3 gap-y-3 lg:gap-y-0 lg:gap-6',
+      'flex-1 flex flex-col gap-3 lg:gap-6 gap-y-3 lg:gap-y-2',
       'bg-primary-background p-3 lg:p-4 lg:py-12 lg:px-20',
       'lg:rounded-l-xl lg:shadow-l-xl overflow-y-auto scroll-smooth',
     )}
@@ -17,28 +17,63 @@ import { FaChevronDown, FaAsterisk } from 'react-icons/fa';
     <h1 class="font-work font-semibold text-[55px] lg:text-6xl pt-0 text-center lg:text-left">
       Pujo Atlas
     </h1>
-    <p class="font-work text-center lg:text-left leading-tight lg:leading-normal">
+    <p
+      class="font-work text-center lg:text-left leading-tight lg:leading-normal pt-0 lg:pt-2 -mt-2 lg:mt-0"
+    >
       Your pandal hopping guide&nbsp;<br class="block lg:hidden" />to the sweetest part of India
     </p>
-    <span class="flex justify-center items-center lg:block">
-      <div
-        class={cn(
-          'text-xs py-1 px-4 outline outline-1',
-          'rounded-full w-fit flex items-center gap-2',
-        )}
-      >
-        <PlaystoreIcon />
-        <span class="font-semibold"> Google Play </span>
-        <span>|</span>
-        <span> Coming Soon </span>
-      </div>
+    <!-- buttons on mobile screens -->
+    <span
+      class="flex flex-col gap-y-4 justify-center items-center lg:justify-start lg:items-start pt-2 lg:pt-0"
+    >
+      <span class="font-sans flex gap-x-3">
+        <a class="rounded-md bg-black lg:hidden block" href="#features">
+          <span
+            class="flex -translate-x-1 -translate-y-1.5 rounded-md border-2 border-black bg-rose-300 p-2 text-base
+          active:translate-x-0 active:translate-y-0
+          transition-all font-semibold"
+          >
+            Features&nbsp;<span class="animate-arrow-up-down">&darr;</span>
+          </span>
+        </a>
+        <a class="rounded-md bg-black lg:hidden block" href="/app">
+          <span
+            class="flex -translate-x-1 -translate-y-1.5 rounded-md border-2 border-black bg-amber-500 p-2 text-base
+          active:translate-x-0 active:translate-y-0
+          transition-all font-semibold"
+          >
+            Get Started&nbsp;<span class="animate-arrow-left-right">-&gt;</span>
+          </span>
+        </a>
+      </span>
     </span>
+    <!-- info on large screens -->
+    <span
+      class={cn(
+        'cursor-pointer mx-0 mt-0 mb-4 p-2 relative',
+        'text-base font-sans font-semibold',
+        'hidden lg:flex flex-row justify-start items-center w-fit',
+        'shadow-[2px_5px_1px_0px] shadow-stone-950',
+        'rounded-md border-2 border-black bg-rose-300 hover:bg-red-300',
+      )}
+      ><span class="flex">
+        <IoMdInformationCircle size="24" />&nbsp;&nbsp;Open on mobile to experience the web app!
+      </span>
+      <span id="notif-ping" class="absolute -top-1 -right-1 flex h-3 w-3">
+        <span
+          class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-90"
+        ></span>
+        <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+      </span>
+    </span>
+    <!-- carousel -->
     <div>
       <Carousel client:load client:only="react" />
       <a href="#features" aria-label="scroll to features section" class="hidden lg:block">
         <FaChevronDown className="h-8 lg:h-12 w-8 mx-auto motion-safe:animate-bounce" />
       </a>
     </div>
+    <!-- feature cards -->
     <span id="features"></span>
     <section
       class={cn(
