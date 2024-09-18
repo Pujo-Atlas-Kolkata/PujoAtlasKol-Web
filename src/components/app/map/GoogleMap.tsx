@@ -7,7 +7,7 @@ import {
   type MapCameraChangedEvent,
 } from '@vis.gl/react-google-maps';
 import { IoMdLocate } from 'react-icons/io';
-import { PandalMarker } from './PandalMarker';
+import PandalMarker from './PandalMarker';
 
 interface Pandal {
   id: number;
