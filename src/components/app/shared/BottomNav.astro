@@ -1,7 +1,7 @@
 ---
 import { cn } from '@/libs/utils';
 import { MdHomeFilled, MdOutlineFestival } from 'react-icons/md';
-import { PiSirenFill } from 'react-icons/pi';
+import { FaAmbulance } from 'react-icons/fa';
 const currentPath = Astro.url.pathname;
 ---
 
@@ -33,16 +33,16 @@ const currentPath = Astro.url.pathname;
     </span>
   </a>
   <a
-    href="/app/booths"
-    aria-label="booths"
+    href="/app/help"
+    aria-label="help"
     class={cn(
-      (currentPath === '/app/booths' || currentPath === '/app/booths/') && 'bg-white/80',
+      (currentPath === '/app/help' || currentPath === '/app/help/') && 'bg-white/80',
       'px-10 py-0.5 rounded-md',
     )}
   >
     <span class="flex flex-col items-center justify-center gap-y-1">
-      <PiSirenFill className="h-7 w-7" />
-      <span class="text-[10px]">Booths</span>
+      <FaAmbulance className="h-7 w-7" />
+      <span class="text-[10px]">Help</span>
     </span>
   </a>
 </nav>
