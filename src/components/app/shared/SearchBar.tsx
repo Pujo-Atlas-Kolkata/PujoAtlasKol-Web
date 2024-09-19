@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react';
 import { IoSearch } from 'react-icons/io5';
 import { MdClear } from 'react-icons/md';
 import { PANDALS } from '@/constants/pandals';
+import { marker } from '@/stores';
 
 import Fuse from 'fuse.js';
 
@@ -51,11 +52,11 @@ const ProximityIndicator = ({ location, pandal }: ProximityIndicatorProps) => {
   return (
     <span
       className={cn('px-1 whitespace-nowrap rounded-3xl text-xs font-work outline outline-1', {
-        'outline-lime-500 text-lime-500': distance < 1,
-        'outline-green-400 text-green-400': distance >= 1 && distance < 5,
-        'outline-amber-400 text-amber-400': distance >= 5 && distance < 10,
-        'outline-red-600 text-red-600': distance >= 10,
-        'outline-red-800 text-red-500': distance >= 20,
+        'outline-lime-500 !text-lime-500': distance < 1,
+        'outline-green-400 !text-green-400': distance >= 1 && distance < 5,
+        'outline-orange-600 !text-orange-600': distance >= 5 && distance < 10,
+        'outline-red-600 !text-red-600': distance >= 10,
+        'outline-red-800 !text-red-500': distance >= 20,
         'flex flex-row items-center gap-1 w-fit': true,
       })}
     >
@@ -63,7 +64,7 @@ const ProximityIndicator = ({ location, pandal }: ProximityIndicatorProps) => {
         className={cn('h-2 w-2 aspect-square rounded-full', {
           'bg-lime-500': distance < 1,
           'bg-green-400': distance >= 1 && distance < 5,
-          'bg-amber-400': distance >= 5 && distance < 10,
+          'bg-orange-600': distance >= 5 && distance < 10,
           'bg-red-600': distance >= 10,
           'bg-red-800': distance >= 20,
         })}
@@ -115,6 +116,12 @@ export const SearchBar = () => {
           'absolute z-10 hidden data-[active=true]:flex flex-col',
           'w-full px-3 h-fit max-h-96 overflow-hidden overflow-y-auto',
           'outline outline-[1px] rounded-md overflow-hidden overflow-y-scroll',
+          '[&::-webkit-scrollbar-track]:!bg-primary-background',
+          'outline outline-[1px] rounded-md overflow-hidden overflow-y-scroll',
+          '[&::-webkit-scrollbar-track]:!bg-primary-background',
+          '[&::-webkit-scrollbar-thumb]:!bg-primary-foreground',
+          '[&::-webkit-scrollbar-thumb]:!w-[2px]',
+          '[&::-webkit-scrollbar-track]:!w-[2px]',
           '[&::-webkit-scrollbar-thumb]:rounded-full',
           '[&::-webkit-scrollbar-track]:rounded-full',
           'bg-primary-background outline-primary-foreground',
@@ -122,14 +129,19 @@ export const SearchBar = () => {
       >
         {pandals.map((pandal) => (
           <li
+            role="button"
             key={pandal.uuid}
             className={cn(
               'border-b-[1px] border-solid border-primary-foreground/20',
-              'flex flex-row items-center justify-between py-2',
+              'flex flex-row items-center justify-between py-2 w-full hover:bg-secondary-background',
             )}
+            onClick={() => {
+              setSearch('');
+              marker.set({ lat: pandal.lat, lng: pandal.lon });
+            }}
           >
-            <div className="flex flex-col">
-              <h3 className="font-medium text-sm font-work">
+            <div className="flex flex-col w-full">
+              <h3 className="flex justify-between items-center font-medium text-sm font-work">
                 {pandal.name} <ProximityIndicator location={location} pandal={pandal} />
               </h3>
               <p className="text-primary-foreground/50 font-normal text-xs font-work">

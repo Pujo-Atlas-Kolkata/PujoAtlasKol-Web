@@ -1,9 +1,32 @@
-import { useCallback, useMemo, useState } from 'react';
-import { APIProvider, Map } from '@vis.gl/react-google-maps';
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import { APIProvider, Map, useMap } from '@vis.gl/react-google-maps';
 import { UserLocation } from './UserLocation';
 import { DEFAULT_VIEW_LAT_LONG } from '@/constants/location';
 import type { GoogleMapProps } from './types';
 import LocationMarker from './LocationMarker';
+import { useStore } from '@nanostores/react';
+import { marker } from '@/stores';
+
+const SelectedPandal = ({ locations }: Pick<GoogleMapProps, 'locations'>) => {
+  const map = useMap();
+  const activePandal = useStore(marker);
+
+  useEffect(() => {
+    console.log('activePandal', activePandal);
+    if (!map || !activePandal) return;
+
+    const selectedPandal = locations.find(
+      (location) => location.lat === activePandal.lat && location.lng === activePandal.lng,
+    );
+    if (!selectedPandal) return;
+
+    console.log('Found pandal marker on map', selectedPandal);
+    map.panTo(selectedPandal);
+    map.setZoom(30);
+  }, [map, activePandal, locations]);
+
+  return <></>;
+};
 
 export const GoogleMaps = ({ apiKey, locations, icon }: GoogleMapProps) => {
   // memoize center and zoom values to avoid unnecessary recalculations
@@ -15,7 +38,6 @@ export const GoogleMaps = ({ apiKey, locations, icon }: GoogleMapProps) => {
     // clear active location when map is clicked
     setActiveLocationId(null);
   }, []);
-
   // memoized LocationMarkers to prevent unnecessary re-renders
   const locationMarkers = useMemo(
     () =>
@@ -47,6 +69,7 @@ export const GoogleMaps = ({ apiKey, locations, icon }: GoogleMapProps) => {
           className="relative w-full h-full"
         >
           <UserLocation />
+          <SelectedPandal locations={locations} />
           {locationMarkers}
         </Map>
       </APIProvider>
