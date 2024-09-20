@@ -13,3 +13,9 @@ We 💖 contributors! Feel free to contribute to this project but **please read 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Sponsors
+
+<a href="https://www.netlify.com"> <img src="https://www.netlify.com/v3/img/components/netlify-color-accent.svg" alt="Deploys by Netlify" /> </a>
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/dc5a2de5-8b03-47a7-9342-106313242294/deploy-status)](https://app.netlify.com/sites/pujoatlas/deploys)
