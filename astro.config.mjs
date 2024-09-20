@@ -3,9 +3,11 @@ import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 import partytown from '@astrojs/partytown';
 import basicSsl from '@vitejs/plugin-basic-ssl';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://atlas.ourkolkata.in',
   vite: {
     plugins: [basicSsl()],
     server: {
@@ -28,6 +30,15 @@ export default defineConfig({
     partytown({
       config: {
         forward: ['dataLayer.push'],
+      },
+    }),
+    sitemap({
+      i18n: {
+        defaultLocale: 'en',
+        locales: {
+          en: 'en-US',
+          bn: 'bn',
+        },
       },
     }),
   ],
