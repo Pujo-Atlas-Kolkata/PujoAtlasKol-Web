@@ -50,8 +50,10 @@
 [[redirects]]
   from = "https://ourkolkata.in"
   to = "https://atlas.ourkolkata.in"
-  status = 301
+  status = 200
+  force = true
 [[redirects]]
   from = "https://pujoatlas.netlify.app"
   to = "https://atlas.ourkolkata.in"
-  status = 301
+  status = 200
+  force = true
