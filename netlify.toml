@@ -47,3 +47,11 @@
       max-age=365000000,
       public,
       immutable'''
+[[redirects]]
+  from = "https://ourkolkata.in"
+  to = "https://atlas.ourkolkata.in"
+  status = 301
+[[redirects]]
+  from = "https://pujoatlas.netlify.app"
+  to = "https://atlas.ourkolkata.in"
+  status = 301
