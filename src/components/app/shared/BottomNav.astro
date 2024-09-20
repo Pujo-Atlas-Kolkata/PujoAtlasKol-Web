@@ -1,0 +1,48 @@
+---
+import { cn } from '@/libs/utils';
+import { MdHomeFilled, MdOutlineFestival } from 'react-icons/md';
+import { FaAmbulance } from 'react-icons/fa';
+const currentPath = Astro.url.pathname;
+---
+
+<nav class="z-50 flex flex-row items-center justify-between gap-x-1 px-1 py-1 bg-gray-100/50">
+  <a
+    href="/app"
+    aria-label="home"
+    class={cn(
+      (currentPath === '/app' || currentPath === '/app/') && 'bg-white/80',
+      'px-10 py-0.5 rounded-md',
+    )}
+  >
+    <span class="flex flex-col items-center justify-center gap-y-1">
+      <MdHomeFilled className="h-7 w-7" />
+      <span class="text-[10px]">Home</span>
+    </span>
+  </a>
+  <a
+    href="/app/pandals"
+    aria-label="pandals"
+    class={cn(
+      (currentPath === '/app/pandals' || currentPath === '/app/pandals/') && 'bg-white/80',
+      'px-10 py-0.5 rounded-md',
+    )}
+  >
+    <span class="flex flex-col items-center justify-center gap-y-1">
+      <MdOutlineFestival className="h-7 w-7" />
+      <span class="text-[10px]">Pandals</span>
+    </span>
+  </a>
+  <a
+    href="/app/help"
+    aria-label="help"
+    class={cn(
+      (currentPath === '/app/help' || currentPath === '/app/help/') && 'bg-white/80',
+      'px-10 py-0.5 rounded-md',
+    )}
+  >
+    <span class="flex flex-col items-center justify-center gap-y-1">
+      <FaAmbulance className="h-7 w-7" />
+      <span class="text-[10px]">Help</span>
+    </span>
+  </a>
+</nav>

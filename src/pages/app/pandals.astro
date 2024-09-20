@@ -1,0 +1,52 @@
+---
+import { GoogleMaps } from '@/components/app/map/GoogleMap';
+import { MdOutlineFestival } from 'react-icons/md';
+import Layout from '@/layouts/WebAppLayout.astro';
+import { cn } from '@/libs/utils';
+import AppHeader from '@/components/app/shared/AppHeader.astro';
+import SearchBar from '@/components/app/shared/SearchBar.astro';
+import { PANDAL_MARKER_ICON } from '@/constants/location';
+const API_KEY = import.meta.env.GOOGLE_MAPS_API_KEY as string;
+const pandals = [
+  { id: 1, name: 'Lorem ipsum dolor', lat: 22.473695, lng: 88.362758 },
+  { id: 2, name: 'Sit amet consectetur', lat: 22.472938, lng: 88.366766 },
+  { id: 3, name: 'Adipiscing elit sed', lat: 22.473213, lng: 88.362905 },
+  { id: 4, name: 'Eiusmod tempor incididunt', lat: 22.475105, lng: 88.365669 },
+  { id: 5, name: 'Ut labore et', lat: 22.473962, lng: 88.364139 },
+  { id: 6, name: 'Dolore magna aliqua', lat: 22.472437, lng: 88.362174 },
+  { id: 7, name: 'Enim ad minim', lat: 22.476384, lng: 88.366437 },
+  { id: 8, name: 'Veniam quis nostrud', lat: 22.473054, lng: 88.364612 },
+  { id: 9, name: 'Exercitation ullamco laboris', lat: 22.476547, lng: 88.365911 },
+  { id: 10, name: 'Nisi ut aliquip', lat: 22.474098, lng: 88.366073 },
+];
+---
+
+<Layout title="Pandals | Pujo Atlas">
+  <main
+    class={cn(
+      'flex-1 flex flex-col gap-3 lg:gap-6 gap-y-3 lg:gap-y-2',
+      'bg-secondary-background p-3 lg:p-4 lg:py-12 lg:px-20',
+      'lg:rounded-l-xl lg:shadow-l-xl overflow-y-auto scroll-smooth',
+    )}
+  >
+    <AppHeader />
+    <SearchBar />
+
+    <div
+      class="flex flex-col justify-center px-2 py-2 bg-[#e6dfcf] rounded-[22px] drop-shadow-lg shadow-black"
+    >
+      <span class="flex flex-row items-center justify-start py-1">
+        &nbsp;<MdOutlineFestival size="20" className="mb-1" />&nbsp;<span
+          class="font-sans font-normal text-base mb-0.5">Pandal map</span
+        ></span
+      >
+      <GoogleMaps
+        apiKey={API_KEY}
+        locations={pandals}
+        icon={PANDAL_MARKER_ICON}
+        client:load
+        client:only="react"
+      />
+    </div>
+  </main>
+</Layout>

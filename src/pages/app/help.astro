@@ -1,0 +1,77 @@
+---
+import { cn } from '@/libs/utils';
+import { FaSquarePlus } from 'react-icons/fa6';
+import { MdFireTruck, MdChevronRight } from 'react-icons/md';
+import { TbLocationFilled } from 'react-icons/tb';
+import { PiSirenFill } from 'react-icons/pi';
+import Layout from '@/layouts/WebAppLayout.astro';
+import AppHeader from '@/components/app/shared/AppHeader.astro';
+import SearchBar from '@/components/app/shared/SearchBar.astro';
+---
+
+<Layout title="Help | Pujo Atlas">
+  <main
+    class={cn(
+      'flex-1 flex flex-col gap-3 lg:gap-6 gap-y-3 lg:gap-y-2',
+      'bg-secondary-background p-3 lg:p-4 lg:py-12 lg:px-20',
+      'lg:rounded-l-xl lg:shadow-l-xl overflow-y-auto scroll-smooth font-sans',
+    )}
+  >
+    <AppHeader />
+    <SearchBar />
+
+    <div class="flex flex-col rounded-3xl bg-[#ede3ce] p-2 drop-shadow-sm">
+      <div class="pl-2 pt-1 flex gap-x-2.5 text-center items-center">
+        <div>
+          <TbLocationFilled size="22" />
+        </div>
+        <div class="text-lg">Critical Services</div>
+      </div>
+      <div class="flex flex-row justify-center pt-3 space-x-4">
+        <div class="flex flex-col items-center justify-center">
+          <a href="tel:102" class="rounded-[20px] bg-[#fcfcfa] p-6 text-center items-center">
+            <FaSquarePlus size="50" />
+          </a>
+          <span class="my-2">Ambulance</span>
+        </div>
+        <div class="flex flex-col items-center justify-center">
+          <a href="tel:101" class="rounded-3xl bg-[#fcfcfa] p-6 text-center">
+            <MdFireTruck size="50" />
+          </a>
+          <span class="my-2">Fire</span>
+        </div>
+        <div class="flex flex-col items-center justify-center">
+          <a href="tel:100" class="rounded-3xl bg-[#fcfcfa] p-6 text-center">
+            <PiSirenFill size="50" />
+          </a>
+          <span class="my-2">Police</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col justify-center items-start px-1 pb-1 pt-5 gap-y-3">
+      <div class="pb-1 text-2xl font-medium">Other Contacts</div>
+      <a href="tel:1091" class="flex flex-col text-lg w-full">
+        <div class="flex flex-row items-center justify-between w-full">
+          <span>Women Helpline</span>
+          <MdChevronRight size="35" />
+        </div>
+        <hr class="border-gray-950/10 border-[0.5px] w-full" />
+      </a>
+      <a href="tel:1098" class="flex flex-col text-lg w-full">
+        <div class="flex flex-row items-center justify-between w-full">
+          <span>Child Helpline</span>
+          <MdChevronRight size="35" />
+        </div>
+        <hr class="border-gray-950/10 border-[0.5px] w-full" />
+      </a>
+      <a href="tel:+919830088884" class="flex flex-col text-lg w-full">
+        <div class="flex flex-row items-center justify-between w-full">
+          <span>Senior Citizen Helpline</span>
+          <MdChevronRight size="35" />
+        </div>
+        <hr class="border-gray-950/10 border-[0.5px] w-full" />
+      </a>
+    </div>
+  </main>
+</Layout>
