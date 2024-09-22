@@ -1,6 +1,3 @@
-// import { useStore } from '@nanostores/react';
-// import { isSettingsOpen } from './settingStore';
-
 import { Drawer } from 'vaul';
 import { useState, useEffect } from 'react';
 
@@ -43,7 +40,6 @@ export default function SettingsFlyout() {
                         English
                       </button>
 
-                      {/* This button is disabled for now the language change will happen soon */}
                       <button
                         disabled
                         className="text-black px-2 py-1 font-bold relative flex flex-col justify-evenly"
