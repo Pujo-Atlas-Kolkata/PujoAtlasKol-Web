@@ -19,17 +19,17 @@ export default function SettingsFlyout() {
   return (
     <div className="font-sans">
       {isOpen && (
-        <div className="rounded-xl">
+        <div>
           <Drawer.Root open={isOpen} onOpenChange={setIsOpen} container={container}>
             <Drawer.Trigger asChild>
               <div />
             </Drawer.Trigger>
             <Drawer.Portal>
-              <Drawer.Overlay className="inset-0 bg-opacity-70 z-20 p-4 m-2 rounded-lg" />
+              <Drawer.Overlay className="inset-0 bg-opacity-70 z-20 m-2" />
               <Drawer.Content
-                className="fixed bottom-0 left-0 right-0 max-h-[70%] 
-             bg-[#eae5d9] p-4
-             sm:p-2 z-30 rounded-t-lg
+                className="fixed bottom-0 left-0 right-0 max-h-[40%] 
+             bg-[#eae5d9] p-3
+             z-30 rounded-3xl
              mx-4
              mb-16
              max-w-[calc(100% - 1rem)]
@@ -42,9 +42,14 @@ export default function SettingsFlyout() {
                       <button className="bg-[#c5b394] text-white px-4 py-2 rounded-l-full transition-all font-bold">
                         English
                       </button>
+
                       {/* This button is disabled for now the language change will happen soon */}
-                      <button disabled className="text-black px-4 py-2 font-bold">
-                        বাংলা
+                      <button
+                        disabled
+                        className="text-black px-2 py-1 font-bold relative flex flex-col justify-evenly"
+                      >
+                        <span className="absolute">বাংলা</span>
+                        <span className="text-[8px] text-gray-300 pt-7">Coming Soon</span>
                       </button>
                     </div>
                   </div>
@@ -53,7 +58,9 @@ export default function SettingsFlyout() {
 
                 <div className="">
                   <p className="text-lg">Location Access</p>
-                  <p className="py-2">This can be managed in the browser per-site settings</p>
+                  <p className="text-xs pt-2">
+                    This can be managed in the browser per-site settings
+                  </p>
                 </div>
               </Drawer.Content>
             </Drawer.Portal>

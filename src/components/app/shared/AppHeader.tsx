@@ -6,8 +6,8 @@ export default function AppHeader() {
   };
 
   return (
-    <div className="flex flex-row items-center justify-between">
-      <h2 className="font-work text-4xl font-medium text-left py-4">Pujo Atlas</h2>
+    <div className="flex flex-row items-center justify-between p-3 mt-5">
+      <h2 className="font-work text-4xl font-medium text-left">Pujo Atlas</h2>
 
       <button className="settings-button" onClick={handleClick}>
         <IoMdSettings size="30" className="mb-1" />
