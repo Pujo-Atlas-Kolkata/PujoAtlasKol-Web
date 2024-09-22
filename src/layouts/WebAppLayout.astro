@@ -10,6 +10,8 @@ import alkatraWoff2 from '@fontsource-variable/alkatra/files/alkatra-latin-wght-
 
 import BottomNav from '@/components/app/shared/BottomNav.astro';
 import { cn } from '@/libs/utils';
+import AppHeader from '../components/app/shared/components/AppHeader';
+import SettingsFlyout from '../components/app/shared/components/SettingsFlyout';
 
 type Props = {
   title?: string;
@@ -74,9 +76,17 @@ const {
       '[&_*::-webkit-scrollbar-thumb]:bg-secondary-background [&::-webkit-scrollbar-thumb]:bg-secondary-background',
     )}
   >
-    <slot />
+    <div
+      class="'flex-1 flex flex-col gap-3 lg:gap-6 gap-y-3 lg:gap-y-2 bg-secondary-background p-3 lg:p-4 lg:py-12 lg:px-20 lg:rounded-l-xl lg:shadow-l-xl overflow-y-auto scroll-smooth"
+    >
+      <AppHeader client:load />
+      <slot />
+    </div>
+    <div class="fixed bottom-[4rem] left-0 right-0 z-40">
+      <SettingsFlyout client:load />
+    </div>
     <div class="pb-14"></div>
-    <div class="fixed bottom-0 left-0 right-0 z-10 bg-secondary-background">
+    <div class="fixed bottom-0 left-0 right-0 z-50 bg-secondary-background">
       <BottomNav />
     </div>
   </body>
