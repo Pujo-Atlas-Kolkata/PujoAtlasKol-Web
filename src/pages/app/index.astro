@@ -1,6 +1,6 @@
 ---
 import AppHeader from '@/components/app/shared/AppHeader.astro';
-import { SearchBar } from '@/components/app/shared/SearchBar';
+import SearchBar from '@/components/app/shared/Search/SearchBar.astro';
 import Layout from '@/layouts/WebAppLayout.astro';
 import { cn } from '@/libs/utils';
 ---
@@ -14,7 +14,7 @@ import { cn } from '@/libs/utils';
     )}
   >
     <AppHeader />
-    <SearchBar client:load client:only="react" />
+    <SearchBar />
     Web App Home Screen EN <br /><br />
     Web App Home Screen EN <br /><br />
     Web App Home Screen EN <br /><br />

@@ -5,11 +5,11 @@ import { DEFAULT_VIEW_LAT_LONG } from '@/constants/location';
 import type { GoogleMapProps } from './types';
 import LocationMarker from './LocationMarker';
 import { useStore } from '@nanostores/react';
-import { marker } from '@/stores';
+import { markerStore } from '@/stores';
 
 const SelectedPandal = ({ locations }: Pick<GoogleMapProps, 'locations'>) => {
   const map = useMap();
-  const activePandal = useStore(marker);
+  const activePandal = useStore(markerStore);
 
   useEffect(() => {
     console.log('activePandal', activePandal);

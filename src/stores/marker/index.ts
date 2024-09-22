@@ -1,3 +1,3 @@
 import { atom } from 'nanostores';
 
-export const marker = atom<google.maps.LatLngLiteral | null>(null);
+export const markerStore = atom<google.maps.LatLngLiteral | null>(null);

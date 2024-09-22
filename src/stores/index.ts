@@ -1,2 +1,3 @@
 export { queryClient } from './query';
-export { marker } from './marker';
+export { markerStore } from './marker';
+export { searchStore } from './search';
