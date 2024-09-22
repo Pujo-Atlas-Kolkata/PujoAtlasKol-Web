@@ -54,11 +54,11 @@ export default function SettingsFlyout() {
                     </div>
                   </div>
                 </Drawer.Title>
-                <hr className="my-2 border-t-2 border-gray-300" />
+                <hr className="border-t-2 border-gray-300" />
 
                 <div className="">
-                  <p className="text-lg">Location Access</p>
-                  <p className="text-xs pt-2">
+                  <p className="text-lg font-semibold">Location Access</p>
+                  <p className="text-xs pt-1">
                     This can be managed in the browser per-site settings
                   </p>
                 </div>
