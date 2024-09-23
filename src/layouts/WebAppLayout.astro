@@ -10,8 +10,8 @@ import alkatraWoff2 from '@fontsource-variable/alkatra/files/alkatra-latin-wght-
 
 import BottomNav from '@/components/app/shared/BottomNav.astro';
 import { cn } from '@/libs/utils';
-import AppHeader from '../components/app/shared/AppHeader';
-import SettingsFlyout from '../components/app/shared/Settings/SettingsFlyout';
+import AppHeader from '../components/app/shared/AppHeader.astro';
+import SettingsFlyout from '../components/app/shared/SettingsFlyout';
 
 type Props = {
   title?: string;
@@ -80,7 +80,7 @@ const {
     <span
       class="flex-1 flex flex-col gap-3 lg:gap-6 gap-y-3 lg:gap-y-2 bg-secondary-background lg:p-4 lg:py-12 lg:px-20 lg:rounded-l-xl lg:shadow-l-xl overflow-y-auto scroll-smooth"
     >
-      <AppHeader client:load client:only="react" />
+      <AppHeader />
       <slot />
     </span>
     <div class="fixed z-40 rounded-2xl">
