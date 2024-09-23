@@ -25,16 +25,18 @@ export default function SettingsFlyout() {
             <Drawer.Portal>
               <Drawer.Overlay className="inset-0 bg-opacity-70 z-20 m-2" />
               <Drawer.Content
-                className="drop-shadow-md border border-black fixed bottom-0 left-0 right-0 max-h-[40%] 
+                className="drop-shadow-md border border-black top-[calc(100%-11.25rem)] fixed left-0 right-0 max-h-[40%] 
              bg-[#eae5d9] p-1
              z-30 rounded-3xl
-             mx-4
-             mb-16
+             mx-0
+             mb-2
+             h-[200%]
              max-w-[calc(100% - 1rem)]
              shadow-lg"
               >
-                <Drawer.Title className="text-base font-semibold px-0 py-2">
-                  <div className="flex flex-row justify-between items-center px-3">
+                <Drawer.Title className="text-base font-semibold px-0 py-0">
+                  <div className="rounded-full h-[6px] bg-[#c5b494] w-9 mb-3 mx-auto"></div>
+                  <div className="flex flex-row justify-between items-center px-3 py-0">
                     <div className="text-xl font-semibold">Language</div>
                     <div className="flex items-center bg-[#ebe5d9] rounded-r-full p-1 w-fit text-base">
                       <button className="bg-[#c5b394] text-white px-3 py-2 rounded-l-full transition-all font-bold border-l-2 border-t-2 border-b-2 border-black">
@@ -51,7 +53,7 @@ export default function SettingsFlyout() {
                       </button>
                     </div>
                   </div>
-                  <div className="pt-2 pr-2 text-right font-sans text-xs">
+                  <div className="pt-0.5 pr-2 text-right font-sans text-xs">
                     <span className="font-noto font-bold">বাংলা</span>&nbsp;language support coming
                     soon!
                   </div>
