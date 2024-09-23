@@ -3,7 +3,6 @@ import { GoogleMaps } from '@/components/app/map/GoogleMap';
 import { MdOutlineFestival } from 'react-icons/md';
 import Layout from '@/layouts/WebAppLayout.astro';
 import { cn } from '@/libs/utils';
-import AppHeader from '@/components/app/shared/AppHeader.astro';
 import SearchBar from '@/components/app/shared/Search/SearchBar.astro';
 import { PANDAL_MARKER_ICON } from '@/constants/location';
 import { PANDALS } from '@/constants/pandals';
@@ -25,7 +24,6 @@ const pandals = PANDALS.map((pandal, index) => ({
       'lg:rounded-l-xl lg:shadow-l-xl overflow-y-auto scroll-smooth',
     )}
   >
-    <AppHeader />
     <SearchBar />
 
     <div

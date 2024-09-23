@@ -10,6 +10,8 @@ import alkatraWoff2 from '@fontsource-variable/alkatra/files/alkatra-latin-wght-
 
 import BottomNav from '@/components/app/shared/BottomNav.astro';
 import { cn } from '@/libs/utils';
+import AppHeader from '../components/app/shared/AppHeader';
+import SettingsFlyout from '../components/app/shared/Settings/SettingsFlyout';
 
 type Props = {
   title?: string;
@@ -33,6 +35,7 @@ const {
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <title>{title}</title>
     <script is:inline>
       const MAX_WIDTH = 768;
@@ -75,9 +78,17 @@ const {
       '[&_*::-webkit-scrollbar-thumb]:bg-secondary-background [&::-webkit-scrollbar-thumb]:bg-secondary-background',
     )}
   >
-    <slot />
+    <span
+      class="flex-1 flex flex-col gap-3 lg:gap-6 gap-y-3 lg:gap-y-2 bg-secondary-background lg:p-4 lg:py-12 lg:px-20 lg:rounded-l-xl lg:shadow-l-xl overflow-y-auto scroll-smooth"
+    >
+      <AppHeader client:load client:only="react" />
+      <slot />
+    </span>
+    <div class="fixed z-40 rounded-2xl">
+      <SettingsFlyout client:visible client:only="react" />
+    </div>
     <div class="pb-14"></div>
-    <div class="fixed bottom-0 left-0 right-0 z-10 bg-secondary-background">
+    <div class="fixed bottom-0 left-0 right-0 z-50 bg-secondary-background">
       <BottomNav />
     </div>
   </body>

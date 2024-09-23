@@ -69,6 +69,12 @@ export const LargeNavbar = ({ path }: Props) => {
           <span className="font-work text-xs font-semibold">{item.label}</span>
         </a>
       ))}
+      <a href="https://www.netlify.com">
+        <img
+          src="https://www.netlify.com/v3/img/components/netlify-light.svg"
+          alt="Deploys by Netlify"
+        />
+      </a>
     </nav>
   );
 };

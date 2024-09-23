@@ -1,0 +1,39 @@
+---
+import { TbLocationFilled } from 'react-icons/tb';
+import { MdLocationPin } from 'react-icons/md';
+import { MdGroups } from 'react-icons/md';
+import { MdTimer } from 'react-icons/md';
+---
+
+<div id="nearme" class="rounded-3xl mb-2 p-2 pt-1 flex flex-col justify-start bg-[#e6dfcf]">
+  <div class="mb-1 p-2 flex flex-row items-center justify-start">
+    <TbLocationFilled size="25" fill="#171715" />
+    <div class="pl-3">
+      <p>Near me</p>
+    </div>
+  </div>
+  <div class="rounded-3xl p-6 flex flex-col justify-start bg-[#353435]">
+    <div class="text-sm font-light">
+      <p class="!text-[#DCDCDD] font-work font-normal text-xl">Near me title</p>
+      <p class="!text-[#DCDCDD] leading-7">subtitle1</p>
+      <div class="flex flex-row leading-6">
+        <div class="m-0.5">
+          <MdLocationPin fill="#DCDCDD" size="17" />
+        </div>
+        <p class="!text-[#DCDCDD] pl-1 flex-row">Distance</p>
+      </div>
+      <div class="flex flex-row leading-6">
+        <div class="m-0.5">
+          <MdGroups fill="#DCDCDD" size="17" />
+        </div>
+        <p class="!text-[#DCDCDD] pl-1 flex-row">crowd (approx)</p>
+      </div>
+      <div class="flex flex-row leading-6">
+        <div class="m-0.5">
+          <MdTimer fill="#DCDCDD" size="17" />
+        </div>
+        <p class="!text-[#DCDCDD] pl-1 flex-row">travel_time</p>
+      </div>
+    </div>
+  </div>
+</div>
