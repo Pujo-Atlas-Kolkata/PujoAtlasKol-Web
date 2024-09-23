@@ -5,7 +5,10 @@ import { FaAmbulance } from 'react-icons/fa';
 const currentPath = Astro.url.pathname;
 ---
 
-<nav class="flex flex-row items-center justify-between gap-x-1 px-1 py-1 bg-gray-100/50">
+<nav
+  id="app-bottom-nav"
+  class="flex flex-row items-center justify-between gap-x-1 px-1 py-1 bg-gray-100/50"
+>
   <a
     href="/app"
     aria-label="home"

@@ -7,11 +7,10 @@ import interWoff2 from '@fontsource-variable/inter/files/inter-latin-wght-normal
 import workSansWoff2 from '@fontsource-variable/work-sans/files/work-sans-latin-wght-normal.woff2?url';
 import notoSansWoff2 from '@fontsource-variable/noto-sans-bengali/files/noto-sans-bengali-latin-wght-normal.woff2?url';
 import alkatraWoff2 from '@fontsource-variable/alkatra/files/alkatra-latin-wght-normal.woff2?url';
-
-import BottomNav from '@/components/app/shared/BottomNav.astro';
 import { cn } from '@/libs/utils';
-import AppHeader from '../components/app/shared/AppHeader';
-import SettingsFlyout from '../components/app/shared/Settings/SettingsFlyout';
+import AppHeader from '@/components/app/shared/AppHeader.astro';
+import BottomNav from '@/components/app/shared/BottomNav.astro';
+import SettingsFlyout from '@/components/app/shared/SettingsFlyout';
 
 type Props = {
   title?: string;
@@ -80,14 +79,14 @@ const {
     <span
       class="flex-1 flex flex-col gap-3 lg:gap-6 gap-y-3 lg:gap-y-2 bg-secondary-background lg:p-4 lg:py-12 lg:px-20 lg:rounded-l-xl lg:shadow-l-xl overflow-y-auto scroll-smooth"
     >
-      <AppHeader client:load client:only="react" />
+      <AppHeader />
       <slot />
     </span>
     <div class="fixed z-40 rounded-2xl">
       <SettingsFlyout client:visible client:only="react" />
     </div>
     <div class="pb-14"></div>
-    <div class="fixed bottom-0 left-0 right-0 z-50 bg-secondary-background">
+    <div class="fixed bottom-0 left-0 right-0 z-10 bg-secondary-background">
       <BottomNav />
     </div>
   </body>
