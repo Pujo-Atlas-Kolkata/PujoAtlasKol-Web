@@ -59,7 +59,7 @@ export default function SettingsFlyout() {
                   </div>
                 </Drawer.Title>
 
-                <hr className="border-gray-950/10 border-[0.5px] mx-3" />
+                <hr className="border-gray-950/10 border-[0.5px] mx-2" />
 
                 <div className="flex flex-col items-start justify-center gap-y-0 px-3 py-1.5">
                   <div className="text-lg font-semibold">Location Access</div>
@@ -68,7 +68,7 @@ export default function SettingsFlyout() {
                   </div>
                 </div>
 
-                <hr className="border-gray-950/10 border-[0.5px] mx-3" />
+                <hr className="border-gray-950/10 border-[0.5px] mx-2" />
 
                 <div className="flex flex-row justify-center items-center text-xs py-2 mx-auto">
                   <span className="text-left">
