@@ -45,6 +45,7 @@ export const GoogleMaps = ({ apiKey, locations, icon }: GoogleMapProps) => {
           mapId="4e06f8f1228c0ba9"
           onClick={handleMapClick}
           className="relative w-full h-full"
+          streetViewControl={false}
         >
           <UserLocation />
           {locationMarkers}
