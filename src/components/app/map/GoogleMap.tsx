@@ -35,7 +35,7 @@ export const GoogleMaps = ({ apiKey, locations, icon }: GoogleMapProps) => {
   );
 
   return (
-    <section className="max-w-screen h-[500px] overflow-hidden rounded-[22px] focus:outline-none">
+    <section className="max-w-screen h-[500px] overflow-hidden focus:outline-none">
       <APIProvider apiKey={apiKey}>
         <Map
           id="map"
