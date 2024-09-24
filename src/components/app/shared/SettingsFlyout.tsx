@@ -25,8 +25,8 @@ export default function SettingsFlyout() {
             <Drawer.Portal>
               <Drawer.Overlay className="inset-0 bg-opacity-70 z-20 m-2" />
               <Drawer.Content
-                className="drop-shadow-md border border-black top-[calc(100%-11.25rem)] fixed left-0 right-0 max-h-[40%] 
-             bg-[#e6dfcf] p-1
+                className="drop-shadow-md top-[calc(100%-11.5rem)] fixed left-0 right-0 max-h-[40%] 
+             bg-[#dddddd]/90 p-1
              z-30 rounded-3xl
              mx-0
              mb-2
@@ -34,35 +34,33 @@ export default function SettingsFlyout() {
              max-w-[calc(100% - 1rem)]
              shadow-lg"
               >
-                <Drawer.Title className="text-base font-semibold px-0 py-0">
-                  <div className="rounded-full h-[6px] bg-[#c5b494] w-9 mb-3 mx-auto"></div>
+                <Drawer.Title className="text-base px-0 py-0">
+                  <div className="rounded-full h-[6px] bg-[#8f7952] w-9 mb-3 mt-1 mx-auto"></div>
                   <div className="flex flex-row justify-between items-center px-3 py-0">
-                    <div className="text-xl font-semibold">Language</div>
-                    <div className="flex items-center bg-[#e6dfcf] rounded-r-full p-1 w-fit text-base">
-                      <button className="bg-[#c5b394] text-white px-3 py-2 rounded-l-full transition-all font-bold border-l-2 border-t-2 border-b-2 border-black">
+                    <div className="text-lg">Language</div>
+                    <div className="flex items-center bg-inherit rounded-r-full p-1 w-fit text-base">
+                      <button className="bg-[#c5b394] font-semibold text-white px-3 py-2 text-sm rounded-l-full transition-all">
                         English
                       </button>
 
                       <button
                         disabled
-                        className="text-black px-5 py-1 font-bold relative flex flex-col justify-center items-center rounded-r-full border-2 border-black"
+                        className="text-black px-3 py-2 font-semibold relative flex flex-col justify-center items-center"
                       >
-                        <span className="font-noto text-lg pt-1 line-through decoration-4">
-                          বাংলা
-                        </span>
+                        <span className="font-noto pt-1 text-base">বাংলা</span>
                       </button>
                     </div>
                   </div>
                   <div className="pt-0.5 pr-2 text-right font-sans text-xs">
-                    <span className="font-noto font-bold">বাংলা</span>&nbsp;language support coming
-                    soon!
+                    <span className="font-noto font-semibold">বাংলা</span>&nbsp;language support
+                    coming soon!
                   </div>
                 </Drawer.Title>
 
                 <hr className="border-gray-950/10 border-[0.5px] mx-2" />
 
                 <div className="flex flex-col items-start justify-center gap-y-0 px-3 py-1.5">
-                  <div className="text-lg font-semibold">Location Access</div>
+                  <div className="text-lg">Location Access</div>
                   <div className="text-xs">
                     This can be managed in the browser per-site settings
                   </div>
