@@ -2,6 +2,7 @@ import { useState } from 'react';
 import PandalCard from './PandalCard';
 import { TbLocationFilled } from 'react-icons/tb';
 import { IoMdTrendingUp } from 'react-icons/io';
+import { cn } from '@/libs/utils';
 
 const Card = () => {
   const [activeCard, setActiveCard] = useState<'trending' | 'nearme'>('trending');
@@ -9,13 +10,19 @@ const Card = () => {
     <>
       <div className="flex flex-row gap-2">
         <button
-          className={`p-2 px-3 font-work rounded-full bg-[${activeCard === 'trending' ? '#fff' : '#e6dfcf'}]`}
+          className={cn(
+            activeCard === 'trending' ? 'bg-[#e6dfcf]' : 'bg-[#fff]',
+            'p-2 px-3 font-sans rounded-full',
+          )}
           onClick={() => (activeCard !== 'nearme' ? setActiveCard('nearme') : null)}
         >
           Near Me
         </button>
         <button
-          className={`p-2 px-3 font-work rounded-full bg-[${activeCard === 'trending' ? '#e6dfcf' : '#fff'}]`}
+          className={cn(
+            activeCard === 'trending' ? 'bg-[#fff]' : 'bg-[#e6dfcf]',
+            'p-2 px-3 font-sans rounded-full',
+          )}
           onClick={() => (activeCard !== 'trending' ? setActiveCard('trending') : null)}
         >
           Trending
