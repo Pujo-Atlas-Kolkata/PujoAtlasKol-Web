@@ -1,8 +1,9 @@
-interface LocationMarker {
+export interface LocationMarker {
   id: number;
   name: string;
   lat: number;
   lng: number;
+  distance?: number;
 }
 
 export interface LocationMarkerProps {

@@ -6,7 +6,7 @@ import { cn } from '@/libs/utils';
 import SearchBar from '@/components/app/shared/SearchBar.astro';
 import { PANDAL_MARKER_ICON } from '@/constants/location';
 const API_KEY = import.meta.env.GOOGLE_MAPS_API_KEY as string;
-export const pandals = [
+const pandals = [
   { id: 1, name: 'Lorem ipsum dolor', lat: 22.473695, lng: 88.362758 },
   { id: 2, name: 'Sit amet consectetur', lat: 22.472938, lng: 88.366766 },
   { id: 3, name: 'Adipiscing elit sed', lat: 22.473213, lng: 88.362905 },
