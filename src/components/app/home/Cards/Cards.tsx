@@ -4,7 +4,7 @@ import { TbLocationFilled } from 'react-icons/tb';
 import { IoMdTrendingUp } from 'react-icons/io';
 import { cn } from '@/libs/utils';
 
-const Card = () => {
+const Cards = () => {
   const [activeCard, setActiveCard] = useState<'trending' | 'nearme'>('trending');
   return (
     <>
@@ -38,4 +38,4 @@ const Card = () => {
   );
 };
 
-export default Card;
+export default Cards;
