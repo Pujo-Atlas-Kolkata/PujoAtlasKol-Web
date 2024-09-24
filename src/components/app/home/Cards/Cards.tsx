@@ -1,11 +1,40 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import PandalCard from './PandalCard';
 import { TbLocationFilled } from 'react-icons/tb';
 import { IoMdTrendingUp } from 'react-icons/io';
 import { cn } from '@/libs/utils';
+import { pandals } from '@/pages/app/pandals.astro';
 
 const Cards = () => {
+  console.log('pandals=', pandals);
+
   const [activeCard, setActiveCard] = useState<'trending' | 'nearme'>('trending');
+
+  useEffect(() => {
+    const getLocation = () => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            const { latitude, longitude } = position.coords;
+            setActiveCard('nearme');
+
+            console.log('Latitude:', latitude);
+            console.log('Longitude:', longitude);
+          },
+          (error) => {
+            console.error('Error getting location:', error);
+            setActiveCard('trending');
+          },
+        );
+      } else {
+        console.error('Geolocation is not supported by this browser.');
+        setActiveCard('trending');
+      }
+    };
+
+    getLocation();
+  }, []);
+
   return (
     <>
       <div className="flex flex-row gap-2">
