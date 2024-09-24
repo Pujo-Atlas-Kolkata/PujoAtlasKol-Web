@@ -1,6 +1,7 @@
-import { MdLocationPin, MdTimer } from 'react-icons/md';
+import { MdLocationPin } from 'react-icons/md';
 import type { IconType } from 'react-icons';
 import { PiMapPinAreaFill } from 'react-icons/pi';
+import { BiSolidCity } from 'react-icons/bi';
 
 interface PandalCardProps {
   cardTitleText: string;
@@ -38,9 +39,9 @@ const PandalCard: React.FC<PandalCardProps> = ({ ...props }: PandalCardProps) =>
           </div>
           <div className="flex flex-row leading-6">
             <div className="m-0.5">
-              <MdTimer fill="#DCDCDD" size="17" />
+              <BiSolidCity fill="#DCDCDD" size="17" />
             </div>
-            <p className="!text-[#DCDCDD] pl-1 flex-row">travel_time</p>
+            <p className="!text-[#DCDCDD] pl-1 flex-row">Kolkata</p>
           </div>
         </div>
       </div>
