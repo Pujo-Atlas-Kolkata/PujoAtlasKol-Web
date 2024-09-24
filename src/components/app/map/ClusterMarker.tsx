@@ -19,8 +19,6 @@ export const ClusteredMarkers = ({ locations, icon, activeLocationId }: Clustere
     [locations, selectedId],
   );
 
-  // create the markerClusterer once the map is available and update it when
-  // the markers are changed
   const map = useMap();
   const clusterer = useMemo(() => {
     if (!map) return null;
@@ -53,10 +51,6 @@ export const ClusteredMarkers = ({ locations, icon, activeLocationId }: Clustere
     setSelectedId(null);
   }, []);
 
-  // const handleMarkerClick = useCallback((location: Location) => {
-  //   setSelectedId(location.id);
-  // }, []);
-
   return (
     <>
       {locations.map((location) => (
@@ -71,12 +65,6 @@ export const ClusteredMarkers = ({ locations, icon, activeLocationId }: Clustere
           setActiveMarkerId={setSelectedId}
           setMarkerRef={setMarkerRef}
         />
-        // <TreeMarker
-        //   key={location.id}
-        //   tree={location}
-        //   onClick={handleMarkerClick}
-        //   setMarkerRef={setMarkerRef}
-        // />
       ))}
 
       {selectedId && (

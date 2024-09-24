@@ -65,5 +65,4 @@ const LocationMarker = ({
   );
 };
 
-// memo to prevent unnecessary re-renders
 export default memo(LocationMarker);
