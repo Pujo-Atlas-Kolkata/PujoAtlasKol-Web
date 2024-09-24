@@ -4,7 +4,7 @@ import { TbLocationFilled } from 'react-icons/tb';
 import { IoMdTrendingUp } from 'react-icons/io';
 
 const Card = () => {
-  const [activeCard, setActiveCard] = useState('trending');
+  const [activeCard, setActiveCard] = useState<'trending' | 'nearme'>('trending');
   return (
     <>
       <div className="flex flex-row gap-2">
