@@ -12,6 +12,7 @@ const LocationMarker = ({
   icon,
   activeMarkerId,
   setActiveMarkerId,
+  setMarkerRef,
 }: LocationMarkerProps) => {
   const handleMarkerClick = useCallback(() => {
     setActiveMarkerId(id);
@@ -28,8 +29,13 @@ const LocationMarker = ({
 
   const showLocationNameAndNavigateButton = activeMarkerId === id;
 
+  const ref = useCallback(
+    (marker: google.maps.marker.AdvancedMarkerElement) => setMarkerRef(marker, id),
+    [setMarkerRef, id],
+  );
+
   return (
-    <AdvancedMarker position={{ lat, lng }} onClick={handleMarkerClick}>
+    <AdvancedMarker position={{ lat, lng }} onClick={handleMarkerClick} ref={ref}>
       <div className="relative cursor-pointer">
         <img src={icon} alt={`${name} marker`} className="w-14 h-14" />
         {showLocationNameAndNavigateButton && (
@@ -59,5 +65,4 @@ const LocationMarker = ({
   );
 };
 
-// memo to prevent unnecessary re-renders
 export default memo(LocationMarker);
