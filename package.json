@@ -25,6 +25,7 @@
     "@fontsource-variable/inter": "^5.0.20",
     "@fontsource-variable/noto-sans-bengali": "^5.0.13",
     "@fontsource-variable/work-sans": "^5.0.20",
+    "@googlemaps/markerclusterer": "^2.5.3",
     "@nanostores/react": "^0.7.3",
     "@tanstack/react-query": "^5.56.2",
     "@types/react": "^18.3.4",
