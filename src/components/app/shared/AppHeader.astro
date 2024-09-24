@@ -1,8 +1,11 @@
 ---
 import { IoMdSettings } from 'react-icons/io';
+const handleClick = "document.dispatchEvent(new CustomEvent('toggleFlyout'));";
 ---
 
-<div class="flex flex-row items-center justify-between">
-  <h2 class="font-work text-4xl font-medium text-left py-4">Pujo Atlas</h2>
-  <IoMdSettings size="30" className="mb-1" />
+<div class="flex flex-row items-center justify-between p-3 mt-5">
+  <h2 class="font-work text-4xl font-medium text-left">Pujo Atlas</h2>
+  <button class="settings-button" onclick={handleClick}>
+    <IoMdSettings size="30" className="mb-1" />
+  </button>
 </div>
