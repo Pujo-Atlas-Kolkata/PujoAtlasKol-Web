@@ -15,7 +15,7 @@ export const GoogleMaps = ({ apiKey, locations, icon }: GoogleMapProps) => {
   }, []);
 
   return (
-    <section className="max-w-screen h-[500px] overflow-hidden rounded-[22px] focus:outline-none">
+    <section className="max-w-screen overflow-hidden focus:outline-none">
       <APIProvider apiKey={apiKey}>
         <Map
           id="map"
@@ -24,7 +24,8 @@ export const GoogleMaps = ({ apiKey, locations, icon }: GoogleMapProps) => {
           defaultCenter={center}
           mapId="4e06f8f1228c0ba9"
           onClick={handleMapClick}
-          className="relative w-full h-full"
+          className="relative w-full h-[calc(100vh-16.8rem)]"
+          streetViewControl={false}
         >
           <UserLocation />
           {locations && (
