@@ -1,4 +1,4 @@
-import { InfoWindow, useMap } from '@vis.gl/react-google-maps';
+import { useMap } from '@vis.gl/react-google-maps';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { type Marker, MarkerClusterer } from '@googlemaps/markerclusterer';
 import type { Location } from './types';
@@ -13,11 +13,6 @@ export type ClusteredMarkersProps = {
 export const ClusteredMarkers = ({ locations, icon, activeLocationId }: ClusteredMarkersProps) => {
   const [markers, setMarkers] = useState<{ [key: string]: Marker }>({});
   const [selectedId, setSelectedId] = useState<number | null>(activeLocationId);
-
-  const selected = useMemo(
-    () => (locations && selectedId ? locations.find((t) => t.id === selectedId)! : null),
-    [locations, selectedId],
-  );
 
   const map = useMap();
   const clusterer = useMemo(() => {
@@ -47,10 +42,6 @@ export const ClusteredMarkers = ({ locations, icon, activeLocationId }: Clustere
     });
   }, []);
 
-  const handleInfoWindowClose = useCallback(() => {
-    setSelectedId(null);
-  }, []);
-
   return (
     <>
       {locations.map((location) => (
@@ -66,12 +57,6 @@ export const ClusteredMarkers = ({ locations, icon, activeLocationId }: Clustere
           setMarkerRef={setMarkerRef}
         />
       ))}
-
-      {selectedId && (
-        <InfoWindow anchor={markers[selectedId]} onCloseClick={handleInfoWindowClose}>
-          {selected?.name}
-        </InfoWindow>
-      )}
     </>
   );
 };
