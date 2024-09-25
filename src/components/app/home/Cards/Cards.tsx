@@ -115,14 +115,14 @@ const Cards = () => {
         </button>
       </div>
       {activeCard === 'nearme' && closestPandals.length > 0 && (
-        <div>
+        <div className="z-10">
           <div className="mb-1 p-2 flex flex-row items-center justify-start">
             <TbLocationFilled size="24" fill="#171715" />
             <div className="pl-3">
               <p>Near Me</p>
             </div>
           </div>
-          <div className="flex-1 overflow-y-auto max-h-[calc(100vh-21rem)] [&_*::-webkit-scrollbar]:hidden [&::-webkit-scrollbar]:hidden">
+          <div className="flex-1 overflow-y-auto max-h-[calc(100vh-16rem)] [&_*::-webkit-scrollbar]:hidden [&::-webkit-scrollbar]:hidden">
             {closestPandals.map((pandal) => (
               <PandalCard
                 key={pandal.id}
