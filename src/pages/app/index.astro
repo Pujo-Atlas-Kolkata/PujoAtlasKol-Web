@@ -1,21 +1,8 @@
 ---
 import Cards from '@/components/app/home/Cards/Cards';
 import SearchBar from '@/components/app/shared/SearchBar.astro';
-import { FETCH_ALL_PANDALS } from '@/constants/location';
 import Layout from '@/layouts/WebAppLayout.astro';
-import type { Location } from '@/components/app/map/types';
-import { request } from '@/libs/request';
 import { cn } from '@/libs/utils';
-
-type Result = {
-  result: Location[];
-};
-
-const { data, error } = await request.get<Result>(FETCH_ALL_PANDALS);
-const pandals = data?.result || [];
-if (error || data?.result === undefined) {
-  return;
-}
 ---
 
 <Layout title="Home | Pujo Atlas">
@@ -27,6 +14,6 @@ if (error || data?.result === undefined) {
     )}
   >
     <SearchBar />
-    <Cards pandals={pandals} client:load client:only="react" />
+    <Cards client:load client:only="react" />
   </main>
 </Layout>
