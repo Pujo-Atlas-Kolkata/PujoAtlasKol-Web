@@ -52,7 +52,7 @@ export const GoogleMaps = ({ apiKey, icon }: GoogleMapProps) => {
           Please try again later!
         </div>
       )}
-      {!isMapLoading && !isLoading && !isError && (
+      {!isLoading && !isError && (
         <section className="max-w-screen overflow-hidden focus:outline-none">
           <APIProvider apiKey={apiKey}>
             <Map
