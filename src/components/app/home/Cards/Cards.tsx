@@ -96,7 +96,7 @@ const Cards = () => {
               <p>Near Me</p>
             </div>
           </div>
-          <div className="rounded-3xl flex-1 overflow-y-auto max-h-[calc(100dvh-16rem)] [&_*::-webkit-scrollbar]:hidden [&::-webkit-scrollbar]:hidden">
+          <div className="rounded-t-[1.075rem] flex-1 overflow-y-auto max-h-[calc(100dvh-16rem)] [&_*::-webkit-scrollbar]:hidden [&::-webkit-scrollbar]:hidden">
             {memoizedClosestPandals.map((pandal) => (
               <PandalCard
                 key={pandal.id}
@@ -157,6 +157,7 @@ const Cards = () => {
           className={cn(
             activeCard === 'nearme' ? 'bg-[#fff]' : 'bg-[#e6dfcf]',
             'p-2 px-3 font-sans rounded-full',
+            !isUserLocationAvailable && 'bg-inherit',
           )}
           onClick={handleNearMeClick}
         >

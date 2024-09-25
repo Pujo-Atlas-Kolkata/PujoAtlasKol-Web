@@ -64,6 +64,8 @@ export const GoogleMaps = ({ apiKey, icon }: GoogleMapProps) => {
       <section className="max-w-screen overflow-hidden focus:outline-none">
         <APIProvider apiKey={apiKey}>
           <Map
+            maxZoom={23}
+            minZoom={10}
             id="map"
             gestureHandling="greedy"
             defaultZoom={zoom}
