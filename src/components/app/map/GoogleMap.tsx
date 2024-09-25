@@ -24,7 +24,7 @@ export const GoogleMaps = ({ apiKey, locations, icon }: GoogleMapProps) => {
           defaultCenter={center}
           mapId="4e06f8f1228c0ba9"
           onClick={handleMapClick}
-          className="relative w-full h-[calc(100vh-20.5rem)]"
+          className="relative w-full h-[calc(100vh-21rem)]"
           streetViewControl={false}
         >
           <UserLocation />
