@@ -6,6 +6,7 @@ import type { GoogleMapProps } from './types';
 import { ClusteredMarkers } from './ClusterMarker';
 import { CgSpinner } from 'react-icons/cg';
 import { useQuery } from '@/hooks';
+import type { Location } from './types';
 
 type Result = { result: Location[] };
 
