@@ -26,9 +26,6 @@ const Cards = ({ pandals }: CardsProps) => {
             setUserLocation({ latitude, longitude });
             setActiveCard('nearme');
             setIsUserLocationAvailable(true);
-
-            console.log('Latitude:', latitude);
-            console.log('Longitude:', longitude);
           },
           (error) => {
             console.error('Error getting location:', error);
