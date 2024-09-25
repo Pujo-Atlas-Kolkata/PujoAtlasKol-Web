@@ -5,18 +5,9 @@ import { cn } from '@/libs/utils';
 import type { Location } from '../../map/types';
 import PandalCard from './PandalCard';
 
-export const pandals = [
-  { id: 1, name: 'Lorem ipsum dolor', lat: 22.473695, lng: 88.362758 },
-  { id: 2, name: 'Sit amet consectetur', lat: 22.472938, lng: 88.366766 },
-  { id: 3, name: 'Adipiscing elit sed', lat: 22.473213, lng: 88.362905 },
-  { id: 4, name: 'Eiusmod tempor incididunt', lat: 22.475105, lng: 88.365669 },
-  { id: 5, name: 'Ut labore et', lat: 22.473962, lng: 88.364139 },
-  { id: 6, name: 'Dolore magna aliqua', lat: 22.472437, lng: 88.362174 },
-  { id: 7, name: 'Enim ad minim', lat: 22.476384, lng: 88.366437 },
-  { id: 8, name: 'Veniam quis nostrud', lat: 22.473054, lng: 88.364612 },
-  { id: 9, name: 'Exercitation ullamco laboris', lat: 22.476547, lng: 88.365911 },
-  { id: 10, name: 'Nisi ut aliquip', lat: 22.474098, lng: 88.366073 },
-];
+interface CardsProps {
+  pandals: Location[];
+}
 
 const getDistance = (lat1: number, lng1: number, lat2: number, lng2: number) => {
   const toRad = (value: number) => (value * Math.PI) / 180;
@@ -34,9 +25,7 @@ const getDistance = (lat1: number, lng1: number, lat2: number, lng2: number) => 
   return R * c; // Distance in kilometers
 };
 
-const Cards = () => {
-  console.log('pandals=', pandals);
-
+const Cards = ({ pandals }: CardsProps) => {
   const [activeCard, setActiveCard] = useState<'trending' | 'nearme'>('trending');
   const [isUserLocationAvailable, setIsUserLocationAvailable] = useState<boolean>(false);
   const [userLocation, setUserLocation] = useState<{ latitude: number; longitude: number } | null>(
@@ -81,15 +70,15 @@ const Cards = () => {
           userLocation.latitude,
           userLocation.longitude,
           pandal.lat,
-          pandal.lng,
+          pandal.lon,
         ),
       }));
 
       // Sort pandals by distance and get the 5 closest
-      const sortedPandals = distances.sort((a, b) => a.distance - b.distance).slice(0, 5);
+      const sortedPandals = distances.sort((a, b) => a.distance - b.distance).slice(0, 10);
       setClosestPandals(sortedPandals);
     }
-  }, [userLocation]);
+  }, [pandals, userLocation]);
 
   return (
     <>
@@ -127,15 +116,25 @@ const Cards = () => {
               <PandalCard
                 key={pandal.id}
                 cardTitleText={pandal.name}
-                CardTitleIcon={TbLocationFilled}
-                cardTitleDistance={pandal.distance}
+                cardIcon={TbLocationFilled}
+                cardDistance={pandal.distance}
+                cardAddress={pandal.address}
+                cardZone={pandal.zone}
+                cardCity={pandal.city}
               />
             ))}
           </div>
         </div>
       )}
       {activeCard === 'trending' && (
-        <PandalCard cardTitleText="Trending" CardTitleIcon={IoMdTrendingUp} />
+        <PandalCard
+          cardTitleText="Trending"
+          cardIcon={IoMdTrendingUp}
+          cardAddress="foobar"
+          cardCity="Kolkata"
+          cardZone="CCU-S"
+          cardDistance={0}
+        />
       )}
     </>
   );

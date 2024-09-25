@@ -5,8 +5,11 @@ import { BiSolidCity } from 'react-icons/bi';
 
 interface PandalCardProps {
   cardTitleText: string;
-  CardTitleIcon: IconType;
-  cardTitleDistance?: number;
+  cardIcon: IconType;
+  cardDistance?: number;
+  cardAddress: string;
+  cardZone: string;
+  cardCity: string;
 }
 
 const PandalCard: React.FC<PandalCardProps> = ({ ...props }: PandalCardProps) => {
@@ -15,26 +18,24 @@ const PandalCard: React.FC<PandalCardProps> = ({ ...props }: PandalCardProps) =>
       <div className="rounded-3xl p-6 flex flex-col justify-start bg-[#353435]">
         <div className="text-sm font-light">
           <p className="!text-[#DCDCDD] font-work font-normal text-xl">{props.cardTitleText}</p>
-          <p className="!text-[#DCDCDD] leading-7">Pandal Address Placeholder</p>
+          <p className="!text-[#DCDCDD] leading-7">{props.cardAddress}</p>
           <div className="flex flex-row leading-6">
             <div className="m-0.5">
               <MdLocationPin fill="#DCDCDD" size="17" />
             </div>
-            <p className="!text-[#DCDCDD] pl-1 flex-row">
-              {props.cardTitleDistance?.toFixed(2)} KM
-            </p>
+            <p className="!text-[#DCDCDD] pl-1 flex-row">{props.cardDistance?.toFixed(2)} KM</p>
           </div>
           <div className="flex flex-row leading-6">
             <div className="m-0.5">
               <PiMapPinAreaFill fill="#DCDCDD" size="17" />
             </div>
-            <p className="!text-[#DCDCDD] pl-1 flex-row">CCU-S</p>
+            <p className="!text-[#DCDCDD] pl-1 flex-row">{props.cardZone}</p>
           </div>
           <div className="flex flex-row leading-6">
             <div className="m-0.5">
               <BiSolidCity fill="#DCDCDD" size="17" />
             </div>
-            <p className="!text-[#DCDCDD] pl-1 flex-row">Kolkata</p>
+            <p className="!text-[#DCDCDD] pl-1 flex-row">{props.cardCity}</p>
           </div>
         </div>
       </div>

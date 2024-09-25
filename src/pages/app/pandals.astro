@@ -6,7 +6,7 @@ import { cn } from '@/libs/utils';
 import SearchBar from '@/components/app/shared/SearchBar.astro';
 import { PANDAL_MARKER_ICON } from '@/constants/location';
 import { request } from '@/libs/request';
-import { FETCH_LOCATION_URL } from '@/constants/location';
+import { FETCH_ALL_PANDALS } from '@/constants/location';
 import type { Location } from '@/components/app/map/types';
 
 const API_KEY = import.meta.env.GOOGLE_MAPS_API_KEY as string;
@@ -15,7 +15,7 @@ type Result = {
   result: Location[];
 };
 
-const { data, error } = await request.get<Result>(FETCH_LOCATION_URL);
+const { data, error } = await request.get<Result>(FETCH_ALL_PANDALS);
 if (error || data?.result === undefined) {
   return;
 }
