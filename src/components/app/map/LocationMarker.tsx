@@ -27,8 +27,6 @@ const LocationMarker = ({
     }
   }, [lat, lng]);
 
-  const showLocationNameAndNavigateButton = activeMarkerId === id;
-
   const ref = useCallback(
     (marker: google.maps.marker.AdvancedMarkerElement) => setMarkerRef(marker, id),
     [setMarkerRef, id],
@@ -38,7 +36,7 @@ const LocationMarker = ({
     <AdvancedMarker position={{ lat, lng }} onClick={handleMarkerClick} ref={ref}>
       <div className="relative cursor-pointer">
         <img src={icon} alt={`${name} marker`} className="w-14 h-14" />
-        {showLocationNameAndNavigateButton && (
+        {activeMarkerId === id && (
           <>
             <div className="absolute left-12 top-3 rounded-3xl bg-black !text-white font-bold font-sans text-sm py-1.5 px-3 whitespace-nowrap">
               {name}

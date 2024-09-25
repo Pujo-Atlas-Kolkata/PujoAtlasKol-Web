@@ -4,15 +4,20 @@ import { type Marker, MarkerClusterer } from '@googlemaps/markerclusterer';
 import type { Location } from './types';
 import LocationMarker from './LocationMarker';
 
-export type ClusteredMarkersProps = {
+type ClusteredMarkersProps = {
   locations: Location[];
   icon: string;
-  activeLocationId: number | null;
+  activeLocationId: string | null;
+  setActiveLocationId: (id: string) => void;
 };
 
-export const ClusteredMarkers = ({ locations, icon, activeLocationId }: ClusteredMarkersProps) => {
+export const ClusteredMarkers = ({
+  locations,
+  icon,
+  activeLocationId,
+  setActiveLocationId,
+}: ClusteredMarkersProps) => {
   const [markers, setMarkers] = useState<{ [key: string]: Marker }>({});
-  const [selectedId, setSelectedId] = useState<number | null>(activeLocationId);
 
   const map = useMap();
   const clusterer = useMemo(() => {
@@ -28,7 +33,7 @@ export const ClusteredMarkers = ({ locations, icon, activeLocationId }: Clustere
     clusterer.addMarkers(Object.values(markers));
   }, [clusterer, markers]);
 
-  const setMarkerRef = useCallback((marker: Marker | null, id: number) => {
+  const setMarkerRef = useCallback((marker: Marker | null, id: string) => {
     setMarkers((markers) => {
       if ((marker && markers[id]) || (!marker && !markers[id])) return markers;
 
@@ -50,10 +55,10 @@ export const ClusteredMarkers = ({ locations, icon, activeLocationId }: Clustere
           id={location.id}
           name={location.name}
           lat={location.lat}
-          lng={location.lng}
+          lng={location.lon}
           icon={icon}
-          activeMarkerId={selectedId}
-          setActiveMarkerId={setSelectedId}
+          activeMarkerId={activeLocationId}
+          setActiveMarkerId={setActiveLocationId}
           setMarkerRef={setMarkerRef}
         />
       ))}
