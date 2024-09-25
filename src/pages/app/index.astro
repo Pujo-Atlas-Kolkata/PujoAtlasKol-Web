@@ -12,7 +12,7 @@ type Result = {
 };
 
 const { data, error } = await request.get<Result>(FETCH_ALL_PANDALS);
-const pandals = data?.result;
+const pandals = data?.result || [];
 if (error || data?.result === undefined) {
   return;
 }
