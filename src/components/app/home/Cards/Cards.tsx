@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { TbLocationFilled } from 'react-icons/tb';
 import { IoMdTrendingUp } from 'react-icons/io';
 import { cn } from '@/libs/utils';
-import type { LocationMarker } from '../../map/types';
+import type { Location } from '../../map/types';
 import PandalCard from './PandalCard';
 
 export const pandals = [
@@ -42,7 +42,7 @@ const Cards = () => {
   const [userLocation, setUserLocation] = useState<{ latitude: number; longitude: number } | null>(
     null,
   );
-  const [closestPandals, setClosestPandals] = useState<LocationMarker[]>([]);
+  const [closestPandals, setClosestPandals] = useState<Location[]>([]);
 
   useEffect(() => {
     const getLocation = () => {
