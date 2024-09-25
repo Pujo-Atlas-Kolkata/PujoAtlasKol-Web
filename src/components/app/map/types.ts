@@ -1,21 +1,24 @@
 import type { Marker } from '@googlemaps/markerclusterer';
 
 export interface Location {
-  id: number;
+  id: string;
   name: string;
+  city: string;
+  address: string;
   lat: number;
-  lng: number;
+  lon: number;
+  zone: string;
 }
 
 export interface LocationMarkerProps {
-  id: number;
+  id: string;
   name: string;
   lat: number;
   lng: number;
   icon: string;
-  activeMarkerId: number | null;
-  setActiveMarkerId: (id: number | null) => void;
-  setMarkerRef: (marker: Marker | null, id: number) => void;
+  activeMarkerId: string | null;
+  setActiveMarkerId: (id: string) => void;
+  setMarkerRef: (marker: Marker | null, id: string) => void;
 }
 
 export interface GoogleMapProps {
