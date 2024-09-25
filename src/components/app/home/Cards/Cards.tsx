@@ -122,7 +122,7 @@ const Cards = () => {
               <p>Near Me</p>
             </div>
           </div>
-          <div className="flex-1 overflow-y-auto max-h-[calc(100vh-16rem)] [&_*::-webkit-scrollbar]:hidden [&::-webkit-scrollbar]:hidden">
+          <div className="rounded-3xl flex-1 overflow-y-auto max-h-[calc(100dvh-16rem)] [&_*::-webkit-scrollbar]:hidden [&::-webkit-scrollbar]:hidden">
             {closestPandals.map((pandal) => (
               <PandalCard
                 key={pandal.id}
