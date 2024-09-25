@@ -81,15 +81,18 @@ const Cards = () => {
     }
   }, [userLocation, pandals]);
 
-  if (isError) {
-    return <div>Error fetching pandals</div>;
-  }
-
   return (
     <>
       {isLoading && (
-        <div className="fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
+        <div className="fixed top-[60%] left-[50%] translate-x-[-50%] translate-y-[-60%]">
           <CgSpinner size={60} className="animate-spin" />
+        </div>
+      )}
+      {isError && (
+        <div className="whitespace-nowrap font-work leading-tight text-sm !text-red-600 rounded-lg drop-shadow-sm text-left p-4 bg-primary-background fixed top-[60%] left-[50%] translate-x-[-50%] translate-y-[-60%]">
+          Something went wrong.
+          <br />
+          Please try again later!
         </div>
       )}
       <div className="flex flex-row gap-2 px-2">
