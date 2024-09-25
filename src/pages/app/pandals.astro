@@ -5,20 +5,8 @@ import Layout from '@/layouts/WebAppLayout.astro';
 import { cn } from '@/libs/utils';
 import SearchBar from '@/components/app/shared/SearchBar.astro';
 import { PANDAL_MARKER_ICON } from '@/constants/location';
-import { request } from '@/libs/request';
-import { FETCH_ALL_PANDALS } from '@/constants/location';
-import type { Location } from '@/components/app/map/types';
 
 const API_KEY = import.meta.env.GOOGLE_MAPS_API_KEY as string;
-
-type Result = {
-  result: Location[];
-};
-
-const { data, error } = await request.get<Result>(FETCH_ALL_PANDALS);
-if (error || data?.result === undefined) {
-  return;
-}
 ---
 
 <Layout title="Pandals | Pujo Atlas">
@@ -40,13 +28,7 @@ if (error || data?.result === undefined) {
           class="font-sans font-normal text-base mb-0.5">Pandal map</span
         ></span
       >
-      <GoogleMaps
-        apiKey={API_KEY}
-        locations={data?.result}
-        icon={PANDAL_MARKER_ICON}
-        client:load
-        client:only="react"
-      />
+      <GoogleMaps apiKey={API_KEY} icon={PANDAL_MARKER_ICON} client:load client:only="react" />
     </div>
   </main>
 </Layout>

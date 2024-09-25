@@ -24,6 +24,5 @@ export interface LocationMarkerProps {
 
 export interface GoogleMapProps {
   apiKey: string;
-  locations: Location[];
   icon: string;
 }
