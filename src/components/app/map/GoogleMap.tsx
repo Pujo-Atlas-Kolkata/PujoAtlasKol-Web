@@ -24,7 +24,7 @@ export const GoogleMaps = ({ apiKey, locations, icon }: GoogleMapProps) => {
   };
   return (
     <>
-      {isMapLoading && (
+      {(isMapLoading || !locations) && (
         <div className="fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
           <CgSpinner size={60} className="animate-spin" />
         </div>
