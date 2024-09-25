@@ -122,14 +122,16 @@ const Cards = () => {
               <p>Near Me</p>
             </div>
           </div>
-          {closestPandals.map((pandal) => (
-            <PandalCard
-              key={pandal.id}
-              cardTitleText={pandal.name}
-              CardTitleIcon={TbLocationFilled}
-              cardTitleDistance={pandal.distance}
-            />
-          ))}
+          <div className="flex-1 overflow-y-auto max-h-[calc(100vh-21rem)] [&_*::-webkit-scrollbar]:hidden [&::-webkit-scrollbar]:hidden">
+            {closestPandals.map((pandal) => (
+              <PandalCard
+                key={pandal.id}
+                cardTitleText={pandal.name}
+                CardTitleIcon={TbLocationFilled}
+                cardTitleDistance={pandal.distance}
+              />
+            ))}
+          </div>
         </div>
       )}
       {activeCard === 'trending' && (
