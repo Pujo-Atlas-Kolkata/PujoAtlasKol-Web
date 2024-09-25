@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo, useCallback, memo } from 'react';
 import { TbLocationFilled } from 'react-icons/tb';
 import { IoMdTrendingUp } from 'react-icons/io';
 import { cn, getDistance } from '@/libs/utils';
@@ -18,7 +18,12 @@ const Cards = () => {
   const [userLocation, setUserLocation] = useState<{ latitude: number; longitude: number } | null>(
     null,
   );
-  const [closestPandals, setClosestPandals] = useState<Location[]>([]);
+
+  const handleError: PositionErrorCallback = useCallback((error) => {
+    console.error('Error:', error);
+    setActiveCard('trending');
+    setIsUserLocationAvailable(false);
+  }, []);
 
   const fetchPandals = async () => {
     const response = await fetch(FETCH_ALL_PANDALS);
@@ -40,19 +45,12 @@ const Cards = () => {
   useEffect(() => {
     const getLocation = () => {
       if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-          (position) => {
-            const { latitude, longitude } = position.coords;
-            setUserLocation({ latitude, longitude });
-            setActiveCard('nearme');
-            setIsUserLocationAvailable(true);
-          },
-          (error) => {
-            console.error('Error getting location:', error);
-            setActiveCard('trending');
-            setIsUserLocationAvailable(false);
-          },
-        );
+        navigator.geolocation.getCurrentPosition((position) => {
+          const { latitude, longitude } = position.coords;
+          setUserLocation({ latitude, longitude });
+          setActiveCard('nearme');
+          setIsUserLocationAvailable(true);
+        }, handleError);
       } else {
         console.error('Geolocation is not supported by this browser.');
         setActiveCard('trending');
@@ -61,25 +59,83 @@ const Cards = () => {
     };
 
     getLocation();
-  }, []);
+  }, [handleError]);
 
-  useEffect(() => {
-    if (userLocation && pandals?.result) {
-      const distances = pandals.result.map((pandal: Location) => ({
-        ...pandal,
-        distance: getDistance(
-          userLocation.latitude,
-          userLocation.longitude,
-          pandal.lat,
-          pandal.lon,
-        ),
-      }));
+  const memoizedClosestPandals = useMemo(() => {
+    if (!userLocation || !pandals?.result) return [];
 
-      // Sort pandals by distance and get the 10 closest
-      const sortedPandals = distances.sort((a, b) => a.distance - b.distance).slice(0, 10);
-      setClosestPandals(sortedPandals);
+    const distances = pandals.result.map((pandal: Location) => ({
+      ...pandal,
+      distance: getDistance(userLocation.latitude, userLocation.longitude, pandal.lat, pandal.lon),
+    }));
+
+    return distances.sort((a, b) => a.distance - b.distance).slice(0, 10);
+  }, [userLocation, pandals?.result]);
+
+  const handleNearMeClick = useCallback(() => {
+    if (activeCard !== 'nearme') {
+      setActiveCard('nearme');
     }
-  }, [userLocation, pandals]);
+  }, [activeCard]);
+
+  const handleTrendingClick = useCallback(() => {
+    if (activeCard !== 'trending') {
+      setActiveCard('trending');
+    }
+  }, [activeCard]);
+
+  const content = useMemo(() => {
+    if (isLoading || isError) return null;
+
+    if (activeCard === 'nearme' && memoizedClosestPandals.length > 0) {
+      return (
+        <div className="z-10">
+          <div className="mb-1 p-2 flex flex-row items-center justify-start">
+            <TbLocationFilled size="24" fill="#171715" />
+            <div className="pl-3">
+              <p>Near Me</p>
+            </div>
+          </div>
+          <div className="rounded-3xl flex-1 overflow-y-auto max-h-[calc(100dvh-16rem)] [&_*::-webkit-scrollbar]:hidden [&::-webkit-scrollbar]:hidden">
+            {memoizedClosestPandals.map((pandal) => (
+              <PandalCard
+                key={pandal.id}
+                cardTitleText={pandal.name}
+                cardDistance={pandal.distance}
+                cardAddress={pandal.address}
+                cardZone={pandal.zone}
+                cardCity={pandal.city}
+              />
+            ))}
+          </div>
+        </div>
+      );
+    }
+
+    if (activeCard === 'trending') {
+      return (
+        <div className="z-10">
+          <div className="mb-1 p-2 flex flex-row items-center justify-start">
+            <IoMdTrendingUp size="24" fill="#171715" />
+            <div className="pl-3">
+              <p>Trending</p>
+            </div>
+          </div>
+          <div className="rounded-3xl flex-1 overflow-y-auto max-h-[calc(100dvh-16rem)] [&_*::-webkit-scrollbar]:hidden [&::-webkit-scrollbar]:hidden">
+            <PandalCard
+              cardTitleText="Trending"
+              cardAddress="foobar"
+              cardCity="Kolkata"
+              cardZone="CCU-S"
+              cardDistance={0}
+            />
+          </div>
+        </div>
+      );
+    }
+
+    return null;
+  }, [isLoading, isError, activeCard, memoizedClosestPandals]);
 
   return (
     <>
@@ -99,10 +155,10 @@ const Cards = () => {
         <button
           disabled={!isUserLocationAvailable}
           className={cn(
-            activeCard === 'trending' ? 'bg-[#e6dfcf]' : 'bg-[#fff]',
+            activeCard === 'nearme' ? 'bg-[#fff]' : 'bg-[#e6dfcf]',
             'p-2 px-3 font-sans rounded-full',
           )}
-          onClick={() => (activeCard !== 'nearme' ? setActiveCard('nearme') : null)}
+          onClick={handleNearMeClick}
         >
           Near Me
         </button>
@@ -111,50 +167,14 @@ const Cards = () => {
             activeCard === 'trending' ? 'bg-[#fff]' : 'bg-[#e6dfcf]',
             'p-2 px-3 font-sans rounded-full',
           )}
-          onClick={() => (activeCard !== 'trending' ? setActiveCard('trending') : null)}
+          onClick={handleTrendingClick}
         >
           Trending
         </button>
       </div>
-      {isLoading || isError ? null : (
-        <>
-          {activeCard === 'nearme' && closestPandals.length > 0 && (
-            <div className="z-10">
-              <div className="mb-1 p-2 flex flex-row items-center justify-start">
-                <TbLocationFilled size="24" fill="#171715" />
-                <div className="pl-3">
-                  <p>Near Me</p>
-                </div>
-              </div>
-              <div className="rounded-3xl flex-1 overflow-y-auto max-h-[calc(100dvh-16rem)] [&_*::-webkit-scrollbar]:hidden [&::-webkit-scrollbar]:hidden">
-                {closestPandals.map((pandal) => (
-                  <PandalCard
-                    key={pandal.id}
-                    cardTitleText={pandal.name}
-                    cardIcon={TbLocationFilled}
-                    cardDistance={pandal.distance}
-                    cardAddress={pandal.address}
-                    cardZone={pandal.zone}
-                    cardCity={pandal.city}
-                  />
-                ))}
-              </div>
-            </div>
-          )}
-          {activeCard === 'trending' && (
-            <PandalCard
-              cardTitleText="Trending"
-              cardIcon={IoMdTrendingUp}
-              cardAddress="foobar"
-              cardCity="Kolkata"
-              cardZone="CCU-S"
-              cardDistance={0}
-            />
-          )}
-        </>
-      )}
+      {content}
     </>
   );
 };
 
-export default Cards;
+export default memo(Cards);
