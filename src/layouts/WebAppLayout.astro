@@ -12,6 +12,8 @@ import AppHeader from '@/components/app/shared/AppHeader.astro';
 import BottomNav from '@/components/app/shared/BottomNav.astro';
 import SettingsFlyout from '@/components/app/shared/SettingsFlyout';
 
+const currentPath = Astro.url.pathname;
+
 type Props = {
   title?: string;
   description?: string;
@@ -86,7 +88,12 @@ const {
       <SettingsFlyout client:visible client:only="react" />
     </div>
     <div class="pb-14"></div>
-    <div class="fixed bottom-0 left-0 right-0 z-10 bg-secondary-background opacity-90">
+    <div
+      class={cn(
+        'fixed bottom-0 left-0 right-0 z-10 bg-secondary-background',
+        (currentPath === '/app' || currentPath === '/app/') && 'opacity-90',
+      )}
+    >
       <BottomNav />
     </div>
   </body>
