@@ -11,14 +11,7 @@ interface PandalCardProps {
 
 const PandalCard: React.FC<PandalCardProps> = ({ ...props }: PandalCardProps) => {
   return (
-    <div id="nearme" className="rounded-3xl mb-2 p-2 pt-1 flex flex-col justify-start bg-[#e6dfcf]">
-      <div className="mb-1 p-2 flex flex-row items-center justify-start">
-        <props.CardTitleIcon size="25" fill="#171715" />
-        <div className="pl-3">
-          <p>Near Me</p>
-        </div>
-      </div>
-
+    <div id="nearme" className="rounded-3xl mb-2 p-2 pt-1 flex flex-col justify-start">
       <div className="rounded-3xl p-6 flex flex-col justify-start bg-[#353435]">
         <div className="text-sm font-light">
           <p className="!text-[#DCDCDD] font-work font-normal text-xl">{props.cardTitleText}</p>

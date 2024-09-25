@@ -93,7 +93,7 @@ const Cards = () => {
 
   return (
     <>
-      <div className="flex flex-row gap-2">
+      <div className="flex flex-row gap-2 px-2">
         <button
           disabled={!isUserLocationAvailable}
           className={cn(
@@ -116,6 +116,12 @@ const Cards = () => {
       </div>
       {activeCard === 'nearme' && closestPandals.length > 0 && (
         <div>
+          <div className="mb-1 p-2 flex flex-row items-center justify-start">
+            <TbLocationFilled size="24" fill="#171715" />
+            <div className="pl-3">
+              <p>Near Me</p>
+            </div>
+          </div>
           {closestPandals.map((pandal) => (
             <PandalCard
               key={pandal.id}
