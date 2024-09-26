@@ -1,17 +1,6 @@
 import type { Marker } from '@googlemaps/markerclusterer';
 
-export interface Location {
-  id: string;
-  name: string;
-  city: string;
-  address: string;
-  lat: number;
-  lon: number;
-  zone: string;
-  distance?: number;
-}
-
-export interface LocationMarkerProps {
+export type LocationMarkerProps = {
   id: string;
   name: string;
   lat: number;
@@ -20,9 +9,9 @@ export interface LocationMarkerProps {
   activeMarkerId: string | null;
   setActiveMarkerId: (id: string) => void;
   setMarkerRef: (marker: Marker | null, id: string) => void;
-}
+};
 
-export interface GoogleMapProps {
+export type GoogleMapProps = {
   apiKey: string;
   icon: string;
-}
+};

@@ -36,6 +36,7 @@
     "clsx": "^2.1.1",
     "embla-carousel-autoplay": "^8.2.1",
     "embla-carousel-react": "^8.2.1",
+    "fuse.js": "^7.0.0",
     "nanostores": "^0.11.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

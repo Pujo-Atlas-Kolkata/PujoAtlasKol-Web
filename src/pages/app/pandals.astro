@@ -3,7 +3,8 @@ import { GoogleMaps } from '@/components/app/map/GoogleMap';
 import { MdOutlineFestival } from 'react-icons/md';
 import Layout from '@/layouts/WebAppLayout.astro';
 import { cn } from '@/libs/utils';
-import SearchBar from '@/components/app/shared/SearchBar.astro';
+import SearchBar from '@/components/app/shared/Search/SearchBar.astro';
+
 import { PANDAL_MARKER_ICON } from '@/constants/location';
 
 const API_KEY = import.meta.env.GOOGLE_MAPS_API_KEY as string;
