@@ -46,7 +46,7 @@ type StorageData<Data> = {
 
 export const cacheStore = {
   get: <Data>(key: string): Data | null => {
-    const data = localStorage.getItem(key);
+    const data = sessionStorage.getItem(key);
     if (!data) {
       return null;
     }
@@ -55,7 +55,7 @@ export const cacheStore = {
     const hasExpired = expiry !== null && Date.now() > expiry;
 
     if (hasExpired) {
-      localStorage.removeItem(key);
+      sessionStorage.removeItem(key);
       return null;
     }
     return value;
@@ -65,13 +65,13 @@ export const cacheStore = {
       value,
       expiry: Date.now() + expiry,
     };
-    localStorage.setItem(key, JSON.stringify(data));
+    sessionStorage.setItem(key, JSON.stringify(data));
   },
   delete: (key: string) => {
-    localStorage.removeItem(key);
+    sessionStorage.removeItem(key);
   },
   deleteAll: () => {
-    localStorage.clear();
+    sessionStorage.clear();
   },
 } as const;
 
