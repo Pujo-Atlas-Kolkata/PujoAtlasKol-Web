@@ -76,6 +76,7 @@ const {
       '[&_*::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar]:w-2',
       '[&_*::-webkit-scrollbar-track]:bg-primary-foreground [&::-webkit-scrollbar-track]:bg-primary-foreground',
       '[&_*::-webkit-scrollbar-thumb]:bg-secondary-background [&::-webkit-scrollbar-thumb]:bg-secondary-background',
+      (currentPath === '/app' || currentPath === '/app/') && '!overflow-y-hidden',
     )}
   >
     <span
@@ -88,12 +89,7 @@ const {
       <SettingsFlyout client:visible client:only="react" />
     </div>
     <div class="pb-14"></div>
-    <div
-      class={cn(
-        'fixed bottom-0 left-0 right-0 z-10 bg-secondary-background',
-        (currentPath === '/app' || currentPath === '/app/') && 'opacity-90',
-      )}
-    >
+    <div class={cn('fixed bottom-0 left-0 right-0 z-10 bg-secondary-background')}>
       <BottomNav />
     </div>
   </body>
