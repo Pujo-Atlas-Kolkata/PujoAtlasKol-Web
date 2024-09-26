@@ -92,16 +92,10 @@ export const SearchSuggestions = () => {
       data-active={sortedPandals.length > 0}
       className={cn(
         'absolute z-[100] hidden data-[active=true]:flex flex-col',
-        'w-full px-3 h-fit max-h-96 overflow-hidden overflow-y-auto',
+        'w-full px-3 h-fit max-h-[calc(73dvh-20.5rem)] overflow-hidden overflow-y-auto',
         'outline outline-[1px] rounded-md overflow-hidden overflow-y-scroll',
-        '[&::-webkit-scrollbar-track]:!bg-primary-background',
-        'outline outline-[1px] rounded-md overflow-hidden overflow-y-scroll',
-        '[&::-webkit-scrollbar-track]:!bg-primary-background',
-        '[&::-webkit-scrollbar-thumb]:!bg-primary-foreground',
-        '[&::-webkit-scrollbar-thumb]:!w-[2px]',
-        '[&::-webkit-scrollbar-track]:!w-[2px]',
-        '[&::-webkit-scrollbar-thumb]:rounded-full',
-        '[&::-webkit-scrollbar-track]:rounded-full',
+        '[&::-webkit-scrollbar-thumb]:!hidden',
+        '[&::-webkit-scrollbar-track]:!hidden',
         'bg-primary-background outline-primary-foreground',
       )}
     >
