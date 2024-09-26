@@ -1,10 +1,10 @@
-import { useEffect, useState, useMemo, useCallback, memo } from 'react';
+import { useEffect, useState, useMemo, useCallback } from 'react';
 import { TbLocationFilled } from 'react-icons/tb';
 import { IoMdTrendingUp } from 'react-icons/io';
 import { cn, getDistance } from '@/libs/utils';
 import type { Location } from '../../map/types';
 import PandalCard from './PandalCard';
-import { FETCH_ALL_PANDALS } from '@/constants/location';
+import { FETCH_ALL_PANDALS, FETCH_TRENDING_PANDALS } from '@/constants/location';
 import { useQuery } from '@/hooks';
 import { CgSpinner } from 'react-icons/cg';
 
@@ -25,7 +25,7 @@ const Cards = () => {
     setIsUserLocationAvailable(false);
   }, []);
 
-  const fetchPandals = async () => {
+  const fetchAllPandals = async () => {
     const response = await fetch(FETCH_ALL_PANDALS);
     if (!response.ok) {
       throw new Error('Network response was not ok');
@@ -33,13 +33,30 @@ const Cards = () => {
     return response.json();
   };
 
+  const fetchTrendingPandals = async () => {
+    const response = await fetch(FETCH_TRENDING_PANDALS);
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  };
+
   const {
-    data: pandals,
-    isLoading,
-    isError,
+    data: pandalsData,
+    isLoading: pandalsLoading,
+    isError: pandalsError,
   } = useQuery<Result>({
     queryKey: ['pandals'],
-    queryFn: fetchPandals,
+    queryFn: fetchAllPandals,
+  });
+
+  const {
+    data: trendingPandalsData,
+    isLoading: trendingLoading,
+    isError: trendingError,
+  } = useQuery<Result>({
+    queryKey: ['trendingPandals'],
+    queryFn: fetchTrendingPandals,
   });
 
   useEffect(() => {
@@ -62,15 +79,35 @@ const Cards = () => {
   }, [handleError]);
 
   const memoizedClosestPandals = useMemo(() => {
-    if (!userLocation || !pandals?.result) return [];
+    if (!userLocation || !pandalsData?.result) return [];
 
-    const distances = pandals.result.map((pandal: Location) => ({
+    const distances = pandalsData.result.map((pandal: Location) => ({
       ...pandal,
       distance: getDistance(userLocation.latitude, userLocation.longitude, pandal.lat, pandal.lon),
     }));
 
     return distances.sort((a, b) => a.distance - b.distance).slice(0, 10);
-  }, [userLocation, pandals?.result]);
+  }, [userLocation, pandalsData?.result]);
+
+  const memoizedTrendingPandals = useMemo(() => {
+    if (!trendingPandalsData?.result) return [];
+    if (!userLocation) return trendingPandalsData.result.slice(0, 10);
+
+    const pandalsWithDistance = trendingPandalsData.result.map((pandal: Location) => {
+      if (userLocation) {
+        const distance = getDistance(
+          userLocation.latitude,
+          userLocation.longitude,
+          pandal.lat,
+          pandal.lon,
+        );
+        return { ...pandal, distance };
+      }
+      return pandal;
+    });
+
+    return pandalsWithDistance.slice(0, 10);
+  }, [userLocation, trendingPandalsData?.result]);
 
   const handleNearMeClick = useCallback(() => {
     if (activeCard !== 'nearme') {
@@ -85,7 +122,7 @@ const Cards = () => {
   }, [activeCard]);
 
   const content = useMemo(() => {
-    if (isLoading || isError) return null;
+    if ((pandalsLoading || trendingLoading) && !isUserLocationAvailable) return null;
 
     if (activeCard === 'nearme' && memoizedClosestPandals.length > 0) {
       return (
@@ -96,7 +133,7 @@ const Cards = () => {
               <p>Near Me</p>
             </div>
           </div>
-          <div className="rounded-3xl flex-1 overflow-y-auto max-h-[calc(100dvh-16rem)] [&_*::-webkit-scrollbar]:hidden [&::-webkit-scrollbar]:hidden">
+          <div className="rounded-3xl rounded-b-none flex-1 overflow-y-auto max-h-[calc(100dvh-20.5rem)] [&_*::-webkit-scrollbar]:hidden [&::-webkit-scrollbar]:hidden">
             {memoizedClosestPandals.map((pandal) => (
               <PandalCard
                 key={pandal.id}
@@ -112,7 +149,7 @@ const Cards = () => {
       );
     }
 
-    if (activeCard === 'trending') {
+    if (activeCard === 'trending' && memoizedTrendingPandals.length > 0) {
       return (
         <div className="z-10">
           <div className="mb-1 p-2 flex flex-row items-center justify-start">
@@ -121,30 +158,40 @@ const Cards = () => {
               <p>Trending</p>
             </div>
           </div>
-          <div className="rounded-3xl flex-1 overflow-y-auto max-h-[calc(100dvh-16rem)] [&_*::-webkit-scrollbar]:hidden [&::-webkit-scrollbar]:hidden">
-            <PandalCard
-              cardTitleText="Trending"
-              cardAddress="foobar"
-              cardCity="Kolkata"
-              cardZone="CCU-S"
-              cardDistance={0}
-            />
+          <div className="rounded-3xl rounded-b-none flex-1 overflow-y-auto max-h-[calc(100dvh-20.5rem)] [&_*::-webkit-scrollbar]:hidden [&::-webkit-scrollbar]:hidden">
+            {memoizedTrendingPandals.map((pandal) => (
+              <PandalCard
+                key={pandal.id}
+                cardTitleText={pandal.name}
+                cardDistance={pandal.distance}
+                cardAddress={pandal.address}
+                cardCity={pandal.city}
+                cardZone={pandal.zone}
+              />
+            ))}
           </div>
         </div>
       );
     }
 
     return null;
-  }, [isLoading, isError, activeCard, memoizedClosestPandals]);
+  }, [
+    pandalsLoading,
+    trendingLoading,
+    isUserLocationAvailable,
+    activeCard,
+    memoizedClosestPandals,
+    memoizedTrendingPandals,
+  ]);
 
   return (
     <>
-      {isLoading && (
+      {(pandalsLoading || trendingLoading) && (
         <div className="fixed top-[60%] left-[50%] translate-x-[-50%] translate-y-[-60%]">
           <CgSpinner size={60} className="animate-spin" />
         </div>
       )}
-      {isError && (
+      {(pandalsError || trendingError) && (
         <div className="whitespace-nowrap font-work leading-tight text-sm !text-red-600 rounded-lg drop-shadow-sm text-left p-4 bg-primary-background fixed top-[60%] left-[50%] translate-x-[-50%] translate-y-[-60%]">
           Something went wrong.
           <br />
@@ -178,4 +225,4 @@ const Cards = () => {
   );
 };
 
-export default memo(Cards);
+export default Cards;
