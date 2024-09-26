@@ -47,7 +47,7 @@ const ProximityIndicator = ({ location, pandal }: ProximityIndicatorProps) => {
     <span
       className={cn('px-1 whitespace-nowrap rounded-3xl text-xs font-work outline outline-1', {
         'outline-lime-500 !text-lime-500': distance < 1,
-        'outline-green-400 !text-green-400': distance >= 1 && distance < 5,
+        'outline-green-500 !text-green-500': distance >= 1 && distance < 5,
         'outline-orange-600 !text-orange-600': distance >= 5 && distance < 10,
         'outline-red-600 !text-red-600': distance >= 10,
         'outline-red-800 !text-red-500': distance >= 20,
@@ -57,7 +57,7 @@ const ProximityIndicator = ({ location, pandal }: ProximityIndicatorProps) => {
       <div
         className={cn('h-2 w-2 aspect-square rounded-full', {
           'bg-lime-500': distance < 1,
-          'bg-green-400': distance >= 1 && distance < 5,
+          'bg-green-500': distance >= 1 && distance < 5,
           'bg-orange-600': distance >= 5 && distance < 10,
           'bg-red-600': distance >= 10,
           'bg-red-800': distance >= 20,
