@@ -1,54 +1,102 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState, useCallback, memo } from 'react';
 import { APIProvider, Map, type MapMouseEvent } from '@vis.gl/react-google-maps';
 import { UserLocation } from './UserLocation';
-import { DEFAULT_VIEW_LAT_LONG } from '@/constants/location';
+import { DEFAULT_VIEW_LAT_LONG, FETCH_ALL_PANDALS } from '@/constants/location';
 import type { GoogleMapProps } from './types';
 import { ClusteredMarkers } from './ClusterMarker';
+import { CgSpinner } from 'react-icons/cg';
+import { useQuery } from '@/hooks';
+import type { Location } from './types';
 
-export const GoogleMaps = ({ apiKey, locations, icon }: GoogleMapProps) => {
-  const [error, setError] = useState<string | null>(null);
-  useEffect(() => {
-    if (locations.length === 0) {
-      setError('Unable to find Pujo locations');
+type Result = { result: Location[] };
+
+export const GoogleMaps = ({ apiKey, icon }: GoogleMapProps) => {
+  const fetchPandals = async () => {
+    const response = await fetch(FETCH_ALL_PANDALS);
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
     }
-  }, [locations]);
+    return response.json();
+  };
+
+  const {
+    data: pandals,
+    isLoading,
+    isError,
+  } = useQuery<Result>({
+    queryKey: ['pandals'],
+    queryFn: fetchPandals,
+  });
+
+  const locations = useMemo(() => pandals?.result ?? [], [pandals]);
   const center = useMemo(() => DEFAULT_VIEW_LAT_LONG, []);
   const zoom = 15;
   const [activeLocationId, setActiveLocationId] = useState<string | null>(null);
+  const [isMapLoading, setIsMapLoading] = useState<boolean>(true);
 
-  const handleMapClick = (e: MapMouseEvent) => {
+  const handleMapClick = useCallback((e: MapMouseEvent) => {
     e.stop();
     setActiveLocationId(null);
-  };
-  return (
-    <section className="max-w-screen overflow-hidden focus:outline-none">
-      <APIProvider apiKey={apiKey}>
-        <Map
-          id="map"
-          gestureHandling="greedy"
-          defaultZoom={zoom}
-          defaultCenter={center}
-          mapId="4e06f8f1228c0ba9"
-          onClick={(e) => handleMapClick(e)}
-          className="relative w-full h-[calc(100vh-16.8rem)]"
-          streetViewControl={false}
-        >
-          <UserLocation />
+  }, []);
 
-          {error !== null ? (
-            <div className="rounded-lg mx-auto w-[80%] text-xs !text-red-500 font-bold absolute bottom-8 left-1/2 transform -translate-x-1/2 bg-black py-2.5 px-5">
-              {error}
-            </div>
-          ) : (
+  const loadingContent = useMemo(
+    () => (
+      <div className="flex justify-center items-center mx-auto">
+        <CgSpinner size={40} className="animate-spin" />
+      </div>
+    ),
+    [],
+  );
+
+  const errorContent = useMemo(
+    () => (
+      <div className="mt-3 whitespace-nowrap font-work leading-tight text-sm !text-red-600 rounded-lg drop-shadow-sm text-center p-4 bg-[#e6dfcf] flex justify-center items-center mx-auto">
+        Something went wrong.
+        <br />
+        Please try again later!
+      </div>
+    ),
+    [],
+  );
+
+  const mapContent = useMemo(
+    () => (
+      <section className="max-w-screen overflow-hidden focus:outline-none">
+        <APIProvider apiKey={apiKey}>
+          <Map
+            maxZoom={23}
+            minZoom={10}
+            id="map"
+            gestureHandling="greedy"
+            defaultZoom={zoom}
+            defaultCenter={center}
+            mapId="4e06f8f1228c0ba9"
+            onClick={handleMapClick}
+            className="relative w-full h-[calc(100vh-21rem)]"
+            streetViewControl={false}
+            onIdle={() => setIsMapLoading(false)}
+          >
+            <UserLocation />
             <ClusteredMarkers
               activeLocationId={activeLocationId}
               locations={locations}
               icon={icon}
               setActiveLocationId={setActiveLocationId}
             />
-          )}
-        </Map>
-      </APIProvider>
-    </section>
+          </Map>
+        </APIProvider>
+      </section>
+    ),
+    [apiKey, zoom, center, handleMapClick, activeLocationId, locations, icon, setActiveLocationId],
+  );
+
+  return (
+    <>
+      {(isMapLoading || isLoading) && loadingContent}
+      {!isLoading && isError && errorContent}
+      {!isLoading && !isError && mapContent}
+    </>
   );
 };
+
+export default memo(GoogleMaps);

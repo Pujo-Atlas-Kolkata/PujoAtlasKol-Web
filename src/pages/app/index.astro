@@ -1,6 +1,6 @@
 ---
+import Cards from '@/components/app/home/Cards/Cards';
 import SearchBar from '@/components/app/shared/SearchBar.astro';
-import Card from '@/components/app/shared/Card';
 import Layout from '@/layouts/WebAppLayout.astro';
 import { cn } from '@/libs/utils';
 ---
@@ -14,6 +14,6 @@ import { cn } from '@/libs/utils';
     )}
   >
     <SearchBar />
-    <Card client:load client:only="react" />
+    <Cards client:load client:only="react" />
   </main>
 </Layout>

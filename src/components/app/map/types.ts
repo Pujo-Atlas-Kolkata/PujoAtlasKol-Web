@@ -8,6 +8,7 @@ export interface Location {
   lat: number;
   lon: number;
   zone: string;
+  distance?: number;
 }
 
 export interface LocationMarkerProps {
@@ -23,6 +24,5 @@ export interface LocationMarkerProps {
 
 export interface GoogleMapProps {
   apiKey: string;
-  locations: Location[];
   icon: string;
 }
