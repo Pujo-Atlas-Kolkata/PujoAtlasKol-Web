@@ -26,7 +26,7 @@ const PandalCard: React.FC<PandalCardProps> = ({
   return (
     <div className="rounded-3xl p-2 pt-1 px-0 flex flex-col justify-start">
       <div className="rounded-3xl p-6 py-8 flex flex-col justify-start bg-[#353435]">
-        <div className="text-sm font-light">
+        <div className="text-sm font-normal">
           <p className="!text-[#DCDCDD] font-work font-normal text-xl leading-tight">
             {cardTitleText}
           </p>
