@@ -1,11 +1,11 @@
 import { useMap } from '@vis.gl/react-google-maps';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { type Marker, MarkerClusterer } from '@googlemaps/markerclusterer';
-import type { Location } from './types';
+import type { Pandal } from '@/types';
 import LocationMarker from './LocationMarker';
 
 type ClusteredMarkersProps = {
-  locations: Location[];
+  locations: Pandal[];
   icon: string;
   activeLocationId: string | null;
   setActiveLocationId: (id: string) => void;

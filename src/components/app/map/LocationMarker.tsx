@@ -3,6 +3,9 @@ import { cn } from '@/libs/utils';
 import { AdvancedMarker } from '@vis.gl/react-google-maps';
 import { FaDirections } from 'react-icons/fa';
 import type { LocationMarkerProps } from './types';
+import { useMutation } from '@/hooks';
+import axios from 'axios';
+import { Api } from '@/constants';
 
 const LocationMarker = ({
   id,
@@ -18,14 +21,21 @@ const LocationMarker = ({
     setActiveMarkerId(id);
   }, [id, setActiveMarkerId]);
 
+  const { mutate: updateRanking } = useMutation({
+    mutationFn: async () => {
+      return axios.post(Api.Pujo.Searched, { id });
+    },
+  });
+
   const handleGetDirectionsClick = useCallback(() => {
+    updateRanking();
     const url = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
     try {
       window.open(url, '_blank');
     } catch (error) {
       console.error('Failed to open directions URL:', error);
     }
-  }, [lat, lng]);
+  }, [lat, lng, updateRanking]);
 
   const ref = useCallback(
     (marker: google.maps.marker.AdvancedMarkerElement) => setMarkerRef(marker, id),

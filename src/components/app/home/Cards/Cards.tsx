@@ -2,15 +2,10 @@ import { useEffect, useState, useMemo, useCallback } from 'react';
 import { TbLocationFilled } from 'react-icons/tb';
 import { IoMdTrendingUp } from 'react-icons/io';
 import { cn, getDistance } from '@/libs/utils';
-import type { Location } from '../../map/types';
+import type { Pandal } from '@/types';
 import PandalCard from './PandalCard';
-import { FETCH_ALL_PANDALS, FETCH_TRENDING_PANDALS } from '@/constants/location';
-import { useQuery } from '@/hooks';
+import { useAllPandals, useTrendingPandals } from '@/hooks';
 import { CgSpinner } from 'react-icons/cg';
-
-type Result = {
-  result: Location[];
-};
 
 const Cards = () => {
   const [activeCard, setActiveCard] = useState<'trending' | 'nearme'>('trending');
@@ -25,39 +20,13 @@ const Cards = () => {
     setIsUserLocationAvailable(false);
   }, []);
 
-  const fetchAllPandals = async () => {
-    const response = await fetch(FETCH_ALL_PANDALS);
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.json();
-  };
-
-  const fetchTrendingPandals = async () => {
-    const response = await fetch(FETCH_TRENDING_PANDALS);
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.json();
-  };
-
-  const {
-    data: pandalsData,
-    isLoading: pandalsLoading,
-    isError: pandalsError,
-  } = useQuery<Result>({
-    queryKey: ['pandals'],
-    queryFn: fetchAllPandals,
-  });
+  const { data: pandalsData, isLoading: pandalsLoading, isError: pandalsError } = useAllPandals();
 
   const {
     data: trendingPandalsData,
     isLoading: trendingLoading,
     isError: trendingError,
-  } = useQuery<Result>({
-    queryKey: ['trendingPandals'],
-    queryFn: fetchTrendingPandals,
-  });
+  } = useTrendingPandals();
 
   useEffect(() => {
     const getLocation = () => {
@@ -81,7 +50,7 @@ const Cards = () => {
   const memoizedClosestPandals = useMemo(() => {
     if (!userLocation || !pandalsData?.result) return [];
 
-    const distances = pandalsData.result.map((pandal: Location) => ({
+    const distances = pandalsData.result.map((pandal: Pandal) => ({
       ...pandal,
       distance: getDistance(userLocation.latitude, userLocation.longitude, pandal.lat, pandal.lon),
     }));
@@ -93,7 +62,7 @@ const Cards = () => {
     if (!trendingPandalsData?.result) return [];
     if (!userLocation) return trendingPandalsData.result.slice(0, 10);
 
-    const pandalsWithDistance = trendingPandalsData.result.map((pandal: Location) => {
+    const pandalsWithDistance = trendingPandalsData.result.map((pandal: Pandal) => {
       if (userLocation) {
         const distance = getDistance(
           userLocation.latitude,

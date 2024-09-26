@@ -1,32 +1,30 @@
-import { useMemo, useState, useCallback, memo } from 'react';
-import { APIProvider, Map, type MapMouseEvent } from '@vis.gl/react-google-maps';
+import { useMemo, useState, useCallback, memo, useEffect } from 'react';
+import { APIProvider, Map, useMap, type MapMouseEvent } from '@vis.gl/react-google-maps';
 import { UserLocation } from './UserLocation';
-import { DEFAULT_VIEW_LAT_LONG, FETCH_ALL_PANDALS } from '@/constants/location';
+import { DEFAULT_VIEW_LAT_LONG } from '@/constants';
 import type { GoogleMapProps } from './types';
 import { ClusteredMarkers } from './ClusterMarker';
 import { CgSpinner } from 'react-icons/cg';
-import { useQuery } from '@/hooks';
-import type { Location } from './types';
+import { useAllPandals } from '@/hooks';
+import { activePandalStore } from '@/stores';
+import { useStore } from '@nanostores/react';
 
-type Result = { result: Location[] };
+const SelectedPandal = () => {
+  const map = useMap();
+  const activePandal = useStore(activePandalStore);
+
+  useEffect(() => {
+    if (!map || !activePandal) return;
+    console.log('Found pandal marker on map', activePandalStore);
+    map.panTo({ lat: activePandal.lat, lng: activePandal.lon });
+    map.setZoom(30);
+  }, [map, activePandal]);
+
+  return <></>;
+};
 
 export const GoogleMaps = ({ apiKey, icon }: GoogleMapProps) => {
-  const fetchPandals = async () => {
-    const response = await fetch(FETCH_ALL_PANDALS);
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.json();
-  };
-
-  const {
-    data: pandals,
-    isLoading,
-    isError,
-  } = useQuery<Result>({
-    queryKey: ['pandals'],
-    queryFn: fetchPandals,
-  });
+  const { data: pandals, isLoading, isError } = useAllPandals();
 
   const locations = useMemo(() => pandals?.result ?? [], [pandals]);
   const center = useMemo(() => DEFAULT_VIEW_LAT_LONG, []);
@@ -83,6 +81,7 @@ export const GoogleMaps = ({ apiKey, icon }: GoogleMapProps) => {
               icon={icon}
               setActiveLocationId={setActiveLocationId}
             />
+            <SelectedPandal />
           </Map>
         </APIProvider>
       </section>

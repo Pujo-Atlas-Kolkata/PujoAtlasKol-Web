@@ -1,0 +1,19 @@
+---
+import { IoSearch } from 'react-icons/io5';
+import { cn } from '@/libs/utils';
+import { SearchInput, SearchSuggestions } from '@/components/app/shared/Search/input';
+---
+
+<section id="search" class="relative">
+  <div
+    id="searchbar"
+    class={cn(
+      'rounded-3xl mb-2 px-2 grid grid-cols-[1fr_10fr_1fr] w-full h-12',
+      'items-center justify-between gap-1 bg-primary-background',
+    )}
+  >
+    <IoSearch size="25" />
+    <SearchInput client:load client:only="react" />
+  </div>
+  <SearchSuggestions client:load client:only="react" />
+</section>
