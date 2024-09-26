@@ -26,7 +26,7 @@ export default function SettingsFlyout() {
               <Drawer.Overlay className="inset-0 bg-opacity-70 z-20 m-2" />
               <Drawer.Content
                 className="drop-shadow-md top-[calc(100%-11.5rem)] fixed left-0 right-0 max-h-[40%] 
-             bg-[#dddddd]/90 p-1
+             bg-[#dddddd] p-1
              z-30 rounded-3xl
              mx-0
              mb-2
