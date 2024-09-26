@@ -2,6 +2,7 @@ import { memo, useMemo } from 'react';
 import { MdLocationPin } from 'react-icons/md';
 import { PiMapPinAreaFill } from 'react-icons/pi';
 import { BiSolidCity } from 'react-icons/bi';
+import { cn } from '@/libs/utils';
 
 interface PandalCardProps {
   cardTitleText: string;
@@ -37,7 +38,7 @@ const PandalCard: React.FC<PandalCardProps> = ({
               <p className="!text-[#DCDCDD] pl-1 flex-row">{formattedDistance}</p>
             </div>
           )}
-          <div className="flex flex-row pt-1">
+          <div className={cn('flex flex-row pt-1', !formattedDistance && 'pt-3')}>
             <PiMapPinAreaFill fill="#DCDCDD" size="20" />
             <p className="!text-[#DCDCDD] pl-1 flex-row">{cardZone}</p>
           </div>
