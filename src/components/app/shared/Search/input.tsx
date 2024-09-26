@@ -1,6 +1,6 @@
 import { useLocation, useAllPandals } from '@/hooks';
 import { cn } from '@/libs/utils';
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { MdClear } from 'react-icons/md';
 
 import { searchStore, pandalStore, activePandalStore } from '@/stores';
@@ -72,7 +72,6 @@ export const SearchSuggestions = () => {
   const { location } = useLocation();
   const search = useStore(searchStore);
   const pandals = useStore(pandalStore);
-
   const fuse = useMemo(
     () =>
       new Fuse(pandals, {
@@ -83,8 +82,16 @@ export const SearchSuggestions = () => {
     [pandals],
   );
 
-  const sortedPandals = useMemo(() => {
-    return fuse.search(search).map((result) => result.item);
+  const [sortedPandals, setSortedPandals] = useState<Pandal[]>([]);
+
+  useEffect(() => {
+    if (search.length === 0) {
+      setSortedPandals([]);
+      return;
+    }
+
+    const results = fuse.search(search).map((result) => result.item);
+    setSortedPandals(results);
   }, [search, fuse]);
 
   return (
@@ -108,15 +115,14 @@ export const SearchSuggestions = () => {
             'flex flex-row items-center justify-between py-2 w-full hover:bg-secondary-background',
           )}
           onClick={() => {
-            searchStore.set('');
+            setSortedPandals([]);
             activePandalStore.set(pandal);
           }}
         >
-          <div className="flex flex-col w-full">
-            <h3 className="flex justify-between items-center font-medium text-sm font-work">
-              {pandal.name} <ProximityIndicator location={location} pandal={pandal} />
-            </h3>
-            <p className="text-primary-foreground/50 font-normal text-xs font-work">
+          <div className="flex flex-col gap-1 w-full">
+            <h3 className="font-medium text-sm font-work leading-snug">{pandal.name}</h3>
+            <ProximityIndicator location={location} pandal={pandal} />
+            <p className="text-primary-foreground/50 font-normal text-xs font-work leading-snug">
               {pandal.address}
             </p>
           </div>
