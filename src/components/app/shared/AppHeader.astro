@@ -4,7 +4,13 @@ const handleClick = "document.dispatchEvent(new CustomEvent('toggleFlyout'));";
 ---
 
 <div class="flex flex-row items-center justify-between p-3 mt-5">
-  <h2 class="font-work text-4xl font-medium text-left">Pujo Atlas</h2>
+  <div class="flex flex-row gap-x-2.5 justify-center items-center">
+    <div class="font-work text-4xl font-medium text-left">Pujo Atlas</div><div
+      class="text-[0.7rem] py-1 px-2 bg-[#909090] bg-opacity-[64%] rounded-full text-center"
+    >
+      <span class="text-black font-medium">WEB 1.0</span>
+    </div>
+  </div>
   <button class="settings-button" onclick={handleClick}>
     <IoMdSettings size="30" className="mb-1" />
   </button>
