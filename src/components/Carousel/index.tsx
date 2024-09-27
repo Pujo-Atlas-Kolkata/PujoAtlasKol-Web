@@ -2,7 +2,7 @@ import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import { cn } from '@/libs/utils';
 import { ControlButton } from './buttons';
-import PandalCard from '../app/home/Cards/PandalCard';
+import CarouselCard from './CarouselCard';
 
 export const Carousel = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel(
@@ -50,24 +50,29 @@ export const Carousel = () => {
         <div
           className={cn('flex touch-pinch-zoom touch-pan-y', 'ml-[calc(var(--slide-spacing)*-1)]')}
         >
-          {Array.from({ length: 8 }).map((_, index) => {
+          {Array.from({ length: 5 }).map((_, index) => {
             return (
               <div
                 className={cn(
                   '[transform:translate3d(0,0,0)] flex justify-center',
-                  'px-2 md:pl-[var(--slide-spacing)] flex-[0_0_var(--slide-size)]',
+                  'md:pl-[var(--slide-spacing)] flex-[0_0_var(--slide-size)]',
                 )}
                 key={index}
               >
-                <div className={cn('bg-[#353435] rounded-2xl', 'lg:w-11/12 md:w-4/6 w-1/5')}>
-                  <div className="overflow-hidden h-60">
+                <div
+                  className={cn(
+                    'bg-secondary-background rounded-2xl p-2',
+                    'lg:w-11/12 md:w-4/6 w-1/5',
+                  )}
+                >
+                  <div className="overflow-hidden rounded-2xl h-60">
                     <img
-                      className="rounded-t-2xl w-full"
+                      className="rounded-2xl w-full"
                       src={`/idols/${index + 1}.webp`}
                       alt={`Picture of Idol ${index + 1}`}
                     />
                   </div>
-                  <PandalCard
+                  <CarouselCard
                     cardTitleText="Trending"
                     cardAddress="foobar"
                     cardCity="Kolkata"
