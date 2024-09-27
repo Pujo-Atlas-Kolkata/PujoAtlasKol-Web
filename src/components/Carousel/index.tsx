@@ -59,12 +59,14 @@ export const Carousel = () => {
                 )}
                 key={index}
               >
-                <div className={cn('bg-[#353435] rounded-2xl', 'lg:w-11/12 md:w-4/6 w-1/4')}>
-                  <img
-                    className="overflow-hidden rounded-t-2xl w-full h-56"
-                    src={`/idols/${index + 1}.webp`}
-                    alt={`Picture of Idol ${index + 1}`}
-                  />
+                <div className={cn('bg-[#353435] rounded-2xl', 'lg:w-11/12 md:w-4/6 w-1/5')}>
+                  <div className="overflow-hidden h-60">
+                    <img
+                      className="rounded-t-2xl w-full"
+                      src={`/idols/${index + 1}.webp`}
+                      alt={`Picture of Idol ${index + 1}`}
+                    />
+                  </div>
                   <PandalCard
                     cardTitleText="Trending"
                     cardAddress="foobar"
