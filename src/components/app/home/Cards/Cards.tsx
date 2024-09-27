@@ -6,6 +6,7 @@ import type { Pandal } from '@/types';
 import PandalCard from './PandalCard';
 import { useAllPandals, useTrendingPandals } from '@/hooks';
 import { CgSpinner } from 'react-icons/cg';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Cards = () => {
   const [activeCard, setActiveCard] = useState<'trending' | 'nearme'>('trending');
@@ -79,10 +80,25 @@ const Cards = () => {
   }, [userLocation, trendingPandalsData?.result]);
 
   const handleNearMeClick = useCallback(() => {
-    if (activeCard !== 'nearme') {
+    if (!isUserLocationAvailable) {
+      toast.error('Please enable location permission.', {
+        style: {
+          border: '1px solid #353435',
+          padding: '1rem',
+          color: '#353435',
+          backgroundColor: '#ffedc9',
+        },
+        iconTheme: {
+          primary: 'red',
+          secondary: '#ffedc9',
+        },
+      });
+    }
+
+    if (isUserLocationAvailable && activeCard !== 'nearme') {
       setActiveCard('nearme');
     }
-  }, [activeCard]);
+  }, [activeCard, isUserLocationAvailable]);
 
   const handleTrendingClick = useCallback(() => {
     if (activeCard !== 'trending') {
@@ -122,7 +138,7 @@ const Cards = () => {
       return (
         <div className="z-10">
           <div className="mb-1 p-2 flex flex-row items-center justify-start">
-            <IoMdTrendingUp size="24" fill="#171715" />
+            <IoMdTrendingUp size="24" fill="#171715" className="animate-pulse" />
             <div className="pl-3">
               <p>Trending</p>
             </div>
@@ -169,7 +185,6 @@ const Cards = () => {
       )}
       <div className="flex flex-row gap-2 px-2">
         <button
-          disabled={!isUserLocationAvailable}
           className={cn(
             activeCard === 'nearme' ? 'bg-[#fff]' : 'bg-[#e6dfcf]',
             'p-2 px-3 font-sans rounded-full',
@@ -190,6 +205,7 @@ const Cards = () => {
         </button>
       </div>
       {content}
+      <Toaster />
     </>
   );
 };
