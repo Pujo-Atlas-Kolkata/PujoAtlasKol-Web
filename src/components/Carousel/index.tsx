@@ -2,6 +2,7 @@ import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import { cn } from '@/libs/utils';
 import { ControlButton } from './buttons';
+import PandalCard from '../app/home/Cards/PandalCard';
 
 export const Carousel = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel(
@@ -30,7 +31,7 @@ export const Carousel = () => {
     <section
       className={cn(
         slideWidth,
-        '[--slide-spacing:0] md:[--slide-spacing:1rem] lg:[--slide-spacing:1rem]',
+        '[--slide-spacing:0] md:[--slide-spacing:0rem] lg:[--slide-spacing:0rem]',
         '[--slide-height:5rem] 2xl:[--slide-height:28rem] rounded-3xl',
         'w-full mx-auto grid place-items-center relative my-2',
       )}
@@ -58,11 +59,20 @@ export const Carousel = () => {
                 )}
                 key={index}
               >
-                <img
-                  className="overflow-hidden rounded-2xl h-full w-full"
-                  src={`/idols/${index + 1}.webp`}
-                  alt={`Picture of Idol ${index + 1}`}
-                />
+                <div className={cn('bg-[#353435] rounded-2xl', 'lg:w-11/12 md:w-4/6 w-1/4')}>
+                  <img
+                    className="overflow-hidden rounded-t-2xl w-full h-56"
+                    src={`/idols/${index + 1}.webp`}
+                    alt={`Picture of Idol ${index + 1}`}
+                  />
+                  <PandalCard
+                    cardTitleText="Trending"
+                    cardAddress="foobar"
+                    cardCity="Kolkata"
+                    cardZone="CCU-S"
+                    cardDistance={0}
+                  />
+                </div>
               </div>
             );
           })}
