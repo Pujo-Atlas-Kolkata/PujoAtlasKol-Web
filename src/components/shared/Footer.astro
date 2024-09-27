@@ -5,7 +5,7 @@ import { Image } from 'astro:assets';
 
 <footer class="p-2 pt-3 lg:py-auto lg:h-[7.5vh]">
   <!-- Mobile Screen Footer -->
-  <span class="flex lg:hidden flex-col justify-center items-center text-sm gap-y-1">
+  <div class="flex lg:hidden flex-col justify-center items-center text-sm gap-y-3">
     <span class="w-full flex justify-evenly items-center">
       <a
         href={Socials.Discord}
@@ -32,15 +32,14 @@ import { Image } from 'astro:assets';
         <Image src="/socials/github.svg" alt="GitHub" height={80} width={80} />
       </a>
     </span>
-
-    <div>
+    <span>
       Made with ❤️ by
       <a target="_blank" rel="noreferrer" href={Socials.GitHub} class="font-semibold">
         Pujo Atlas Kolkata
       </a>
-    </div>
+    </span>
 
-    <span class="w-full pt-1">
+    <span class="w-full">
       <a href="https://www.netlify.com">
         <img
           class="w-full h-10"
@@ -49,10 +48,10 @@ import { Image } from 'astro:assets';
         />
       </a>
     </span>
-  </span>
+  </div>
 
   <!-- Large Screen Footer -->
-  <span class="hidden lg:flex h-full justify-between items-center ml-16">
+  <div class="hidden lg:flex h-full justify-between items-center ml-16">
     <span class="text-left">
       Made with ❤️ by
       <a target="_blank" rel="noreferrer" href={Socials.GitHub} class="font-semibold">
@@ -67,7 +66,7 @@ import { Image } from 'astro:assets';
         rel="noreferrer"
         class="hover:underline hover:underline-offset-1 hover:decoration-2 hover:decoration-blue-600 flex flex-row items-center gap-x-2"
       >
-        <Image src="/socials/discord.svg" alt="Discord" height={60} width={120} />
+        <Image src="/socials/discord.svg" alt="Discord" height={100} width={90} />
       </a>
       &nbsp;|&nbsp;
       <a
@@ -76,8 +75,8 @@ import { Image } from 'astro:assets';
         rel="noreferrer"
         class="hover:underline hover:underline-offset-1 hover:decoration-2 hover:decoration-orange-600 flex flex-row gap-x-2"
       >
-        <Image src="/socials/reddit.svg" alt="Reddit" height={45} width={90} />
+        <Image src="/socials/reddit.svg" alt="Reddit" height={70} width={70} />
       </a>
     </span>
-  </span>
+  </div>
 </footer>
