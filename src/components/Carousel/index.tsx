@@ -2,7 +2,7 @@ import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import { cn } from '@/libs/utils';
 import { ControlButton } from './buttons';
-import CarouselCard from './CarouselCard';
+import Cards from './Cards';
 
 export const Carousel = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel(
@@ -50,7 +50,7 @@ export const Carousel = () => {
         <div
           className={cn('flex touch-pinch-zoom touch-pan-y', 'ml-[calc(var(--slide-spacing)*-1)]')}
         >
-          {Array.from({ length: 5 }).map((_, index) => {
+          {Array.from({ length: 8 }).map((_, index) => {
             return (
               <div
                 className={cn(
@@ -62,8 +62,8 @@ export const Carousel = () => {
                 <div
                   className={cn(
                     'bg-secondary-background rounded-2xl p-2',
-                    'lg:w-11/12 md:w-4/6 w-2/6',
-                    '',
+                    'lg:w-11/12 md:w-4/6 w-1/4',
+                    'flex flex-col justify-center',
                   )}
                 >
                   <div className="overflow-hidden rounded-2xl h-60">
@@ -73,13 +73,7 @@ export const Carousel = () => {
                       alt={`Picture of Idol ${index + 1}`}
                     />
                   </div>
-                  <CarouselCard
-                    cardTitleText="Trending"
-                    cardAddress="foobar"
-                    cardCity="Kolkata"
-                    cardZone="CCU-S"
-                    cardDistance={0}
-                  />
+                  <Cards index={index} />
                 </div>
               </div>
             );
