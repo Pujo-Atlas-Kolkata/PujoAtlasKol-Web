@@ -4,6 +4,7 @@ import CarouselCard from './CarouselCard';
 import { useTrendingPandals } from '@/hooks';
 import { CgSpinner } from 'react-icons/cg';
 import { Toaster } from 'react-hot-toast';
+import { cn } from '@/libs/utils';
 
 interface indexProp {
   index: number;
@@ -31,14 +32,21 @@ const Cards: React.FC<indexProp> = ({ index }: indexProp) => {
 
     if (memoizedTrendingPandals.length > 0) {
       return (
-        <div className="rounded-3xl rounded-b-none flex-1 overflow-y-auto max-h-[calc(100dvh-20.5rem)] [&_*::-webkit-scrollbar]:hidden [&::-webkit-scrollbar]:hidden">
+        <div
+          className={cn(
+            'bg-secondary-background rounded-2xl p-2',
+            'lg:w-11/12 md:w-4/6 w-1/4',
+            'flex flex-col justify-center',
+          )}
+        >
+          <img
+            className="rounded-2xl h-60 w-full"
+            src={`/idols/${index + 1}.webp`}
+            alt={`Picture of Idol ${index + 1}`}
+          />
           <CarouselCard
             key={memoizedTrendingPandals[index].id}
             cardTitleText={memoizedTrendingPandals[index].name}
-            cardDistance={memoizedTrendingPandals[index].distance}
-            cardAddress={memoizedTrendingPandals[index].address}
-            cardCity={memoizedTrendingPandals[index].city}
-            cardZone={memoizedTrendingPandals[index].zone}
           />
         </div>
       );
@@ -50,7 +58,7 @@ const Cards: React.FC<indexProp> = ({ index }: indexProp) => {
   return (
     <>
       {trendingLoading && (
-        <div className="fixed top-[60%] left-[50%] translate-x-[-50%] translate-y-[-60%]">
+        <div>
           <CgSpinner size={60} className="animate-spin" />
         </div>
       )}

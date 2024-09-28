@@ -59,22 +59,7 @@ export const Carousel = () => {
                 )}
                 key={index}
               >
-                <div
-                  className={cn(
-                    'bg-secondary-background rounded-2xl p-2',
-                    'lg:w-11/12 md:w-4/6 w-1/4',
-                    'flex flex-col justify-center',
-                  )}
-                >
-                  <div className="overflow-hidden rounded-2xl h-60">
-                    <img
-                      className="rounded-2xl w-full"
-                      src={`/idols/${index + 1}.webp`}
-                      alt={`Picture of Idol ${index + 1}`}
-                    />
-                  </div>
-                  <Cards index={index} />
-                </div>
+                <Cards index={index} />
               </div>
             );
           })}
