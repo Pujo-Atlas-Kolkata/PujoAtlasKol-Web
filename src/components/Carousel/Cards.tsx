@@ -1,5 +1,4 @@
-import { useEffect, useState, useMemo, useCallback } from 'react';
-import { getDistance } from '@/libs/utils';
+import { useMemo } from 'react';
 import type { Pandal } from '@/types';
 import CarouselCard from './CarouselCard';
 import { useTrendingPandals } from '@/hooks';
@@ -11,61 +10,24 @@ interface indexProp {
 }
 
 const Cards: React.FC<indexProp> = ({ index }: indexProp) => {
-  const [isUserLocationAvailable, setIsUserLocationAvailable] = useState<boolean>(false);
-  const [userLocation, setUserLocation] = useState<{ latitude: number; longitude: number } | null>(
-    null,
-  );
-
-  const handleError: PositionErrorCallback = useCallback((error) => {
-    console.error('Error:', error);
-    setIsUserLocationAvailable(false);
-  }, []);
-
   const {
     data: trendingPandalsData,
     isLoading: trendingLoading,
     isError: trendingError,
   } = useTrendingPandals();
 
-  useEffect(() => {
-    const getLocation = () => {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition((position) => {
-          const { latitude, longitude } = position.coords;
-          setUserLocation({ latitude, longitude });
-          setIsUserLocationAvailable(true);
-        }, handleError);
-      } else {
-        console.error('Geolocation is not supported by this browser.');
-        setIsUserLocationAvailable(false);
-      }
-    };
-
-    getLocation();
-  }, [handleError]);
-
   const memoizedTrendingPandals = useMemo(() => {
     if (!trendingPandalsData?.result) return [];
-    if (!userLocation) return trendingPandalsData.result.slice(0, 10);
 
     const pandalsWithDistance = trendingPandalsData.result.map((pandal: Pandal) => {
-      if (userLocation) {
-        const distance = getDistance(
-          userLocation.latitude,
-          userLocation.longitude,
-          pandal.lat,
-          pandal.lon,
-        );
-        return { ...pandal, distance };
-      }
       return pandal;
     });
 
     return pandalsWithDistance.slice(0, 10);
-  }, [userLocation, trendingPandalsData?.result]);
+  }, [trendingPandalsData?.result]);
 
   const content = useMemo(() => {
-    if (trendingLoading && !isUserLocationAvailable) return null;
+    if (trendingLoading) return null;
 
     if (memoizedTrendingPandals.length > 0) {
       return (
@@ -83,7 +45,7 @@ const Cards: React.FC<indexProp> = ({ index }: indexProp) => {
     }
 
     return null;
-  }, [trendingLoading, isUserLocationAvailable, memoizedTrendingPandals, index]);
+  }, [trendingLoading, memoizedTrendingPandals, index]);
 
   return (
     <>
