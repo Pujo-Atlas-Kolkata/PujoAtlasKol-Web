@@ -10,6 +10,8 @@ interface PandalCardProps {
   cardAddress: string;
   cardZone: string;
   cardCity: string;
+  pandalLocation: { latitude: number; longitude: number };
+  userLocation: { latitude: number; longitude: number } | undefined;
 }
 
 const PandalCard: React.FC<PandalCardProps> = ({
@@ -18,6 +20,8 @@ const PandalCard: React.FC<PandalCardProps> = ({
   cardAddress,
   cardZone,
   cardCity,
+  pandalLocation,
+  userLocation,
 }: PandalCardProps) => {
   const formattedDistance = useMemo(
     () => (cardDistance ? `${cardDistance.toFixed(2)} KM` : undefined),
@@ -25,7 +29,17 @@ const PandalCard: React.FC<PandalCardProps> = ({
   );
 
   return (
-    <div className="rounded-3xl p-2 pt-1 px-0 flex flex-col justify-start">
+    <div
+      className="rounded-3xl p-2 pt-1 px-0 flex flex-col justify-start"
+      onClick={() => {
+        if (userLocation)
+          window.open(
+            `https://maps.google.com/maps/dir/${userLocation.latitude},${userLocation.longitude}/${pandalLocation.latitude},${pandalLocation.longitude}/@${userLocation.latitude},${userLocation.longitude}15z`,
+            '_blank',
+          );
+        else console.log('you need to allow Location permission');
+      }}
+    >
       <div className="rounded-3xl p-6 py-8 flex flex-col justify-start bg-[#353435]">
         <div className="text-sm font-normal">
           <p className="!text-[#DCDCDD] font-work font-normal text-xl leading-tight">

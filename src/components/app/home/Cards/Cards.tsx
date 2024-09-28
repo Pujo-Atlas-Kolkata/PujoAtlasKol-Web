@@ -127,6 +127,8 @@ const Cards = () => {
                 cardAddress={pandal.address}
                 cardZone={pandal.zone}
                 cardCity={pandal.city}
+                pandalLocation={{ latitude: pandal.lat, longitude: pandal.lon }}
+                userLocation={userLocation ?? undefined}
               />
             ))}
           </div>
@@ -152,6 +154,8 @@ const Cards = () => {
                 cardAddress={pandal.address}
                 cardCity={pandal.city}
                 cardZone={pandal.zone}
+                pandalLocation={{ latitude: pandal.lat, longitude: pandal.lon }}
+                userLocation={userLocation ?? undefined}
               />
             ))}
           </div>
@@ -161,6 +165,7 @@ const Cards = () => {
 
     return null;
   }, [
+    userLocation,
     pandalsLoading,
     trendingLoading,
     isUserLocationAvailable,
