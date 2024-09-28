@@ -22,7 +22,7 @@ export const Carousel = () => {
 
   const slideWidth = cn(
     '[--slide-size:100%]',
-    'md:[--slide-size:50%]',
+    'md:[--slide-size:40%]',
     'lg:[--slide-size:25%]',
     'xl:[--slide-size:20%]',
   );
@@ -62,7 +62,8 @@ export const Carousel = () => {
                 <div
                   className={cn(
                     'bg-secondary-background rounded-2xl p-2',
-                    'lg:w-11/12 md:w-4/6 w-1/5',
+                    'lg:w-11/12 md:w-4/6 w-2/6',
+                    '',
                   )}
                 >
                   <div className="overflow-hidden rounded-2xl h-60">
