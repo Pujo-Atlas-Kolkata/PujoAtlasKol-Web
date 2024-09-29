@@ -35,7 +35,7 @@ const Cards: React.FC<indexProp> = ({ index }: indexProp) => {
         <div
           className={cn(
             'bg-secondary-background rounded-2xl p-2',
-            'lg:w-11/12 md:w-4/6 w-1/4',
+            'lg:w-11/12 md:w-5/6 w-1/4',
             'flex flex-col justify-center',
           )}
         >
