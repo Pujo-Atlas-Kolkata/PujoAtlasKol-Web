@@ -56,6 +56,7 @@ export const Carousel = () => {
                 className={cn(
                   '[transform:translate3d(0,0,0)] flex justify-center',
                   'md:pl-[var(--slide-spacing)] flex-[0_0_var(--slide-size)]',
+                  '-mx-1',
                 )}
                 key={index}
               >
