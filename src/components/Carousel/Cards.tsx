@@ -48,7 +48,7 @@ const Cards: React.FC<indexProp> = ({ index }: indexProp) => {
           )}
         >
           <img
-            className="rounded-2xl lg:h-60 w-full"
+            className="rounded-2xl h-auto lg:h-60 w-full"
             src={`/idols/${index + 1}.webp`}
             alt={`Picture of Idol ${index + 1}`}
           />
