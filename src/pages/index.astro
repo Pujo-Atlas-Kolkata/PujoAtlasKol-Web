@@ -75,8 +75,10 @@ import { IoMdInformationCircle } from 'react-icons/io';
       </h2>
       <div
         id="carousel-placeholder"
-        class="rounded-2xl h-[calc(100vh-22.5rem)] lg:h-[calc(100vh-35rem)] bg-secondary-background mt-2"
+        class="mx-0.5 p-2 flex flex-col gap-y-3 rounded-2xl h-[calc(100vh-22.5rem)] lg:h-[calc(100vh-35rem)] bg-secondary-background mt-2"
       >
+        <div class="rounded-2xl h-full bg-primary-background animate-pulse"></div>
+        <div class="rounded-2xl h-10 bg-primary-background animate-pulse"></div>
       </div>
       <Carousel client:load client:only="react" />
       <a href="#features" aria-label="scroll to features section" class="hidden lg:block">
