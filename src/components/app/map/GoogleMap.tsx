@@ -11,14 +11,31 @@ import { useStore } from '@nanostores/react';
 
 const SelectedPandal = () => {
   const map = useMap();
+  const [sessionPandal, setSessionPandal] = useState(null);
   const activePandal = useStore(activePandalStore);
+  const showOnMap = sessionStorage.getItem('showOnMap');
 
   useEffect(() => {
-    if (!map || !activePandal) return;
+    try {
+      if (!activePandal && showOnMap) {
+        const parsedPandal = JSON.parse(showOnMap);
+        setSessionPandal(parsedPandal);
+        activePandalStore.set(parsedPandal);
+      }
+      sessionStorage.removeItem('showOnMap');
+    } catch (error) {
+      console.error(`Error parsing showMap: ${error}`);
+    }
+  }, [activePandal, showOnMap]);
+
+  useEffect(() => {
+    const pandalToUse = activePandal || sessionPandal;
+
+    if (!map || !pandalToUse) return;
     console.log('Found pandal marker on map', activePandalStore);
-    map.panTo({ lat: activePandal.lat, lng: activePandal.lon });
+    map.panTo({ lat: pandalToUse.lat, lng: pandalToUse.lon });
     map.setZoom(30);
-  }, [map, activePandal]);
+  }, [map, activePandal, sessionPandal]);
 
   return <></>;
 };

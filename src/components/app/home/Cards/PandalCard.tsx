@@ -10,6 +10,8 @@ interface PandalCardProps {
   cardAddress: string;
   cardZone: string;
   cardCity: string;
+  lat: number;
+  lon: number;
 }
 
 const PandalCard: React.FC<PandalCardProps> = ({
@@ -18,6 +20,8 @@ const PandalCard: React.FC<PandalCardProps> = ({
   cardAddress,
   cardZone,
   cardCity,
+  lat,
+  lon,
 }: PandalCardProps) => {
   const formattedDistance = useMemo(
     () => (cardDistance ? `${cardDistance.toFixed(2)} KM` : undefined),
@@ -46,6 +50,31 @@ const PandalCard: React.FC<PandalCardProps> = ({
             <BiSolidCity fill="#DCDCDD" size="20" />
             <p className="!text-[#DCDCDD] pl-1 flex-row">{cardCity}</p>
           </div>
+        </div>
+        <div className="flex justify-between gap-x-4 mt-6">
+          <a
+            href={`https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex rounded-md border-2 border-black bg-[#ccbea1] p-2 text-base active:translate-x-0 active:translate-y-0 transition-all font-semibold"
+          >
+            Get Directions
+          </a>
+          <a
+            onClick={() => {
+              sessionStorage.setItem(
+                'showOnMap',
+                JSON.stringify({
+                  lat,
+                  lon,
+                }),
+              );
+            }}
+            href="/app/pandals"
+            className="flex rounded-md border-2 border-black bg-[#ccbea1] p-2 text-base active:translate-x-0 active:translate-y-0 transition-all font-semibold"
+          >
+            Show on Map
+          </a>
         </div>
       </div>
     </div>
