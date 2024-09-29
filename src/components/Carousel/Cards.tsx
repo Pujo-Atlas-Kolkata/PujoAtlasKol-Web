@@ -2,7 +2,6 @@ import { useEffect, useMemo } from 'react';
 import type { Pandal } from '@/types';
 import CarouselCard from './CarouselCard';
 import { useTrendingPandals } from '@/hooks';
-// import { CgSpinner } from 'react-icons/cg';
 import { Toaster } from 'react-hot-toast';
 import { cn } from '@/libs/utils';
 
@@ -65,11 +64,6 @@ const Cards: React.FC<indexProp> = ({ index }: indexProp) => {
 
   return (
     <>
-      {/* {trendingLoading && (
-        <div>
-          <CgSpinner size={60} className="animate-spin" />
-        </div>
-      )} */}
       {trendingError && (
         <div className="whitespace-nowrap font-work leading-tight text-sm !text-red-600 rounded-lg drop-shadow-sm text-left p-4 bg-primary-background fixed top-[60%] left-[50%] translate-x-[-50%] translate-y-[-60%]">
           Something went wrong.
