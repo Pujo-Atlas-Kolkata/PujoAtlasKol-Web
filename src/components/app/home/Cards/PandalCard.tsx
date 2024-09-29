@@ -62,7 +62,7 @@ const PandalCard: React.FC<PandalCardProps> = ({
           </a>
           <a
             onClick={() => {
-              localStorage.setItem(
+              sessionStorage.setItem(
                 'showOnMap',
                 JSON.stringify({
                   lat,
