@@ -3,6 +3,8 @@ import { MdLocationPin } from 'react-icons/md';
 import { PiMapPinAreaFill } from 'react-icons/pi';
 import { BiSolidCity } from 'react-icons/bi';
 import { cn } from '@/libs/utils';
+import { LiaMapMarkedAltSolid } from 'react-icons/lia';
+import { MdOutlineDirections } from 'react-icons/md';
 
 interface PandalCardProps {
   cardTitleText: string;
@@ -30,7 +32,7 @@ const PandalCard: React.FC<PandalCardProps> = ({
 
   return (
     <div className="rounded-3xl p-2 pt-1 px-0 flex flex-col justify-start">
-      <div className="rounded-3xl p-6 py-8 flex flex-col justify-start bg-[#353435]">
+      <div className="rounded-3xl p-6 py-8 pb-5 flex flex-col justify-start bg-[#353435]">
         <div className="text-sm font-normal">
           <p className="!text-[#DCDCDD] font-work font-normal text-xl leading-tight">
             {cardTitleText}
@@ -51,14 +53,17 @@ const PandalCard: React.FC<PandalCardProps> = ({
             <p className="!text-[#DCDCDD] pl-1 flex-row">{cardCity}</p>
           </div>
         </div>
-        <div className="flex justify-between gap-x-4 mt-6">
+        <div className="flex justify-between gap-x-4 mt-5 mb-0">
           <a
             href={`https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex rounded-md border-2 border-black bg-[#ccbea1] p-2 text-base active:translate-x-0 active:translate-y-0 transition-all font-semibold"
+            className="flex rounded-3xl border border-black bg-[#ccbea1]/80 p-2 text-sm active:translate-x-0 active:translate-y-0 transition-all font-semibold min-w-36 text-center items-center justify-center"
           >
-            Get Directions
+            <div className="gap-x-1 flex flex-row justify-center items-center">
+              Get Directions
+              <MdOutlineDirections size={20} className="animate-arrow-left-right fill-black" />
+            </div>
           </a>
           <a
             onClick={() => {
@@ -71,9 +76,12 @@ const PandalCard: React.FC<PandalCardProps> = ({
               );
             }}
             href="/app/pandals"
-            className="flex rounded-md border-2 border-black bg-[#ccbea1] p-2 text-base active:translate-x-0 active:translate-y-0 transition-all font-semibold"
+            className="flex rounded-3xl border border-black bg-[#ccbea1]/80 p-2 text-sm active:translate-x-0 active:translate-y-0 transition-all font-semibold min-w-36 text-center items-center justify-center"
           >
-            Show on Map
+            <div className="gap-x-2 flex flex-row justify-center items-center">
+              Show on Map
+              <LiaMapMarkedAltSolid size={20} className="fill-black" />
+            </div>
           </a>
         </div>
       </div>
