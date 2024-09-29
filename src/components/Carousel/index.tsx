@@ -46,7 +46,7 @@ export const Carousel = () => {
         action={() => emblaApi?.scrollNext()}
         className="absolute -right-12 top-1/2"
       />
-      <div className="overflow-hidden" ref={emblaRef}>
+      <div className="overflow-hidden w-full" ref={emblaRef}>
         <div
           className={cn('flex touch-pinch-zoom touch-pan-y', 'ml-[calc(var(--slide-spacing)*-1)]')}
         >
@@ -56,6 +56,7 @@ export const Carousel = () => {
                 className={cn(
                   '[transform:translate3d(0,0,0)] flex justify-center',
                   'md:pl-[var(--slide-spacing)] flex-[0_0_var(--slide-size)]',
+                  '-mx-1',
                 )}
                 key={index}
               >
