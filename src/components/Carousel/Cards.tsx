@@ -37,10 +37,11 @@ const Cards: React.FC<indexProp> = ({ index }: indexProp) => {
             'bg-secondary-background rounded-2xl p-2',
             'lg:w-11/12 md:w-5/6 w-1/4',
             'flex flex-col justify-center',
+            'lg:w-full w-[95%] mx-2',
           )}
         >
           <img
-            className="rounded-2xl h-60 w-full"
+            className="rounded-2xl lg:h-60 w-full"
             src={`/idols/${index + 1}.webp`}
             alt={`Picture of Idol ${index + 1}`}
           />
