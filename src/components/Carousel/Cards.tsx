@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import type { Pandal } from '@/types';
 import CarouselCard from './CarouselCard';
 import { useTrendingPandals } from '@/hooks';
@@ -16,6 +16,13 @@ const Cards: React.FC<indexProp> = ({ index }: indexProp) => {
     isLoading: trendingLoading,
     isError: trendingError,
   } = useTrendingPandals();
+
+  useEffect(() => {
+    const element = document.getElementById('carousel-placeholder');
+    if (trendingPandalsData && element) {
+      element.style.display = 'none';
+    }
+  }, [trendingPandalsData]);
 
   const memoizedTrendingPandals = useMemo(() => {
     if (!trendingPandalsData?.result) return [];
