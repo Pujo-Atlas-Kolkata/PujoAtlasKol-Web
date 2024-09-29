@@ -10,7 +10,8 @@ interface PandalCardProps {
   cardAddress: string;
   cardZone: string;
   cardCity: string;
-  pandalLocation: { latitude: number; longitude: number };
+  lat: number;
+  lon: number;
 }
 
 const PandalCard: React.FC<PandalCardProps> = ({
@@ -19,22 +20,13 @@ const PandalCard: React.FC<PandalCardProps> = ({
   cardAddress,
   cardZone,
   cardCity,
-  pandalLocation,
+  lat,
+  lon,
 }: PandalCardProps) => {
   const formattedDistance = useMemo(
     () => (cardDistance ? `${cardDistance.toFixed(2)} KM` : undefined),
     [cardDistance],
   );
-
-  const showDirection = (e: React.FormEvent, navigation: boolean, lat: number, lon: number) => {
-    e.preventDefault();
-    const url = `https://www.google.com/maps/${navigation ? 'dir/?api=1&destination=' : '@'}${lat},${lon}`;
-    try {
-      window.open(url, '_blank');
-    } catch (error) {
-      console.error('Failed to open direction URL: ', error);
-    }
-  };
 
   return (
     <div className="rounded-3xl p-2 pt-1 px-0 flex flex-col justify-start">
@@ -59,23 +51,30 @@ const PandalCard: React.FC<PandalCardProps> = ({
             <p className="!text-[#DCDCDD] pl-1 flex-row">{cardCity}</p>
           </div>
         </div>
-        <div className="flex justify-center gap-x-4 mt-6">
-          <button
-            onClick={(e) =>
-              showDirection(e, true, pandalLocation.latitude, pandalLocation.longitude)
-            }
-            className="flex rounded-md border-2 border-black bg-amber-500 p-2 text-base active:translate-x-0 active:translate-y-0 transition-all font-semibold"
+        <div className="flex justify-between gap-x-4 mt-6">
+          <a
+            href={`https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex rounded-md border-2 border-black bg-[#ccbea1] p-2 text-base active:translate-x-0 active:translate-y-0 transition-all font-semibold"
           >
             Get Directions
-          </button>
-          <button
-            onClick={(e) =>
-              showDirection(e, false, pandalLocation.latitude, pandalLocation.longitude)
-            }
-            className="flex rounded-md border-2 border-black bg-amber-500 p-2 text-base active:translate-x-0 active:translate-y-0 transition-all font-semibold"
+          </a>
+          <a
+            onClick={() => {
+              localStorage.setItem(
+                'showOnMap',
+                JSON.stringify({
+                  lat,
+                  lon,
+                }),
+              );
+            }}
+            href="/app/pandals"
+            className="flex rounded-md border-2 border-black bg-[#ccbea1] p-2 text-base active:translate-x-0 active:translate-y-0 transition-all font-semibold"
           >
             Show on Map
-          </button>
+          </a>
         </div>
       </div>
     </div>

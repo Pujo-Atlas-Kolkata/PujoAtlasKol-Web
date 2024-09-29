@@ -127,7 +127,8 @@ const Cards = () => {
                 cardAddress={pandal.address}
                 cardZone={pandal.zone}
                 cardCity={pandal.city}
-                pandalLocation={{ latitude: pandal.lat, longitude: pandal.lon }}
+                lat={pandal.lat}
+                lon={pandal.lon}
               />
             ))}
           </div>
@@ -153,7 +154,8 @@ const Cards = () => {
                 cardAddress={pandal.address}
                 cardCity={pandal.city}
                 cardZone={pandal.zone}
-                pandalLocation={{ latitude: pandal.lat, longitude: pandal.lon }}
+                lat={pandal.lat}
+                lon={pandal.lon}
               />
             ))}
           </div>

@@ -11,7 +11,16 @@ import { useStore } from '@nanostores/react';
 
 const SelectedPandal = () => {
   const map = useMap();
-  const activePandal = useStore(activePandalStore);
+  const showOnMap = localStorage.getItem('showOnMap');
+  let activePandal = useStore(activePandalStore);
+
+  if (!activePandal && showOnMap) {
+    try {
+      activePandal = JSON.parse(showOnMap);
+    } catch (error) {
+      console.error(`Error parsing showMap: ${error}`);
+    }
+  }
 
   useEffect(() => {
     if (!map || !activePandal) return;
