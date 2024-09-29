@@ -2,6 +2,8 @@ import { useMemo } from 'react';
 import type { Pandal } from '@/types';
 import CarouselCard from './CarouselCard';
 import { useTrendingPandals } from '@/hooks';
+import { CgSpinner } from 'react-icons/cg';
+import { Toaster } from 'react-hot-toast';
 import { cn } from '@/libs/utils';
 
 interface indexProp {
@@ -57,18 +59,8 @@ const Cards: React.FC<indexProp> = ({ index }: indexProp) => {
   return (
     <>
       {trendingLoading && (
-        <div
-          className={cn(
-            'bg-secondary-background rounded-2xl p-2',
-            'lg:w-11/12 md:w-5/6 w-1/4',
-            'flex flex-col justify-center',
-            'lg:w-full w-[95%] mx-2 !h-[100rem]',
-          )}
-        >
-          <div className="rounded-2xl h-96 lg:h-60 w-full animate-pulse flex flex-col gap-y-5">
-            <div className="bg-orange-100 rounded-2xl h-80"></div>
-            <div className="bg-orange-100 rounded-2xl py-1.5 my-auto mb-5 mx-2"></div>
-          </div>
+        <div>
+          <CgSpinner size={60} className="animate-spin" />
         </div>
       )}
       {trendingError && (
@@ -79,6 +71,7 @@ const Cards: React.FC<indexProp> = ({ index }: indexProp) => {
         </div>
       )}
       {content}
+      <Toaster />
     </>
   );
 };
