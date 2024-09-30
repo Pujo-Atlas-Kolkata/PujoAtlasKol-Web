@@ -95,20 +95,20 @@ export const SearchSuggestions = () => {
   }, [search, fuse]);
 
   const handleSearchSuggestionClick = (pandal: Pandal) => {
-    if (window.location.pathname === '/app/pandals') {
-      setSortedPandals([]);
-      activePandalStore.set(pandal);
-    } else {
-      sessionStorage.clear();
-      sessionStorage.setItem(
-        'showOnMap',
-        JSON.stringify({
-          lat: pandal.lat,
-          lon: pandal.lon,
-        }),
-      );
-      window.location.href = '/app/pandals';
-    }
+    setSortedPandals([]);
+    activePandalStore.set(pandal);
+    sessionStorage.clear();
+    sessionStorage.setItem(
+      'showOnMap',
+      JSON.stringify({
+        id: pandal.id,
+        lat: pandal.lat,
+        lon: pandal.lon,
+      }),
+    );
+
+    // redirect to /app/pandals if not already there
+    if (window.location.pathname !== '/app/pandals') window.location.href = '/app/pandals';
   };
 
   return (
