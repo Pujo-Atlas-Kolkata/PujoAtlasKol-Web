@@ -5,8 +5,12 @@ import { BiSolidCity } from 'react-icons/bi';
 import { cn } from '@/libs/utils';
 import { LiaMapMarkedAltSolid } from 'react-icons/lia';
 import { MdOutlineDirections } from 'react-icons/md';
+import { useMutation } from '@/hooks';
+import axios from 'axios';
+import { Api } from '@/constants';
 
 interface PandalCardProps {
+  id: string;
   cardTitleText: string;
   cardDistance?: number;
   cardAddress: string;
@@ -17,6 +21,7 @@ interface PandalCardProps {
 }
 
 const PandalCard: React.FC<PandalCardProps> = ({
+  id,
   cardTitleText,
   cardDistance,
   cardAddress,
@@ -29,6 +34,12 @@ const PandalCard: React.FC<PandalCardProps> = ({
     () => (cardDistance ? `${cardDistance.toFixed(2)} KM` : undefined),
     [cardDistance],
   );
+
+  const { mutate: updateRanking } = useMutation({
+    mutationFn: async () => {
+      return axios.post(Api.Pujo.Searched, { id });
+    },
+  });
 
   return (
     <div className="rounded-3xl p-2 pt-1 px-0 flex flex-col justify-start">
@@ -55,10 +66,11 @@ const PandalCard: React.FC<PandalCardProps> = ({
         </div>
         <div className="flex justify-between gap-x-4 mt-5 mb-0">
           <a
+            onClick={() => updateRanking()}
             href={`https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex rounded-3xl border border-black bg-[#ccbea1]/80 p-2 text-sm active:translate-x-0 active:translate-y-0 transition-all font-semibold min-w-36 text-center items-center justify-center"
+            className="flex rounded-3xl border border-black bg-orange-100 p-2 text-sm active:translate-x-0 active:translate-y-0 transition-all font-semibold min-w-36 text-center items-center justify-center"
           >
             <div className="gap-x-1 flex flex-row justify-center items-center">
               Get Directions
@@ -67,6 +79,7 @@ const PandalCard: React.FC<PandalCardProps> = ({
           </a>
           <a
             onClick={() => {
+              updateRanking();
               sessionStorage.setItem(
                 'showOnMap',
                 JSON.stringify({
@@ -76,9 +89,9 @@ const PandalCard: React.FC<PandalCardProps> = ({
               );
             }}
             href="/app/pandals"
-            className="flex rounded-3xl border border-black bg-[#ccbea1]/80 p-2 text-sm active:translate-x-0 active:translate-y-0 transition-all font-semibold min-w-36 text-center items-center justify-center"
+            className="flex rounded-3xl border border-black bg-orange-100 p-2 text-sm active:translate-x-0 active:translate-y-0 transition-all font-semibold min-w-36 text-center items-center justify-center"
           >
-            <div className="gap-x-2 flex flex-row justify-center items-center">
+            <div className="gap-x-1 flex flex-row justify-center items-center">
               Show on Map
               <LiaMapMarkedAltSolid size={20} className="fill-black" />
             </div>
