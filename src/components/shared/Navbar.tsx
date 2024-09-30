@@ -85,20 +85,25 @@ export const LargeNavbar = ({ path }: Props) => {
   );
 };
 
-export const MobileHeaderLangSwitcher = ({ path }: Props) => {
+export const MobileHeaders = ({ path }: Props) => {
   const currentLang = getCurrentLanguage(path);
   const navItems = generateNavItems(path, currentLang);
 
   return (
-    <a
-      href={navItems[2].href}
-      className={cn(
-        'outline outline-primary-foreground outline-1 bg-primary-background',
-        'flex items-center justify-center rounded-md p-2 w-8 h-8',
-      )}
-      aria-label={navItems[2].label}
-    >
-      {navItems[2].icon}
-    </a>
+    <nav className="flex gap-2">
+      {navItems.slice(2, 4).map((item, index) => (
+        <a
+          key={index}
+          href={item.href}
+          className={cn(
+            'outline outline-primary-foreground outline-1 bg-primary-background',
+            'flex items-center justify-center rounded-md p-2 w-8 h-8',
+          )}
+          aria-label={item.label}
+        >
+          {item.icon}
+        </a>
+      ))}
+    </nav>
   );
 };
