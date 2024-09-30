@@ -94,6 +94,23 @@ export const SearchSuggestions = () => {
     setSortedPandals(results);
   }, [search, fuse]);
 
+  const handleSearchSuggestionClick = (pandal: Pandal) => {
+    if (window.location.pathname === '/app/pandals') {
+      setSortedPandals([]);
+      activePandalStore.set(pandal);
+    } else {
+      sessionStorage.clear();
+      sessionStorage.setItem(
+        'showOnMap',
+        JSON.stringify({
+          lat: pandal.lat,
+          lon: pandal.lon,
+        }),
+      );
+      window.location.href = '/app/pandals';
+    }
+  };
+
   return (
     <ul
       data-active={sortedPandals.length > 0}
@@ -115,8 +132,7 @@ export const SearchSuggestions = () => {
             'flex flex-row items-center justify-between py-2 w-full hover:bg-secondary-background',
           )}
           onClick={() => {
-            setSortedPandals([]);
-            activePandalStore.set(pandal);
+            handleSearchSuggestionClick(pandal);
           }}
         >
           <div className="flex flex-col gap-1 w-full">
