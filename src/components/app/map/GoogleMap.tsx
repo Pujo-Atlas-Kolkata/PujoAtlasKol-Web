@@ -9,7 +9,11 @@ import { useAllPandals } from '@/hooks';
 import { activePandalStore } from '@/stores';
 import { useStore } from '@nanostores/react';
 
-const SelectedPandal = () => {
+type SelectedPandalProps = {
+  setActiveLocationId: (id: string | null) => void;
+};
+
+const SelectedPandal = ({ setActiveLocationId }: SelectedPandalProps) => {
   const map = useMap();
   const [sessionPandal, setSessionPandal] = useState(null);
   const activePandal = useStore(activePandalStore);
@@ -18,23 +22,29 @@ const SelectedPandal = () => {
   useEffect(() => {
     try {
       if (!activePandal && showOnMap) {
+        setActiveLocationId(null);
         const parsedPandal = JSON.parse(showOnMap);
         setSessionPandal(parsedPandal);
         activePandalStore.set(parsedPandal);
+        setActiveLocationId(parsedPandal.id);
       }
       sessionStorage.removeItem('showOnMap');
+
+      if (activePandal) {
+        setActiveLocationId(null);
+        setActiveLocationId(activePandal.id);
+      }
     } catch (error) {
       console.error(`Error parsing showMap: ${error}`);
     }
-  }, [activePandal, showOnMap]);
+  }, [activePandal, setActiveLocationId, showOnMap]);
 
   useEffect(() => {
     const pandalToUse = activePandal || sessionPandal;
 
     if (!map || !pandalToUse) return;
-    console.log('Found pandal marker on map', activePandalStore);
-    map.panTo({ lat: pandalToUse.lat, lng: pandalToUse.lon });
-    map.setZoom(30);
+    map.panTo({ lat: pandalToUse.lat, lng: pandalToUse.lon + 0.00005 }); // adjust for info window
+    map.setZoom(22);
   }, [map, activePandal, sessionPandal]);
 
   return <></>;
@@ -98,7 +108,7 @@ export const GoogleMaps = ({ apiKey, icon }: GoogleMapProps) => {
               icon={icon}
               setActiveLocationId={setActiveLocationId}
             />
-            <SelectedPandal />
+            <SelectedPandal setActiveLocationId={setActiveLocationId} />
           </Map>
         </APIProvider>
       </section>

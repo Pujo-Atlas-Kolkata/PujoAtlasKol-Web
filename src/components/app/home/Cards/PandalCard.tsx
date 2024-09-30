@@ -83,6 +83,7 @@ const PandalCard: React.FC<PandalCardProps> = ({
               sessionStorage.setItem(
                 'showOnMap',
                 JSON.stringify({
+                  id,
                   lat,
                   lon,
                 }),
