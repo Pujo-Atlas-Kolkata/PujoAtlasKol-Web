@@ -24,7 +24,7 @@ export const TeamMembers = () => {
       {Object.entries(team).map(([category, members]) => {
         return (
           <>
-            <h3 className="font-work font-semibold text-4xl">{category}</h3>
+            <h3 className="font-work font-semibold text-2xl lg:text-4xl">{category}</h3>
             <div className="bg-primary-background w-full flex flex-col md:grid md:grid-cols-3 lg:grid-cols-5 place-items-evenly gap-4 p-1 rounded-2xl">
               {members.map((member) => (
                 <>
