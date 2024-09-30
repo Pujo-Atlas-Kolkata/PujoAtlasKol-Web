@@ -20,26 +20,14 @@ import { IoMdSettings } from 'react-icons/io';
     const icon = button?.querySelector('svg');
 
     button?.addEventListener('click', () => {
-      icon?.classList.add('rotate-slight');
-      icon?.classList.remove('rotate-reset');
+      icon?.classList.add('animate-rotate-slight');
+      icon?.classList.remove('animate-rotate-slight-reset');
 
       document.dispatchEvent(new CustomEvent('toggleFlyout'));
     });
     document.addEventListener('toggleFlyoutState', () => {
-      icon?.classList.add('rotate-reset');
-      icon?.classList.remove('rotate-slight');
+      icon?.classList.add('animate-rotate-slight-reset');
+      icon?.classList.remove('animate-rotate-slight');
     });
   });
 </script>
-
-<style>
-  .rotate-slight {
-    transform: rotate(-45deg);
-    transition: transform 0.3s ease-out;
-  }
-
-  .rotate-reset {
-    transform: rotate(0deg);
-    transition: transform 0.3s ease-out;
-  }
-</style>
