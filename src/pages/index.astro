@@ -68,6 +68,18 @@ import { IoMdInformationCircle } from 'react-icons/io';
     </span>
     <!-- carousel -->
     <div>
+      <h2
+        class="font-work font-semibold text-3xl md:text-4xl lg:text-4xl pt-2 lg:pt-0 pb-0 lg:pb-2 text-center lg:text-left"
+      >
+        Trending Pandals
+      </h2>
+      <div
+        id="carousel-placeholder"
+        class="mx-0.5 p-2 flex flex-col gap-y-3 rounded-2xl h-[calc(100vh-22.5rem)] lg:h-[calc(100vh-35rem)] bg-secondary-background mt-2"
+      >
+        <div class="rounded-2xl h-full bg-primary-background animate-pulse"></div>
+        <div class="rounded-2xl h-10 bg-primary-background animate-pulse"></div>
+      </div>
       <Carousel client:load client:only="react" />
       <a href="#features" aria-label="scroll to features section" class="hidden lg:block">
         <FaChevronDown className="h-8 lg:h-12 w-8 mx-auto motion-safe:animate-bounce" />
