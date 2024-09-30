@@ -49,10 +49,10 @@ export const UserLocation = ({ activeLocationId }: UserLocationProps) => {
 
   // automatically get user location on component mount
   useEffect(() => {
-    if (map) {
+    if (map && !activeLocationId) {
       goToUserLocation();
     }
-  }, [goToUserLocation, map]);
+  }, [activeLocationId, goToUserLocation, map]);
 
   return (
     <>
