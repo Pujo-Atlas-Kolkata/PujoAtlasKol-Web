@@ -9,10 +9,14 @@ export default function SettingsFlyout() {
   useEffect(() => {
     const handleToggleFlyout = () => setIsOpen((prev) => !prev);
     document.addEventListener('toggleFlyout', handleToggleFlyout);
+    if (!isOpen) {
+      const event = new CustomEvent('toggleFlyoutState');
+      document.dispatchEvent(event);
+    }
     return () => {
       document.removeEventListener('toggleFlyout', handleToggleFlyout);
     };
-  }, []);
+  }, [isOpen]);
 
   return (
     <div className="font-sans">
