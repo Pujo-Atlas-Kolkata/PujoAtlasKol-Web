@@ -122,6 +122,7 @@ const Cards = () => {
             {memoizedClosestPandals.map((pandal) => (
               <PandalCard
                 key={pandal.id}
+                id={pandal.id}
                 cardTitleText={pandal.name}
                 cardDistance={pandal.distance}
                 cardAddress={pandal.address}
@@ -149,6 +150,7 @@ const Cards = () => {
             {memoizedTrendingPandals.map((pandal) => (
               <PandalCard
                 key={pandal.id}
+                id={pandal.id}
                 cardTitleText={pandal.name}
                 cardDistance={pandal.distance}
                 cardAddress={pandal.address}
