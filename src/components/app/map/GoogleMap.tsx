@@ -101,7 +101,7 @@ export const GoogleMaps = ({ apiKey, icon }: GoogleMapProps) => {
             streetViewControl={false}
             onIdle={() => setIsMapLoading(false)}
           >
-            <UserLocation />
+            <UserLocation activeLocationId={activeLocationId} />
             <ClusteredMarkers
               activeLocationId={activeLocationId}
               locations={locations}

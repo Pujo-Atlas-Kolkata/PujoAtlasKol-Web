@@ -2,11 +2,15 @@ import { useMap, AdvancedMarker } from '@vis.gl/react-google-maps';
 import { useState, useCallback, useEffect } from 'react';
 import { IoMdLocate } from 'react-icons/io';
 
+type UserLocationProps = {
+  activeLocationId: string | null;
+};
+
 const MyLocation = () => (
   <div className="w-6 h-6 bg-blue-500 rounded-full border-4 border-white shadow shadow-blue-500 animate-pulse" />
 );
 
-export const UserLocation = () => {
+export const UserLocation = ({ activeLocationId }: UserLocationProps) => {
   const map = useMap('map');
   const [userLocation, setUserLocation] = useState<google.maps.LatLngLiteral | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -24,9 +28,13 @@ export const UserLocation = () => {
         const { latitude, longitude } = position.coords;
         const location = { lat: latitude, lng: longitude };
 
-        map.panTo(location);
         setUserLocation(location);
-        map.setZoom(18);
+
+        if (!activeLocationId) {
+          map.panTo(location);
+          map.setZoom(18);
+        }
+
         setError(null);
       },
       () => {
@@ -37,7 +45,7 @@ export const UserLocation = () => {
         }, 5000);
       },
     );
-  }, [map]);
+  }, [activeLocationId, map]);
 
   // automatically get user location on component mount
   useEffect(() => {
