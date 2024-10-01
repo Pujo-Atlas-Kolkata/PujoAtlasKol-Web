@@ -98,7 +98,7 @@ export const team: Record<string, MemberDetails[]> = {
     {
       id: 'thehappybaloney',
       name: 'TheHappyBaloney',
-      avatar: 'https://api.dicebear.com/9.x/lorelei/svg?seed=baloon',
+      avatar: 'https://api.dicebear.com/9.x/lorelei/svg?seed=baloon&glassesProbability=0',
       socials: {
         discord: 'https://discord.com/users/1232913986689962078',
         github: 'https://github.com/TheHappyBaloney',
