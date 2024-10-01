@@ -203,7 +203,7 @@ export const team: Record<string, MemberDetails[]> = {
     {
       id: 'Suzi',
       name: 'Suzi',
-      avatar: 'https://api.dicebear.com/9.x/lorelei/svg?seed=baloon&glassesProbability=0',
+      avatar: 'https://api.dicebear.com/9.x/lorelei/svg?seed=baloon&eyes=variant23&frecklesProbability=0&glassesProbability=0&hair=variant18&eyebrows=variant09',
       socials: {
         discord: 'https://discord.com/users/750464448044597269',
         twitter: 'https://x.com/itsssarkar',
