@@ -3,7 +3,7 @@ import { cn } from '@/libs/utils';
 import { useEffect, useMemo, useState } from 'react';
 import { MdClear } from 'react-icons/md';
 
-import { searchStore, pandalStore, activePandalStore } from '@/stores';
+import { searchStore, allPandalStore, activePandalStore } from '@/stores';
 import { useStore } from '@nanostores/react';
 import Fuse from 'fuse.js';
 import type { Pandal } from '@/types';
@@ -73,7 +73,7 @@ const ProximityIndicator = ({ location, pandal }: ProximityIndicatorProps) => {
 export const SearchSuggestions = () => {
   const { location } = useLocation();
   const search = useStore(searchStore);
-  const pandals = useStore(pandalStore);
+  const pandals = useStore(allPandalStore);
   const fuse = useMemo(
     () =>
       new Fuse(pandals, {
