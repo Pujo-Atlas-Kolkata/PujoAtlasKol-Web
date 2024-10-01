@@ -109,8 +109,6 @@ const colors: Record<Department, string> = {
 <script is:inline>
   (() => {
     document.addEventListener('DOMContentLoaded', () => {
-      console.log('Script loaded!');
-
       const shareButtons = document.querySelectorAll('[data-share-button]');
       shareButtons.forEach((button) => {
         button.addEventListener('click', (event) => {
@@ -129,7 +127,6 @@ const colors: Record<Department, string> = {
             currentUrl.hash = `#${memberElement.id}`;
             const url = currentUrl.toString();
             navigator.clipboard.writeText(url);
-            console.log('Link copied:', url);
 
             // indicate link copy success
             button.classList.add('!bg-white');
@@ -141,6 +138,14 @@ const colors: Record<Department, string> = {
           }
         });
       });
+
+      // highlight member card based on URL hash
+      const currentUrl = new URL(window.location.href);
+      const hash = decodeURIComponent(currentUrl.hash.slice(1));
+      if (hash) {
+        const memberCard = document.getElementById(hash);
+        memberCard.classList.add('!bg-[#FFFAF0]');
+      }
     });
   })();
 </script>
