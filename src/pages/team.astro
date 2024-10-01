@@ -1,5 +1,5 @@
 ---
-import { TeamMembers } from '@/components/Members';
+import TeamMembers from '@/components/Members/TeamMembers.astro';
 import { Socials } from '@/constants/socials';
 import Layout from '@/layouts/LandingPageLayout.astro';
 import { cn } from '@/libs/utils';
@@ -30,7 +30,7 @@ import { cn } from '@/libs/utils';
       </p>
     </section>
     <section id="members" class="flex flex-col gap-4">
-      <TeamMembers client:load client:only="react" />
+      <TeamMembers />
     </section>
   </main>
 </Layout>

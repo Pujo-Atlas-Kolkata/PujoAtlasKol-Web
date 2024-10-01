@@ -30,13 +30,22 @@ type MemberDetails = {
 export const team: Record<string, MemberDetails[]> = {
   Founders: [
     {
-      id: 'leofossilis',
-      name: 'leofossilis',
+      id: 'Leofossilis',
+      name: 'Leofossilis',
       avatar: 'https://api.dicebear.com/9.x/lorelei/svg?seed=fossils',
       socials: {
         discord: 'https://discord.com/users/1082731230916788336',
       },
       department: 'Content',
+    },
+    {
+      id: 'Angry Meow',
+      name: 'Angry Meow',
+      avatar: 'https://api.dicebear.com/9.x/lorelei/svg?seed={engineer}',
+      socials: {
+        discord: 'https://discord.com/users/1243017049572245525',
+      },
+      department: 'Coordinator',
     },
   ],
   Leads: [
@@ -76,7 +85,7 @@ export const team: Record<string, MemberDetails[]> = {
     },
     {
       id: 'inceptor',
-      name: 'Sbasu2512',
+      name: 'Sbasu',
       avatar: 'https://api.dicebear.com/9.x/lorelei/svg?seed=inceptor&eyes=variant18',
       socials: {
         discord: 'https://discord.com/users/798395088593354762',
@@ -96,9 +105,19 @@ export const team: Record<string, MemberDetails[]> = {
       department: 'Backend',
     },
     {
+      id: 'Jethanand',
+      name: 'Jethanand',
+      avatar: 'https://api.dicebear.com/9.x/lorelei/svg?seed=Jethanand',
+      socials: {
+        discord: 'https://discord.com/users/775623707011448852',
+        github: 'https://github.com/pnaskardev',
+      },
+      department: 'Backend',
+    },
+    {
       id: 'thehappybaloney',
       name: 'TheHappyBaloney',
-      avatar: 'https://api.dicebear.com/9.x/lorelei/svg?seed=baloon',
+      avatar: 'https://api.dicebear.com/9.x/lorelei/svg?seed=baloon&glassesProbability=0',
       socials: {
         discord: 'https://discord.com/users/1232913986689962078',
         github: 'https://github.com/TheHappyBaloney',
@@ -129,9 +148,13 @@ export const team: Record<string, MemberDetails[]> = {
     {
       id: 'WhiteTiger',
       name: 'WhiteTiger',
-      avatar: 'https://api.dicebear.com/9.x/lorelei/svg?seed=tiger',
+      avatar:
+        'https://api.dicebear.com/9.x/lorelei/svg?seed=Aidan&beard=variant02&beardProbability=100&earrings[]&earringsProbability=100&eyebrows=variant12&eyes=variant02&frecklesProbability=0&glasses[]&glassesProbability=0&hair=variant05&hairAccessoriesProbability=0&head=variant03&mouth=happy02,sad08&nose=variant05',
       socials: {
         discord: 'https://discord.com/users/751361976369807370',
+        linkedin: 'https://www.linkedin.com/in/sayan-naskar-1714a6330',
+        github: 'https://github.com/sayannnaskarrr',
+        twitter: 'https://x.com/sayannnaskarrr',
       },
       department: 'Community',
     },
@@ -142,6 +165,38 @@ export const team: Record<string, MemberDetails[]> = {
       socials: {
         discord: 'https://discord.com/users/283499137977024513',
         github: 'https://github.com/saptarshichakrabarti',
+      },
+      department: 'Coordinator',
+    },
+  ],
+  Coordinators: [
+    {
+      id: 'Achakita',
+      name: 'Achakita',
+      avatar: 'https://api.dicebear.com/9.x/lorelei/svg?seed=reddit',
+      socials: {
+        discord: 'https://discord.com/users/903722676084949063',
+        twitter: 'https://x.com/Achakita_TRUTH',
+      },
+      department: 'Community',
+    },
+    {
+      id: 'Nghtcrwlrr',
+      name: 'Nghtcrwlrr',
+      avatar:
+        'https://api.dicebear.com/9.x/lorelei/svg?seed=nghtcrwlrr&glassesProbability=100&glasses=variant04',
+      socials: {
+        discord: 'https://discord.com/users/324413042639241226',
+      },
+      department: 'Coordinator',
+    },
+    {
+      id: 'Melancholic_Sobdokar',
+      name: 'Melancholic_Sobdokar',
+      avatar:
+        'https://api.dicebear.com/9.x/lorelei/svg?seed=nightcrwlrr&beardProbability=0&glassesProbability=0',
+      socials: {
+        discord: 'https://discord.com/users/1090698750068002877',
       },
       department: 'Coordinator',
     },
