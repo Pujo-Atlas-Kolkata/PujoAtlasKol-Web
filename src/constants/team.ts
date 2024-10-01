@@ -85,7 +85,7 @@ export const team: Record<string, MemberDetails[]> = {
     },
     {
       id: 'inceptor',
-      name: 'Sbasu2512',
+      name: 'Sbasu',
       avatar: 'https://api.dicebear.com/9.x/lorelei/svg?seed=inceptor&eyes=variant18',
       socials: {
         discord: 'https://discord.com/users/798395088593354762',
