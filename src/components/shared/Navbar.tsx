@@ -41,7 +41,7 @@ function generateNavItems(path: string, currentLang: 'en' | 'bn'): Array<NavItem
     },
     {
       label: 'Team',
-      href: `/team`,
+      href: `/team/`,
       icon: <GrGroup className="size-6 fill-primary-foreground" />,
     },
     {
