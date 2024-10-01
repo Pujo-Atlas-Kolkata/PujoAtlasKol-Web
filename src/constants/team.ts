@@ -36,7 +36,7 @@ export const team: Record<string, MemberDetails[]> = {
       socials: {
         discord: 'https://discord.com/users/1082731230916788336',
       },
-      department: 'Content',
+      department: 'Coordinator',
     },
     {
       id: 'Angry Meow',
@@ -239,7 +239,7 @@ export const team: Record<string, MemberDetails[]> = {
     {
       id: 'indranil',
       name: 'Indranil Chakraborty ',
-      avatar: 'https://api.dicebear.com/9.x/lorelei/svg?seed=indranil',
+      avatar: 'https://api.dicebear.com/9.x/lorelei/svg?seed=nightcrwlrr',
       socials: {
         discord: 'https://discord.com/users/629236605936205835',
         linkedin: 'https://www.linkedin.com/in/indranil-chakraborty-91ba60217',
