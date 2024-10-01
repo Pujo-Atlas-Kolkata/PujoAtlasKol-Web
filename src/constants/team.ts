@@ -139,7 +139,7 @@ export const team: Record<string, MemberDetails[]> = {
       id: 'WhiteTiger',
       name: 'WhiteTiger',
       avatar:
-        'https://api.dicebear.com/9.x/lorelei/svg?seed=tiger&beard=variant02&beardProbability=100&glasses=variant02&glassesProbability=100',
+        'https://api.dicebear.com/9.x/lorelei/svg?seed=Aidan&beard=variant02&beardProbability=100&earrings[]&earringsProbability=100&eyebrows=variant12&eyes=variant02&frecklesProbability=0&glasses[]&glassesProbability=0&hair=variant05&hairAccessoriesProbability=0&head=variant03&mouth=happy02,sad08&nose=variant05',
       socials: {
         discord: 'https://discord.com/users/751361976369807370',
         linkedin: 'https://www.linkedin.com/in/sayan-naskar-1714a6330',
