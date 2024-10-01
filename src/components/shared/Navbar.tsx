@@ -2,6 +2,7 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 import { BsGithub } from 'react-icons/bs';
 import { GoHomeFill } from 'react-icons/go';
 import { MdTranslate } from 'react-icons/md';
+import { GrGroup } from 'react-icons/gr';
 import {
   cn,
   getAlternateLanguage,
@@ -39,6 +40,11 @@ function generateNavItems(path: string, currentLang: 'en' | 'bn'): Array<NavItem
       icon: <BsGithub className="size-6 fill-primary-foreground" />,
     },
     {
+      label: 'Team',
+      href: `/team/`,
+      icon: <GrGroup className="size-6 fill-primary-foreground" />,
+    },
+    {
       label: oppositeLang === 'en' ? 'English' : 'বাংলা',
       href: getAlternateLanguagePath(path),
       icon: <MdTranslate className="size-4 lg:size-6 fill-primary-foreground" />,
@@ -58,7 +64,7 @@ export const LargeNavbar = ({ path }: Props) => {
           href={item.href}
           target={item.href === Socials.GitHub ? '_blank' : '_self'}
           rel={item.href === Socials.GitHub ? 'noopener noreferrer' : ''}
-          data-active={(item.href === path || item.href === '/bn') && index === 0} // hotfix for netlify hidden trailing slash issue
+          data-active={item.href === path || item.href === path.split('/bn/')[1]} // hotfix for netlify hidden trailing slash issue
           className={cn(
             'outline outline-primary-foreground outline-1 bg-primary-background',
             'data-[active=true]:outline-2 data-[active=true]:bg-[#fed7aa]',
@@ -79,20 +85,25 @@ export const LargeNavbar = ({ path }: Props) => {
   );
 };
 
-export const MobileHeaderLangSwitcher = ({ path }: Props) => {
+export const MobileHeaders = ({ path }: Props) => {
   const currentLang = getCurrentLanguage(path);
   const navItems = generateNavItems(path, currentLang);
 
   return (
-    <a
-      href={navItems[2].href}
-      className={cn(
-        'outline outline-primary-foreground outline-1 bg-primary-background',
-        'flex items-center justify-center rounded-md p-2 w-8 h-8',
-      )}
-      aria-label={navItems[2].label}
-    >
-      {navItems[2].icon}
-    </a>
+    <nav className="flex gap-2">
+      {navItems.slice(2, 4).map((item, index) => (
+        <a
+          key={index}
+          href={item.href}
+          className={cn(
+            'outline outline-primary-foreground outline-1 bg-primary-background',
+            'flex items-center justify-center rounded-md p-2 w-8 h-8',
+          )}
+          aria-label={item.label}
+        >
+          {item.icon}
+        </a>
+      ))}
+    </nav>
   );
 };

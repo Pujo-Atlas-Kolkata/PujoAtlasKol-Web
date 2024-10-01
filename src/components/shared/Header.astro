@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import Icon from '~/public/icon.png';
-import { MobileHeaderLangSwitcher } from './Navbar';
+import { MobileHeaders } from './Navbar';
 
 const currentPath = Astro.url.pathname;
 ---
@@ -13,7 +13,7 @@ const currentPath = Astro.url.pathname;
       Pujo Atlas
     </a>
     <div class="flex lg:hidden">
-      <MobileHeaderLangSwitcher path={currentPath} />
+      <MobileHeaders path={currentPath} />
     </div>
   </nav>
 </header>
