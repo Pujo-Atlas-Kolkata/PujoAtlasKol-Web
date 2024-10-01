@@ -163,7 +163,8 @@ export const team: Record<string, MemberDetails[]> = {
     {
       id: 'Nghtcrwlrr',
       name: 'Nghtcrwlrr',
-      avatar: 'https://api.dicebear.com/9.x/lorelei/svg?seed=nghtcrwlrr',
+      avatar:
+        'https://api.dicebear.com/9.x/lorelei/svg?seed=nghtcrwlrr&glassesProbability=100&glasses=variant04',
       socials: {
         discord: 'https://discord.com/users/324413042639241226',
       },
@@ -173,7 +174,7 @@ export const team: Record<string, MemberDetails[]> = {
       id: 'Melancholic_Sobdokar',
       name: 'Melancholic_Sobdokar',
       avatar:
-        'https://api.dicebear.com/9.x/lorelei/svg?seed=Melancholic&beardProbability=100&glassesProbability=0',
+        'https://api.dicebear.com/9.x/lorelei/svg?seed=nightcrwlrr&beardProbability=0&glassesProbability=0',
       socials: {
         discord: 'https://discord.com/users/1090698750068002877',
       },
