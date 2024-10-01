@@ -169,7 +169,7 @@ export const team: Record<string, MemberDetails[]> = {
       department: 'Coordinator',
     },
   ],
-  Coordinators: [
+  ['Coordinators & Content Creators']: [
     {
       id: 'Achakita',
       name: 'Achakita',
@@ -199,6 +199,16 @@ export const team: Record<string, MemberDetails[]> = {
         discord: 'https://discord.com/users/1090698750068002877',
       },
       department: 'Coordinator',
+    },
+    {
+      id: 'Suzi',
+      name: 'Suzi',
+      avatar: 'https://api.dicebear.com/9.x/lorelei/svg?seed=baloon&glassesProbability=0',
+      socials: {
+        discord: 'https://discord.com/users/750464448044597269',
+        twitter: 'https://x.com/itsssarkar',
+      },
+      department: 'Content',
     },
   ],
   'Web Team': [
