@@ -161,6 +161,15 @@ export const team: Record<string, MemberDetails[]> = {
   ],
   Coordinators: [
     {
+      id: 'Achakita',
+      name: 'Achakita',
+      avatar: 'https://api.dicebear.com/9.x/lorelei/svg?seed=reddit',
+      socials: {
+        discord: 'https://discord.com/users/903722676084949063',
+      },
+      department: 'Coordinator',
+    },
+    {
       id: 'Nghtcrwlrr',
       name: 'Nghtcrwlrr',
       avatar:
