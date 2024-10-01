@@ -127,6 +127,12 @@ const colors: Record<Department, string> = {
             const url = `${window.location.href}#${memberElement.id}`;
             navigator.clipboard.writeText(url);
             console.log('Link copied:', url);
+
+            // indicate link copy success
+            button.classList.add('!bg-white');
+            setTimeout(() => {
+              button.classList.remove('!bg-white');
+            }, 1000);
           } catch (error) {
             console.error('Error copying link:', error);
           }
