@@ -124,7 +124,10 @@ const colors: Record<Department, string> = {
               throw new Error(`Member element not found for ID: ${memberId}`);
             }
 
-            const url = `${window.location.href}#${memberElement.id}`;
+            const currentUrl = new URL(window.location.href);
+            currentUrl.hash = '';
+            currentUrl.hash = `#${memberElement.id}`;
+            const url = currentUrl.toString();
             navigator.clipboard.writeText(url);
             console.log('Link copied:', url);
 
