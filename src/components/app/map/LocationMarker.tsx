@@ -23,7 +23,7 @@ const LocationMarker = ({
 
   const { mutate: updateRanking } = useMutation({
     mutationFn: async () => {
-      return axios.post(Api.Pujo.Searched, { id });
+      return axios.post(Api.Pujo.Searched, { ids: [id], term: 'navigate' });
     },
   });
 

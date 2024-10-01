@@ -1,4 +1,4 @@
-import { useLocation, useAllPandals } from '@/hooks';
+import { useLocation, useAllPandals, useMutation } from '@/hooks';
 import { cn } from '@/libs/utils';
 import { useEffect, useMemo, useState } from 'react';
 import { MdClear } from 'react-icons/md';
@@ -7,6 +7,8 @@ import { searchStore, pandalStore, activePandalStore } from '@/stores';
 import { useStore } from '@nanostores/react';
 import Fuse from 'fuse.js';
 import type { Pandal } from '@/types';
+import { Api } from '@/constants';
+import axios from 'axios';
 
 const getKiloMetres = (src: google.maps.LatLngLiteral, dest: google.maps.LatLngLiteral) => {
   const R = 6371; // Radius of the Earth in kilometers
@@ -94,7 +96,32 @@ export const SearchSuggestions = () => {
     setSortedPandals(results);
   }, [search, fuse]);
 
+  const { mutate: updateSelectRanking } = useMutation({
+    mutationFn: async (id: string) => {
+      return axios.post(Api.Pujo.Searched, { ids: [id], term: 'select' });
+    },
+  });
+
+  const { mutate: updateSearchRanking } = useMutation({
+    mutationFn: async (ids: string[]) => {
+      return axios.post(Api.Pujo.Searched, { ids, term: 'search' });
+    },
+  });
+
   const handleSearchSuggestionClick = (pandal: Pandal) => {
+    updateSelectRanking(pandal.id);
+    const selectedPandal = pandal;
+
+    // get the IDs of the remaining pandals (not selected)
+    const remainingPandalsIds = sortedPandals
+      .filter((pandal) => pandal.id !== selectedPandal.id)
+      .map((pandal) => pandal.id);
+
+    // update ranking for the rest of the searched pandals
+    if (remainingPandalsIds.length > 0) {
+      updateSearchRanking(remainingPandalsIds);
+    }
+
     setSortedPandals([]);
     activePandalStore.set(pandal);
     sessionStorage.clear();
