@@ -146,6 +146,16 @@ export const team: Record<string, MemberDetails[]> = {
       department: 'Design',
     },
     {
+      id: 'Achakita',
+      name: 'Achakita',
+      avatar: 'https://api.dicebear.com/9.x/lorelei/svg?seed=reddit',
+      socials: {
+        discord: 'https://discord.com/users/903722676084949063',
+        twitter: 'https://x.com/Achakita_TRUTH',
+      },
+      department: 'Content',
+    },
+    {
       id: 'WhiteTiger',
       name: 'WhiteTiger',
       avatar:
@@ -169,17 +179,7 @@ export const team: Record<string, MemberDetails[]> = {
       department: 'Coordinator',
     },
   ],
-  ['Coordinators & Content Creators']: [
-    {
-      id: 'Achakita',
-      name: 'Achakita',
-      avatar: 'https://api.dicebear.com/9.x/lorelei/svg?seed=reddit',
-      socials: {
-        discord: 'https://discord.com/users/903722676084949063',
-        twitter: 'https://x.com/Achakita_TRUTH',
-      },
-      department: 'Community',
-    },
+  ['Content Creators']: [
     {
       id: 'Nghtcrwlrr',
       name: 'Nghtcrwlrr',
@@ -188,7 +188,7 @@ export const team: Record<string, MemberDetails[]> = {
       socials: {
         discord: 'https://discord.com/users/324413042639241226',
       },
-      department: 'Coordinator',
+      department: 'Content',
     },
     {
       id: 'Melancholic_Sobdokar',
@@ -198,7 +198,7 @@ export const team: Record<string, MemberDetails[]> = {
       socials: {
         discord: 'https://discord.com/users/1090698750068002877',
       },
-      department: 'Coordinator',
+      department: 'Content',
     },
     {
       id: 'Suzi',
