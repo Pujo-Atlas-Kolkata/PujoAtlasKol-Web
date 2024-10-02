@@ -39,7 +39,7 @@ export default function SettingsFlyout() {
              shadow-lg"
               >
                 <Drawer.Title className="text-base px-0 py-0">
-                  <div className="rounded-full h-[6px] bg-[#8f7952] w-9 mb-3 mt-1 mx-auto"></div>
+                  <div className="rounded-full h-[6px] bg-[#4a4a4a] w-9 mb-3 mt-1 mx-auto"></div>
                   <div className="flex flex-row justify-between items-center px-3 py-0">
                     <div className="text-lg">Language</div>
                     <div className="flex items-center bg-inherit rounded-r-full p-1 w-fit text-base">
