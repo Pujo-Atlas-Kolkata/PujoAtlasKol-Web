@@ -1,7 +1,8 @@
 ---
 import { Socials } from '@/constants';
 import { cn } from '@/libs/utils';
-import { SiDiscord, SiReddit, SiGithub } from 'react-icons/si';
+import { SiDiscord, SiReddit, SiGithub, SiInstagram } from 'react-icons/si';
+import { FaSquareFacebook, FaSquareXTwitter } from 'react-icons/fa6';
 ---
 
 <footer class="p-2 pt-3 lg:py-auto lg:h-[7.5vh]">
@@ -10,6 +11,8 @@ import { SiDiscord, SiReddit, SiGithub } from 'react-icons/si';
     <span class="w-full flex justify-evenly items-center">
       <a
         href={Socials.Discord}
+        title="Discord"
+        aria-label="Discord Server"
         target="_blank"
         rel="noreferrer"
         class={cn(
@@ -21,10 +24,13 @@ import { SiDiscord, SiReddit, SiGithub } from 'react-icons/si';
           'before:-translate-x-1/2 before:-translate-y-1/2',
         )}
       >
-        <SiDiscord className=" fill-[#5865F2]" size={25} /> Discord
-      </a>|
+        <SiDiscord className=" fill-[#5865F2]" size={25} />
+      </a>
+      |
       <a
         href={Socials.Reddit}
+        title="Reddit"
+        aria-label="Reddit Community"
         target="_blank"
         rel="noreferrer"
         class={cn(
@@ -36,11 +42,74 @@ import { SiDiscord, SiReddit, SiGithub } from 'react-icons/si';
           'before:-translate-x-1/2 before:-translate-y-1/2',
         )}
       >
-        <SiReddit className={cn('fill-[orangered]')} size={25} /> Reddit
+        <SiReddit className={cn('fill-[orangered]')} size={25} />
+      </a>
+      |
+      <a
+        href={Socials.Facebook}
+        title="Facebook"
+        aria-label="Facebook Page"
+        target="_blank"
+        rel="noreferrer"
+        class={cn(
+          'hover:underline hover:underline-offset-1',
+          'hover:decoration-2 hover:decoration-black',
+          'flex items-center gap-x-2 font-work font-semibold',
+          'relative before:h-4/5 before:aspect-square before:bg-white before:absolute',
+          'before:bottom-[2px] before:left-1/2 before:block before:rounded-sm before:-z-10',
+          'before:-translate-x-1/2',
+        )}
+      >
+        <FaSquareFacebook className={cn('fill-[#4267B2]')} size={25} />
+      </a>
+      |
+      <a
+        href={Socials.Instagram}
+        title="Instagram"
+        aria-label="Instagram Page"
+        target="_blank"
+        rel="noreferrer"
+        class={cn(
+          'hover:underline hover:underline-offset-1',
+          'hover:decoration-2 hover:decoration-[#C13584]',
+          'flex items-center gap-x-2 font-work font-semibold',
+          // 'relative before:h-4/5 before:aspect-square before:bg-gradient-to-b before:absolute',
+          // 'before:bottom-[2px] before:left-1/2 before:block before:rounded-sm before:-z-10',
+          // 'before:-translate-x-1/2',
+        )}
+      >
+        <SiInstagram
+          className={cn(
+            'fill-white p-[3px] rounded-lg',
+            'bg-gradient-to-bl',
+            'from-[#d20068] to-[#d80056]',
+          )}
+          size={25}
+        />
+      </a>
+      |
+      <a
+        href={Socials.Twitter}
+        title="Twitter"
+        aria-label="Twitter Page"
+        target="_blank"
+        rel="noreferrer"
+        class={cn(
+          'hover:underline hover:underline-offset-1',
+          'hover:decoration-2 hover:decoration-black',
+          'flex items-center gap-x-2 font-work font-semibold',
+          'relative before:h-4/5 before:aspect-square before:bg-white before:absolute',
+          'before:bottom-[2px] before:left-1/2 before:block before:rounded-sm before:-z-10',
+          'before:-translate-x-1/2',
+        )}
+      >
+        <FaSquareXTwitter className={cn('fill-black')} size={25} />
       </a>
       |
       <a
         href={Socials.GitHub}
+        title="GitHub"
+        aria-label="GitHub Repository"
         target="_blank"
         rel="noreferrer"
         class={cn(
@@ -49,7 +118,7 @@ import { SiDiscord, SiReddit, SiGithub } from 'react-icons/si';
           'flex items-center gap-x-2 font-work font-semibold',
         )}
       >
-        <SiGithub className={cn('fill-black bg-white rounded-full')} size={25} /> GitHub
+        <SiGithub className={cn('fill-black bg-white rounded-full')} size={25} />
       </a>
     </span>
     <span>
@@ -82,6 +151,8 @@ import { SiDiscord, SiReddit, SiGithub } from 'react-icons/si';
       <span class="font-bold">Find us on:</span>
       <a
         href={Socials.Discord}
+        title="Discord"
+        aria-label="Discord Server"
         target="_blank"
         rel="noreferrer"
         class={cn(
@@ -93,11 +164,13 @@ import { SiDiscord, SiReddit, SiGithub } from 'react-icons/si';
           'before:-translate-x-1/2 before:-translate-y-1/2',
         )}
       >
-        <SiDiscord className=" fill-[#5865F2]" size={25} /> Discord
+        <SiDiscord className=" fill-[#5865F2]" size={25} />
       </a>
       |
       <a
         href={Socials.Reddit}
+        title="Reddit"
+        aria-label="Reddit Community"
         target="_blank"
         rel="noreferrer"
         class={cn(
@@ -109,7 +182,68 @@ import { SiDiscord, SiReddit, SiGithub } from 'react-icons/si';
           'before:-translate-x-1/2 before:-translate-y-1/2',
         )}
       >
-        <SiReddit className={cn('fill-[orangered]')} size={25} /> Reddit
+        <SiReddit className={cn('fill-[orangered]')} size={25} />
+      </a>
+      |
+      <a
+        href={Socials.Facebook}
+        title="Facebook"
+        aria-label="Facebook Page"
+        target="_blank"
+        rel="noreferrer"
+        class={cn(
+          'hover:underline hover:underline-offset-1',
+          'hover:decoration-2 hover:decoration-black',
+          'flex items-center gap-x-2 font-work font-semibold',
+          'relative before:h-4/5 before:aspect-square before:bg-white before:absolute',
+          'before:bottom-[2px] before:left-1/2 before:block before:rounded-sm before:-z-10',
+          'before:-translate-x-1/2',
+        )}
+      >
+        <FaSquareFacebook className={cn('fill-[#4267B2]')} size={25} />
+      </a>
+      |
+      <a
+        href={Socials.Instagram}
+        title="Instagram"
+        aria-label="Instagram Page"
+        target="_blank"
+        rel="noreferrer"
+        class={cn(
+          'hover:underline hover:underline-offset-1',
+          'hover:decoration-2 hover:decoration-[#C13584]',
+          'flex items-center gap-x-2 font-work font-semibold',
+          // 'relative before:h-4/5 before:aspect-square before:bg-gradient-to-b before:absolute',
+          // 'before:bottom-[2px] before:left-1/2 before:block before:rounded-sm before:-z-10',
+          // 'before:-translate-x-1/2',
+        )}
+      >
+        <SiInstagram
+          className={cn(
+            'fill-white p-[3px] rounded-lg',
+            'bg-gradient-to-bl',
+            'from-[#d20068] to-[#d80056]',
+          )}
+          size={25}
+        />
+      </a>
+      |
+      <a
+        href={Socials.Twitter}
+        title="Twitter"
+        aria-label="Twitter Page"
+        target="_blank"
+        rel="noreferrer"
+        class={cn(
+          'hover:underline hover:underline-offset-1',
+          'hover:decoration-2 hover:decoration-black',
+          'flex items-center gap-x-2 font-work font-semibold',
+          'relative before:h-4/5 before:aspect-square before:bg-white before:absolute',
+          'before:bottom-[2px] before:left-1/2 before:block before:rounded-sm before:-z-10',
+          'before:-translate-x-1/2',
+        )}
+      >
+        <FaSquareXTwitter className={cn('fill-black')} size={25} />
       </a>
     </span>
   </div>
