@@ -117,7 +117,7 @@ export const SearchSuggestions = () => {
       className={cn(
         'absolute z-[100] hidden data-[active=true]:flex flex-col',
         'w-full px-3 h-fit max-h-[calc(73dvh-20.5rem)] overflow-hidden overflow-y-auto',
-        'outline outline-[1px] rounded-md overflow-hidden overflow-y-scroll',
+        'overflow-hidden overflow-y-scroll rounded-3xl',
         '[&::-webkit-scrollbar-thumb]:!hidden',
         '[&::-webkit-scrollbar-track]:!hidden',
         'bg-primary-background outline-primary-foreground',
