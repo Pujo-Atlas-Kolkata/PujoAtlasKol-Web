@@ -2,7 +2,7 @@
 import { Carousel } from '@/components/Carousel';
 import Layout from '@/layouts/LandingPageLayout.astro';
 import { cn } from '@/libs/utils';
-import { FaChevronDown, FaAsterisk } from 'react-icons/fa';
+import { FaChevronDown } from 'react-icons/fa';
 import { IoMdInformationCircle } from 'react-icons/io';
 ---
 
@@ -95,7 +95,7 @@ import { IoMdInformationCircle } from 'react-icons/io';
         'border-4 border-amber-950 rounded-lg',
         'transition-all duration-300 ease-in-out transform-gpu',
         'lg:hover:scale-[1.01] lg:hover:shadow-[2px_6px_2px_0px]',
-        'font-work flex flex-col gap-6 tracking-tight',
+        '!font-sans flex flex-col gap-6 tracking-tight',
       )}
     >
       <h2
@@ -107,10 +107,10 @@ import { IoMdInformationCircle } from 'react-icons/io';
         What is Pujo Atlas?
       </h2>
       <p class="leading-snug text-lg lg:text-xl lg:leading-normal">
-        <span class="font-semibold">Pujo Atlas</span>&nbsp;is your ultimate guide for Pandal Hopping
-        during Durga Puja in Kolkata! This open-source project aims to provide a comprehensive and
-        user-friendly website that lists all the Durga Pujas happening around Kolkata and offers a
-        host of features to make your pandal hopping experience seamless and enjoyable.
+        <b>Pujo Atlas</b>&nbsp;is your ultimate guide for Pandal Hopping during Durga Puja in
+        Kolkata! This <b>open-source</b> project aims to provide a comprehensive and user-friendly website
+        that lists all the Durga Pujas happening around Kolkata and offers a host of features to make
+        your pandal hopping experience seamless and enjoyable.
       </p>
     </section>
 
@@ -129,48 +129,66 @@ import { IoMdInformationCircle } from 'react-icons/io';
         <h2
           class={cn(
             'font-bold text-2xl md:text-3xl text-wrap',
-            'bg-orange-300 rounded-md px-1 py-0.5 w-fit',
+            'bg-orange-300 rounded-md px-1 py-0.5 w-fit !font-sans',
           )}
         >
-          Pandal Listings
+          Features
         </h2>
-        <ul class="text-lg lg:text-xl leading-snug lg:leading-normal flex flex-col gap-3">
+        <ul
+          class="text-lg lg:text-xl leading-snug lg:leading-normal flex flex-col gap-3 !font-sans"
+        >
           <li>
-            <span
-              class={cn(
-                'font-semibold bg-red-300 rounded-md px-[2px]',
-                'py-0.5 inline-flex items-center gap-1 whitespace-nowrap',
-              )}
-            >
-              <FaAsterisk className="text-base" />
-              Categorized Lists:&nbsp;
-            </span> Discover pandals based on popularity, themes, and locality.
+            <span class={cn('rounded-md px-[2px]', 'py-0.5 items-center gap-1')}>
+              1. All <b>local Pujas</b> are now integrated with our <b>interactive map</b>. Discover
+              the most efficient routes and navigate your own Kolkata like Columbus
+            </span>
+            <li>
+              <span class={cn('rounded-md px-[2px]', 'py-0.5 items-center gap-1')}>
+                2. Lost in social media chaos and missing the <b>Puja hot spots</b>? Our
+                <b>&quot;Real-Time&quot;</b> update is your magic wand. Discover the Pandals that are
+                lighting up the scene right now. Say goodbye to FOMO!
+              </span>
+            </li>
+            <li>
+              <span class={cn('rounded-md px-[2px]', 'py-0.5 items-center gap-1')}>
+                3. In your devotion to Maa Durga, our <b>&quot;Emergency Helplines&quot;</b> are just
+                a touch away. Feeling under the weather or misplaced your wallet? With a single click,
+                access <b>police</b>, <b>hospitals</b>, and <b>ambulance</b> numbers—all set for action!
+              </span>
+            </li>
+            <li>
+              <span class={cn('rounded-md px-[2px]', 'py-0.5 items-center gap-1')}>
+                4. In a rush for the final train? Or maybe you&rsquo;re keen to discover the pujos
+                beyond Kolkata this year? Fear not, <b>metro</b> and <b>local train</b> information are
+                one click away from our platform.
+              </span>
+            </li>
+            <li>
+              <span class={cn('rounded-md px-[2px]', 'py-0.5 items-center gap-1')}>
+                5. Soar above Durga Puja with our <b>Interactive Maps</b>. Explore vibrant <b
+                  >Tala</b
+                >,
+                <b>Tollygunge&rsquo;s</b> culture, <b>Kankurgachi&rsquo;s</b> history, and <b
+                  >Kaikhali&rsquo;s</b
+                >
+                modernity—all from home!
+              </span>
+            </li>
+            <li>
+              <span class={cn('rounded-md px-[2px]', 'py-0.5 items-center gap-1')}>
+                6. Wave <b>farewell</b> to festive confusion! Our clever guide steers you through Kolkata&rsquo;s
+                bustling roads in a single night.</span
+              >
+            </li>
+            <li>
+              <span class={cn('rounded-md px-[2px]', 'py-0.5 items-center gap-1')}>
+                7. Simply enter the name of the <b>Pandal</b>, and a <b>wealth</b> of information will
+                be at you fingertips. Rely on our thorough analysis of each location&rsquo;s data and
+                the map links to guide you to your beloved Pandal
+              </span>
+            </li>
           </li>
-          <li>
-            <span
-              class={cn(
-                'font-semibold bg-red-300 rounded-md px-[2px]',
-                'py-0.5 inline-flex items-center gap-1 whitespace-nowrap',
-              )}
-            >
-              <FaAsterisk className="text-base" />
-              Ratings and Reviews:&nbsp;
-            </span> Check out user ratings and reviews to choose the best pandals.
-          </li>
-          <li>
-            <span
-              class={cn(
-                'font-semibold bg-red-300 rounded-md px-[2px]',
-                'py-0.5 inline-flex items-center gap-1 whitespace-nowrap',
-              )}
-            >
-              <FaAsterisk className="text-base" />
-              Favourites:&nbsp;
-            </span> Save your favourite pandals for quick access.
-          </li>
-        </ul>
-      </div>
-      <div
+          <!-- <div
         class={cn(
           'w-full h-full p-8 mt-0 lg:mt-auto text-amber-950 cursor-pointer',
           'bg-primary md:hover:bg-[#ffe5b0]',
@@ -368,6 +386,9 @@ import { IoMdInformationCircle } from 'react-icons/io';
           Get details of workshops, competitions, and other activities.
         </li>
       </ul>
+    </section> -->
+        </ul>
+      </div>
     </section>
-  </main>
-</Layout>
+  </main></Layout
+>
