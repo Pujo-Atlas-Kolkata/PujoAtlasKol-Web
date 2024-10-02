@@ -83,10 +83,10 @@ const Cards = () => {
     if (!isUserLocationAvailable) {
       toast.error('Please enable location permission.', {
         style: {
-          border: '1px solid #353435',
+          borderRadius: '16px',
           padding: '1rem',
           color: '#353435',
-          backgroundColor: '#ffedc9',
+          backgroundColor: '##e0d9cb',
         },
         iconTheme: {
           primary: 'red',
