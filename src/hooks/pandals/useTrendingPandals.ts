@@ -1,4 +1,4 @@
-import { pandalStore } from '@/stores';
+import { trendingPandalStore } from '@/stores';
 import { useQuery } from '@/hooks';
 import type { ApiResponse, Pandal } from '@/types';
 import { cacheStore, time } from '@/libs/utils';
@@ -11,12 +11,12 @@ export const useTrendingPandals = () =>
     queryFn: async ({ signal, queryKey }) => {
       const cachedData = cacheStore.get<ApiResponse<Pandal[]>>(JSON.stringify(queryKey));
       if (cachedData) {
-        pandalStore.set(cachedData.result);
+        trendingPandalStore.set(cachedData.result);
         return cachedData;
       }
       const { data } = await axios.get<ApiResponse<Pandal[]>>(Api.Pujo.List.Trending, { signal });
       cacheStore.set(JSON.stringify(queryKey), data, time.minutes(10));
-      pandalStore.set(data.result);
+      trendingPandalStore.set(data.result);
       return data;
     },
   });

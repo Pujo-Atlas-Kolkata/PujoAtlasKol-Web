@@ -5,7 +5,7 @@ import Layout from '@/layouts/LandingPageLayout.astro';
 import { cn } from '@/libs/utils';
 ---
 
-<Layout title="Team | Pujo Atlas" description="Meet the team that made this project possible">
+<Layout>
   <main
     class={cn(
       'flex-1 flex flex-col gap-3 lg:gap-6 gap-y-8 lg:gap-y-10 !overflow-x-clip',
@@ -25,12 +25,27 @@ import { cn } from '@/libs/utils';
         who have come together to create this open source project as conceptualized initially by the
         moderators of subreddit <a
           href={Socials.Reddit}
+          target="_blank"
+          rel="noreferrer"
           class="font-semibold font-work border-b-2 border-dashed border-black">r/kolkata</a
         >.
       </p>
     </section>
     <section id="members" class="flex flex-col gap-4">
       <TeamMembers />
+    </section>
+    <section>
+      <h2 class="font-work font-semibold text-2xl lg:text-4xl">Feedback</h2>
+      <p class="text-lg pt-2">
+        Want to <a
+          href={Socials.FeedbackForm}
+          target="_blank"
+          rel="noreferrer"
+          class="font-semibold font-work border-b-2 border-dashed border-black"
+          >reach out to our team?</a
+        > We&rsquo;d love to know more about your experience and what you&rsquo;d like to see from us
+        next!
+      </p>
     </section>
   </main>
 </Layout>

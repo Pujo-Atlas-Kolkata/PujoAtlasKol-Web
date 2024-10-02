@@ -36,7 +36,7 @@ export const team: Record<string, MemberDetails[]> = {
       socials: {
         discord: 'https://discord.com/users/1082731230916788336',
       },
-      department: 'Content',
+      department: 'Coordinator',
     },
     {
       id: 'Angry Meow',
@@ -146,6 +146,16 @@ export const team: Record<string, MemberDetails[]> = {
       department: 'Design',
     },
     {
+      id: 'Achakita',
+      name: 'Achakita',
+      avatar: 'https://api.dicebear.com/9.x/lorelei/svg?seed=reddit',
+      socials: {
+        discord: 'https://discord.com/users/903722676084949063',
+        twitter: 'https://x.com/Achakita_TRUTH',
+      },
+      department: 'Content',
+    },
+    {
       id: 'WhiteTiger',
       name: 'WhiteTiger',
       avatar:
@@ -169,17 +179,7 @@ export const team: Record<string, MemberDetails[]> = {
       department: 'Coordinator',
     },
   ],
-  Coordinators: [
-    {
-      id: 'Achakita',
-      name: 'Achakita',
-      avatar: 'https://api.dicebear.com/9.x/lorelei/svg?seed=reddit',
-      socials: {
-        discord: 'https://discord.com/users/903722676084949063',
-        twitter: 'https://x.com/Achakita_TRUTH',
-      },
-      department: 'Community',
-    },
+  ['Content Creators']: [
     {
       id: 'Nghtcrwlrr',
       name: 'Nghtcrwlrr',
@@ -188,7 +188,7 @@ export const team: Record<string, MemberDetails[]> = {
       socials: {
         discord: 'https://discord.com/users/324413042639241226',
       },
-      department: 'Coordinator',
+      department: 'Content',
     },
     {
       id: 'Melancholic_Sobdokar',
@@ -198,7 +198,18 @@ export const team: Record<string, MemberDetails[]> = {
       socials: {
         discord: 'https://discord.com/users/1090698750068002877',
       },
-      department: 'Coordinator',
+      department: 'Content',
+    },
+    {
+      id: 'Suzi',
+      name: 'Suzi',
+      avatar:
+        'https://api.dicebear.com/9.x/lorelei/svg?seed=baloon&eyes=variant23&frecklesProbability=0&glassesProbability=0&hair=variant18&eyebrows=variant09',
+      socials: {
+        discord: 'https://discord.com/users/750464448044597269',
+        twitter: 'https://x.com/itsssarkar',
+      },
+      department: 'Content',
     },
   ],
   'Web Team': [
@@ -239,13 +250,25 @@ export const team: Record<string, MemberDetails[]> = {
     {
       id: 'indranil',
       name: 'Indranil Chakraborty ',
-      avatar: 'https://api.dicebear.com/9.x/lorelei/svg?seed=indranil',
+      avatar: 'https://api.dicebear.com/9.x/lorelei/svg?seed=nightcrwlrr',
       socials: {
         discord: 'https://discord.com/users/629236605936205835',
         linkedin: 'https://www.linkedin.com/in/indranil-chakraborty-91ba60217',
         github: 'https://github.com/Andrew99xx',
       },
       department: 'Backend',
+    },
+  ],
+  'DevOps Team': [
+    {
+      id: 'Hackermanprith',
+      name: 'Hackermanprith',
+      avatar: 'https://api.dicebear.com/9.x/lorelei/svg?seed=prith',
+      socials: {
+        discord: 'https://discord.com/users/761157873140367382',
+        github: 'https://github.com/Hackermanprith',
+      },
+      department: 'DevOps',
     },
   ],
   'Mobile Team': [
