@@ -6,6 +6,7 @@ import { TbLocationFilled } from 'react-icons/tb';
 import { PiSirenFill } from 'react-icons/pi';
 import Layout from '@/layouts/WebAppLayout.astro';
 import SearchBar from '@/components/app/shared/Search/SearchBar.astro';
+import { Socials } from '@/constants';
 ---
 
 <Layout>
@@ -103,7 +104,7 @@ import SearchBar from '@/components/app/shared/Search/SearchBar.astro';
     <div class="flex flex-col justify-center items-start px-1 pb-1 pt-5 gap-y-3">
       <div class="pb-1 text-2xl font-medium">Feedback</div>
       <a
-        href="https://mtp.indianrailways.gov.in/view_section.jsp?lang=0&id=0,2,630,652"
+        href={Socials.FeedbackForm}
         target="_blank"
         rel="noreferrer"
         class="flex flex-col text-lg w-full"
