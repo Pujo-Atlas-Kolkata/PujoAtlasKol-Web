@@ -64,7 +64,7 @@ const PandalCard: React.FC<PandalCardProps> = ({
             <p className="!text-[#DCDCDD] pl-1 flex-row">{cardCity}</p>
           </div>
         </div>
-        <div className="flex justify-evenly gap-x-4 mt-5 mb-0 w-full">
+        <div className="flex justify-between gap-x-4 mt-5 mb-0 w-full">
           <a
             onClick={() => updateRanking()}
             href={`https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}`}
@@ -73,7 +73,7 @@ const PandalCard: React.FC<PandalCardProps> = ({
             className="flex rounded-3xl border border-black bg-orange-100 p-2 text-sm active:translate-x-0 active:translate-y-0 transition-all font-semibold min-w-36 text-center items-center justify-center"
           >
             <div className="gap-x-1 flex flex-row justify-center items-center">
-              Directions
+              Get Directions
               <MdOutlineDirections size={20} className="animate-arrow-left-right fill-black" />
             </div>
           </a>
@@ -93,7 +93,7 @@ const PandalCard: React.FC<PandalCardProps> = ({
             className="flex rounded-3xl border border-black bg-orange-100 p-2 text-sm active:translate-x-0 active:translate-y-0 transition-all font-semibold min-w-36 text-center items-center justify-center"
           >
             <div className="gap-x-1 flex flex-row justify-center items-center">
-              Map
+              Show on Map
               <LiaMapMarkedAltSolid size={20} className="fill-black" />
             </div>
           </a>
