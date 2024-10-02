@@ -259,6 +259,18 @@ export const team: Record<string, MemberDetails[]> = {
       department: 'Backend',
     },
   ],
+  'DevOps Team': [
+    {
+      id: 'Hackermanprith',
+      name: 'Hackermanprith',
+      avatar: 'https://api.dicebear.com/9.x/lorelei/svg?seed=prith',
+      socials: {
+        discord: 'https://discord.com/users/761157873140367382',
+        github: 'https://github.com/Hackermanprith',
+      },
+      department: 'DevOps',
+    },
+  ],
   'Mobile Team': [
     {
       id: 'divyakumar',
