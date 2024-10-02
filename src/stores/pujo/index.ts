@@ -1,4 +1,5 @@
 import type { Pandal } from '@/types';
 import { atom } from 'nanostores';
 
-export const pandalStore = atom<Pandal[]>([]);
+export const allPandalStore = atom<Pandal[]>([]);
+export const trendingPandalStore = atom<Pandal[]>([]);
