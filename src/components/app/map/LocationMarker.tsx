@@ -1,6 +1,6 @@
 import { useCallback, memo } from 'react';
 import { cn } from '@/libs/utils';
-import { AdvancedMarker } from '@vis.gl/react-google-maps';
+import { AdvancedMarker, Pin } from '@vis.gl/react-google-maps';
 import { FaDirections } from 'react-icons/fa';
 import type { LocationMarkerProps } from './types';
 import { useMutation } from '@/hooks';
@@ -12,7 +12,6 @@ const LocationMarker = ({
   name,
   lat,
   lng,
-  icon,
   activeMarkerId,
   setActiveMarkerId,
   setMarkerRef,
@@ -45,7 +44,7 @@ const LocationMarker = ({
   return (
     <AdvancedMarker position={{ lat, lng }} onClick={handleMarkerClick} ref={ref}>
       <div className="relative cursor-pointer">
-        <img src={icon} alt={`${name} marker`} className="w-14 h-14" />
+        <Pin background={'#ef4444'} glyphColor={'#000'} borderColor={'#000'} scale={1} />
         {activeMarkerId === id && (
           <>
             <div className="absolute left-12 top-3 rounded-3xl bg-black !text-white font-bold font-sans text-sm py-1.5 px-3 whitespace-nowrap">
