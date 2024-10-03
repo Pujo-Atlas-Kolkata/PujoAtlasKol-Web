@@ -45,13 +45,13 @@ const LocationMarker = ({
   return (
     <AdvancedMarker position={{ lat, lng }} onClick={handleMarkerClick} ref={ref}>
       <div className="relative cursor-pointer">
-        <img src={icon} alt={`${name} marker`} className="w-14 h-14" />
+        <img src={icon} alt={`${name} marker`} className="w-10 h-10" />
         {activeMarkerId === id && (
           <>
-            <div className="absolute left-12 top-3 rounded-3xl bg-black !text-white font-bold font-sans text-sm py-1.5 px-3 whitespace-nowrap">
+            <div className="absolute left-10 top-0 rounded-3xl bg-black !text-white font-bold font-sans text-sm py-1.5 px-3 whitespace-nowrap">
               {name}
             </div>
-            <div className="absolute left-12 top-10 mt-2 flex justify-center items-center">
+            <div className="absolute left-10 top-6 mt-2 flex justify-center items-center">
               <button
                 onClick={handleGetDirectionsClick}
                 className={cn(
