@@ -78,7 +78,7 @@ export const SearchSuggestions = () => {
     () =>
       new Fuse(pandals, {
         keys: ['name', 'address'],
-        threshold: 0.3,
+        threshold: 0.1,
         includeScore: true,
       }),
     [pandals],
