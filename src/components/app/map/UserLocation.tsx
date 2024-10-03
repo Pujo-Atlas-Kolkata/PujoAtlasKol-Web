@@ -1,5 +1,5 @@
 import { useMap, AdvancedMarker } from '@vis.gl/react-google-maps';
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback } from 'react';
 import { IoMdLocate } from 'react-icons/io';
 
 type UserLocationProps = {
@@ -47,12 +47,12 @@ export const UserLocation = ({ activeLocationId }: UserLocationProps) => {
     );
   }, [activeLocationId, map]);
 
-  // automatically get user location on component mount
-  useEffect(() => {
-    if (map && !activeLocationId) {
-      goToUserLocation();
-    }
-  }, [activeLocationId, goToUserLocation, map]);
+  // // automatically get user location on component mount
+  // useEffect(() => {
+  //   if (map && !activeLocationId) {
+  //     goToUserLocation();
+  //   }
+  // }, [activeLocationId, goToUserLocation, map]);
 
   return (
     <>
