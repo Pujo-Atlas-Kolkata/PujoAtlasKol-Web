@@ -74,8 +74,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Sponsors
 
-A special thank you to **Netlify** for sponsoring **Pujo Atlas**
+A special thank you to **Netlify** and **Cloudflare** for sponsoring **Pujo Atlas**!
 
-<a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer"><img src="https://www.netlify.com/v3/img/components/netlify-color-accent.svg" alt="Deploys by Netlify" /></a>
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/dc5a2de5-8b03-47a7-9342-106313242294/deploy-status)](https://app.netlify.com/sites/pujoatlas/deploys)
+<div>
+   <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer"><img src="https://www.netlify.com/v3/img/components/netlify-color-accent.svg" alt="Deploys by Netlify" /></a>
+   <a href="https://www.cloudflare.com" target="_blank" rel="noopener noreferrer"><img src="https://cf-assets.www.cloudflare.com/slt3lc6tev37/CHOl0sUhrumCxOXfRotGt/081f81d52274080b2d026fdf163e3009/cloudflare-icon-color_3x.png" alt="Cloudflare Badge" height="50px" width="100px" /></a>
+</div>
