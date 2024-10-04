@@ -1,9 +1,11 @@
 import { useEffect, useMemo } from 'react';
 import type { Pandal } from '@/types';
 import CarouselCard from './CarouselCard';
-import { useTrendingPandals } from '@/hooks';
+import { useMutation, useTrendingPandals } from '@/hooks';
 import { Toaster } from 'react-hot-toast';
 import { cn } from '@/libs/utils';
+import { Api } from '@/constants';
+import axios from 'axios';
 
 interface indexProp {
   index: number;
@@ -33,12 +35,30 @@ const Cards: React.FC<indexProp> = ({ index }: indexProp) => {
     return pandalsWithDistance.slice(0, 10);
   }, [trendingPandalsData?.result]);
 
+  const { mutate: updateRanking } = useMutation({
+    mutationFn: async (id: string) => {
+      return axios.post(Api.Pujo.Searched, { ids: [id], term: 'navigate' });
+    },
+  });
+
   const content = useMemo(() => {
     if (trendingLoading) return null;
 
     if (memoizedTrendingPandals.length > 0) {
       return (
-        <div
+        <a
+          onClick={() => {
+            updateRanking(memoizedTrendingPandals[index].id);
+            sessionStorage.setItem(
+              'showOnMap',
+              JSON.stringify({
+                id: memoizedTrendingPandals[index].id,
+                lat: memoizedTrendingPandals[index].lat,
+                lon: memoizedTrendingPandals[index].lon,
+              }),
+            );
+          }}
+          href="/app/pandals"
           className={cn(
             'bg-secondary-background rounded-2xl p-2',
             'lg:w-11/12 md:w-5/6 w-1/4',
@@ -55,12 +75,12 @@ const Cards: React.FC<indexProp> = ({ index }: indexProp) => {
             key={memoizedTrendingPandals[index].id}
             cardTitleText={memoizedTrendingPandals[index].name}
           />
-        </div>
+        </a>
       );
     }
 
     return null;
-  }, [trendingLoading, memoizedTrendingPandals, index]);
+  }, [trendingLoading, memoizedTrendingPandals, index, updateRanking]);
 
   return (
     <>
