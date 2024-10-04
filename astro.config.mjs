@@ -4,6 +4,9 @@ import tailwind from '@astrojs/tailwind';
 import partytown from '@astrojs/partytown';
 import basicSsl from '@vitejs/plugin-basic-ssl';
 import sitemap from '@astrojs/sitemap';
+import sentry from '@sentry/astro';
+
+const SENTRY_AUTH_TOKEN = import.meta.env.SENTRY_AUTH_TOKEN;
 
 // https://astro.build/config
 export default defineConfig({
@@ -39,6 +42,13 @@ export default defineConfig({
           en: 'en',
           bn: 'bn',
         },
+      },
+    }),
+    sentry({
+      dsn: 'https://890946af3d67e3bea01d2cc4790944dd@o4508063377195008.ingest.us.sentry.io/4508063379816448',
+      sourceMapsUploadOptions: {
+        project: 'javascript-astro-frontend-web',
+        authToken: SENTRY_AUTH_TOKEN,
       },
     }),
   ],
