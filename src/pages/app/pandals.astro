@@ -3,6 +3,8 @@ import { GoogleMaps } from '@/components/app/map/GoogleMap';
 import { MdOutlineFestival } from 'react-icons/md';
 import Layout from '@/layouts/WebAppLayout.astro';
 import { cn } from '@/libs/utils';
+import { LiaExternalLinkAltSolid } from 'react-icons/lia';
+import { Socials } from '@/constants';
 import SearchBar from '@/components/app/shared/Search/SearchBar.astro';
 
 import { PANDAL_MARKER_ICON } from '@/constants/location';
@@ -32,5 +34,20 @@ const API_KEY = import.meta.env.GOOGLE_MAPS_API_KEY as string;
       </span>
       <GoogleMaps apiKey={API_KEY} icon={PANDAL_MARKER_ICON} client:load client:only="react" />
     </div>
+    <a
+      href={Socials.DataIngestionForm}
+      title="Data Ingestion Form"
+      aria-label="Data Ingestion Form"
+      target="_blank"
+      rel="noreferrer"
+      class="flex flex-col text-lg w-full"
+    >
+      <div class="flex flex-row items-center justify-center w-full text-xs">
+        <span class="font-medium font-work border-b-2 border-dashed border-black"
+          >Like what we do? Contribute to our map data</span
+        >
+        <LiaExternalLinkAltSolid size="14" />
+      </div>
+    </a>
   </main>
 </Layout>

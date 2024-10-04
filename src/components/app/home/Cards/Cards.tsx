@@ -182,7 +182,7 @@ const Cards = () => {
           className={cn(
             activeCard === 'nearme' ? 'bg-[#fff]' : 'bg-[#e6dfcf]',
             'p-2 px-3 font-sans rounded-full',
-            'flex gap-3',
+            'flex gap-1.5',
             !isUserLocationAvailable && 'bg-inherit',
           )}
           onClick={handleNearMeClick}
@@ -194,7 +194,7 @@ const Cards = () => {
           className={cn(
             activeCard === 'trending' ? 'bg-[#fff]' : 'bg-[#e6dfcf]',
             'p-2 px-3 font-sans rounded-full',
-            'flex gap-3',
+            'flex gap-1.5',
           )}
           onClick={handleTrendingClick}
         >
