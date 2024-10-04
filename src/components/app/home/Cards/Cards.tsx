@@ -198,7 +198,7 @@ const Cards = () => {
           )}
           onClick={handleTrendingClick}
         >
-          <IoMdTrendingUp size="24" fill="#171715" />
+          <IoMdTrendingUp className="animate-pulse" size="24" fill="#171715" />
           Trending
         </button>
       </div>
