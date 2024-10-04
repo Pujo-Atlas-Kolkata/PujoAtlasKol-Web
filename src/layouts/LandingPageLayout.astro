@@ -15,8 +15,8 @@ import { ViewTransitions } from 'astro:transitions';
 import { LargeNavbar } from '@/components/shared/Navbar';
 
 const { hostname } = Astro.url;
-const devHost = 'dev.pujo-atlas.ourkolkata.in';
-const isDev = hostname === devHost || hostname.includes(devHost);
+const devHost = 'pujo-atlas.ourkolkata.in';
+const isDev = hostname === devHost || hostname.includes(devHost) || hostname === 'localhost';
 
 const currentPath = Astro.url.pathname;
 
