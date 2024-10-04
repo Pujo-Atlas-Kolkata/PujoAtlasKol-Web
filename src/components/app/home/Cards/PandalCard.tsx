@@ -70,10 +70,15 @@ const PandalCard: React.FC<PandalCardProps> = ({
             href={`https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex rounded-3xl border border-black bg-orange-100 p-2 text-sm active:translate-x-0 active:translate-y-0 transition-all font-semibold min-w-36 text-center items-center justify-center"
+            className={cn(
+              'flex flex-1 items-center justify-center rounded-xl overflow-hidden ',
+              'border border-black bg-orange-100 p-2',
+              'text-sm active:translate-x-0 active:translate-y-0',
+              'transition-all font-semibold text-center',
+            )}
           >
             <div className="gap-x-1 flex flex-row justify-center items-center">
-              Get Directions
+              Directions
               <MdOutlineDirections size={20} className="animate-arrow-left-right fill-black" />
             </div>
           </a>
@@ -90,10 +95,10 @@ const PandalCard: React.FC<PandalCardProps> = ({
               );
             }}
             href="/app/pandals"
-            className="flex rounded-3xl border border-black bg-orange-100 p-2 text-sm active:translate-x-0 active:translate-y-0 transition-all font-semibold min-w-36 text-center items-center justify-center"
+            className="flex flex-1 rounded-xl border border-black bg-orange-100 p-2 text-sm active:translate-x-0 active:translate-y-0 transition-all font-semibold text-center items-center justify-center"
           >
-            <div className="gap-x-1 flex flex-row justify-center items-center">
-              Show on Map
+            <div className="gap-x-1 flex flex-1 flex-row justify-center items-center">
+              View Map
               <LiaMapMarkedAltSolid size={20} className="fill-black" />
             </div>
           </a>

@@ -1,4 +1,4 @@
-import { useMap } from '@vis.gl/react-google-maps';
+import { useMap, type AdvancedMarkerRef } from '@vis.gl/react-google-maps';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { type Marker, MarkerClusterer } from '@googlemaps/markerclusterer';
 import type { Pandal } from '@/types';
@@ -33,7 +33,7 @@ export const ClusteredMarkers = ({
     clusterer.addMarkers(Object.values(markers));
   }, [clusterer, markers]);
 
-  const setMarkerRef = useCallback((marker: Marker | null, id: string) => {
+  const setMarkerRef = useCallback((marker: AdvancedMarkerRef | null, id: string) => {
     setMarkers((markers) => {
       if ((marker && markers[id]) || (!marker && !markers[id])) return markers;
 
@@ -54,6 +54,7 @@ export const ClusteredMarkers = ({
           key={location.id}
           id={location.id}
           name={location.name}
+          address={location.address}
           lat={location.lat}
           lng={location.lon}
           icon={icon}

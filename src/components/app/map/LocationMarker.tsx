@@ -1,18 +1,23 @@
-import { useCallback, memo } from 'react';
+import { useCallback, memo, useEffect } from 'react';
 import { cn } from '@/libs/utils';
-import { AdvancedMarker } from '@vis.gl/react-google-maps';
+import { AdvancedMarker, useAdvancedMarkerRef } from '@vis.gl/react-google-maps';
+import { Pin, InfoWindow } from '@vis.gl/react-google-maps';
 import { FaDirections } from 'react-icons/fa';
 import type { LocationMarkerProps } from './types';
 import { useMutation } from '@/hooks';
 import axios from 'axios';
 import { Api } from '@/constants';
 
+const Header = ({ name }: Pick<LocationMarkerProps, 'name'>) => {
+  return <h6 className="font-bold leading-tight text-sm">{name}</h6>;
+};
+
 const LocationMarker = ({
   id,
   name,
+  address,
   lat,
   lng,
-  icon,
   activeMarkerId,
   setActiveMarkerId,
   setMarkerRef,
@@ -37,38 +42,38 @@ const LocationMarker = ({
     }
   }, [lat, lng, updateRanking]);
 
-  const ref = useCallback(
-    (marker: google.maps.marker.AdvancedMarkerElement) => setMarkerRef(marker, id),
-    [setMarkerRef, id],
-  );
+  const [markerRef, marker] = useAdvancedMarkerRef();
+
+  useEffect(() => {
+    setMarkerRef(marker, id);
+  }, [marker, id, setMarkerRef]);
 
   return (
-    <AdvancedMarker position={{ lat, lng }} onClick={handleMarkerClick} ref={ref}>
-      <div className="relative cursor-pointer">
-        <img src={icon} alt={`${name} marker`} className="w-10 h-10" />
-        {activeMarkerId === id && (
-          <>
-            <div className="absolute left-10 top-0 rounded-3xl bg-black !text-white font-bold font-sans text-sm py-1.5 px-3 whitespace-nowrap">
-              {name}
+    <AdvancedMarker position={{ lat, lng }} onClick={handleMarkerClick} ref={markerRef}>
+      <Pin />
+      {id === activeMarkerId && (
+        <InfoWindow
+          headerContent={<Header name={name} />}
+          anchor={marker}
+          onClose={() => setActiveMarkerId('')}
+          className="flex flex-col pt-2 gap-2"
+        >
+          <span>{address}</span>
+          <button
+            onClick={handleGetDirectionsClick}
+            className={cn(
+              'py-1.5 px-3 w-full bg-black border-2 text-xs whitespace-nowrap',
+              'font-sans font-bold rounded-full',
+              'flex justify-center items-center',
+            )}
+          >
+            <div className="flex flex-row-reverse justify-center items-center gap-x-1">
+              <FaDirections className="h-4 w-4 animate-arrow-left-right fill-white" />
+              <span className="!text-white font-work font-semibold text-sm">Navigate</span>
             </div>
-            <div className="absolute left-10 top-6 mt-2 flex justify-center items-center">
-              <button
-                onClick={handleGetDirectionsClick}
-                className={cn(
-                  'py-1.5 px-3 bg-black border-2 text-sm whitespace-nowrap',
-                  'font-sans font-bold rounded-full',
-                  'flex justify-center items-center',
-                )}
-              >
-                <div className="flex flex-row-reverse justify-center items-center gap-x-1">
-                  <FaDirections className="h-4 w-4 animate-arrow-left-right fill-white" />
-                  <span className="!text-white font-bold text-sm">Navigate</span>
-                </div>
-              </button>
-            </div>
-          </>
-        )}
-      </div>
+          </button>
+        </InfoWindow>
+      )}
     </AdvancedMarker>
   );
 };
