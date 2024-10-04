@@ -44,6 +44,8 @@ const Cards: React.FC<indexProp> = ({ index }: indexProp) => {
   const content = useMemo(() => {
     if (trendingLoading) return null;
 
+    const isClickedAble = window.screen.width < 780;
+
     if (memoizedTrendingPandals.length > 0) {
       return (
         <a
@@ -58,7 +60,7 @@ const Cards: React.FC<indexProp> = ({ index }: indexProp) => {
               }),
             );
           }}
-          href="/app/pandals"
+          href={isClickedAble ? '/app/pandals' : undefined}
           className={cn(
             'bg-secondary-background rounded-2xl p-2',
             'lg:w-11/12 md:w-5/6 w-1/4',
