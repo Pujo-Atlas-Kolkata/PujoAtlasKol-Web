@@ -1,4 +1,4 @@
-import { useCallback, memo, useEffect, useState } from 'react';
+import { useCallback, memo, useEffect } from 'react';
 import { cn } from '@/libs/utils';
 import { AdvancedMarker, useAdvancedMarkerRef } from '@vis.gl/react-google-maps';
 import { Pin, InfoWindow } from '@vis.gl/react-google-maps';
@@ -22,12 +22,14 @@ const LocationMarker = ({
   setActiveMarkerId,
   setMarkerRef,
 }: LocationMarkerProps) => {
-  const [showInfoWindow, setShowInfoWindow] = useState(false);
-
   const handleMarkerClick = useCallback(() => {
     setActiveMarkerId(id);
-    setShowInfoWindow(true);
-  }, [id, setActiveMarkerId]);
+    console.log({ name }, ' is clicked');
+
+    if (activeMarkerId === id) {
+      console.log({ name }, ' is active');
+    }
+  }, [id, activeMarkerId, setActiveMarkerId]);
 
   const { mutate: updateRanking } = useMutation({
     mutationFn: async () => {
@@ -54,11 +56,11 @@ const LocationMarker = ({
   return (
     <AdvancedMarker position={{ lat, lng }} onClick={handleMarkerClick} ref={markerRef}>
       <Pin />
-      {showInfoWindow && id === activeMarkerId && (
+      {id === activeMarkerId && (
         <InfoWindow
           headerContent={<Header name={name} />}
           anchor={marker}
-          onClose={() => setShowInfoWindow(false)}
+          onClose={() => setActiveMarkerId('')}
           className="flex flex-col pt-2 gap-2"
         >
           <span>{address}</span>

@@ -43,7 +43,7 @@ const SelectedPandal = ({ setActiveLocationId }: SelectedPandalProps) => {
     const pandalToUse = activePandal || sessionPandal;
 
     if (!map || !pandalToUse) return;
-    map.panTo({ lat: pandalToUse.lat, lng: pandalToUse.lon + 0.00005 }); // adjust for info window
+    map.panTo({ lat: pandalToUse.lat, lng: pandalToUse.lon }); // adjust for info window
     map.setZoom(22);
   }, [map, activePandal, sessionPandal]);
 
