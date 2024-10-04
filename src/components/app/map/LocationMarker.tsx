@@ -24,12 +24,7 @@ const LocationMarker = ({
 }: LocationMarkerProps) => {
   const handleMarkerClick = useCallback(() => {
     setActiveMarkerId(id);
-    console.log({ name }, ' is clicked');
-
-    if (activeMarkerId === id) {
-      console.log({ name }, ' is active');
-    }
-  }, [id, activeMarkerId, setActiveMarkerId]);
+  }, [id, setActiveMarkerId]);
 
   const { mutate: updateRanking } = useMutation({
     mutationFn: async () => {
