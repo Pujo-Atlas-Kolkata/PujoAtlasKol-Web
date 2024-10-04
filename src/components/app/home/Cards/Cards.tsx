@@ -112,13 +112,7 @@ const Cards = () => {
     if (activeCard === 'nearme' && memoizedClosestPandals.length > 0) {
       return (
         <div className="z-10">
-          <div className="mb-1 p-2 flex flex-row items-center justify-start">
-            <TbLocationFilled size="24" fill="#171715" />
-            <div className="pl-3">
-              <p>Near Me</p>
-            </div>
-          </div>
-          <div className="rounded-3xl rounded-b-none flex-1 overflow-y-auto max-h-[calc(100dvh-19rem)] [&_*::-webkit-scrollbar]:hidden [&::-webkit-scrollbar]:hidden">
+          <div className="rounded-3xl rounded-b-none flex-1 overflow-y-auto max-h-[calc(100dvh-16rem)] [&_*::-webkit-scrollbar]:hidden [&::-webkit-scrollbar]:hidden">
             {memoizedClosestPandals.map((pandal) => (
               <PandalCard
                 key={pandal.id}
@@ -140,13 +134,7 @@ const Cards = () => {
     if (activeCard === 'trending' && memoizedTrendingPandals.length > 0) {
       return (
         <div className="z-10">
-          <div className="mb-1 p-2 flex flex-row items-center justify-start">
-            <IoMdTrendingUp size="24" fill="#171715" className="animate-pulse" />
-            <div className="pl-3">
-              <p>Trending</p>
-            </div>
-          </div>
-          <div className="rounded-3xl rounded-b-none flex-1 overflow-y-auto max-h-[calc(100dvh-19rem)] [&_*::-webkit-scrollbar]:hidden [&::-webkit-scrollbar]:hidden">
+          <div className="rounded-3xl rounded-b-none flex-1 overflow-y-auto max-h-[calc(100dvh-16rem)] [&_*::-webkit-scrollbar]:hidden [&::-webkit-scrollbar]:hidden">
             {memoizedTrendingPandals.map((pandal) => (
               <PandalCard
                 key={pandal.id}
@@ -194,19 +182,23 @@ const Cards = () => {
           className={cn(
             activeCard === 'nearme' ? 'bg-[#fff]' : 'bg-[#e6dfcf]',
             'p-2 px-3 font-sans rounded-full',
+            'flex gap-3',
             !isUserLocationAvailable && 'bg-inherit',
           )}
           onClick={handleNearMeClick}
         >
+          <TbLocationFilled size="24" fill="#171715" />
           Near Me
         </button>
         <button
           className={cn(
             activeCard === 'trending' ? 'bg-[#fff]' : 'bg-[#e6dfcf]',
             'p-2 px-3 font-sans rounded-full',
+            'flex gap-3',
           )}
           onClick={handleTrendingClick}
         >
+          <IoMdTrendingUp size="24" fill="#171715" />
           Trending
         </button>
       </div>
