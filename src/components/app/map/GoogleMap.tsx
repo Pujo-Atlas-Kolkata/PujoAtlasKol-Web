@@ -43,7 +43,7 @@ const SelectedPandal = ({ setActiveLocationId }: SelectedPandalProps) => {
     const pandalToUse = activePandal || sessionPandal;
 
     if (!map || !pandalToUse) return;
-    map.panTo({ lat: pandalToUse.lat, lng: pandalToUse.lon + 0.00005 }); // adjust for info window
+    map.panTo({ lat: pandalToUse.lat, lng: pandalToUse.lon }); // adjust for info window
     map.setZoom(22);
   }, [map, activePandal, sessionPandal]);
 
@@ -97,7 +97,7 @@ export const GoogleMaps = ({ apiKey, icon }: GoogleMapProps) => {
             defaultCenter={center}
             mapId="4e06f8f1228c0ba9"
             onClick={handleMapClick}
-            className="relative w-full h-[calc(100vh-21rem)]"
+            className="relative w-full h-[calc(100vh-19rem)]"
             streetViewControl={false}
             onIdle={() => setIsMapLoading(false)}
           >
