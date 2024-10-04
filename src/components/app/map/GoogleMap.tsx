@@ -97,7 +97,7 @@ export const GoogleMaps = ({ apiKey, icon }: GoogleMapProps) => {
             defaultCenter={center}
             mapId="4e06f8f1228c0ba9"
             onClick={handleMapClick}
-            className="relative w-full h-[calc(100vh-21rem)]"
+            className="relative w-full h-[calc(100vh-16rem)]"
             streetViewControl={false}
             onIdle={() => setIsMapLoading(false)}
           >
