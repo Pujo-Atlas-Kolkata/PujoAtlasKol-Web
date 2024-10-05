@@ -9,6 +9,7 @@ import Fuse from 'fuse.js';
 import type { Pandal } from '@/types';
 import { Api } from '@/constants';
 import axios from 'axios';
+import './search.css';
 
 const getKiloMetres = (src: google.maps.LatLngLiteral, dest: google.maps.LatLngLiteral) => {
   const R = 6371; // Radius of the Earth in kilometers
@@ -138,18 +139,20 @@ export const SearchSuggestions = () => {
     if (window.location.pathname !== '/app/pandals') window.location.href = '/app/pandals';
   };
 
+  const classNames =
+    navigator.userAgent.toLowerCase().indexOf('firefox') > -1
+      ? 'firefox-specific'
+      : cn(
+          'absolute z-[100] hidden data-[active=true]:flex flex-col',
+          'w-full px-3 h-fit max-h-[calc(73dvh-20.5rem)] overflow-hidden overflow-y-auto',
+          'overflow-hidden overflow-y-scroll rounded-3xl',
+          '[&::-webkit-scrollbar-thumb]:!hidden',
+          '[&::-webkit-scrollbar-track]:!hidden',
+          'bg-primary-background outline-primary-foreground',
+        );
+
   return (
-    <ul
-      data-active={sortedPandals.length > 0}
-      className={cn(
-        'absolute z-[100] hidden data-[active=true]:flex flex-col',
-        'w-full px-3 h-fit max-h-[calc(73dvh-20.5rem)] overflow-hidden overflow-y-auto',
-        'overflow-hidden overflow-y-scroll rounded-3xl',
-        '[&::-webkit-scrollbar-thumb]:!hidden',
-        '[&::-webkit-scrollbar-track]:!hidden',
-        'bg-primary-background outline-primary-foreground',
-      )}
-    >
+    <ul data-active={sortedPandals.length > 0} className={classNames}>
       {sortedPandals.map((pandal) => (
         <li
           role="button"

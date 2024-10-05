@@ -1,0 +1,44 @@
+// Styles for Firefox
+    .search-suggestions-element {
+        position: absolute;
+        z-index: 100;
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+        height: fit-content;
+        max-height: calc(73dvh - 20.5rem);
+        overflow: hidden;
+        overflow-y: auto;
+        border-radius: 1.5rem;
+        background-color: #fff;
+    }
+
+    .firefox-specific {
+        max-height: 100vh;
+        position: absolute;
+        z-index: 100;
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+        height: fit-content;
+        overflow: hidden;
+        overflow-y: auto;
+        border-radius: 1.5rem;
+        background-color: #ffedc9;
+    }
+
+.firefox-specific::-webkit-scrollbar-thumb {
+  display: none;
+}
+
+.firefox-specific::-webkit-scrollbar-track {
+  display: none;
+}
+
+.search-suggestions-element[data-active="true"], .firefox-specific[data-active="true"] {
+  display: flex;
+}
