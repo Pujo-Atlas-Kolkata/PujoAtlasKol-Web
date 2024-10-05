@@ -142,7 +142,7 @@ export const SearchSuggestions = () => {
     navigator.userAgent.toLowerCase().indexOf('firefox') > -1
       ? cn(
           'absolute z-[100] hidden data-[active=true]:flex flex-col',
-          'w-full px-3 h-fit max-h-100dvh overflow-hidden overflow-y-auto',
+          'w-full px-3 h-fit max-h-80 overflow-hidden overflow-y-auto',
           'overflow-hidden overflow-y-scroll rounded-3xl',
           '[&::-webkit-scrollbar-thumb]:!hidden',
           '[&::-webkit-scrollbar-track]:!hidden',
