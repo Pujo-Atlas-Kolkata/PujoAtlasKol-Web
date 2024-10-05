@@ -138,18 +138,27 @@ export const SearchSuggestions = () => {
     if (window.location.pathname !== '/app/pandals') window.location.href = '/app/pandals';
   };
 
+  const classNames =
+    navigator.userAgent.toLowerCase().indexOf('firefox') > -1
+      ? cn(
+          'absolute z-[100] hidden data-[active=true]:flex flex-col',
+          'w-full px-3 h-fit max-h-80 overflow-hidden overflow-y-auto',
+          'overflow-hidden overflow-y-scroll rounded-3xl',
+          '[&::-webkit-scrollbar-thumb]:!hidden',
+          '[&::-webkit-scrollbar-track]:!hidden',
+          'bg-primary-background outline-primary-foreground',
+        )
+      : cn(
+          'absolute z-[100] hidden data-[active=true]:flex flex-col',
+          'w-full px-3 h-fit max-h-[calc(73dvh-20.5rem)] overflow-hidden overflow-y-auto',
+          'overflow-hidden overflow-y-scroll rounded-3xl',
+          '[&::-webkit-scrollbar-thumb]:!hidden',
+          '[&::-webkit-scrollbar-track]:!hidden',
+          'bg-primary-background outline-primary-foreground',
+        );
+
   return (
-    <ul
-      data-active={sortedPandals.length > 0}
-      className={cn(
-        'absolute z-[100] hidden data-[active=true]:flex flex-col',
-        'w-full px-3 h-fit max-h-[calc(73dvh-20.5rem)] overflow-hidden overflow-y-auto',
-        'overflow-hidden overflow-y-scroll rounded-3xl',
-        '[&::-webkit-scrollbar-thumb]:!hidden',
-        '[&::-webkit-scrollbar-track]:!hidden',
-        'bg-primary-background outline-primary-foreground',
-      )}
-    >
+    <ul data-active={sortedPandals.length > 0} className={classNames}>
       {sortedPandals.map((pandal) => (
         <li
           role="button"
