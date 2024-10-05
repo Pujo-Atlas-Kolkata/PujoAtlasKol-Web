@@ -19,13 +19,13 @@ const currentPath = Astro.url.pathname;
 type Props = {
   title?: string;
   description?: string;
-  content?: string;
+  image?: string;
 };
 
 const {
   title = 'Pujo Atlas',
   description = 'Welcome to Pujo Atlas - your ultimate guide for Pandal Hopping during Durga Puja in Kolkata!',
-  content = 'https://i.pinimg.com/564x/17/ef/f5/17eff5d4df16b95d8a30184f57a13ed5.jpg',
+  image = 'https://i.pinimg.com/564x/17/ef/f5/17eff5d4df16b95d8a30184f57a13ed5.jpg',
 } = Astro.props as Props;
 ---
 
@@ -38,7 +38,7 @@ const {
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={currentPath} />
-    <meta property="og:image" content={content} />
+    <meta property="og:image" content={image} />
     <meta property="og:site_name" content="Pujo Atlas" />
     <meta property="og:locale" content="en_IN" />
 
@@ -46,7 +46,7 @@ const {
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={content} />
+    <meta name="twitter:image" content={image} />
     <meta name="twitter:site" content="@PujoAtlas" />
 
     <!-- link tags -->
