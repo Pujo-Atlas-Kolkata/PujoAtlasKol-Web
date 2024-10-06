@@ -93,20 +93,31 @@ export default function SettingsFlyout() {
                       <div className="text-lg">Location Access</div>
                     </div>
 
-                    <div className="flex items-center bg-inherit  text-base pr-2">
+                    <div className="flex items-center bg-inherit rounded-r-full text-base">
                       <button
                         onClick={() =>
                           toast.warning(
                             `You can ${locationStatus === 'on' ? 'disable' : 'enable'} location settings from the browser`,
                           )
                         }
-                        className={`font-semibold bg-[#c5b394] text-white pr-6 pl-6 text-sm rounded-3xl transition-all w-fit flex items-center`}
+                        className={`${
+                          locationStatus === 'on' ? 'bg-[#dddddd]' : 'bg-[#c5b394]'
+                        } font-semibold text-white pl-2 pr-2 text-sm rounded-l-full transition-all w-fit flex items-center`}
                       >
-                        {locationStatus === 'on' ? (
-                          <IoIosCheckmark size={'30px'} />
-                        ) : (
-                          <IoCloseOutline size={'30px'} />
-                        )}
+                        <IoCloseOutline size={'22px'} />
+                      </button>
+
+                      <button
+                        className={`${
+                          locationStatus === 'on' ? 'bg-[#c5b394]' : 'bg-[#dddddd]'
+                        } text-black pl-2 pr-2  font-semibold relative flex flex-col justify-center items-center rounded-r-full w-fit`}
+                        onClick={() =>
+                          toast.warning(
+                            `You can ${locationStatus === 'on' ? 'disable' : 'enable'} location settings from the browser`,
+                          )
+                        }
+                      >
+                        <IoIosCheckmark size={'30px'} />
                       </button>
                     </div>
                   </div>
