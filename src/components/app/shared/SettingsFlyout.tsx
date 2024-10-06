@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { Socials } from '@/constants';
 import { Toaster, toast } from 'sonner';
 import { IoIosCheckmark } from 'react-icons/io';
-import { IoCloseCircleOutline } from 'react-icons/io5';
+import { IoCloseOutline } from 'react-icons/io5';
 
 export default function SettingsFlyout() {
   const [isOpen, setIsOpen] = useState(false);
@@ -105,7 +105,7 @@ export default function SettingsFlyout() {
                         {locationStatus === 'on' ? (
                           <IoIosCheckmark size={'30px'} />
                         ) : (
-                          <IoCloseCircleOutline size={'30px'} />
+                          <IoCloseOutline size={'30px'} />
                         )}
                       </button>
                     </div>
