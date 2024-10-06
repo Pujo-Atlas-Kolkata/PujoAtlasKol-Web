@@ -98,6 +98,17 @@ export default function SettingsFlyout() {
                         onClick={() =>
                           toast.warning(
                             `You can ${locationStatus === 'on' ? 'disable' : 'enable'} location settings from the browser`,
+                            {
+                              action: {
+                                label: (
+                                  <span style={{ color: '#353435', backgroundColor: '#e0d9cb' }}>
+                                    <IoCloseOutline size={'12px'} />
+                                  </span>
+                                ),
+                                onClick: () => toast.dismiss(),
+                              },
+                              className: 'font-sans',
+                            },
                           )
                         }
                         className={`${
@@ -114,6 +125,17 @@ export default function SettingsFlyout() {
                         onClick={() =>
                           toast.warning(
                             `You can ${locationStatus === 'on' ? 'disable' : 'enable'} location settings from the browser`,
+                            {
+                              action: {
+                                label: (
+                                  <span className="bg-[#c5b394]">
+                                    <IoCloseOutline size={'12px'} />
+                                  </span>
+                                ),
+                                onClick: () => toast.dismiss(),
+                              },
+                              className: 'font-sans',
+                            },
                           )
                         }
                       >

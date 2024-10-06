@@ -6,7 +6,7 @@ import type { Pandal } from '@/types';
 import PandalCard from './PandalCard';
 import { useAllPandals, useTrendingPandals } from '@/hooks';
 import { CgSpinner } from 'react-icons/cg';
-import toast, { Toaster } from 'react-hot-toast';
+import { Toaster, toast } from 'sonner';
 
 const Cards = () => {
   const [activeCard, setActiveCard] = useState<'trending' | 'nearme'>('trending');
@@ -82,16 +82,7 @@ const Cards = () => {
   const handleNearMeClick = useCallback(() => {
     if (!isUserLocationAvailable) {
       toast.error('Please enable location permission.', {
-        style: {
-          borderRadius: '16px',
-          padding: '1rem',
-          color: '#353435',
-          backgroundColor: '##e0d9cb',
-        },
-        iconTheme: {
-          primary: 'red',
-          secondary: '#ffedc9',
-        },
+        className: 'rounded-[16px] p-4 text-[#353435] bg-[#e0d9cb]',
       });
     }
 

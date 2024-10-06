@@ -2,7 +2,7 @@ import { useEffect, useMemo } from 'react';
 import type { Pandal } from '@/types';
 import CarouselCard from './CarouselCard';
 import { useMutation, useTrendingPandals } from '@/hooks';
-import { Toaster } from 'react-hot-toast';
+import { Toaster } from 'sonner';
 import { cn } from '@/libs/utils';
 import { Api } from '@/constants';
 import axios from 'axios';
