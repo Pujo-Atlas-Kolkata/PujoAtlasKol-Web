@@ -2,6 +2,8 @@ import { Drawer } from 'vaul';
 import { useState, useEffect } from 'react';
 import { Socials } from '@/constants';
 import { Toaster, toast } from 'sonner';
+import { IoIosCheckmark } from 'react-icons/io';
+import { IoCloseCircleOutline } from 'react-icons/io5';
 
 export default function SettingsFlyout() {
   const [isOpen, setIsOpen] = useState(false);
@@ -101,34 +103,37 @@ export default function SettingsFlyout() {
                   <hr className="border-gray-950/10 border-[0.5px] mx-2" />
 
                   <div className="w-full flex items-center justify-between">
-                    <div className="m-2 w-[50%]">
+                    <div className="m-2">
                       <div className="text-lg">Location Access</div>
-                      <div className="text-xs my-1">
-                        This can be managed in the browser per-site settings
-                      </div>
                     </div>
 
                     <div className="flex items-center bg-inherit rounded-r-full text-base pr-2">
                       <button
                         onClick={handleToggle}
-                        className={`bg-[#c5b394] font-semibold text-white px-2 py-2 text-sm rounded-l-full transition-all w-fit`}
+                        className={`${
+                          locationStatus === 'on' ? 'bg-[#dddddd]' : 'bg-[#c5b394]'
+                        } font-semibold text-white p-1 text-sm rounded-l-full transition-all w-fit flex items-center`}
                       >
-                        {locationStatus === 'on' ? 'Enabled' : 'Disabled'}
+                        <IoCloseCircleOutline size={'30px'} />
                       </button>
 
                       <button
-                        className={`text-black px-2 py-1 font-semibold relative flex flex-col justify-center items-center rounded-r-full w-fit`}
+                        className={`${
+                          locationStatus === 'on' ? 'bg-[#c5b394]' : 'bg-[#dddddd]'
+                        } text-black p-1 font-semibold relative flex flex-col justify-center items-center rounded-r-full w-fit`}
                         onClick={() =>
                           toast.warning(
                             `You can ${locationStatus === 'on' ? 'disable' : 'enable'} location settings from the browser`,
                           )
                         }
                       >
-                        <span className="font-noto text-center w-full">
-                          {locationStatus === 'on' ? 'Disable' : 'Enable'}
-                        </span>
+                        <IoIosCheckmark size={'30px'} />
                       </button>
                     </div>
+                  </div>
+
+                  <div className="text-xs text-center">
+                    This can be managed in the browser per-site settings
                   </div>
 
                   <hr className="border-gray-950/10 border-[0.5px] mx-2" />
