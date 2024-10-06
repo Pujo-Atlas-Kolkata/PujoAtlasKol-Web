@@ -70,9 +70,9 @@ const Cards: React.FC<indexProp> = ({ index }: indexProp) => {
         >
           <img
             className={cn(
-              'rounded-2xl w-full object-cover', // Ensures the image takes full width and adjusts without overflow
-              'h-96 lg:h-60', // Large screen height settings
-              'md:h-48 sm:h-40', // Adjustments for medium and small screens
+              'rounded-2xl w-full', // Ensures the image takes full width
+              'object-cover', // Keeps the image's aspect ratio and crops excess
+              'h-60 md:h-48 sm:h-40', // Sets responsive height for large, medium, and small screens
             )}
             src={`/idols/${index + 1}.webp`}
             alt={`Picture of Idol ${index + 1}`}
