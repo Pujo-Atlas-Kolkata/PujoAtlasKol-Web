@@ -41,20 +41,6 @@ export default function SettingsFlyout() {
     }
   };
 
-  const handleToggle = () => {
-    if (locationStatus === 'off') {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          console.log('Location granted:', position.coords);
-          setLocationStatus('on');
-        },
-        (error) => {
-          console.error('Error getting location:', error.message);
-        },
-      );
-    }
-  };
-
   return (
     <>
       <Toaster richColors />
@@ -107,27 +93,20 @@ export default function SettingsFlyout() {
                       <div className="text-lg">Location Access</div>
                     </div>
 
-                    <div className="flex items-center bg-inherit rounded-r-full text-base pr-2">
+                    <div className="flex items-center bg-inherit  text-base pr-2">
                       <button
-                        onClick={handleToggle}
-                        className={`${
-                          locationStatus === 'on' ? 'bg-[#dddddd]' : 'bg-[#c5b394]'
-                        } font-semibold text-white p-1 text-sm rounded-l-full transition-all w-fit flex items-center`}
-                      >
-                        <IoCloseCircleOutline size={'30px'} />
-                      </button>
-
-                      <button
-                        className={`${
-                          locationStatus === 'on' ? 'bg-[#c5b394]' : 'bg-[#dddddd]'
-                        } text-black p-1 font-semibold relative flex flex-col justify-center items-center rounded-r-full w-fit`}
                         onClick={() =>
                           toast.warning(
                             `You can ${locationStatus === 'on' ? 'disable' : 'enable'} location settings from the browser`,
                           )
                         }
+                        className={`font-semibold bg-[#c5b394] text-white pr-6 pl-6 text-sm rounded-3xl transition-all w-fit flex items-center`}
                       >
-                        <IoIosCheckmark size={'30px'} />
+                        {locationStatus === 'on' ? (
+                          <IoIosCheckmark size={'30px'} />
+                        ) : (
+                          <IoCloseCircleOutline size={'30px'} />
+                        )}
                       </button>
                     </div>
                   </div>
