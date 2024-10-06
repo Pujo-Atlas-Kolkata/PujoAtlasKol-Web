@@ -122,7 +122,7 @@ export default function SettingsFlyout() {
                     </div>
                   </div>
 
-                  <div className="text-xs text-center">
+                  <div className="text-xs pl-2 text-left">
                     This can be managed in the browser per-site settings
                   </div>
 
