@@ -98,9 +98,6 @@ export default function SettingsFlyout() {
                         onClick={() =>
                           toast.warning(
                             `You can ${locationStatus === 'on' ? 'disable' : 'enable'} location settings from the browser`,
-                            {
-                              className: 'flex justify-center',
-                            },
                           )
                         }
                         className={`${
@@ -117,9 +114,6 @@ export default function SettingsFlyout() {
                         onClick={() =>
                           toast.warning(
                             `You can ${locationStatus === 'on' ? 'disable' : 'enable'} location settings from the browser`,
-                            {
-                              className: 'flex justify-center',
-                            },
                           )
                         }
                       >
