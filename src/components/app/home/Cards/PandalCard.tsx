@@ -65,24 +65,31 @@ const PandalCard: React.FC<PandalCardProps> = ({
             </p>
           </div>
           <div className="flex flex-row pt-1 pl-6 gap-x-1">
-            <span
-              className={cn(
-                'px-2 font-semibold whitespace-nowrap rounded-3xl text-xs font-work outline outline-1',
-                'outline-blue-400 !text-blue-400 bg-black flex flex-row items-center justify-center gap-x-1',
-              )}
-            >
-              <div className={cn('h-2 w-2 aspect-square rounded-full', 'bg-blue-500')} />
-              Blue
-            </span>
-            <span
-              className={cn(
-                'px-2 py-0.5 font-semibold whitespace-nowrap rounded-3xl text-xs font-work outline outline-1',
-                'outline-orange-400 !text-orange-400 bg-black flex flex-row items-center justify-center gap-x-1',
-              )}
-            >
-              <div className={cn('h-2 w-2 aspect-square rounded-full', 'bg-orange-500')} />
-              Orange
-            </span>
+            {metro.line.length > 0 &&
+              metro.line.map((line, index) => (
+                <span
+                  key={`${index}-${line}`}
+                  className={cn(
+                    'px-2 py-0 font-semibold whitespace-nowrap rounded-3xl text-[0.8rem] font-work outline outline-1',
+                    'bg-black flex flex-row items-center justify-center gap-x-1',
+                    { 'outline-blue-400 !text-blue-400': line === 'Blue' },
+                    { 'outline-orange-400 !text-orange-400': line === 'Orange' },
+                    { 'outline-green-400 !text-green-400': line === 'Green' },
+                    { 'outline-purple-600 !text-purple-600': line === 'Purple' },
+                  )}
+                >
+                  <div
+                    className={cn(
+                      'h-2 w-2 aspect-square rounded-full',
+                      { '!bg-blue-500': line === 'Blue' },
+                      { '!bg-orange-400': line === 'Orange' },
+                      { '!bg-green-400': line === 'Green' },
+                      { '!bg-purple-600': line === 'Purple' },
+                    )}
+                  />
+                  {line}
+                </span>
+              ))}
           </div>
         </div>
         <div className="flex justify-between gap-x-4 mt-5 mb-0 w-full">
