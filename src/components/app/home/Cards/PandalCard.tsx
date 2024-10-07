@@ -1,9 +1,8 @@
 import { memo, useMemo } from 'react';
-import { MdLocationPin } from 'react-icons/md';
 import { PiMapPinAreaFill } from 'react-icons/pi';
 import { cn } from '@/libs/utils';
 import { LiaMapMarkedAltSolid } from 'react-icons/lia';
-import { MdOutlineDirections, MdTrain } from 'react-icons/md';
+import { MdOutlineDirections, MdTrain, MdLocationPin } from 'react-icons/md';
 import { useMutation } from '@/hooks';
 import axios from 'axios';
 import { Api } from '@/constants';
@@ -31,7 +30,7 @@ const PandalCard: React.FC<PandalCardProps> = ({
   metro,
 }: PandalCardProps) => {
   const formattedDistance = useMemo(
-    () => (cardDistance ? `${cardDistance.toFixed(2)} KM` : undefined),
+    () => (cardDistance ? `${cardDistance.toFixed(2)} km` : undefined),
     [cardDistance],
   );
 
@@ -61,9 +60,29 @@ const PandalCard: React.FC<PandalCardProps> = ({
           </div>
           <div className="flex flex-row pt-1">
             <MdTrain fill="#DCDCDD" size="20" />
-            <p className="!text-[#DCDCDD] pl-1 flex-row">
-              [{metro.line[0]} Line] {metro.distance.toFixed(2)} KM from {metro.name}
+            <p className="pl-1 !text-[#DCDCDD]">
+              {metro.distance.toFixed(2)} km from {metro.name}
             </p>
+          </div>
+          <div className="flex flex-row pt-1 pl-6 gap-x-1">
+            <span
+              className={cn(
+                'px-2 font-semibold whitespace-nowrap rounded-3xl text-xs font-work outline outline-1',
+                'outline-blue-400 !text-blue-400 bg-black flex flex-row items-center justify-center gap-x-1',
+              )}
+            >
+              <div className={cn('h-2 w-2 aspect-square rounded-full', 'bg-blue-500')} />
+              Blue
+            </span>
+            <span
+              className={cn(
+                'px-2 py-0.5 font-semibold whitespace-nowrap rounded-3xl text-xs font-work outline outline-1',
+                'outline-orange-400 !text-orange-400 bg-black flex flex-row items-center justify-center gap-x-1',
+              )}
+            >
+              <div className={cn('h-2 w-2 aspect-square rounded-full', 'bg-orange-500')} />
+              Orange
+            </span>
           </div>
         </div>
         <div className="flex justify-between gap-x-4 mt-5 mb-0 w-full">
