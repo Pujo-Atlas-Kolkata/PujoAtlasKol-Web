@@ -1,9 +1,10 @@
 import { Drawer } from 'vaul';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Socials } from '@/constants';
 import { Toaster, toast } from 'sonner';
-import { IoIosCheckmark } from 'react-icons/io';
+import { IoIosCheckmark, IoIosCloseCircleOutline } from 'react-icons/io';
 import { IoCloseOutline } from 'react-icons/io5';
+import { MdErrorOutline } from 'react-icons/md';
 
 export default function SettingsFlyout() {
   const [isOpen, setIsOpen] = useState(false);
@@ -40,6 +41,28 @@ export default function SettingsFlyout() {
       setLocationStatus('off');
     }
   };
+
+  const handleLocationToggleToast = useCallback(() => {
+    toast.custom(
+      (t) => (
+        <div className="flex flex-row justify-between items-center rounded-3xl p-2 text-black bg-white border-none font-semibold w-full">
+          <div className="text-left pr-2">
+            <MdErrorOutline size={22} />
+          </div>
+          <div className="flex-grow !font-sans !text-xs text-center">
+            Update your browser&apos;s location settings.
+          </div>
+          <button onClick={() => toast.dismiss(t)} className="pl-2">
+            <IoIosCloseCircleOutline size={25} />
+          </button>
+        </div>
+      ),
+      {
+        duration: 5000,
+        dismissible: true,
+      },
+    );
+  }, []);
 
   return (
     <>
@@ -95,22 +118,7 @@ export default function SettingsFlyout() {
 
                     <div className="flex items-center bg-inherit rounded-r-full text-base">
                       <button
-                        onClick={() =>
-                          toast.warning(
-                            `You can ${locationStatus === 'on' ? 'disable' : 'enable'} location settings from the browser`,
-                            {
-                              action: {
-                                label: (
-                                  <span style={{ color: '#353435', backgroundColor: '#e0d9cb' }}>
-                                    <IoCloseOutline size={'12px'} />
-                                  </span>
-                                ),
-                                onClick: () => toast.dismiss(),
-                              },
-                              className: 'font-sans',
-                            },
-                          )
-                        }
+                        onClick={() => handleLocationToggleToast()}
                         className={`${
                           locationStatus === 'on' ? 'bg-[#dddddd]' : 'bg-[#c5b394]'
                         } font-semibold text-white pl-2 pr-2 text-sm rounded-l-full transition-all w-fit flex items-center`}
@@ -122,29 +130,14 @@ export default function SettingsFlyout() {
                         className={`${
                           locationStatus === 'on' ? 'bg-[#c5b394]' : 'bg-[#dddddd]'
                         } text-black pl-2 pr-2  font-semibold relative flex flex-col justify-center items-center rounded-r-full w-fit`}
-                        onClick={() =>
-                          toast.warning(
-                            `You can ${locationStatus === 'on' ? 'disable' : 'enable'} location settings from the browser`,
-                            {
-                              action: {
-                                label: (
-                                  <span className="bg-[#c5b394]">
-                                    <IoCloseOutline size={'12px'} />
-                                  </span>
-                                ),
-                                onClick: () => toast.dismiss(),
-                              },
-                              className: 'font-sans',
-                            },
-                          )
-                        }
+                        onClick={() => handleLocationToggleToast()}
                       >
                         <IoIosCheckmark size={'30px'} />
                       </button>
                     </div>
                   </div>
 
-                  <div className="text-xs pl-2 text-left">
+                  <div className="text-xs text-right pr-2">
                     This can be managed in the browser per-site settings
                   </div>
 
