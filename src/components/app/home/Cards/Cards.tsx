@@ -1,12 +1,14 @@
 import { useEffect, useState, useMemo, useCallback } from 'react';
 import { TbLocationFilled } from 'react-icons/tb';
 import { IoMdTrendingUp } from 'react-icons/io';
+import { IoIosCloseCircleOutline } from 'react-icons/io';
+import { MdErrorOutline } from 'react-icons/md';
 import { cn, getDistance } from '@/libs/utils';
 import type { Pandal } from '@/types';
 import PandalCard from './PandalCard';
 import { useAllPandals, useTrendingPandals } from '@/hooks';
 import { CgSpinner } from 'react-icons/cg';
-import toast, { Toaster } from 'react-hot-toast';
+import { toast } from 'sonner';
 
 const Cards = () => {
   const [activeCard, setActiveCard] = useState<'trending' | 'nearme'>('trending');
@@ -81,18 +83,25 @@ const Cards = () => {
 
   const handleNearMeClick = useCallback(() => {
     if (!isUserLocationAvailable) {
-      toast.error('Please enable location permission.', {
-        style: {
-          borderRadius: '16px',
-          padding: '1rem',
-          color: '#353435',
-          backgroundColor: '##e0d9cb',
+      toast.custom(
+        (t) => (
+          <div className="flex flex-row justify-between items-center rounded-3xl p-2 text-black bg-white border-none font-semibold w-full">
+            <div className="!font-sans text-sm text-left pr-2">
+              <MdErrorOutline size={22} />
+            </div>
+            <div className="flex-grow !font-sans text-sm text-center">
+              Please enable location permissions
+            </div>
+            <button onClick={() => toast.dismiss(t)} className="pl-2">
+              <IoIosCloseCircleOutline size={25} />
+            </button>
+          </div>
+        ),
+        {
+          duration: 3000,
+          dismissible: true,
         },
-        iconTheme: {
-          primary: 'red',
-          secondary: '#ffedc9',
-        },
-      });
+      );
     }
 
     if (isUserLocationAvailable && activeCard !== 'nearme') {
@@ -203,7 +212,6 @@ const Cards = () => {
         </button>
       </div>
       {content}
-      <Toaster />
     </>
   );
 };
