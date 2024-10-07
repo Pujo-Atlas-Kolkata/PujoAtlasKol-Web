@@ -82,7 +82,16 @@ const Cards = () => {
   const handleNearMeClick = useCallback(() => {
     if (!isUserLocationAvailable) {
       toast.error('Please enable location permission.', {
-        className: 'rounded-[16px] p-4 text-[#353435] bg-[#e0d9cb]',
+        className: 'rounded-[16px] p-4 text-[#353435] bg-[#e0d9cb] border-none',
+        duration: 5000,
+        description: (
+          <button
+            onClick={() => toast.dismiss()}
+            className="text-sm font-medium text-blue-600 hover:text-blue-800"
+          >
+            Dismiss
+          </button>
+        ),
       });
     }
 
