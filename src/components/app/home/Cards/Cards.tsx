@@ -1,12 +1,14 @@
 import { useEffect, useState, useMemo, useCallback } from 'react';
 import { TbLocationFilled } from 'react-icons/tb';
 import { IoMdTrendingUp } from 'react-icons/io';
+import { IoIosCloseCircleOutline } from 'react-icons/io';
+import { MdErrorOutline } from 'react-icons/md';
 import { cn, getDistance } from '@/libs/utils';
 import type { Pandal } from '@/types';
 import PandalCard from './PandalCard';
 import { useAllPandals, useTrendingPandals } from '@/hooks';
 import { CgSpinner } from 'react-icons/cg';
-import toast, { Toaster } from 'react-hot-toast';
+import { toast } from 'sonner';
 
 const Cards = () => {
   const [activeCard, setActiveCard] = useState<'trending' | 'nearme'>('trending');
@@ -81,18 +83,25 @@ const Cards = () => {
 
   const handleNearMeClick = useCallback(() => {
     if (!isUserLocationAvailable) {
-      toast.error('Please enable location permission.', {
-        style: {
-          border: '1px solid #353435',
-          padding: '1rem',
-          color: '#353435',
-          backgroundColor: '#ffedc9',
+      toast.custom(
+        (t) => (
+          <div className="flex flex-row justify-between items-center rounded-3xl p-2 text-black bg-white border-none font-semibold w-full">
+            <div className="!font-sans text-sm text-left pr-2">
+              <MdErrorOutline size={22} />
+            </div>
+            <div className="flex-grow !font-sans text-sm text-center">
+              Please enable location permissions
+            </div>
+            <button onClick={() => toast.dismiss(t)} className="pl-2">
+              <IoIosCloseCircleOutline size={25} />
+            </button>
+          </div>
+        ),
+        {
+          duration: 3000,
+          dismissible: true,
         },
-        iconTheme: {
-          primary: 'red',
-          secondary: '#ffedc9',
-        },
-      });
+      );
     }
 
     if (isUserLocationAvailable && activeCard !== 'nearme') {
@@ -112,16 +121,11 @@ const Cards = () => {
     if (activeCard === 'nearme' && memoizedClosestPandals.length > 0) {
       return (
         <div className="z-10">
-          <div className="mb-1 p-2 flex flex-row items-center justify-start">
-            <TbLocationFilled size="24" fill="#171715" />
-            <div className="pl-3">
-              <p>Near Me</p>
-            </div>
-          </div>
-          <div className="rounded-3xl rounded-b-none flex-1 overflow-y-auto max-h-[calc(100dvh-20.5rem)] [&_*::-webkit-scrollbar]:hidden [&::-webkit-scrollbar]:hidden">
+          <div className="rounded-3xl rounded-b-none flex-1 overflow-y-auto max-h-[calc(100dvh-16rem)] [&_*::-webkit-scrollbar]:hidden [&::-webkit-scrollbar]:hidden">
             {memoizedClosestPandals.map((pandal) => (
               <PandalCard
                 key={pandal.id}
+                id={pandal.id}
                 cardTitleText={pandal.name}
                 cardDistance={pandal.distance}
                 cardAddress={pandal.address}
@@ -139,16 +143,11 @@ const Cards = () => {
     if (activeCard === 'trending' && memoizedTrendingPandals.length > 0) {
       return (
         <div className="z-10">
-          <div className="mb-1 p-2 flex flex-row items-center justify-start">
-            <IoMdTrendingUp size="24" fill="#171715" className="animate-pulse" />
-            <div className="pl-3">
-              <p>Trending</p>
-            </div>
-          </div>
-          <div className="rounded-3xl rounded-b-none flex-1 overflow-y-auto max-h-[calc(100dvh-20.5rem)] [&_*::-webkit-scrollbar]:hidden [&::-webkit-scrollbar]:hidden">
+          <div className="rounded-3xl rounded-b-none flex-1 overflow-y-auto max-h-[calc(100dvh-16rem)] [&_*::-webkit-scrollbar]:hidden [&::-webkit-scrollbar]:hidden">
             {memoizedTrendingPandals.map((pandal) => (
               <PandalCard
                 key={pandal.id}
+                id={pandal.id}
                 cardTitleText={pandal.name}
                 cardDistance={pandal.distance}
                 cardAddress={pandal.address}
@@ -192,24 +191,27 @@ const Cards = () => {
           className={cn(
             activeCard === 'nearme' ? 'bg-[#fff]' : 'bg-[#e6dfcf]',
             'p-2 px-3 font-sans rounded-full',
+            'flex gap-1.5',
             !isUserLocationAvailable && 'bg-inherit',
           )}
           onClick={handleNearMeClick}
         >
+          <TbLocationFilled size="24" fill="#171715" />
           Near Me
         </button>
         <button
           className={cn(
             activeCard === 'trending' ? 'bg-[#fff]' : 'bg-[#e6dfcf]',
             'p-2 px-3 font-sans rounded-full',
+            'flex gap-1.5',
           )}
           onClick={handleTrendingClick}
         >
+          <IoMdTrendingUp className="animate-pulse" size="24" fill="#171715" />
           Trending
         </button>
       </div>
       {content}
-      <Toaster />
     </>
   );
 };

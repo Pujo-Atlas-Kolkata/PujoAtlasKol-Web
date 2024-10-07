@@ -1,17 +1,38 @@
 ---
+import { Image } from 'astro:assets';
+import Icon from '~/public/icon.png';
 import { IoMdSettings } from 'react-icons/io';
-const handleClick = "document.dispatchEvent(new CustomEvent('toggleFlyout'));";
 ---
 
-<div class="flex flex-row items-center justify-between p-3 mt-5">
+<div class="flex flex-row items-center justify-between p-3">
   <div class="flex flex-row gap-x-2.5 justify-center items-center">
-    <div class="font-work text-4xl font-medium text-left">Pujo Atlas</div><div
-      class="text-[0.7rem] py-1 px-2 bg-[#909090] bg-opacity-[64%] rounded-full text-center"
-    >
+    <a href="/" title="back-button">
+      <Image src={Icon} alt="Home" class="w-8 h-8 rounded-full p-1 bg-primary-background" />
+    </a>
+    <div class="font-work text-3xl font-semibold text-left">Pujo Atlas</div>
+    <div class="text-xs py-1 px-2 font-work bg-[#909090] bg-opacity-[64%] rounded-full text-center">
       <span class="text-black font-medium">WEB 1.0</span>
     </div>
   </div>
-  <button class="settings-button" onclick={handleClick}>
+  <button aria-label="settings" title="settings" class="settings-button" id="settingsButton">
     <IoMdSettings size="30" className="mb-1" />
   </button>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const button = document.getElementById('settingsButton');
+    const icon = button?.querySelector('svg');
+
+    button?.addEventListener('click', () => {
+      icon?.classList.add('animate-rotate-slight');
+      icon?.classList.remove('animate-rotate-slight-reset');
+
+      document.dispatchEvent(new CustomEvent('toggleFlyout'));
+    });
+    document.addEventListener('toggleFlyoutState', () => {
+      icon?.classList.add('animate-rotate-slight-reset');
+      icon?.classList.remove('animate-rotate-slight');
+    });
+  });
+</script>
