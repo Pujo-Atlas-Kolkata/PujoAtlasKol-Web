@@ -1,12 +1,14 @@
 import { useEffect, useState, useMemo, useCallback } from 'react';
 import { TbLocationFilled } from 'react-icons/tb';
 import { IoMdTrendingUp } from 'react-icons/io';
+import { IoIosCloseCircleOutline } from 'react-icons/io';
+import { MdErrorOutline } from 'react-icons/md';
 import { cn, getDistance } from '@/libs/utils';
 import type { Pandal } from '@/types';
 import PandalCard from './PandalCard';
 import { useAllPandals, useTrendingPandals } from '@/hooks';
 import { CgSpinner } from 'react-icons/cg';
-import { Toaster, toast } from 'sonner';
+import { toast } from 'sonner';
 
 const Cards = () => {
   const [activeCard, setActiveCard] = useState<'trending' | 'nearme'>('trending');
@@ -81,18 +83,25 @@ const Cards = () => {
 
   const handleNearMeClick = useCallback(() => {
     if (!isUserLocationAvailable) {
-      toast.error('Please enable location permission.', {
-        className: 'rounded-[16px] p-4 text-[#353435] bg-[#e0d9cb] border-none',
-        duration: 5000,
-        description: (
-          <button
-            onClick={() => toast.dismiss()}
-            className="text-sm font-medium text-blue-600 hover:text-blue-800"
-          >
-            Dismiss
-          </button>
+      toast.custom(
+        (t) => (
+          <div className="flex flex-row justify-between items-center rounded-3xl p-2 text-black bg-white border-none font-semibold w-full">
+            <div className="!font-sans text-sm text-left pr-2">
+              <MdErrorOutline size={22} />
+            </div>
+            <div className="flex-grow !font-sans text-sm text-center">
+              Please enable location permissions
+            </div>
+            <button onClick={() => toast.dismiss(t)} className="pl-2">
+              <IoIosCloseCircleOutline size={25} />
+            </button>
+          </div>
         ),
-      });
+        {
+          duration: 5000,
+          dismissible: true,
+        },
+      );
     }
 
     if (isUserLocationAvailable && activeCard !== 'nearme') {
@@ -203,7 +212,6 @@ const Cards = () => {
         </button>
       </div>
       {content}
-      <Toaster />
     </>
   );
 };

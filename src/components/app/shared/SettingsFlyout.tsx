@@ -43,7 +43,7 @@ export default function SettingsFlyout() {
 
   return (
     <>
-      <Toaster richColors />
+      <Toaster richColors position="top-center" />
       <div className="font-sans">
         {isOpen && (
           <div>
