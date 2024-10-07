@@ -58,7 +58,7 @@ export default function SettingsFlyout() {
         </div>
       ),
       {
-        duration: 5000,
+        duration: 3000,
         dismissible: true,
       },
     );
