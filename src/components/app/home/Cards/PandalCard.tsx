@@ -1,13 +1,13 @@
 import { memo, useMemo } from 'react';
 import { MdLocationPin } from 'react-icons/md';
 import { PiMapPinAreaFill } from 'react-icons/pi';
-import { BiSolidCity } from 'react-icons/bi';
 import { cn } from '@/libs/utils';
 import { LiaMapMarkedAltSolid } from 'react-icons/lia';
-import { MdOutlineDirections } from 'react-icons/md';
+import { MdOutlineDirections, MdTrain } from 'react-icons/md';
 import { useMutation } from '@/hooks';
 import axios from 'axios';
 import { Api } from '@/constants';
+import type { Metro } from '@/types/pujo';
 
 interface PandalCardProps {
   id: string;
@@ -15,9 +15,9 @@ interface PandalCardProps {
   cardDistance?: number;
   cardAddress: string;
   cardZone: string;
-  cardCity: string;
   lat: number;
   lon: number;
+  metro: Metro;
 }
 
 const PandalCard: React.FC<PandalCardProps> = ({
@@ -26,9 +26,9 @@ const PandalCard: React.FC<PandalCardProps> = ({
   cardDistance,
   cardAddress,
   cardZone,
-  cardCity,
   lat,
   lon,
+  metro,
 }: PandalCardProps) => {
   const formattedDistance = useMemo(
     () => (cardDistance ? `${cardDistance.toFixed(2)} KM` : undefined),
@@ -60,8 +60,10 @@ const PandalCard: React.FC<PandalCardProps> = ({
             <p className="!text-[#DCDCDD] pl-1 flex-row">{cardZone}</p>
           </div>
           <div className="flex flex-row pt-1">
-            <BiSolidCity fill="#DCDCDD" size="20" />
-            <p className="!text-[#DCDCDD] pl-1 flex-row">{cardCity}</p>
+            <MdTrain fill="#DCDCDD" size="20" />
+            <p className="!text-[#DCDCDD] pl-1 flex-row">
+              [{metro.line[0]} Line] {metro.distance.toFixed(2)} KM from {metro.name}
+            </p>
           </div>
         </div>
         <div className="flex justify-between gap-x-4 mt-5 mb-0 w-full">

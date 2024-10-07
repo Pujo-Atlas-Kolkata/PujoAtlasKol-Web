@@ -130,9 +130,9 @@ const Cards = () => {
                 cardDistance={pandal.distance}
                 cardAddress={pandal.address}
                 cardZone={pandal.zone}
-                cardCity={pandal.city}
                 lat={pandal.lat}
                 lon={pandal.lon}
+                metro={pandal.metro}
               />
             ))}
           </div>
@@ -151,10 +151,10 @@ const Cards = () => {
                 cardTitleText={pandal.name}
                 cardDistance={pandal.distance}
                 cardAddress={pandal.address}
-                cardCity={pandal.city}
                 cardZone={pandal.zone}
                 lat={pandal.lat}
                 lon={pandal.lon}
+                metro={pandal.metro}
               />
             ))}
           </div>
