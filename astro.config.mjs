@@ -7,6 +7,7 @@ import sitemap from '@astrojs/sitemap';
 import sentry from '@sentry/astro';
 
 const SENTRY_AUTH_TOKEN = import.meta.env.SENTRY_AUTH_TOKEN;
+const ENVIRONMENT = import.meta.env.ENVIRONMENT;
 
 // https://astro.build/config
 export default defineConfig({
@@ -50,6 +51,7 @@ export default defineConfig({
         project: 'javascript-astro-frontend-web',
         authToken: SENTRY_AUTH_TOKEN,
       },
+      enabled: ENVIRONMENT === 'production' || ENVIRONMENT === 'staging',
     }),
   ],
 });
