@@ -1,7 +1,7 @@
 # Pujo Atlas Site
 
 <img src="https://progress-bar.xyz/100/?title=Atlas+v1.0+Completion" alt="Progress Bar">
-<img src="https://progress-bar.xyz/30/?title=Atlas+v1.1+Completion" alt="Progress Bar">
+<img src="https://progress-bar.xyz/40/?title=Atlas+v1.1+Completion" alt="Progress Bar">
 
 Welcome to Pujo Atlas - your ultimate guide for Pandal Hopping during Durga Puja in Kolkata! This open-source project aims to provide a comprehensive and user-friendly webapp that lists all the Durga Pujas happening around Kolkata and offers a host of features to make your pandal hopping experience seamless and enjoyable.
 
@@ -74,9 +74,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Sponsors
 
-A special thank you to **Netlify** and **Cloudflare** for sponsoring **Pujo Atlas**!
+A special thank you to **Netlify**, **Cloudflare**, and **Sentry** for sponsoring **Pujo Atlas**!
 
 <div>
    <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer"><img src="https://www.netlify.com/v3/img/components/netlify-color-accent.svg" alt="Deploys by Netlify" /></a>
    <a href="https://www.cloudflare.com" target="_blank" rel="noopener noreferrer"><img src="https://cf-assets.www.cloudflare.com/slt3lc6tev37/CHOl0sUhrumCxOXfRotGt/081f81d52274080b2d026fdf163e3009/cloudflare-icon-color_3x.png" alt="Cloudflare Badge" height="50px" width="100px" /></a>
+   <a href="https://www.sentry.io" target="_blank" rel="noopener noreferrer"><img src="https://avatars.githubusercontent.com/u/1396951?v=4" alt="Cloudflare Badge" height="50px" width="50px" /></a>
 </div>
