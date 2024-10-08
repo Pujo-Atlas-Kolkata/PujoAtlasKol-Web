@@ -14,14 +14,14 @@ import SettingsFlyout from '@/components/app/shared/SettingsFlyout';
 
 const currentPath = Astro.url.pathname;
 
-const image = currentPath.split('/').includes('bn') ? '/open-graph/bn.png' : '/open-graph/en.png';
-
 type Props = {
   title?: string;
   description?: string;
+  image?: string;
 };
 
 const {
+  image = currentPath.split('/').includes('bn') ? '/open-graph/bn.png' : '/open-graph/en.png',
   title = 'Pujo Atlas - Interactive Maps and Real-Time Updates for Durga Puja',
   description = 'Discover the best Pandals with Pujo Atlas! Real-time updates, interactive maps and emergency helplines, for the ultimate Durga Puja Porikormo experience in Kolkata.',
 } = Astro.props as Props;
