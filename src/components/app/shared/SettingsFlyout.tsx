@@ -49,7 +49,7 @@ export default function SettingsFlyout() {
           <div className="text-left pr-2">
             <MdErrorOutline size={22} />
           </div>
-          <div className="flex-grow !font-sans !text-xs text-left leading-tight">
+          <div className="flex-grow !font-sans !text-xs text-center leading-tight">
             Update your browser&apos;s location settings.
             <br />
             If already updated, please reload the page.
