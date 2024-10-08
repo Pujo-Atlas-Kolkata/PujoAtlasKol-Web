@@ -89,8 +89,8 @@ const Cards = () => {
             <div className="!font-sans text-sm text-left pr-2">
               <MdErrorOutline size={22} />
             </div>
-            <div className="flex-grow !font-sans !text-xs text-center leading-tight">
-              Please enable location permissions.
+            <div className="flex-grow !font-sans !text-xs text-center font-normal">
+              <span className="!text-[0.8rem] font-bold">Please enable location permissions</span>
               <br />
               If already enabled, please reload the page.
             </div>
