@@ -7,6 +7,7 @@ import type { LocationMarkerProps } from './types';
 import { useMutation } from '@/hooks';
 import axios from 'axios';
 import { Api } from '@/constants';
+import { MdTrain } from 'react-icons/md';
 
 const Header = ({ name }: Pick<LocationMarkerProps, 'name'>) => {
   return <h6 className="font-bold leading-tight text-sm">{name}</h6>;
@@ -19,6 +20,7 @@ const LocationMarker = ({
   lat,
   lng,
   activeMarkerId,
+  metro,
   setActiveMarkerId,
   setMarkerRef,
 }: LocationMarkerProps) => {
@@ -59,6 +61,19 @@ const LocationMarker = ({
           className="flex flex-col pt-2 gap-2"
         >
           <span>{address}</span>
+          <div className="flex flex-row font-medium font-sans gap-x-1 justify-start items-center">
+            <MdTrain size={16} />
+            <p
+              className={cn('text-xs', {
+                '!text-green-700': metro.line[0] === 'Green',
+                '!text-blue-700': metro.line[0] === 'Blue',
+                '!text-orange-700': metro.line[0] === 'Orange',
+                '!text-purple-700': metro.line[0] === 'Purple',
+              })}
+            >
+              {metro.name}&nbsp;({metro.distance.toFixed(2)} km)
+            </p>
+          </div>
           <button
             onClick={handleGetDirectionsClick}
             className={cn(

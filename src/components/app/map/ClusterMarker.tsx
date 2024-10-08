@@ -58,6 +58,7 @@ export const ClusteredMarkers = ({
           lat={location.lat}
           lng={location.lon}
           icon={icon}
+          metro={location.metro}
           activeMarkerId={activeLocationId}
           setActiveMarkerId={setActiveLocationId}
           setMarkerRef={setMarkerRef}
