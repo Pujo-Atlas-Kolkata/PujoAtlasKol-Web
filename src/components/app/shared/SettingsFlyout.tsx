@@ -49,8 +49,10 @@ export default function SettingsFlyout() {
           <div className="text-left pr-2">
             <MdErrorOutline size={22} />
           </div>
-          <div className="flex-grow !font-sans !text-xs text-center">
+          <div className="flex-grow !font-sans !text-xs text-left leading-tight">
             Update your browser&apos;s location settings.
+            <br />
+            If already updated, please reload the page.
           </div>
           <button onClick={() => toast.dismiss(t)} className="pl-2">
             <IoIosCloseCircleOutline size={25} />
@@ -77,7 +79,7 @@ export default function SettingsFlyout() {
               <Drawer.Portal>
                 <Drawer.Overlay className="inset-0 bg-opacity-70 z-20 m-2" />
                 <Drawer.Content
-                  className="drop-shadow-md top-[calc(100%-11.5rem)] fixed left-0 right-0 max-h-[40%] 
+                  className="drop-shadow-md top-[calc(100%-12.7rem)] fixed left-0 right-0 max-h-[40%] 
              bg-[#dddddd] p-1
              z-30 rounded-3xl
              mx-0
@@ -137,8 +139,9 @@ export default function SettingsFlyout() {
                     </div>
                   </div>
 
-                  <div className="text-xs text-right pr-2">
-                    This can be managed in the browser per-site settings
+                  <div className="text-xs text-left pl-2 pb-1">
+                    This can be managed in the browser per-site settings.&nbsp;Please reload this
+                    page to if something went wrong.
                   </div>
 
                   <hr className="border-gray-950/10 border-[0.5px] mx-2" />
