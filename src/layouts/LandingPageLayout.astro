@@ -19,9 +19,11 @@ const currentPath = Astro.url.pathname;
 type Props = {
   title?: string;
   description?: string;
+  image?: string;
 };
 
 const {
+  image = 'https://cdn.discordapp.com/attachments/1279856563112382529/1292782921534410835/2.png?ex=6704fd6b&is=6703abeb&hm=6f477b8f191bdb0ff5280ccec699434260900565ef2bd0d820409d3acdd13a86&',
   title = 'Pujo Atlas - Interactive Maps and Real-Time Updates for Durga Puja',
   description = 'Discover the best Pandals with Pujo Atlas! Real-time updates, interactive maps and emergency helplines, for the ultimate Durga Puja Porikormo experience in Kolkata.',
 } = Astro.props as Props;
@@ -30,6 +32,24 @@ const {
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
+
+    <!-- OG tags -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={currentPath} />
+    <meta property="og:image" content={image} />
+    <meta property="og:site_name" content="Pujo Atlas" />
+    <meta property="og:locale" content="en_IN" />
+
+    <!-- twitter meta tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+    <meta name="twitter:site" content="@PujoAtlas" />
+
+    <!-- link tags -->
     <link rel="preload" as="font" type="font/woff2" href={workSansWoff2} crossorigin="anonymous" />
     <link rel="preload" as="font" type="font/woff2" href={alkatraWoff2} crossorigin="anonymous" />
     <link rel="preload" as="font" type="font/woff2" href={interWoff2} crossorigin="anonymous" />
