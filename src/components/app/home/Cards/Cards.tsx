@@ -123,8 +123,8 @@ const Cards = () => {
     if (activeCard === 'nearme' && memoizedClosestPandals.length > 0) {
       return (
         <div className="z-10">
-          <div className="rounded-3xl rounded-b-none flex-1 overflow-y-auto max-h-[calc(120dvh-16rem)] [&_*::-webkit-scrollbar]:hidden [&::-webkit-scrollbar]:hidden">
-            <div className="flex flex-row gap-2 px-2">
+          <div className="rounded-3xl rounded-b-none flex-1 overflow-y-auto max-h-[calc(100dvh-13rem)] [&_*::-webkit-scrollbar]:hidden [&::-webkit-scrollbar]:hidden">
+            <div className="flex flex-row gap-2 px-2 pb-4">
               <button
                 className={cn(
                   'bg-[#fff]',
@@ -166,8 +166,8 @@ const Cards = () => {
     if (activeCard === 'trending' && memoizedTrendingPandals.length > 0) {
       return (
         <div className="z-10">
-          <div className="rounded-3xl rounded-b-none flex-1 overflow-y-auto max-h-[calc(120dvh-16rem)] [&_*::-webkit-scrollbar]:hidden [&::-webkit-scrollbar]:hidden">
-            <div className="flex flex-row gap-2 px-2">
+          <div className="rounded-3xl rounded-b-none flex-1 overflow-y-auto max-h-[calc(100dvh-13rem)] [&_*::-webkit-scrollbar]:hidden [&::-webkit-scrollbar]:hidden">
+            <div className="flex flex-row gap-2 px-2 pb-4">
               <button
                 className={cn(
                   'bg-[#e6dfcf]',
