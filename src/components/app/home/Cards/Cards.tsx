@@ -123,7 +123,28 @@ const Cards = () => {
     if (activeCard === 'nearme' && memoizedClosestPandals.length > 0) {
       return (
         <div className="z-10">
-          <div className="rounded-3xl rounded-b-none flex-1 overflow-y-auto max-h-[calc(100dvh-16rem)] [&_*::-webkit-scrollbar]:hidden [&::-webkit-scrollbar]:hidden">
+          <div className="rounded-3xl rounded-b-none flex-1 overflow-y-auto max-h-[calc(120dvh-16rem)] [&_*::-webkit-scrollbar]:hidden [&::-webkit-scrollbar]:hidden">
+            <div className="flex flex-row gap-2 px-2">
+              <button
+                className={cn(
+                  'bg-[#fff]',
+                  'p-2 px-3 font-sans rounded-full',
+                  'flex gap-1.5',
+                  !isUserLocationAvailable && 'bg-inherit',
+                )}
+                onClick={handleNearMeClick}
+              >
+                <TbLocationFilled size="24" fill="#171715" />
+                Near Me
+              </button>
+              <button
+                className={cn('bg-[#e6dfcf]', 'p-2 px-3 font-sans rounded-full', 'flex gap-1.5')}
+                onClick={handleTrendingClick}
+              >
+                <IoMdTrendingUp className="animate-pulse" size="24" fill="#171715" />
+                Trending
+              </button>
+            </div>
             {memoizedClosestPandals.map((pandal) => (
               <PandalCard
                 key={pandal.id}
@@ -145,7 +166,28 @@ const Cards = () => {
     if (activeCard === 'trending' && memoizedTrendingPandals.length > 0) {
       return (
         <div className="z-10">
-          <div className="rounded-3xl rounded-b-none flex-1 overflow-y-auto max-h-[calc(100dvh-16rem)] [&_*::-webkit-scrollbar]:hidden [&::-webkit-scrollbar]:hidden">
+          <div className="rounded-3xl rounded-b-none flex-1 overflow-y-auto max-h-[calc(120dvh-16rem)] [&_*::-webkit-scrollbar]:hidden [&::-webkit-scrollbar]:hidden">
+            <div className="flex flex-row gap-2 px-2">
+              <button
+                className={cn(
+                  'bg-[#e6dfcf]',
+                  'p-2 px-3 font-sans rounded-full',
+                  'flex gap-1.5',
+                  !isUserLocationAvailable && 'bg-inherit',
+                )}
+                onClick={handleNearMeClick}
+              >
+                <TbLocationFilled size="24" fill="#171715" />
+                Near Me
+              </button>
+              <button
+                className={cn('bg-[#fff]', 'p-2 px-3 font-sans rounded-full', 'flex gap-1.5')}
+                onClick={handleTrendingClick}
+              >
+                <IoMdTrendingUp className="animate-pulse" size="24" fill="#171715" />
+                Trending
+              </button>
+            </div>
             {memoizedTrendingPandals.map((pandal) => (
               <PandalCard
                 key={pandal.id}
@@ -172,6 +214,8 @@ const Cards = () => {
     activeCard,
     memoizedClosestPandals,
     memoizedTrendingPandals,
+    handleNearMeClick,
+    handleTrendingClick,
   ]);
 
   return (
@@ -188,31 +232,6 @@ const Cards = () => {
           Please try again later!
         </div>
       )}
-      <div className="flex flex-row gap-2 px-2">
-        <button
-          className={cn(
-            activeCard === 'nearme' ? 'bg-[#fff]' : 'bg-[#e6dfcf]',
-            'p-2 px-3 font-sans rounded-full',
-            'flex gap-1.5',
-            !isUserLocationAvailable && 'bg-inherit',
-          )}
-          onClick={handleNearMeClick}
-        >
-          <TbLocationFilled size="24" fill="#171715" />
-          Near Me
-        </button>
-        <button
-          className={cn(
-            activeCard === 'trending' ? 'bg-[#fff]' : 'bg-[#e6dfcf]',
-            'p-2 px-3 font-sans rounded-full',
-            'flex gap-1.5',
-          )}
-          onClick={handleTrendingClick}
-        >
-          <IoMdTrendingUp className="animate-pulse" size="24" fill="#171715" />
-          Trending
-        </button>
-      </div>
       {content}
     </>
   );
