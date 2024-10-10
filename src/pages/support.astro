@@ -1,0 +1,28 @@
+---
+import { cn } from '@/libs/utils';
+import LandingPageLayout from '@/layouts/LandingPageLayout.astro';
+import { Donate } from '@/components/Donate';
+---
+
+<LandingPageLayout
+  title="Support"
+  description="Like what we do to enhance your pandal hopping experience? Support us so we can keep our project open source and ad-free."
+>
+  <main
+    class={cn(
+      'flex-1 flex flex-col gap-3 lg:gap-6 gap-y-8 lg:gap-y-10 !overflow-x-clip',
+      'bg-primary-background p-3 lg:p-4 lg:py-12 lg:px-20',
+      'lg:rounded-l-xl lg:shadow-l-xl overflow-y-auto scroll-smooth',
+    )}
+  >
+    <h1 class="font-work font-semibold text-4xl lg:text-6xl text-left">Support Us</h1>
+    <section id="support" class="flex flex-col gap-4">
+      <p>
+        Pujo Atlas is an open source project that is free to use and ad-free. We rely on the support
+        of our users to keep the project running and to make it better. If you like what we do and
+        want to support us, you can do so by donating to our project.
+      </p>
+    </section>
+    <Donate client:load client:only="react" />
+  </main>
+</LandingPageLayout>
