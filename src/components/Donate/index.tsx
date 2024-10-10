@@ -122,8 +122,9 @@ export const Donate = ({ id }: Props) => {
           </div>
           <a
             className={cn(
-              'md:hidden p-2 w-full mx-auto text-center rounded-lg',
-              'font-work bg-black !text-white font-medium outline outline-4 outline-black',
+              'flex justify-center items-center gap-2 md:hidden',
+              'p-2 w-full mx-auto text-center rounded-lg',
+              'font-work bg-black !text-white font-medium border-4 border-solid border-black',
             )}
             href={UPI}
             target="_blank"
