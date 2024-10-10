@@ -74,7 +74,6 @@ export const Donate = () => {
                   setAmount(MIN);
                 }
               }}
-              style={{ WebkitAppearance: 'none', MozAppearance: 'textfield' }}
               onChange={(e) => {
                 const isValidNumber = /^[0-9]*\.?[0-9]*$/.test(e.target.value);
                 if (!isValidNumber) return;
