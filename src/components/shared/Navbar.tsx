@@ -3,6 +3,7 @@ import { BsGithub } from 'react-icons/bs';
 import { GoHomeFill } from 'react-icons/go';
 import { MdTranslate } from 'react-icons/md';
 import { GrGroup } from 'react-icons/gr';
+import { BiDonateHeart } from 'react-icons/bi';
 import {
   cn,
   getAlternateLanguage,
@@ -28,6 +29,10 @@ function generateNavItems(path: string, currentLang: 'en' | 'bn'): Array<NavItem
       : getRelativeLocaleUrl(currentLang).replace(/\/$/, '');
   const oppositeLang = getAlternateLanguage(currentLang);
 
+  const supportPath = currentLang === 'en' ? '/support/' : '/bn/support/';
+
+  const teamPath = currentLang === 'en' ? '/team/' : '/bn/team/';
+
   return [
     {
       label: 'Home',
@@ -40,8 +45,13 @@ function generateNavItems(path: string, currentLang: 'en' | 'bn'): Array<NavItem
       icon: <BsGithub className="size-6 fill-primary-foreground" />,
     },
     {
+      label: 'Support',
+      href: supportPath,
+      icon: <BiDonateHeart className="size-6 fill-primary-foreground" />,
+    },
+    {
       label: 'Team',
-      href: `/team/`,
+      href: teamPath,
       icon: <GrGroup className="size-6 fill-primary-foreground" />,
     },
     {
@@ -64,7 +74,7 @@ export const LargeNavbar = ({ path }: Props) => {
           href={item.href}
           target={item.href === Socials.GitHub ? '_blank' : '_self'}
           rel={item.href === Socials.GitHub ? 'noopener noreferrer' : ''}
-          data-active={item.href === path || item.href === path.split('/bn/')[1]} // hotfix for netlify hidden trailing slash issue
+          data-active={item.href === path}
           className={cn(
             'outline outline-primary-foreground outline-1 bg-primary-background',
             'data-[active=true]:outline-2 data-[active=true]:bg-[#fed7aa]',
@@ -91,13 +101,15 @@ export const MobileHeaders = ({ path }: Props) => {
 
   return (
     <nav className="flex gap-2">
-      {navItems.slice(2, 4).map((item, index) => (
+      {navItems.slice(2, 5).map((item, index) => (
         <a
           key={index}
           href={item.href}
+          data-active={item.href === path}
           className={cn(
             'outline outline-primary-foreground outline-1 bg-primary-background',
             'flex items-center justify-center rounded-md p-2 w-8 h-8',
+            'data-[active=true]:bg-[#fed7aa]',
           )}
           aria-label={item.label}
         >
