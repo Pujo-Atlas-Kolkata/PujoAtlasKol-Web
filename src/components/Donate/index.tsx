@@ -44,7 +44,9 @@ export const Donate = () => {
 
   return (
     <section id="donation" className="flex flex-col gap-4">
-      <h2 className="font-work font-semibold text-2xl lg:text-4xl">Pay via UPI</h2>
+      <h2 className="font-work font-semibold md-auto md:mr-auto text-2xl lg:text-4xl">
+        Donate via UPI
+      </h2>
       <QRCode
         value={UPI}
         fgColor="#332f28"
@@ -54,17 +56,18 @@ export const Donate = () => {
       <div
         className={cn(
           'font-medium flex gap-1 items-center relative',
-          'w-40 lg:w-64 mx-auto p-2 rounded-xl',
+          'w-40 lg:w-64 mx-auto p-2 rounded-lg',
           'outline outline-primary-foreground',
-          'shadow-[3px_3px_0_3px] shadow-primary-foreground',
+          'shadow-[2px_2px_0_2px] shadow-primary-foreground',
         )}
         role="combobox"
       >
         &#8377;
-        <div autoFocus className="w-fit max-w-20 lg:max-w-32 bg-transparent mr-auto">
+        <div className="w-fit max-w-20 lg:max-w-32 bg-transparent mr-auto">
           {isCustomAmount ? (
             <input
               type="numeric"
+              autoFocus
               value={amount}
               onBlur={() => {
                 if (amount.trim().length === 0 || !isGreaterThanMin(amount)) {
@@ -89,8 +92,8 @@ export const Donate = () => {
           className={cn(
             'h-0 data-[active=true]:h-auto overflow-hidden mb-4',
             'absolute top-full translate-y-2 left-0 w-full',
-            'bg-primary-background rounded-xl data-[active=true]:outline',
-            'data-[active=true]:shadow-[3px_3px_0_3px] shadow-black',
+            'bg-primary-background rounded-lg data-[active=true]:outline',
+            'data-[active=true]:shadow-[2px_2px_0_2px] shadow-black',
           )}
         >
           {definedAmounts.map((amt) => (
@@ -135,14 +138,17 @@ export const Donate = () => {
         />
       </div>
       <a
-        className="flex md:hidden p-4 min-w-40 mx-auto text-center rounded-xl font-work bg-black !text-white font-medium"
+        className={cn(
+          'md:hidden p-2 w-40 mx-auto text-center rounded-lg',
+          'font-work bg-black !text-white font-medium outline outline-4 outline-black',
+        )}
         href={UPI}
         target="_blank"
         rel="noreferrer"
       >
         Donate &#8377; {amount}
       </a>
-      <span className="text-center font-work font-medium">
+      <span className="text-center font-work font-medium hidden md:inline">
         Scan the QR to donate &#8377;
         {amount.length && isGreaterThanMin(amount) ? amount : MIN}
       </span>
