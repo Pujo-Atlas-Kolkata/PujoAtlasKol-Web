@@ -107,8 +107,8 @@ export const Donate = ({ id }: Props) => {
                 onChange={(e) => {
                   // regex to only allow numbers without decimal or negative sign
                   const isNumber = /^[0-9]+$/.test(e.target.value);
-                  console.log('Validity = ', isNumber);
-                  if (isNumber) {
+
+                  if (isNumber || e.target.value === '') {
                     setAmount(e.target.value);
                   }
                 }}
