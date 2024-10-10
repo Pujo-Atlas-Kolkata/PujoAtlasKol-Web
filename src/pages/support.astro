@@ -2,6 +2,8 @@
 import { cn } from '@/libs/utils';
 import LandingPageLayout from '@/layouts/LandingPageLayout.astro';
 import { Donate } from '@/components/Donate';
+
+const VPA_ID = import.meta.env.UPI_VPA_ID as string;
 ---
 
 <LandingPageLayout
@@ -23,6 +25,6 @@ import { Donate } from '@/components/Donate';
         want to support us, you can do so by donating to our project.
       </p>
     </section>
-    <Donate client:load client:only="react" />
+    <Donate id={VPA_ID} client:load client:only="react" />
   </main>
 </LandingPageLayout>
