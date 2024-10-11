@@ -82,3 +82,7 @@ A special thank you to **Netlify**, **Cloudflare**, and **Sentry** for sponsorin
    <a href="https://www.cloudflare.com" target="_blank" rel="noopener noreferrer"><img src="https://cf-assets.www.cloudflare.com/slt3lc6tev37/CHOl0sUhrumCxOXfRotGt/081f81d52274080b2d026fdf163e3009/cloudflare-icon-color_3x.png" alt="Cloudflare Badge" height="50px" width="100px" /></a>
    <a href="https://www.sentry.io" target="_blank" rel="noopener noreferrer"><img src="https://avatars.githubusercontent.com/u/1396951?v=4" alt="Cloudflare Badge" height="50px" width="50px" /></a>
 </div>
+
+## Support Us
+
+Pujo Atlas is an open source project that is free to use and ad-free. We rely on the support of our users to keep the project running and to make it better. If you like what we do and want to support us, you can do so [by donating to our project](https://atlas.ourkolkata.in/support). For any doubts or queries regarding donating to Pujo Atlas, please enquire in our [Discord Server](https://discord.com/invite/xxSXWYf6d4).
