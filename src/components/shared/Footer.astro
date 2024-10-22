@@ -128,13 +128,22 @@ import { FaSquareFacebook, FaSquareXTwitter } from 'react-icons/fa6';
       </a>
     </span>
 
-    <span class="w-full">
+    <span class="flex w-full justify-center gap-2">
       <a href="https://www.netlify.com">
         <img
           class="w-full h-10"
           src="https://www.netlify.com/v3/img/components/netlify-light.svg"
           alt="Deploys by Netlify"
         />
+      </a>
+      <a
+        href="https://www.cloudflare.com"
+        class={cn('p-1 bg-white border border-black rounded-sm')}
+      >
+        <img class="h-7" src="/sponsors/cloudflare.jpg" alt="Cloudflare" />
+      </a>
+      <a href="https://sentry.io" class={cn('pt-2 px-1 bg-white border border-black rounded-sm')}>
+        <img class="h-5" src="/sponsors/sentry.png" alt="Sentry" />
       </a>
     </span>
   </div>
