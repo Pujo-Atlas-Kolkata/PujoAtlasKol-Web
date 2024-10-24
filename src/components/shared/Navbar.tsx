@@ -91,6 +91,12 @@ export const LargeNavbar = ({ path }: Props) => {
           alt="Deploys by Netlify"
         />
       </a>
+      <a href="https://www.cloudflare.com" className="p-1 bg-white border border-black rounded-sm">
+        <img src="/sponsors/cloudflare.jpg" alt="Cloudflare" />
+      </a>
+      <a href="https://sentry.io" className="p-1 bg-white border border-black rounded-sm">
+        <img src="/sponsors/sentry.png" alt="Sentry" />
+      </a>
     </nav>
   );
 };
