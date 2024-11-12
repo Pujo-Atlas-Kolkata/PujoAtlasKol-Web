@@ -95,12 +95,13 @@ export const team: Record<string, MemberDetails[]> = {
       department: 'Backend',
     },
     {
-      id: 'akshay',
-      name: 'Akshay A Parmar',
-      avatar: 'https://api.dicebear.com/9.x/lorelei/svg?seed=aksha',
+      id: 'indranil',
+      name: 'Indranil Chakraborty ',
+      avatar: 'https://api.dicebear.com/9.x/lorelei/svg?seed=nightcrwlrr',
       socials: {
-        discord: 'https://discord.com/users/892804617128251452',
-        github: 'https://github.com/vitaminncpp',
+        discord: 'https://discord.com/users/629236605936205835',
+        linkedin: 'https://www.linkedin.com/in/indranil-chakraborty-91ba60217',
+        github: 'https://github.com/Andrew99xx',
       },
       department: 'Backend',
     },
@@ -248,13 +249,12 @@ export const team: Record<string, MemberDetails[]> = {
   ],
   'Backend Team': [
     {
-      id: 'indranil',
-      name: 'Indranil Chakraborty ',
-      avatar: 'https://api.dicebear.com/9.x/lorelei/svg?seed=nightcrwlrr',
+      id: 'akshay',
+      name: 'Akshay A Parmar',
+      avatar: 'https://api.dicebear.com/9.x/lorelei/svg?seed=aksha',
       socials: {
-        discord: 'https://discord.com/users/629236605936205835',
-        linkedin: 'https://www.linkedin.com/in/indranil-chakraborty-91ba60217',
-        github: 'https://github.com/Andrew99xx',
+        discord: 'https://discord.com/users/892804617128251452',
+        github: 'https://github.com/vitaminncpp',
       },
       department: 'Backend',
     },
