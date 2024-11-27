@@ -85,17 +85,24 @@ export const LargeNavbar = ({ path }: Props) => {
           <span className="font-work text-xs font-semibold">{item.label}</span>
         </a>
       ))}
-      <a href="https://www.netlify.com">
+      <a href="https://www.netlify.com" className="w-16">
         <img
           src="https://www.netlify.com/v3/img/components/netlify-light.svg"
           alt="Deploys by Netlify"
         />
       </a>
-      <a href="https://www.cloudflare.com" className="p-1 bg-white border border-black rounded-sm">
-        <img src="/sponsors/cloudflare.jpg" alt="Cloudflare" />
+      <a
+        href="https://www.cloudflare.com"
+        className="p-1 py-1.5 bg-white border border-black rounded-sm w-16"
+      >
+        <img
+          src="/sponsors/cloudflare.jpg"
+          alt="Workers by Cloudflare"
+          className="object-contain"
+        />
       </a>
-      <a href="https://sentry.io" className="p-1 bg-white border border-black rounded-sm">
-        <img src="/sponsors/sentry.png" alt="Sentry" />
+      <a href="https://sentry.io" className="p-1 py-2 bg-white border border-black rounded-sm w-16">
+        <img src="/sponsors/sentry.png" alt="Analytics by Sentry" className="object-contain" />
       </a>
     </nav>
   );
