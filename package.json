@@ -27,7 +27,7 @@
     "@fontsource-variable/work-sans": "^5.0.20",
     "@googlemaps/markerclusterer": "^2.5.3",
     "@nanostores/react": "^0.7.3",
-    "@sentry/astro": "^8.33.1",
+    "@sentry/astro": "^8.49.0",
     "@tanstack/react-query": "^5.56.2",
     "@types/react": "^18.3.4",
     "@types/react-dom": "^18.3.0",
