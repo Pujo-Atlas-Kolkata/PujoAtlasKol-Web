@@ -106,14 +106,14 @@ export const GoogleMaps = ({ apiKey, icon }: GoogleMapProps) => {
               activeLocationId={activeLocationId}
               locations={locations}
               icon={icon}
-              setActiveLocationId={setActiveLocationId}
+              setActiveLocationId={activeLocationId}
             />
             <SelectedPandal setActiveLocationId={setActiveLocationId} />
           </Map>
         </APIProvider>
       </section>
     ),
-    [apiKey, zoom, center, handleMapClick, activeLocationId, locations, icon, setActiveLocationId],
+    [],
   );
 
   return (
