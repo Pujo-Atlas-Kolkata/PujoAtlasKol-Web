@@ -95,7 +95,6 @@ export const GoogleMaps = ({ apiKey, icon }: GoogleMapProps) => {
             gestureHandling="greedy"
             defaultZoom={zoom}
             defaultCenter={center}
-            mapId="4e06f8f1228c0ba9"
             onClick={handleMapClick}
             className="relative w-full h-[calc(100vh-19rem)]"
             streetViewControl={false}
