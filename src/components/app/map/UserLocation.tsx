@@ -12,7 +12,7 @@ const MyLocation = () => (
 
 export const UserLocation = ({ activeLocationId }: UserLocationProps) => {
   const map = useMap('map');
-  const [userLocation, setUserLocation] = useState<google.maps.LatLngLiteral | null>(null);
+  const [userLocation, setUserLocation] = useState(null);
   const [error, setError] = useState<string | null>(null);
 
   const goToUserLocation = useCallback(() => {
@@ -45,7 +45,7 @@ export const UserLocation = ({ activeLocationId }: UserLocationProps) => {
         }, 5000);
       },
     );
-  }, [activeLocationId, map]);
+  }, []);
 
   // // automatically get user location on component mount
   // useEffect(() => {
