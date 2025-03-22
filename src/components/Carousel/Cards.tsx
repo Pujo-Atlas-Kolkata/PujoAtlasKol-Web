@@ -22,7 +22,7 @@ const Cards: React.FC<indexProp> = ({ index }: indexProp) => {
     if (trendingPandalsData && element) {
       element.style.display = 'none';
     }
-  }, [trendingPandalsData]);
+  }, []);
 
   const memoizedTrendingPandals = useMemo(() => {
     if (!trendingPandalsData?.result) return [];
