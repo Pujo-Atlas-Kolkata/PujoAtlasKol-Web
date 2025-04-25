@@ -86,3 +86,5 @@ A special thank you to **Netlify**, **Cloudflare**, and **Sentry** for sponsorin
 ## Support Us
 
 Pujo Atlas is an open source project that is free to use and ad-free. We rely on the support of our users to keep the project running and to make it better. If you like what we do and want to support us, you can do so [by donating to our project](https://atlas.ourkolkata.in/support). For any doubts or queries regarding donating to Pujo Atlas, please enquire in our [Discord Server](https://discord.com/invite/xxSXWYf6d4).
+
+This project is tested with BrowserStack.
