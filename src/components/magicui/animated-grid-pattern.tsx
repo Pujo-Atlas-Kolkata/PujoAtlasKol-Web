@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 import {
-  ComponentPropsWithoutRef,
+  type ComponentPropsWithoutRef,
   useEffect,
   useId,
   useRef,
@@ -17,6 +17,7 @@ export interface AnimatedGridPatternProps
   height?: number;
   x?: number;
   y?: number;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   strokeDasharray?: any;
   numSquares?: number;
   maxOpacity?: number;
@@ -81,7 +82,7 @@ export function AnimatedGridPattern({
   // Resize observer to update container dimensions
   useEffect(() => {
     const resizeObserver = new ResizeObserver((entries) => {
-      for (let entry of entries) {
+      for (const entry of entries) {
         setDimensions({
           width: entry.contentRect.width,
           height: entry.contentRect.height,
@@ -104,6 +105,7 @@ export function AnimatedGridPattern({
     <svg
       ref={containerRef}
       aria-hidden="true"
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       className={cn(
         "pointer-events-none absolute inset-0 h-full w-full fill-gray-400/30 stroke-gray-400/30",
         className,
@@ -122,6 +124,7 @@ export function AnimatedGridPattern({
           <path
             d={`M.5 ${height}V.5H${width}`}
             fill="none"
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
             strokeDasharray={strokeDasharray}
           />
         </pattern>
@@ -142,8 +145,8 @@ export function AnimatedGridPattern({
             key={`${x}-${y}-${index}`}
             width={width - 1}
             height={height - 1}
-            x={x * width + 1}
-            y={y * height + 1}
+            x={(x ?? 0) * width + 1}
+            y={(y ?? 0) * height + 1}
             fill="currentColor"
             strokeWidth="0"
           />

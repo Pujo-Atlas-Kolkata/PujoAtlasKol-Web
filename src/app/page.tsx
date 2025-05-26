@@ -1,4 +1,4 @@
-import { Button, NumberTicker } from "@/components";
+import { NumberTicker } from "@/components";
 import Star9 from "@/components/stars/s9";
 import { ArrowUpRight } from "lucide-react";
 
@@ -9,7 +9,7 @@ export default function HomePage() {
         <div className="flex flex-col gap-y-4 text-center">
           <p className="text-9xl font-extrabold">
             Pujo{" "}
-            <span className="hover:bg-main bg-main/50 border-border/40 dark:border-border/70 relative mr-0 rounded-lg border-2 px-5 sm:mr-2 sm:[&_svg]:size-7 md:[&_svg]:size-[45px]">
+            <span className="bg-main/50 border-border/40 dark:border-border/70 relative mr-0 rounded-lg border-2 px-5 sm:mr-2 sm:[&_svg]:size-7 md:[&_svg]:size-[45px]">
               Atlas
               <Star9
                 className="absolute -right-2.5 -bottom-2.5 hidden sm:block md:-right-5 md:-bottom-4"
