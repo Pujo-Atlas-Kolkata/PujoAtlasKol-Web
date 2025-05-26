@@ -1,1 +1,0 @@
-export { PlaystoreIcon } from './playstore';
