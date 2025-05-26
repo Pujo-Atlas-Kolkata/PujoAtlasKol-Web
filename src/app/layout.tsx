@@ -2,7 +2,7 @@ import "@/styles/globals.css";
 
 import { type Metadata } from "next";
 import { Geist } from "next/font/google";
-import { Navbar } from "@/components";
+import { AnimatedGridPattern, Navbar } from "@/components";
 
 export const metadata: Metadata = {
   title: "Create T3 App",
@@ -21,6 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geist.variable}`}>
       <body>
+        <AnimatedGridPattern className="pointer-events-none fixed inset-0 -z-10 h-full w-full" />
         <Navbar />
         {children}
       </body>
