@@ -1,10 +1,25 @@
 import { NumberTicker } from "@/components";
 import Star9 from "@/components/stars/s9";
+import Marquee from "@/components/ui/marquee";
 import { Constants } from "@/lib";
+import { CircleChevronDown } from "lucide-react";
 
 export default function HomePage() {
+  const items = [
+    "Netlify",
+    "Cloudflare",
+    "Sentry",
+    "Fastly",
+    "BrowserStack",
+    "Netlify",
+    "Cloudflare",
+    "Sentry",
+    "Fastly",
+    "BrowserStack",
+  ];
+
   return (
-    <main className="mt-12 flex h-screen flex-col items-center justify-center">
+    <main className="mt-24 flex h-screen flex-col items-center justify-center">
       <div className="w-fit rounded-2xl border-gray-500 backdrop-blur-xs">
         <div className="flex flex-col gap-y-4 text-center">
           <p className="text-9xl font-extrabold">
@@ -82,11 +97,13 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="flex flex-col items-center justify-center pt-20 text-center">
+        <CircleChevronDown className="mx-auto mt-12 mb-5 size-10 animate-bounce fill-amber-300/75 text-black" />
+
+        <div className="flex w-full flex-col items-center justify-center text-center">
           <p className="text-4xl font-bold">
             Powered by{" "}
             <span className="rounded-lg bg-amber-300/30 px-2 py-1">
-              Amazing Partners
+              Amazing Sponsors
             </span>
           </p>
 
@@ -95,6 +112,10 @@ export default function HomePage() {
             <br />
             Pujo Atlas and making this project possible
           </p>
+
+          <div className="mx-auto mt-5 w-dvw">
+            <Marquee items={items} />
+          </div>
         </div>
       </div>
     </main>
