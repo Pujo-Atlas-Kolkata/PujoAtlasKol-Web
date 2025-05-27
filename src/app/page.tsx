@@ -83,6 +83,21 @@ export default function HomePage() {
           </div>
         </div>
 
+        <div className="flex flex-col items-center justify-center pt-20 text-center">
+          <p className="text-4xl font-bold">
+            Powered by{" "}
+            <span className="rounded-lg bg-amber-300/30 px-2 py-1">
+              Amazing Partners
+            </span>
+          </p>
+
+          <p className="pt-4 leading-none">
+            We&apos;re grateful to these incredible companies for supporting{" "}
+            <br />
+            Pujo Atlas and making this project possible
+          </p>
+        </div>
+
         {/* <footer className="mt-24 flex flex-row items-center justify-center text-center text-sm">
           Cooked with ❤️ by Pujo Atlas Kolkata. Checkout how we did in
           2024&nbsp;
