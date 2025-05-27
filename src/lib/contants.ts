@@ -1,4 +1,10 @@
 export const Constants = {
+  routes: {
+    home: "/",
+    aboutUs: "/about-us",
+    features: "/features",
+    sponsorUs: "/sponsor-us",
+  },
   launchCountdown: {
     daysTillOpenBeta: "2025-08-21",
     daysTillWeLaunchV2: "2025-09-21",
