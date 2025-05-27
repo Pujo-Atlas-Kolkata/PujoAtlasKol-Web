@@ -1,3 +1,4 @@
+import { Constants } from "@/lib";
 import { ArrowUpRight } from "lucide-react";
 
 export const Navbar = () => {
@@ -12,24 +13,26 @@ export const Navbar = () => {
           </p>
 
           <p className="hover:bg-main cursor-pointer rounded-lg border-2 border-transparent px-3 py-1.5 hover:border-black">
-            Team
+            About Us
+          </p>
+
+          <p className="hover:bg-main cursor-pointer rounded-lg border-2 border-transparent px-3 py-1.5 hover:border-black">
+            Sponsor Us
           </p>
 
           <div className="hover:bg-main flex cursor-pointer flex-row items-center rounded-lg border-2 border-transparent px-3 py-1.5 hover:border-black">
-            <p>GitHub</p>
+            <a
+              href={Constants.socials.github}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <p>GitHub</p>
+            </a>
 
             <div className="ml-1">
               <ArrowUpRight className="size-4" />
             </div>
           </div>
-
-          <p className="hover:bg-main cursor-pointer rounded-lg border-2 border-transparent px-3 py-1.5 hover:border-black">
-            Sponsors
-          </p>
-
-          <p className="hover:bg-main cursor-pointer rounded-lg border-2 border-transparent px-3 py-1.5 hover:border-black">
-            Donate
-          </p>
         </div>
       </div>
     </header>

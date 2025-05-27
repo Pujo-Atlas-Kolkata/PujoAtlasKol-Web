@@ -1,5 +1,6 @@
 import { NumberTicker } from "@/components";
 import Star9 from "@/components/stars/s9";
+import { Constants } from "@/lib";
 import { ArrowUpRight } from "lucide-react";
 
 export default function HomePage() {
@@ -51,13 +52,16 @@ export default function HomePage() {
                 direction="down"
                 value={365}
                 startValue={Math.ceil(
-                  (new Date("2025-08-21").getTime() - new Date().getTime()) /
+                  (new Date(
+                    Constants.launchCountdown.daysTillOpenBeta,
+                  ).getTime() -
+                    new Date().getTime()) /
                     (1000 * 60 * 60 * 24),
                 )}
                 className="text-8xl font-bold tracking-tighter whitespace-pre-wrap"
               />
 
-              <div className="text-sm">days till closed beta</div>
+              <div className="text-sm">days till open beta</div>
             </div>
 
             <div className="mt-4 flex flex-col items-center justify-center">
@@ -65,7 +69,10 @@ export default function HomePage() {
                 direction="down"
                 value={365}
                 startValue={Math.ceil(
-                  (new Date("2025-09-21").getTime() - new Date().getTime()) /
+                  (new Date(
+                    Constants.launchCountdown.daysTillWeLaunchV2,
+                  ).getTime() -
+                    new Date().getTime()) /
                     (1000 * 60 * 60 * 24),
                 )}
                 className="text-8xl font-bold tracking-tighter whitespace-pre-wrap"
@@ -79,7 +86,10 @@ export default function HomePage() {
                 direction="down"
                 value={365}
                 startValue={Math.ceil(
-                  (new Date("2025-09-27").getTime() - new Date().getTime()) /
+                  (new Date(
+                    Constants.launchCountdown.daysTillDurgaPuja2025,
+                  ).getTime() -
+                    new Date().getTime()) /
                     (1000 * 60 * 60 * 24),
                 )}
                 className="text-8xl font-bold tracking-tighter whitespace-pre-wrap"
@@ -94,14 +104,14 @@ export default function HomePage() {
           Cooked with ❤️ by Pujo Atlas Kolkata. Checkout how we did in
           2024&nbsp;
           <a
-            href="https://www.reddit.com/r/kolkata/comments/1g4zf8n/আসছ_বছর_আবর_হব/"
+            href={Constants.stats.redditPost}
             className="font-bold underline"
             target="_blank"
             rel="noopener noreferrer"
           >
             <div className="flex flex-row items-center justify-center">
               here
-              <ArrowUpRight className="size-4 animate-pulse" />
+              <ArrowUpRight className="size-3 animate-pulse" />
             </div>
           </a>
         </footer>
