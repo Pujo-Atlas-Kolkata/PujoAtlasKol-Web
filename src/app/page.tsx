@@ -5,8 +5,8 @@ import { ArrowUpRight } from "lucide-react";
 
 export default function HomePage() {
   return (
-    <main className="mt-40 flex min-h-screen flex-col items-center">
-      <div className="w-fit rounded-2xl border-gray-500 p-32 backdrop-blur-xs">
+    <main className="flex h-screen flex-col items-center justify-center">
+      <div className="w-fit rounded-2xl border-gray-500 backdrop-blur-xs">
         <div className="flex flex-col gap-y-4 text-center">
           <p className="text-9xl font-extrabold">
             Pujo{" "}
@@ -30,23 +30,6 @@ export default function HomePage() {
           </p>
 
           <div className="flex flex-row items-center justify-center gap-x-20">
-            {/* <div className="mt-2 flex flex-col items-center justify-center gap-y-2">
-              <Button
-                disabled={true}
-                variant={"reverse"}
-                className="w-fit cursor-pointer px-16 py-8 text-xl"
-              >
-                Start Exploring
-              </Button>
-
-              <Button
-                variant={"reverse"}
-                className="w-fit cursor-pointer px-16 text-lg"
-              >
-                View 2024 Stats
-              </Button>
-            </div> */}
-
             <div className="mt-4 flex flex-col items-center justify-center">
               <NumberTicker
                 direction="down"
@@ -100,7 +83,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <footer className="mt-24 flex flex-row items-center justify-center text-center text-sm">
+        {/* <footer className="mt-24 flex flex-row items-center justify-center text-center text-sm">
           Cooked with ❤️ by Pujo Atlas Kolkata. Checkout how we did in
           2024&nbsp;
           <a
@@ -114,7 +97,7 @@ export default function HomePage() {
               <ArrowUpRight className="size-3 animate-pulse" />
             </div>
           </a>
-        </footer>
+        </footer> */}
       </div>
     </main>
   );
