@@ -22,7 +22,7 @@ export const Navbar = () => {
 
           <div className="hover:bg-main flex cursor-pointer flex-row items-center rounded-lg border-2 border-transparent px-3 py-1.5 hover:border-black">
             <a
-              href={Constants.socials.github}
+              href={Constants.socials.gitHub}
               target="_blank"
               rel="noopener noreferrer"
             >

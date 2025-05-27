@@ -1,11 +1,10 @@
 import { NumberTicker } from "@/components";
 import Star9 from "@/components/stars/s9";
 import { Constants } from "@/lib";
-import { ArrowUpRight } from "lucide-react";
 
 export default function HomePage() {
   return (
-    <main className="flex h-screen flex-col items-center justify-center">
+    <main className="mt-12 flex h-screen flex-col items-center justify-center">
       <div className="w-fit rounded-2xl border-gray-500 backdrop-blur-xs">
         <div className="flex flex-col gap-y-4 text-center">
           <p className="text-9xl font-extrabold">
@@ -97,22 +96,6 @@ export default function HomePage() {
             Pujo Atlas and making this project possible
           </p>
         </div>
-
-        {/* <footer className="mt-24 flex flex-row items-center justify-center text-center text-sm">
-          Cooked with ❤️ by Pujo Atlas Kolkata. Checkout how we did in
-          2024&nbsp;
-          <a
-            href={Constants.stats.redditPost}
-            className="font-bold underline"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div className="flex flex-row items-center justify-center">
-              here
-              <ArrowUpRight className="size-3 animate-pulse" />
-            </div>
-          </a>
-        </footer> */}
       </div>
     </main>
   );

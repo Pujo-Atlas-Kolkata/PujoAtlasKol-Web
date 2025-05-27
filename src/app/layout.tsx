@@ -2,7 +2,7 @@ import "@/styles/globals.css";
 
 import { type Metadata } from "next";
 import { Geist } from "next/font/google";
-import { AnimatedGridPattern, Navbar } from "@/components";
+import { AnimatedGridPattern, Footer, Navbar } from "@/components";
 
 export const metadata: Metadata = {
   title: "Pujo Atlas",
@@ -24,6 +24,7 @@ export default function RootLayout({
         <AnimatedGridPattern className="pointer-events-none fixed inset-0 -z-10 h-full w-full" />
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
