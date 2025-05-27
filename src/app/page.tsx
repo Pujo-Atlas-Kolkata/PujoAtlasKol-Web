@@ -6,16 +6,11 @@ import { CircleChevronDown } from "lucide-react";
 
 export default function HomePage() {
   const items = [
-    "Netlify",
-    "Cloudflare",
-    "Sentry",
-    "Fastly",
-    "BrowserStack",
-    "Netlify",
-    "Cloudflare",
-    "Sentry",
-    "Fastly",
-    "BrowserStack",
+    { src: "/sponsors/netlify.webp", alt: "Netlify" },
+    { src: "/sponsors/cloudflare.svg", alt: "Cloudflare" },
+    { src: "/sponsors/sentry.svg", alt: "Sentry" },
+    { src: "/sponsors/fastly.svg", alt: "Fastly" },
+    { src: "/sponsors/browserStack.svg", alt: "BrowserStack" },
   ];
 
   return (
@@ -113,7 +108,7 @@ export default function HomePage() {
             Pujo Atlas and making this project possible
           </p>
 
-          <div className="mx-auto mt-5 w-dvw">
+          <div className="mx-auto mt-5 w-[98dvw]">
             <Marquee items={items} />
           </div>
         </div>
