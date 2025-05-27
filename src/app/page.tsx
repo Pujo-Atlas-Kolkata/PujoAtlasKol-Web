@@ -5,14 +5,6 @@ import { Constants } from "@/lib";
 import { CircleChevronDown } from "lucide-react";
 
 export default function HomePage() {
-  const items = [
-    { src: "/sponsors/netlify.webp", alt: "Netlify" },
-    { src: "/sponsors/cloudflare.svg", alt: "Cloudflare" },
-    { src: "/sponsors/sentry.svg", alt: "Sentry" },
-    { src: "/sponsors/fastly.svg", alt: "Fastly" },
-    { src: "/sponsors/browserStack.svg", alt: "BrowserStack" },
-  ];
-
   return (
     <main className="mt-24 flex h-screen flex-col items-center justify-center">
       <div className="w-fit rounded-2xl border-gray-500 backdrop-blur-xs">
@@ -109,7 +101,7 @@ export default function HomePage() {
           </p>
 
           <div className="mx-auto mt-5 w-[98dvw]">
-            <Marquee items={items} />
+            <Marquee items={Constants.sponsorsMarquee} />
           </div>
         </div>
       </div>

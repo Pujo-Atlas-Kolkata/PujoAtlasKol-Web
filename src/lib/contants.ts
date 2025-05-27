@@ -20,4 +20,27 @@ export const Constants = {
     dataIngestionForm: "https://forms.gle/n394CrQpaHzS36hF6",
     statusPage: "https://status.ourkolkata.in/",
   },
+  sponsorsMarquee: [
+    {
+      src: "/sponsors/netlify.webp",
+      alt: "Netlify",
+      link: "https://www.netlify.com/",
+    },
+    {
+      src: "/sponsors/cloudflare.svg",
+      alt: "Cloudflare",
+      link: "https://www.cloudflare.com/",
+    },
+    { src: "/sponsors/sentry.svg", alt: "Sentry", link: "https://sentry.io/" },
+    {
+      src: "/sponsors/fastly.svg",
+      alt: "Fastly",
+      link: "https://www.fastly.com/",
+    },
+    {
+      src: "/sponsors/browserStack.svg",
+      alt: "BrowserStack",
+      link: "https://www.browserstack.com/",
+    },
+  ],
 };

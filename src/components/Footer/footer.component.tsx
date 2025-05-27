@@ -1,6 +1,7 @@
 import { Constants } from "@/lib/contants";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 export const Footer = () => {
   return (
@@ -9,7 +10,7 @@ export const Footer = () => {
         <div className="flex flex-row items-center justify-center text-center text-lg">
           Cooked with ❤️ by Pujo Atlas Kolkata. Checkout how we did in
           2024&nbsp;
-          <a
+          <Link
             href={Constants.stats.redditPost}
             className="font-bold underline"
             target="_blank"
@@ -19,11 +20,11 @@ export const Footer = () => {
               here
               <ArrowUpRight className="size-4" />
             </div>
-          </a>
+          </Link>
         </div>
 
         <div className="flex flex-row items-center justify-center gap-x-3">
-          <a
+          <Link
             href={Constants.socials.discord}
             target="_blank"
             rel="noopener noreferrer"
@@ -31,9 +32,9 @@ export const Footer = () => {
             <Button variant={"neutral"} className="cursor-pointer">
               Bug?
             </Button>
-          </a>
+          </Link>
 
-          <a
+          <Link
             href={Constants.misc.feedbackForm}
             target="_blank"
             rel="noopener noreferrer"
@@ -41,9 +42,9 @@ export const Footer = () => {
             <Button variant={"neutral"} className="cursor-pointer">
               Feedback
             </Button>
-          </a>
+          </Link>
 
-          <a
+          <Link
             href={Constants.misc.statusPage}
             target="_blank"
             rel="noopener noreferrer"
@@ -51,9 +52,9 @@ export const Footer = () => {
             <Button variant={"neutral"} className="cursor-pointer">
               Status
             </Button>
-          </a>
+          </Link>
 
-          <a
+          <Link
             href={Constants.socials.gitHub}
             target="_blank"
             rel="noopener noreferrer"
@@ -61,7 +62,7 @@ export const Footer = () => {
             <Button variant={"neutral"} className="cursor-pointer">
               Contribute
             </Button>
-          </a>
+          </Link>
         </div>
       </div>
 
@@ -74,7 +75,7 @@ export const Footer = () => {
 
         <div className="flex flex-row items-center justify-end gap-x-3">
           {Object.entries(Constants.socials).map(([platform, url]) => (
-            <a
+            <Link
               key={platform}
               href={url}
               target="_blank"
@@ -83,7 +84,7 @@ export const Footer = () => {
               <Button className="cursor-pointer" variant={"neutral"}>
                 {platform.charAt(0).toUpperCase() + platform.slice(1)}
               </Button>
-            </a>
+            </Link>
           ))}
         </div>
       </div>

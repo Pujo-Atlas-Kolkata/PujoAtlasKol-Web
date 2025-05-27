@@ -1,5 +1,6 @@
 import { Constants } from "@/lib";
 import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 
 export const Navbar = () => {
   return (
@@ -21,13 +22,13 @@ export const Navbar = () => {
           </p>
 
           <div className="hover:bg-main flex cursor-pointer flex-row items-center rounded-lg border-2 border-transparent px-3 py-1.5 hover:border-black">
-            <a
+            <Link
               href={Constants.socials.gitHub}
               target="_blank"
               rel="noopener noreferrer"
             >
               <p>GitHub</p>
-            </a>
+            </Link>
 
             <div className="ml-1">
               <ArrowUpRight className="size-4" />
