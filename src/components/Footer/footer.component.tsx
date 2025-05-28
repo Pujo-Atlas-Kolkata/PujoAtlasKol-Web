@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export const Footer = () => {
   return (
-    <footer className="mx-auto my-10 flex w-[calc(100%-5rem)] flex-col items-center rounded-lg border-2 border-black bg-amber-300/30 p-12 backdrop-blur-sm">
+    <footer className="mx-auto my-10 flex w-[calc(100%-10rem)] flex-col items-center rounded-lg border-2 border-black bg-amber-300/30 p-12 backdrop-blur-sm">
       <div className="flex w-full flex-row items-center justify-between">
         <div className="flex flex-row items-center justify-center text-center text-lg font-medium">
           Cooked with ❤️ by Pujo Atlas Kolkata. Checkout how we did in

@@ -109,7 +109,7 @@ export function CardPattern({
   );
 }
 
-const characters = "pujoatlaskol";
+const characters = "pujoatlaskolkata";
 export const generateRandomString = (length: number) => {
   let result = "";
   for (let i = 0; i < length; i++) {

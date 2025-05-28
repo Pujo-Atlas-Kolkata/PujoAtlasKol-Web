@@ -1,7 +1,23 @@
+"use client";
+
 import { team } from "@/lib/contants";
 import TeamCard from "@/components/TeamCard";
+import { useEffect, useState } from "react";
 
 export default function AboutUsPage() {
+  const [highlightedId, setHighlightedId] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.location.hash) {
+      const id = decodeURIComponent(window.location.hash.slice(1));
+      setHighlightedId(id);
+
+      // Remove highlight after 10 seconds
+      const timeout = setTimeout(() => setHighlightedId(null), 10000);
+      return () => clearTimeout(timeout);
+    }
+  }, []);
+
   return (
     <main className="mt-36 ml-20 flex min-h-screen flex-col backdrop-blur-xs">
       <div className="w-full rounded-2xl border-gray-500">
@@ -32,13 +48,19 @@ export default function AboutUsPage() {
 
               <div className="flex flex-wrap justify-start gap-4">
                 {members.map((member) => (
-                  <TeamCard
+                  <div
+                    id={member.name}
                     key={member.id}
-                    name={member.name}
-                    avatar={member.avatar}
-                    department={member.department}
-                    socials={member.socials}
-                  />
+                    className="scroll-mt-40"
+                  >
+                    <TeamCard
+                      name={member.name}
+                      avatar={member.avatar}
+                      department={member.department}
+                      socials={member.socials}
+                      highlighted={highlightedId === member.name}
+                    />
+                  </div>
                 ))}
               </div>
             </div>

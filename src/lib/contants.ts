@@ -78,6 +78,7 @@ type MemberDetails = {
         github: string;
         linkedin?: string;
         twitter?: string;
+        website?: string;
       };
     }
   | {
@@ -87,6 +88,7 @@ type MemberDetails = {
         github?: string;
         linkedin?: string;
         twitter?: string;
+        website?: string;
       };
     }
 );
@@ -113,6 +115,7 @@ export const team: Record<string, MemberDetails[]> = {
         discord: "https://discord.com/users/1033076736973361192",
         linkedin: "https://www.linkedin.com/in/ayanava-karmakar",
         github: "https://github.com/AyanavaKarmakar",
+        website: "https://rbbtz.in",
       },
       department: "Web",
     },
@@ -125,6 +128,7 @@ export const team: Record<string, MemberDetails[]> = {
         discord: "https://discord.com/users/464333825137180672",
         github: "https://github.com/wriddhi",
         linkedin: "https://www.linkedin.com/in/wriddhi-hazra",
+        website: "https://wriddhi.com",
       },
       department: "Web",
     },

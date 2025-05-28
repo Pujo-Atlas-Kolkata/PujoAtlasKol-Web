@@ -3,6 +3,7 @@ import "@/styles/globals.css";
 import { type Metadata } from "next";
 import { Geist } from "next/font/google";
 import { AnimatedGridPattern, Footer, Navbar } from "@/components";
+import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
   title: "Pujo Atlas",
@@ -25,6 +26,19 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+        <Toaster
+          toastOptions={{
+            style: {
+              backgroundColor: "var(--color-background)",
+              color: "var(--color-main-foreground)",
+              fontFamily: "var(--font-sans)",
+              fontWeight: "var(--font-weight-base)",
+              boxShadow: "var(--shadow-shadow)",
+              borderRadius: "var(--radius-base)",
+              border: "1px solid var(--color-border)",
+            },
+          }}
+        />
       </body>
     </html>
   );
