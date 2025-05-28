@@ -6,8 +6,8 @@ import { CircleChevronDown } from "lucide-react";
 
 export default function HomePage() {
   return (
-    <main className="mt-44 flex h-screen flex-col items-center justify-center">
-      <div className="w-fit rounded-2xl border-gray-500 backdrop-blur-xs">
+    <main className="mt-44 flex h-screen flex-col items-center justify-center backdrop-blur-xs">
+      <div className="w-fit rounded-2xl border-gray-500">
         <div className="flex flex-col gap-y-4 text-center">
           <p className="text-9xl font-extrabold">
             Pujo{" "}
@@ -26,13 +26,10 @@ export default function HomePage() {
             </span>
           </p>
 
-          <p className="pt-10 pb-5 text-2xl leading-none">
-            You create the memories, We show you the way!
-            <br />
-            <span className="text-sm">
-              The most <span className="font-bold">advanced</span> pandal
-              hopping experience in the world*
-            </span>
+          <p className="pt-10 pb-5 text-2xl leading-none font-normal">
+            The most <span className="font-bold">advanced</span> pandal hopping
+            experience in the world
+            <span className="font-medium">*</span>
           </p>
 
           <div className="flex flex-row items-center justify-center gap-x-20">
@@ -93,16 +90,17 @@ export default function HomePage() {
 
         <div className="flex w-full flex-col items-center justify-center text-center">
           <p className="text-4xl font-bold">
-            Powered by{" "}
+            Backed by{" "}
             <span className="rounded-lg bg-amber-300/30 px-2 py-1">
               Amazing Sponsors
             </span>
           </p>
 
-          <p className="pt-4 leading-none">
+          <p className="pt-4 leading-none font-normal">
             We&apos;re grateful to these incredible companies for supporting{" "}
             <br />
-            Pujo Atlas and making this project possible
+            <span className="font-semibold">Pujo Atlas</span> and making this
+            project possible.
           </p>
 
           <div className="mx-auto mt-5 w-[98dvw]">

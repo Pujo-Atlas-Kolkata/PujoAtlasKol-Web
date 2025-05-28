@@ -7,7 +7,7 @@ export const Footer = () => {
   return (
     <footer className="mx-auto my-10 flex w-[calc(100%-5rem)] flex-col items-center rounded-lg border-2 border-black bg-amber-300/30 p-12 backdrop-blur-sm">
       <div className="flex w-full flex-row items-center justify-between">
-        <div className="flex flex-row items-center justify-center text-center text-lg">
+        <div className="flex flex-row items-center justify-center text-center text-lg font-medium">
           Cooked with ❤️ by Pujo Atlas Kolkata. Checkout how we did in
           2024&nbsp;
           <Link
@@ -69,7 +69,7 @@ export const Footer = () => {
       <div className="my-10 h-0.5 w-full bg-black" />
 
       <div className="flex w-full flex-row items-center justify-between">
-        <div className="flex-none">
+        <div className="flex-none font-normal">
           Copyright © 2025 Pujo Atlas Kolkata. All rights reserved.
         </div>
 
