@@ -4,3 +4,4 @@ export * from "./magicui/animated-grid-pattern";
 export * from "./magicui/number-ticker";
 export * from "./Footer/footer.component";
 export * from "./ui/marquee";
+export * from "./ui/evervault-card";

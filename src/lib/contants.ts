@@ -240,8 +240,8 @@ export const team: Record<string, MemberDetails[]> = {
       department: "Content",
     },
     {
-      id: "Melancholic_Sobdokar",
-      name: "Melancholic_Sobdokar",
+      id: "Melancholic Sobdokar",
+      name: "Melancholic Sobdokar",
       avatar:
         "https://api.dicebear.com/9.x/lorelei/svg?seed=nightcrwlrr&beardProbability=0&glassesProbability=0",
       socials: {
