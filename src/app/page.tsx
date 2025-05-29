@@ -2,7 +2,8 @@ import { NumberTicker } from "@/components";
 import Star9 from "@/components/stars/s9";
 import Marquee from "@/components/ui/marquee";
 import { Constants } from "@/lib";
-import { CircleChevronDown } from "lucide-react";
+import { CircleChevronDown, Route, Search, UsersRound } from "lucide-react";
+import { EvervaultCard } from "@/components/ui/evervault-card";
 
 export default function HomePage() {
   return (
@@ -103,10 +104,79 @@ export default function HomePage() {
             project possible.
           </p>
 
-          <div className="mx-auto mt-5 w-[98dvw]">
+          <div className="mx-auto mt-10 w-[98dvw]">
             <Marquee items={Constants.sponsorsMarquee} />
           </div>
         </div>
+      </div>
+
+      <div className="mt-10 flex flex-col items-center justify-center backdrop-blur-3xl">
+        <p className="text-3xl font-bold">Atlas v1 2024 Durga Pujo Stats</p>
+        <p className="pt-2 text-sm font-normal">
+          Measured over just 5 days
+          <span className="animate-pulse">*</span>
+        </p>
+      </div>
+
+      <div className="mx-auto mt-6 mb-20 flex w-[calc(100%-10rem)] flex-row items-center justify-between gap-4">
+        <EvervaultCard className="h-48 flex-1 rounded-2xl border-2 border-black bg-amber-300/20 shadow-[3px_3px_0_3px] backdrop-blur-3xl">
+          <div className="flex h-full w-full flex-col items-center justify-center gap-2 px-8">
+            <div className="mb-2 flex items-center justify-center rounded-full bg-gray-100 p-2.5">
+              <Search className="size-8 text-black" />
+            </div>
+            <span className="text-3xl font-extrabold text-black">
+              <NumberTicker
+                direction="up"
+                value={872.49}
+                decimalPlaces={2}
+                startValue={0}
+                className="text-3xl font-extrabold text-black"
+              />
+              K+
+            </span>
+            <span className="text-lg font-normal text-black">Searches</span>
+          </div>
+        </EvervaultCard>
+
+        <EvervaultCard className="h-48 w-full flex-1 rounded-2xl border-2 border-black bg-amber-300/20 shadow-[3px_3px_0_3px]">
+          <div className="flex h-full w-full flex-col items-center justify-center gap-2 px-8">
+            <div className="mb-2 flex items-center justify-center rounded-full bg-gray-100 p-2.5">
+              <Route className="size-8 text-black" />
+            </div>
+            <span className="text-3xl font-extrabold text-black">
+              <NumberTicker
+                direction="up"
+                value={114.83}
+                decimalPlaces={2}
+                startValue={0}
+                className="text-3xl font-extrabold text-black"
+              />
+              K+
+            </span>
+            <span className="text-lg font-normal text-black">Journeys</span>
+          </div>
+        </EvervaultCard>
+
+        <EvervaultCard className="h-48 flex-1 rounded-2xl border-2 border-black bg-amber-300/20 shadow-[3px_3px_0_3px]">
+          <div className="flex h-full w-full flex-col items-center justify-center gap-2 px-8">
+            <div className="mb-2 flex items-center justify-center rounded-full bg-gray-100 p-2.5">
+              <UsersRound className="size-8 text-black" />
+            </div>
+            <span className="text-3xl font-extrabold text-black">
+              <NumberTicker
+                direction="up"
+                value={10.8}
+                decimalPlaces={1}
+                startValue={0}
+                className="text-3xl font-extrabold text-black"
+              />
+              K+
+            </span>
+            <span className="text-lg font-normal text-black">
+              Visitors Per Day
+            </span>
+          </div>
+        </EvervaultCard>
       </div>
     </main>
   );

@@ -7,18 +7,20 @@ export const Footer = () => {
   return (
     <footer className="mx-auto my-10 flex w-[calc(100%-10rem)] flex-col items-center rounded-lg border-2 border-black bg-amber-300/30 p-12 backdrop-blur-sm">
       <div className="flex w-full flex-row items-center justify-between">
-        <div className="flex flex-row items-center justify-center text-center text-lg font-medium">
-          Cooked with ❤️ by Pujo Atlas Kolkata. Checkout how we did in
-          2024&nbsp;
+        <div className="flex flex-row items-center justify-center text-center text-lg font-normal">
+          Cooked with ❤️ by&nbsp;
+          <span className="font-medium">Pujo Atlas Kolkata</span>.
+          Checkout&nbsp;
+          <span className="font-medium">Atlas v1 Wrapped</span>&nbsp;2024&nbsp;
           <Link
             href={Constants.stats.redditPost}
-            className="font-bold underline"
+            className="font-semibold underline"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div className="flex animate-pulse flex-row items-center justify-center">
+            <div className="flex flex-row items-center justify-center">
               here
-              <ArrowUpRight className="size-4" />
+              <ArrowUpRight className="size-4 animate-pulse" />
             </div>
           </Link>
         </div>
@@ -69,8 +71,19 @@ export const Footer = () => {
       <div className="my-10 h-0.5 w-full bg-black" />
 
       <div className="flex w-full flex-row items-center justify-between">
-        <div className="flex-none font-normal">
-          Copyright © 2025 Pujo Atlas Kolkata. All rights reserved.
+        <div className="flex font-normal">
+          Copyright © 2025 Pujo Atlas Kolkata.&nbsp;
+          <Link
+            href={Constants.misc.license}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold underline"
+          >
+            <div className="flex flex-row items-center justify-center">
+              MIT License
+              <ArrowUpRight className="size-4 animate-pulse" />
+            </div>
+          </Link>
         </div>
 
         <div className="flex flex-row items-center justify-end gap-x-3">

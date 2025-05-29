@@ -25,6 +25,8 @@ export const Constants = {
     feedbackForm: "https://forms.gle/AsZwTvmzwR9tptGH6",
     dataIngestionForm: "https://forms.gle/n394CrQpaHzS36hF6",
     statusPage: "https://status.ourkolkata.in/",
+    license:
+      "https://github.com/Pujo-Atlas-Kolkata/PujoAtlasKol-Web/blob/dev/LICENSE",
   },
   sponsorsMarquee: [
     {
