@@ -12,18 +12,18 @@ export const Navbar = () => {
 
         <div className="flex flex-row items-center gap-4 text-lg font-medium">
           <Link href={Constants.routes.aboutUs}>
-            <p className="hover:bg-main cursor-pointer rounded-lg border-2 border-transparent px-3 pt-2 pb-1 hover:border-black">
+            <p className="hover:bg-main cursor-pointer rounded-full border-2 border-transparent px-5 pt-2 pb-1 hover:border-black">
               About Us
             </p>
           </Link>
 
           <Link href={Constants.routes.sponsorUs}>
-            <p className="hover:bg-main cursor-pointer rounded-lg border-2 border-transparent px-3 pt-2 pb-1 hover:border-black">
+            <p className="hover:bg-main cursor-pointer rounded-full border-2 border-transparent px-5 pt-2 pb-1 hover:border-black">
               Sponsor Us
             </p>
           </Link>
 
-          <div className="hover:bg-main flex cursor-pointer flex-row items-center rounded-lg border-2 border-transparent px-3 pt-2 pb-1 hover:border-black">
+          <div className="hover:bg-main flex cursor-pointer flex-row items-center rounded-full border-2 border-transparent px-5 pt-2 pb-1 hover:border-black">
             <Link
               href={Constants.socials.gitHub}
               target="_blank"

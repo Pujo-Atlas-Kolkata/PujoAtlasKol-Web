@@ -87,7 +87,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <InteractiveHoverButton className="mx-auto mt-5 mb-10 w-fit self-center">
+          <InteractiveHoverButton className="mx-auto mt-5 mb-8 w-fit self-center">
             <Link
               href={Constants.socials.discord}
               target="_blank"
