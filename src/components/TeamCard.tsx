@@ -62,7 +62,7 @@ export const TeamCard: FC<TeamCardProps> = ({
     >
       <div className="flex h-full w-full flex-col items-center justify-center px-4">
         <div
-          className="fixed top-3 right-3 z-20 grid cursor-pointer place-items-center rounded-full bg-black/10 p-1 text-2xl hover:bg-white/70"
+          className="fixed top-3 right-3 grid cursor-pointer place-items-center rounded-full bg-black/10 p-1 text-2xl hover:bg-white/70"
           onClick={handleCopyLink}
         >
           <Link className="size-4" />

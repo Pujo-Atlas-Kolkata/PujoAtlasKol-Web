@@ -5,3 +5,4 @@ export * from "./magicui/number-ticker";
 export * from "./Footer/footer.component";
 export * from "./ui/marquee";
 export * from "./ui/evervault-card";
+export * from "./magicui/interactive-hover-button";

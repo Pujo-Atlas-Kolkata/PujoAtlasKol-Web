@@ -1,9 +1,10 @@
-import { NumberTicker } from "@/components";
+import { InteractiveHoverButton, NumberTicker } from "@/components";
 import Star9 from "@/components/stars/s9";
 import Marquee from "@/components/ui/marquee";
 import { Constants } from "@/lib";
-import { CircleChevronDown, Route, Search, UsersRound } from "lucide-react";
+import { Route, Search, UsersRound } from "lucide-react";
 import { EvervaultCard } from "@/components/ui/evervault-card";
+import Link from "next/link";
 
 export default function HomePage() {
   return (
@@ -85,9 +86,17 @@ export default function HomePage() {
               <div className="text-sm">days till Durga Puja 2025</div>
             </div>
           </div>
-        </div>
 
-        <CircleChevronDown className="mx-auto mt-12 mb-5 size-10 animate-bounce fill-amber-300/75 text-black" />
+          <InteractiveHoverButton className="mx-auto mt-5 mb-10 w-fit self-center py-1.5">
+            <Link
+              href={Constants.socials.discord}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <p className="text-base font-medium">Contribute</p>
+            </Link>
+          </InteractiveHoverButton>
+        </div>
 
         <div className="flex w-full flex-col items-center justify-center text-center">
           <p className="text-4xl font-bold">

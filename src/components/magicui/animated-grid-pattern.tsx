@@ -35,7 +35,6 @@ export function AnimatedGridPattern({
   className,
   maxOpacity = 0.1,
   duration = 4,
-  repeatDelay = 0.5,
   ...props
 }: AnimatedGridPatternProps) {
   const id = useId();
@@ -77,6 +76,7 @@ export function AnimatedGridPattern({
     if (dimensions.width && dimensions.height) {
       setSquares(generateSquares(numSquares));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dimensions, numSquares]);
 
   // Resize observer to update container dimensions
@@ -96,6 +96,7 @@ export function AnimatedGridPattern({
 
     return () => {
       if (containerRef.current) {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         resizeObserver.unobserve(containerRef.current);
       }
     };
@@ -105,7 +106,6 @@ export function AnimatedGridPattern({
     <svg
       ref={containerRef}
       aria-hidden="true"
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       className={cn(
         "pointer-events-none absolute inset-0 h-full w-full fill-gray-400/30 stroke-gray-400/30",
         className,
