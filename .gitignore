@@ -44,3 +44,5 @@ yarn-error.log*
 
 # idea files
 .idea
+# Sentry Config File
+.env.sentry-build-plugin
