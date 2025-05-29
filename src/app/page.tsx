@@ -45,7 +45,7 @@ export default function HomePage() {
                     new Date().getTime()) /
                     (1000 * 60 * 60 * 24),
                 )}
-                className="text-8xl font-bold tracking-tighter whitespace-pre-wrap"
+                className="text-8xl font-bold whitespace-pre-wrap"
               />
 
               <div className="text-sm">days till open beta</div>
@@ -127,7 +127,7 @@ export default function HomePage() {
             <span className="text-3xl font-extrabold text-black">
               <NumberTicker
                 direction="up"
-                value={872.49}
+                value={Constants.v1_stats.searches}
                 decimalPlaces={2}
                 startValue={0}
                 className="text-3xl font-extrabold text-black"
@@ -146,7 +146,7 @@ export default function HomePage() {
             <span className="text-3xl font-extrabold text-black">
               <NumberTicker
                 direction="up"
-                value={114.83}
+                value={Constants.v1_stats.journeys}
                 decimalPlaces={2}
                 startValue={0}
                 className="text-3xl font-extrabold text-black"
@@ -165,7 +165,7 @@ export default function HomePage() {
             <span className="text-3xl font-extrabold text-black">
               <NumberTicker
                 direction="up"
-                value={10.8}
+                value={Constants.v1_stats.visitorsPerDay}
                 decimalPlaces={1}
                 startValue={0}
                 className="text-3xl font-extrabold text-black"

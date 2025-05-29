@@ -10,6 +10,11 @@ export const Constants = {
     daysTillWeLaunchV2: "2025-09-21",
     daysTillDurgaPuja2025: "2025-09-27",
   },
+  v1_stats: {
+    searches: 872.49,
+    journeys: 114.83,
+    visitorsPerDay: 10.8,
+  },
   socials: {
     gitHub: "https://github.com/Pujo-Atlas-Kolkata/PujoAtlasKol-Web",
     discord: "https://discord.com/invite/xxSXWYf6d4",
