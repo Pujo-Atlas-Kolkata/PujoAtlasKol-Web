@@ -8,7 +8,7 @@ import Link from "next/link";
 
 export default function HomePage() {
   return (
-    <main className="mt-96 flex h-screen flex-col items-center justify-center backdrop-blur-xs">
+    <main className="flex flex-col items-center justify-center pt-52 backdrop-blur-xs">
       <div className="w-fit rounded-2xl border-gray-500">
         <div className="flex flex-col gap-y-4 text-center">
           <p className="text-9xl font-extrabold">
@@ -127,7 +127,7 @@ export default function HomePage() {
         </p>
       </div>
 
-      <div className="mx-auto mt-6 mb-20 flex w-[calc(100%-10rem)] flex-row items-center justify-between gap-4">
+      <div className="mx-auto mt-6 flex w-[calc(100%-10rem)] flex-row items-center justify-between gap-4">
         <EvervaultCard className="h-48 flex-1 rounded-2xl border-2 border-black bg-amber-300/20 shadow-[3px_3px_0_3px] backdrop-blur-3xl">
           <div className="flex h-full w-full flex-col items-center justify-center gap-2 px-8">
             <div className="mb-2 flex items-center justify-center rounded-full bg-gray-100 p-2.5">
@@ -139,9 +139,9 @@ export default function HomePage() {
                 value={Constants.v1_stats.searches}
                 decimalPlaces={2}
                 startValue={0}
-                className="text-3xl font-extrabold text-black"
+                className="text-3xl font-extrabold tracking-normal text-black"
               />
-              K+
+              K
             </span>
             <span className="text-lg font-normal text-black">Searches</span>
           </div>
@@ -158,9 +158,9 @@ export default function HomePage() {
                 value={Constants.v1_stats.journeys}
                 decimalPlaces={2}
                 startValue={0}
-                className="text-3xl font-extrabold text-black"
+                className="text-3xl font-extrabold tracking-normal text-black"
               />
-              K+
+              K
             </span>
             <span className="text-lg font-normal text-black">Journeys</span>
           </div>
@@ -177,9 +177,9 @@ export default function HomePage() {
                 value={Constants.v1_stats.visitorsPerDay}
                 decimalPlaces={1}
                 startValue={0}
-                className="text-3xl font-extrabold text-black"
+                className="text-3xl font-extrabold tracking-normal text-black"
               />
-              K+
+              K
             </span>
             <span className="text-lg font-normal text-black">
               Visitors Per Day

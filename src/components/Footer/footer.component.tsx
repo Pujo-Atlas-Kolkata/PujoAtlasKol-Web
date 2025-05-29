@@ -77,10 +77,11 @@ export const Footer = () => {
             href={Constants.misc.license}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-semibold underline"
+            className="font-semibold"
           >
             <div className="flex flex-row items-center justify-center">
-              MIT License
+              MIT&nbsp;
+              <span className="underline">License</span>
               <ArrowUpRight className="size-4 animate-pulse" />
             </div>
           </Link>
