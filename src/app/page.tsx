@@ -13,7 +13,7 @@ export default function HomePage() {
         <div className="flex flex-col gap-y-4 text-center">
           <p className="text-9xl font-extrabold">
             Pujo{" "}
-            <span className="bg-main/50 border-border/40 dark:border-border/70 relative mr-0 rounded-lg border-2 px-5 sm:mr-2 sm:[&_svg]:size-7 md:[&_svg]:size-[45px]">
+            <span className="bg-main/50 border-border/40 dark:border-border/70 relative mr-0 rounded-lg border-2 px-5 pt-5 pb-1 sm:mr-2 sm:[&_svg]:size-7 md:[&_svg]:size-[45px]">
               Atlas
               <Star9
                 className="absolute -right-2.5 -bottom-2.5 hidden animate-pulse sm:block md:-right-5 md:-bottom-4"
@@ -46,7 +46,7 @@ export default function HomePage() {
                     new Date().getTime()) /
                     (1000 * 60 * 60 * 24),
                 )}
-                className="text-8xl font-bold whitespace-pre-wrap"
+                className="text-8xl font-bold tracking-normal whitespace-pre-wrap"
               />
 
               <div className="text-sm">days till open beta</div>
@@ -63,7 +63,7 @@ export default function HomePage() {
                     new Date().getTime()) /
                     (1000 * 60 * 60 * 24),
                 )}
-                className="text-8xl font-bold tracking-tighter whitespace-pre-wrap"
+                className="text-8xl font-bold tracking-normal whitespace-pre-wrap"
               />
 
               <div className="text-sm">days till we launch v2</div>
@@ -80,40 +80,35 @@ export default function HomePage() {
                     new Date().getTime()) /
                     (1000 * 60 * 60 * 24),
                 )}
-                className="text-8xl font-bold tracking-tighter whitespace-pre-wrap"
+                className="text-8xl font-bold tracking-normal whitespace-pre-wrap"
               />
 
               <div className="text-sm">days till Durga Puja 2025</div>
             </div>
           </div>
 
-          <InteractiveHoverButton className="mx-auto mt-5 mb-10 w-fit self-center py-1.5">
+          <InteractiveHoverButton className="mx-auto mt-5 mb-10 w-fit self-center">
             <Link
               href={Constants.socials.discord}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <p className="text-base font-medium">Contribute</p>
+              <p className="text-base font-semibold">Contribute</p>
             </Link>
           </InteractiveHoverButton>
         </div>
 
         <div className="flex w-full flex-col items-center justify-center text-center">
-          <p className="text-4xl font-bold">
-            Backed by{" "}
-            <span className="rounded-lg bg-amber-300/30 px-2 py-1">
-              Amazing Sponsors
-            </span>
-          </p>
+          <p className="text-4xl font-bold">Backed by Amazing Sponsors</p>
 
-          <p className="pt-4 leading-none font-normal">
+          <p className="pt-4 leading-tight font-normal">
             We&apos;re grateful to these incredible companies for supporting{" "}
             <br />
             <span className="font-semibold">Pujo Atlas</span> and making this
             project possible.
           </p>
 
-          <div className="mx-auto mt-10 w-[98dvw]">
+          <div className="mx-auto mt-2 w-[98dvw]">
             <Marquee items={Constants.sponsorsMarquee} />
           </div>
         </div>

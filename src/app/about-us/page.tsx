@@ -21,7 +21,7 @@ export default function AboutUsPage() {
   }, []);
 
   return (
-    <main className="mt-36 ml-20 flex min-h-screen flex-col backdrop-blur-xs">
+    <main className="mt-36 ml-10 flex min-h-screen flex-col backdrop-blur-xs">
       <div className="w-full rounded-2xl border-gray-500">
         <div className="flex flex-col gap-y-2">
           <p className="text-5xl font-bold">Meet the Team</p>

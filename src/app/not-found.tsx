@@ -13,7 +13,10 @@ export default function NotFound() {
         </p>
 
         <Link href={Constants.routes.home}>
-          <Button variant={"neutral"} className="mt-4 cursor-pointer">
+          <Button
+            variant={"neutral"}
+            className="mt-4 cursor-pointer font-medium"
+          >
             Go back to the home page <ArrowRight className="size-4" />
           </Button>
         </Link>
