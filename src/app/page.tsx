@@ -7,7 +7,7 @@ import { EvervaultCard } from "@/components/ui/evervault-card";
 
 export default function HomePage() {
   return (
-    <main className="mt-44 flex h-screen flex-col items-center justify-center backdrop-blur-xs">
+    <main className="mt-96 flex h-screen flex-col items-center justify-center backdrop-blur-xs">
       <div className="w-fit rounded-2xl border-gray-500">
         <div className="flex flex-col gap-y-4 text-center">
           <p className="text-9xl font-extrabold">
@@ -15,12 +15,12 @@ export default function HomePage() {
             <span className="bg-main/50 border-border/40 dark:border-border/70 relative mr-0 rounded-lg border-2 px-5 sm:mr-2 sm:[&_svg]:size-7 md:[&_svg]:size-[45px]">
               Atlas
               <Star9
-                className="absolute -right-2.5 -bottom-2.5 hidden sm:block md:-right-5 md:-bottom-4"
+                className="absolute -right-2.5 -bottom-2.5 hidden animate-pulse sm:block md:-right-5 md:-bottom-4"
                 color="var(--main)"
                 pathClassName="stroke-5 dark:stroke-3.5 stroke-black dark:stroke-black/70"
               />
               <Star9
-                className="absolute -top-2.5 -left-2.5 hidden sm:block md:-top-4 md:-left-5"
+                className="absolute -top-2.5 -left-2.5 hidden animate-pulse sm:block md:-top-4 md:-left-5"
                 color="var(--main)"
                 pathClassName="stroke-5 dark:stroke-3.5 stroke-black dark:stroke-black/70"
               />
