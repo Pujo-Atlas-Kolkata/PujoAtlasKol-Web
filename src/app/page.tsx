@@ -1,3 +1,5 @@
+"use client";
+
 import { InteractiveHoverButton, NumberTicker } from "@/components";
 import Star9 from "@/components/stars/s9";
 import Marquee from "@/components/ui/marquee";
@@ -5,6 +7,8 @@ import { Constants } from "@/lib";
 import { Route, Search, UsersRound } from "lucide-react";
 import { EvervaultCard } from "@/components/ui/evervault-card";
 import Link from "next/link";
+import posthog from "posthog-js";
+import { PostHogEvents } from "@/components/PostHogProvider";
 
 export default function HomePage() {
   return (
@@ -92,6 +96,11 @@ export default function HomePage() {
               href={Constants.socials.discord}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() =>
+                posthog?.capture(PostHogEvents.HOMEPAGE_CTA_CLICK, {
+                  cta: "contribute_discord",
+                })
+              }
             >
               <p className="text-base font-semibold">Contribute</p>
             </Link>
@@ -109,7 +118,16 @@ export default function HomePage() {
           </p>
 
           <div className="mx-auto mt-2 w-[98dvw]">
-            <Marquee items={Constants.sponsorsMarquee} />
+            <Marquee
+              items={Constants.sponsorsMarquee.map((item) => ({
+                ...item,
+                onClick: () =>
+                  posthog?.capture(PostHogEvents.HOMEPAGE_SPONSOR_CLICK, {
+                    sponsor: item.alt,
+                    link: item.link,
+                  }),
+              }))}
+            />
           </div>
         </div>
       </div>

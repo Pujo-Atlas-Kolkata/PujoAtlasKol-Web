@@ -13,6 +13,8 @@ import {
 } from "react-icons/ri";
 import { Link } from "lucide-react";
 import { toast } from "sonner";
+import posthog from "posthog-js";
+import { PostHogEvents } from "@/components/PostHogProvider";
 
 export type TeamCardProps = {
   name: string;
@@ -39,6 +41,7 @@ export const TeamCard: FC<TeamCardProps> = ({
     const url = `${window.location.origin}${window.location.pathname}#${encodeURIComponent(name)}`;
     await navigator.clipboard.writeText(url);
     toast.success("Profile link copied to clipboard!");
+    posthog?.capture(PostHogEvents.TEAMCARD_COPY_LINK, { name });
   };
 
   return (
@@ -88,6 +91,13 @@ export const TeamCard: FC<TeamCardProps> = ({
               href={socials.website}
               target="_blank"
               rel="noreferrer"
+              onClick={() =>
+                posthog?.capture(PostHogEvents.TEAMCARD_SOCIAL_CLICK, {
+                  name,
+                  social: "website",
+                  url: socials.website,
+                })
+              }
             >
               <RiGlobalLine
                 size={30}
@@ -102,6 +112,13 @@ export const TeamCard: FC<TeamCardProps> = ({
               href={socials.discord}
               target="_blank"
               rel="noreferrer"
+              onClick={() =>
+                posthog?.capture(PostHogEvents.TEAMCARD_SOCIAL_CLICK, {
+                  name,
+                  social: "discord",
+                  url: socials.discord,
+                })
+              }
             >
               <RiDiscordFill
                 size={30}
@@ -116,6 +133,13 @@ export const TeamCard: FC<TeamCardProps> = ({
               href={socials.github}
               target="_blank"
               rel="noreferrer"
+              onClick={() =>
+                posthog?.capture(PostHogEvents.TEAMCARD_SOCIAL_CLICK, {
+                  name,
+                  social: "github",
+                  url: socials.github,
+                })
+              }
             >
               <RiGithubFill
                 size={30}
@@ -130,6 +154,13 @@ export const TeamCard: FC<TeamCardProps> = ({
               href={socials.twitter}
               target="_blank"
               rel="noreferrer"
+              onClick={() =>
+                posthog?.capture(PostHogEvents.TEAMCARD_SOCIAL_CLICK, {
+                  name,
+                  social: "twitter",
+                  url: socials.twitter,
+                })
+              }
             >
               <RiTwitterXLine
                 size={30}
@@ -144,6 +175,13 @@ export const TeamCard: FC<TeamCardProps> = ({
               href={socials.linkedin}
               target="_blank"
               rel="noreferrer"
+              onClick={() =>
+                posthog?.capture(PostHogEvents.TEAMCARD_SOCIAL_CLICK, {
+                  name,
+                  social: "linkedin",
+                  url: socials.linkedin,
+                })
+              }
             >
               <RiLinkedinFill
                 size={30}

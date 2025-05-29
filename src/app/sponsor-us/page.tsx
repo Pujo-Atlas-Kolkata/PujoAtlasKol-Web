@@ -1,9 +1,13 @@
+"use client";
+
 import { ArrowUpRight } from "lucide-react";
 
 import { Constants } from "@/lib";
 import Link from "next/link";
 import Image from "next/image";
 import { EvervaultCard } from "@/components";
+import posthog from "posthog-js";
+import { PostHogEvents } from "@/components/PostHogProvider";
 
 export default function SponsorUsPage() {
   return (
@@ -30,6 +34,11 @@ export default function SponsorUsPage() {
               className="inline-flex items-center gap-x-0 font-semibold underline"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() =>
+                posthog?.capture(PostHogEvents.SPONSOR_DISCORD_CLICK, {
+                  link: "sponsor_discord",
+                })
+              }
             >
               contact us here in our discord server
               <ArrowUpRight className="size-4 animate-pulse" />
@@ -51,6 +60,12 @@ export default function SponsorUsPage() {
                   href={sponsor.link}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() =>
+                    posthog?.capture(PostHogEvents.SPONSOR_LINK_CLICK, {
+                      sponsor: sponsor.alt,
+                      link: sponsor.link,
+                    })
+                  }
                 >
                   <Image
                     src={sponsor.src}

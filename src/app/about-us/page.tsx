@@ -5,6 +5,8 @@ import TeamCard from "@/components/TeamCard";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import posthog from "posthog-js";
+import { PostHogEvents } from "@/components/PostHogProvider";
 
 export default function AboutUsPage() {
   const [highlightedId, setHighlightedId] = useState<string | null>(null);
@@ -46,6 +48,11 @@ export default function AboutUsPage() {
               className="inline-flex items-center gap-x-0 font-semibold underline"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() =>
+                posthog?.capture(PostHogEvents.ABOUT_DISCORD_CLICK, {
+                  link: "about_discord",
+                })
+              }
             >
               join our discord server
               <ArrowUpRight className="size-4 animate-pulse" />

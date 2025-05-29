@@ -4,6 +4,7 @@ import { type Metadata } from "next";
 import { Geist } from "next/font/google";
 import { AnimatedGridPattern, Footer, Navbar } from "@/components";
 import { Toaster } from "sonner";
+import { PostHogProvider } from "@/components/PostHogProvider";
 
 export const metadata: Metadata = {
   title: "Pujo Atlas",
@@ -22,23 +23,25 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geist.variable}`}>
       <body>
-        <AnimatedGridPattern className="pointer-events-none fixed inset-0 -z-10 h-full w-full" />
-        <Navbar />
-        {children}
-        <Footer />
-        <Toaster
-          toastOptions={{
-            style: {
-              backgroundColor: "var(--color-background)",
-              color: "var(--color-main-foreground)",
-              fontFamily: "var(--font-sans)",
-              fontWeight: "var(--font-weight-base)",
-              boxShadow: "var(--shadow-shadow)",
-              borderRadius: "var(--radius-base)",
-              border: "1px solid var(--color-border)",
-            },
-          }}
-        />
+        <PostHogProvider>
+          <AnimatedGridPattern className="pointer-events-none fixed inset-0 -z-10 h-full w-full" />
+          <Navbar />
+          {children}
+          <Footer />
+          <Toaster
+            toastOptions={{
+              style: {
+                backgroundColor: "var(--color-background)",
+                color: "var(--color-main-foreground)",
+                fontFamily: "var(--font-sans)",
+                fontWeight: "var(--font-weight-base)",
+                boxShadow: "var(--shadow-shadow)",
+                borderRadius: "var(--radius-base)",
+                border: "1px solid var(--color-border)",
+              },
+            }}
+          />
+        </PostHogProvider>
       </body>
     </html>
   );

@@ -1,7 +1,11 @@
+"use client";
+
 import { Constants } from "@/lib/contants";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "../ui/button";
 import Link from "next/link";
+import posthog from "posthog-js";
+import { PostHogEvents } from "@/components/PostHogProvider";
 
 export const Footer = () => {
   return (
@@ -17,6 +21,11 @@ export const Footer = () => {
             className="font-semibold underline"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() =>
+              posthog?.capture(PostHogEvents.FOOTER_CLICK, {
+                link: "redditPost",
+              })
+            }
           >
             <div className="flex flex-row items-center justify-center">
               here
@@ -30,6 +39,9 @@ export const Footer = () => {
             href={Constants.socials.discord}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() =>
+              posthog?.capture(PostHogEvents.FOOTER_CLICK, { link: "discord" })
+            }
           >
             <Button variant={"neutral"} className="cursor-pointer">
               Bug?
@@ -40,6 +52,11 @@ export const Footer = () => {
             href={Constants.misc.feedbackForm}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() =>
+              posthog?.capture(PostHogEvents.FOOTER_CLICK, {
+                link: "feedbackForm",
+              })
+            }
           >
             <Button variant={"neutral"} className="cursor-pointer">
               Feedback
@@ -50,6 +67,11 @@ export const Footer = () => {
             href={Constants.misc.statusPage}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() =>
+              posthog?.capture(PostHogEvents.FOOTER_CLICK, {
+                link: "statusPage",
+              })
+            }
           >
             <Button variant={"neutral"} className="cursor-pointer">
               Status
@@ -60,6 +82,9 @@ export const Footer = () => {
             href={Constants.socials.gitHub}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() =>
+              posthog?.capture(PostHogEvents.FOOTER_CLICK, { link: "github" })
+            }
           >
             <Button variant={"neutral"} className="cursor-pointer">
               Contribute
@@ -78,6 +103,9 @@ export const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="font-semibold"
+            onClick={() =>
+              posthog?.capture(PostHogEvents.FOOTER_CLICK, { link: "license" })
+            }
           >
             <div className="flex flex-row items-center justify-center">
               MIT&nbsp;
@@ -94,6 +122,9 @@ export const Footer = () => {
               href={url}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() =>
+                posthog?.capture(PostHogEvents.FOOTER_CLICK, { link: platform })
+              }
             >
               <Button className="cursor-pointer" variant={"neutral"}>
                 {platform.charAt(0).toUpperCase() + platform.slice(1)}

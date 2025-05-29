@@ -1,17 +1,24 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Marquee({
   items,
 }: {
-  items: { src: string; alt: string; link: string }[];
+  items: { src: string; alt: string; link: string; onClick?: () => void }[];
 }) {
   return (
     <div className="border-border bg-secondary-background text-foreground font-base relative flex w-full overflow-x-hidden border-t-2 border-b-2">
       <div className="animate-marquee py-8 whitespace-nowrap">
         {items.map((item, index) => (
           <span key={index} className="mx-8 inline-flex items-center">
-            <Link href={item.link} target="_blank" rel="noopener noreferrer">
+            <Link
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={item.onClick}
+            >
               <Image
                 src={item.src}
                 alt={item.alt}
@@ -29,7 +36,12 @@ export default function Marquee({
       <div className="animate-marquee2 absolute top-0 py-8 whitespace-nowrap">
         {items.map((item, index) => (
           <span key={index} className="mx-8 inline-flex items-center">
-            <Link href={item.link} target="_blank" rel="noopener noreferrer">
+            <Link
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={item.onClick}
+            >
               <Image
                 src={item.src}
                 alt={item.alt}

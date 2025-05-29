@@ -1,7 +1,11 @@
+"use client";
+
 import { Button } from "@/components";
 import { Constants } from "@/lib";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import posthog from "posthog-js";
+import { PostHogEvents } from "@/components/PostHogProvider";
 
 export default function NotFound() {
   return (
@@ -16,6 +20,11 @@ export default function NotFound() {
           <Button
             variant={"neutral"}
             className="mt-4 cursor-pointer font-medium"
+            onClick={() =>
+              posthog?.capture(PostHogEvents.NOTFOUND_HOME_CLICK, {
+                link: "notfound_home",
+              })
+            }
           >
             Go back to the home page <ArrowRight className="size-4" />
           </Button>
