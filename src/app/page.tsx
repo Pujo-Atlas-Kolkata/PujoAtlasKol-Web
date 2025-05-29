@@ -130,7 +130,7 @@ export default function HomePage() {
       <div className="mx-auto mt-6 flex w-[calc(100%-10rem)] flex-row items-center justify-between gap-4">
         <EvervaultCard className="h-48 flex-1 rounded-2xl border-2 border-black bg-amber-300/20 shadow-[3px_3px_0_3px] backdrop-blur-3xl">
           <div className="flex h-full w-full flex-col items-center justify-center gap-2 px-8">
-            <div className="mb-2 flex items-center justify-center rounded-full bg-gray-100 p-2.5">
+            <div className="mb-2 flex items-center justify-center rounded-full bg-gray-100/40 p-2.5">
               <Search className="size-8 text-black" />
             </div>
             <span className="text-3xl font-extrabold text-black">
@@ -149,7 +149,7 @@ export default function HomePage() {
 
         <EvervaultCard className="h-48 w-full flex-1 rounded-2xl border-2 border-black bg-amber-300/20 shadow-[3px_3px_0_3px]">
           <div className="flex h-full w-full flex-col items-center justify-center gap-2 px-8">
-            <div className="mb-2 flex items-center justify-center rounded-full bg-gray-100 p-2.5">
+            <div className="mb-2 flex items-center justify-center rounded-full bg-gray-100/40 p-2.5">
               <Route className="size-8 text-black" />
             </div>
             <span className="text-3xl font-extrabold text-black">
@@ -168,7 +168,7 @@ export default function HomePage() {
 
         <EvervaultCard className="h-48 flex-1 rounded-2xl border-2 border-black bg-amber-300/20 shadow-[3px_3px_0_3px]">
           <div className="flex h-full w-full flex-col items-center justify-center gap-2 px-8">
-            <div className="mb-2 flex items-center justify-center rounded-full bg-gray-100 p-2.5">
+            <div className="mb-2 flex items-center justify-center rounded-full bg-gray-100/40 p-2.5">
               <UsersRound className="size-8 text-black" />
             </div>
             <span className="text-3xl font-extrabold text-black">
