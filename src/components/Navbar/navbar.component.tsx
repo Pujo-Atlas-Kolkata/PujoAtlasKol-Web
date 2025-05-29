@@ -11,12 +11,6 @@ export const Navbar = () => {
         </Link>
 
         <div className="flex flex-row items-center gap-4 text-lg font-medium">
-          <Link href={Constants.routes.features}>
-            <p className="hover:bg-main cursor-pointer rounded-lg border-2 border-transparent px-3 py-1.5 hover:border-black">
-              Features
-            </p>
-          </Link>
-
           <Link href={Constants.routes.aboutUs}>
             <p className="hover:bg-main cursor-pointer rounded-lg border-2 border-transparent px-3 py-1.5 hover:border-black">
               About Us

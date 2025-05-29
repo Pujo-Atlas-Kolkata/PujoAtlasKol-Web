@@ -2,7 +2,6 @@ export const Constants = {
   routes: {
     home: "/",
     aboutUs: "/about-us",
-    features: "/features",
     sponsorUs: "/sponsor-us",
   },
   launchCountdown: {
@@ -206,16 +205,6 @@ export const team: Record<string, MemberDetails[]> = {
       department: "DevOps",
     },
     {
-      id: "Achakita",
-      name: "Achakita",
-      avatar: "https://api.dicebear.com/9.x/lorelei/svg?seed=reddit",
-      socials: {
-        discord: "https://discord.com/users/903722676084949063",
-        twitter: "https://x.com/Achakita_TRUTH",
-      },
-      department: "Content",
-    },
-    {
       id: "WhiteTiger",
       name: "WhiteTiger",
       avatar:
@@ -251,6 +240,17 @@ export const team: Record<string, MemberDetails[]> = {
       department: "Content",
     },
     {
+      id: "Suzi",
+      name: "Suzi",
+      avatar:
+        "https://api.dicebear.com/9.x/lorelei/svg?seed=baloon&eyes=variant23&frecklesProbability=0&glassesProbability=0&hair=variant18&eyebrows=variant09",
+      socials: {
+        discord: "https://discord.com/users/750464448044597269",
+        twitter: "https://x.com/itsssarkar",
+      },
+      department: "Content",
+    },
+    {
       id: "Melancholic Sobdokar",
       name: "Melancholic Sobdokar",
       avatar:
@@ -261,13 +261,12 @@ export const team: Record<string, MemberDetails[]> = {
       department: "Content",
     },
     {
-      id: "Suzi",
-      name: "Suzi",
-      avatar:
-        "https://api.dicebear.com/9.x/lorelei/svg?seed=baloon&eyes=variant23&frecklesProbability=0&glassesProbability=0&hair=variant18&eyebrows=variant09",
+      id: "Achakita",
+      name: "Achakita",
+      avatar: "https://api.dicebear.com/9.x/lorelei/svg?seed=reddit",
       socials: {
-        discord: "https://discord.com/users/750464448044597269",
-        twitter: "https://x.com/itsssarkar",
+        discord: "https://discord.com/users/903722676084949063",
+        twitter: "https://x.com/Achakita_TRUTH",
       },
       department: "Content",
     },
