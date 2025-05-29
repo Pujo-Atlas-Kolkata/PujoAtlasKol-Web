@@ -16,7 +16,7 @@ export const Footer = () => {
           <span className="font-medium">Pujo Atlas Kolkata</span>.
           Checkout&nbsp;
           <span className="font-medium">Atlas v1 Wrapped</span>&nbsp;2024&nbsp;
-          <Link
+          <a
             href={Constants.stats.redditPost}
             className="font-semibold underline"
             target="_blank"
@@ -31,7 +31,7 @@ export const Footer = () => {
               here
               <ArrowUpRight className="size-4 animate-pulse" />
             </div>
-          </Link>
+          </a>
         </div>
 
         <div className="flex flex-row items-center justify-center gap-x-3">

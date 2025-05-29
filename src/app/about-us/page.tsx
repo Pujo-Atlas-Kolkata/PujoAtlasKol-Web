@@ -3,7 +3,6 @@
 import { Constants, team } from "@/lib";
 import TeamCard from "@/components/TeamCard";
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import posthog from "posthog-js";
 import { PostHogEvents } from "@/components/PostHogProvider";
@@ -43,7 +42,7 @@ export default function AboutUsPage() {
             the country, has united in the spirit of open source to build this
             experience. We&apos;re always looking for new members to contribute.
             If you&apos;d like to get involved, please&nbsp;
-            <Link
+            <a
               href={Constants.socials.discord}
               className="inline-flex items-center gap-x-0 font-semibold underline"
               target="_blank"
@@ -56,7 +55,7 @@ export default function AboutUsPage() {
             >
               join our discord server
               <ArrowUpRight className="size-4 animate-pulse" />
-            </Link>
+            </a>
           </p>
         </div>
 

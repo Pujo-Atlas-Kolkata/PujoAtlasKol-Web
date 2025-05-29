@@ -6,7 +6,6 @@ import Marquee from "@/components/ui/marquee";
 import { Constants } from "@/lib";
 import { Route, Search, UsersRound } from "lucide-react";
 import { EvervaultCard } from "@/components/ui/evervault-card";
-import Link from "next/link";
 import posthog from "posthog-js";
 import { PostHogEvents } from "@/components/PostHogProvider";
 
@@ -92,7 +91,7 @@ export default function HomePage() {
           </div>
 
           <InteractiveHoverButton className="mx-auto mt-5 mb-8 w-fit self-center">
-            <Link
+            <a
               href={Constants.socials.discord}
               target="_blank"
               rel="noopener noreferrer"
@@ -103,7 +102,7 @@ export default function HomePage() {
               }
             >
               <p className="text-base font-semibold">Contribute</p>
-            </Link>
+            </a>
           </InteractiveHoverButton>
         </div>
 

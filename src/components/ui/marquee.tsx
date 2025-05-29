@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 
 export default function Marquee({
   items,
@@ -13,7 +12,7 @@ export default function Marquee({
       <div className="animate-marquee py-8 whitespace-nowrap">
         {items.map((item, index) => (
           <span key={index} className="mx-8 inline-flex items-center">
-            <Link
+            <a
               href={item.link}
               target="_blank"
               rel="noopener noreferrer"
@@ -28,7 +27,7 @@ export default function Marquee({
                 width={100}
                 height={100}
               />
-            </Link>
+            </a>
           </span>
         ))}
       </div>
@@ -36,7 +35,7 @@ export default function Marquee({
       <div className="animate-marquee2 absolute top-0 py-8 whitespace-nowrap">
         {items.map((item, index) => (
           <span key={index} className="mx-8 inline-flex items-center">
-            <Link
+            <a
               href={item.link}
               target="_blank"
               rel="noopener noreferrer"
@@ -51,7 +50,7 @@ export default function Marquee({
                 width={100}
                 height={100}
               />
-            </Link>
+            </a>
           </span>
         ))}
       </div>

@@ -29,7 +29,7 @@ export default function SponsorUsPage() {
             We are currently looking for sponsors to help us keep the project
             running and to make it better. If you are interested in sponsoring
             our project, please&nbsp;
-            <Link
+            <a
               href={Constants.socials.discord}
               className="inline-flex items-center gap-x-0 font-semibold underline"
               target="_blank"
@@ -42,7 +42,7 @@ export default function SponsorUsPage() {
             >
               contact us here in our discord server
               <ArrowUpRight className="size-4 animate-pulse" />
-            </Link>
+            </a>
           </p>
 
           <p className="w-[60dvw] pt-4 text-lg leading-tight font-normal">

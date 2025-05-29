@@ -3,11 +3,12 @@
 import { Button } from "@/components";
 import { Constants } from "@/lib";
 import { ArrowRight } from "lucide-react";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import posthog from "posthog-js";
 import { PostHogEvents } from "@/components/PostHogProvider";
 
 export default function NotFound() {
+  const router = useRouter();
   return (
     <div className="flex h-screen flex-col items-center justify-center p-3">
       <div className="flex flex-col items-center justify-center backdrop-blur-3xl">
@@ -16,19 +17,18 @@ export default function NotFound() {
           Uh oh! Looks like you lost your way.
         </p>
 
-        <Link href={Constants.routes.home}>
-          <Button
-            variant={"neutral"}
-            className="mt-4 cursor-pointer font-medium"
-            onClick={() =>
-              posthog?.capture(PostHogEvents.NOTFOUND_HOME_CLICK, {
-                link: "notfound_home",
-              })
-            }
-          >
-            Go back to the home page <ArrowRight className="size-4" />
-          </Button>
-        </Link>
+        <Button
+          variant={"neutral"}
+          className="mt-4 cursor-pointer font-medium"
+          onClick={() => {
+            posthog?.capture(PostHogEvents.NOTFOUND_HOME_CLICK, {
+              link: "notfound_home",
+            });
+            router.push(Constants.routes.home);
+          }}
+        >
+          Go back to the home page <ArrowRight className="size-4" />
+        </Button>
       </div>
     </div>
   );
