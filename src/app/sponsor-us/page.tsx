@@ -62,8 +62,8 @@ export default function SponsorUsPage() {
                       <Image
                         src={sponsor.src}
                         alt={sponsor.alt}
-                        width={100}
-                        height={100}
+                        width={150}
+                        height={150}
                         className="rounded-lg object-contain sm:h-[150px] sm:w-[150px]"
                       />
                     </Link>

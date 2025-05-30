@@ -185,7 +185,7 @@ export const Footer = () => {
                 link: "discord",
               })
             }
-            className="rounded-sm bg-black/50 px-3 pt-2.5 pb-2 font-medium text-white"
+            className="rounded-sm bg-black/45 px-3 pt-2.5 pb-2 font-medium text-white"
           >
             Bug?
           </Link>
@@ -199,7 +199,7 @@ export const Footer = () => {
                 link: "feedbackForm",
               })
             }
-            className="rounded-sm bg-black/50 px-3 pt-2.5 pb-2 font-medium text-white"
+            className="rounded-sm bg-black/45 px-3 pt-2.5 pb-2 font-medium text-white"
           >
             Feedback
           </Link>
@@ -213,7 +213,7 @@ export const Footer = () => {
                 link: "statusPage",
               })
             }
-            className="rounded-sm bg-black/50 px-3 pt-2.5 pb-2 font-medium text-white"
+            className="rounded-sm bg-black/45 px-3 pt-2.5 pb-2 font-medium text-white"
           >
             Status
           </Link>
@@ -225,10 +225,28 @@ export const Footer = () => {
             onClick={() =>
               posthog?.capture(PostHogEvents.FOOTER_CLICK, { link: "github" })
             }
-            className="rounded-sm bg-black/50 px-3 pt-2.5 pb-2 font-medium text-white"
+            className="rounded-sm bg-black/45 px-3 pt-2.5 pb-2 font-medium text-white"
           >
             Contribute
           </Link>
+
+          <Link
+            href={Constants.socials.sponsor}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() =>
+              posthog?.capture(PostHogEvents.FOOTER_CLICK, { link: "github" })
+            }
+            className="rounded-sm bg-black/45 px-3 pt-2.5 pb-2 font-medium text-white"
+          >
+            Sponsor Us
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-3 gap-3 pt-3.5 text-xs font-medium">
+          <p className="col-span-3 -mb-2 text-left text-sm font-medium">
+            Find us on
+          </p>
 
           {Object.entries(Constants.socials)
             .filter(([platform]) => platform !== "sponsor")
@@ -243,12 +261,13 @@ export const Footer = () => {
                     link: platform,
                   })
                 }
-                className="rounded-sm bg-black/50 px-3 pt-2.5 pb-2 font-medium text-white"
+                className="rounded-sm bg-black/45 px-3 pt-2.5 pb-2 font-medium text-white"
               >
                 {platform.charAt(0).toUpperCase() + platform.slice(1)}
               </Link>
             ))}
         </div>
+
         <div className="flex flex-row items-center justify-center pt-6 text-xs">
           <div>Copyright © 2025 Pujo Atlas Kolkata.&nbsp;</div>
 
