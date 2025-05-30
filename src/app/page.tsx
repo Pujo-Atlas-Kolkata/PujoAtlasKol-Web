@@ -11,33 +11,33 @@ import { PostHogEvents } from "@/components/PostHogProvider";
 
 export default function HomePage() {
   return (
-    <main className="flex flex-col items-center justify-center pt-52 backdrop-blur-xs">
-      <div className="w-fit rounded-2xl border-gray-500">
+    <main className="flex flex-col items-center justify-center pt-32 backdrop-blur-xs lg:pt-52">
+      <div className="w-full rounded-2xl border-gray-500 lg:w-fit">
         <div className="flex flex-col gap-y-4 text-center">
-          <p className="text-9xl font-extrabold">
+          <p className="text-7xl font-extrabold lg:text-9xl">
             Pujo{" "}
-            <span className="bg-main/50 border-border/40 dark:border-border/70 relative mr-0 rounded-lg border-2 px-5 pt-5 pb-1 sm:mr-2 sm:[&_svg]:size-7 md:[&_svg]:size-[45px]">
+            <span className="bg-main/50 border-border/40 dark:border-border/70 relative mr-0 rounded-lg border-2 px-3 pt-3 pb-1 lg:mr-2 lg:[&_svg]:size-7 xl:[&_svg]:size-[45px]">
               Atlas
               <Star9
-                className="absolute -right-2.5 -bottom-2.5 hidden animate-pulse sm:block md:-right-5 md:-bottom-4"
+                className="absolute -right-2.5 -bottom-2.5 hidden animate-pulse lg:block xl:-right-5 xl:-bottom-4"
                 color="var(--main)"
                 pathClassName="stroke-5 dark:stroke-3.5 stroke-black dark:stroke-black/70"
               />
               <Star9
-                className="absolute -top-2.5 -left-2.5 hidden animate-pulse sm:block md:-top-4 md:-left-5"
+                className="absolute -top-2.5 -left-2.5 hidden animate-pulse lg:block xl:-top-4 xl:-left-5"
                 color="var(--main)"
                 pathClassName="stroke-5 dark:stroke-3.5 stroke-black dark:stroke-black/70"
               />
             </span>
           </p>
 
-          <p className="pt-10 pb-5 text-2xl leading-none font-normal">
+          <p className="px-2 pt-6 pb-3 text-lg leading-none font-normal lg:pt-10 lg:pb-5 lg:text-2xl">
             The most <span className="font-bold">advanced</span> pandal hopping
             experience in the world
             <span className="font-medium">*</span>
           </p>
 
-          <div className="flex flex-row items-center justify-center gap-x-20">
+          <div className="flex flex-col items-center justify-center gap-x-0 gap-y-8 lg:flex-row lg:gap-x-20">
             <div className="mt-4 flex flex-col items-center justify-center">
               <NumberTicker
                 direction="down"
@@ -49,12 +49,10 @@ export default function HomePage() {
                     new Date().getTime()) /
                     (1000 * 60 * 60 * 24),
                 )}
-                className="text-8xl font-bold tracking-normal whitespace-pre-wrap"
+                className="text-7xl font-bold tracking-normal whitespace-pre-wrap lg:text-8xl"
               />
-
-              <div className="text-sm">days till open beta</div>
+              <div className="text-base lg:text-xs">days till open beta</div>
             </div>
-
             <div className="mt-4 flex flex-col items-center justify-center">
               <NumberTicker
                 direction="down"
@@ -66,12 +64,10 @@ export default function HomePage() {
                     new Date().getTime()) /
                     (1000 * 60 * 60 * 24),
                 )}
-                className="text-8xl font-bold tracking-normal whitespace-pre-wrap"
+                className="text-7xl font-bold tracking-normal whitespace-pre-wrap lg:text-8xl"
               />
-
-              <div className="text-sm">days till we launch v2</div>
+              <div className="text-base lg:text-xs">days till we launch v2</div>
             </div>
-
             <div className="mt-4 flex flex-col items-center justify-center">
               <NumberTicker
                 direction="down"
@@ -83,14 +79,15 @@ export default function HomePage() {
                     new Date().getTime()) /
                     (1000 * 60 * 60 * 24),
                 )}
-                className="text-8xl font-bold tracking-normal whitespace-pre-wrap"
+                className="text-7xl font-bold tracking-normal whitespace-pre-wrap lg:text-8xl"
               />
-
-              <div className="text-sm">days till Durga Puja 2025</div>
+              <div className="text-base lg:text-xs">
+                days till Durga Puja 2025
+              </div>
             </div>
           </div>
 
-          <InteractiveHoverButton className="mx-auto mt-5 mb-8 w-fit self-center">
+          <InteractiveHoverButton className="mx-auto mt-5 mb-8 hidden w-full self-center lg:block lg:w-fit">
             <a
               href={Constants.socials.discord}
               target="_blank"
@@ -106,19 +103,20 @@ export default function HomePage() {
           </InteractiveHoverButton>
         </div>
 
-        <div className="flex w-full flex-col items-center justify-center text-center">
-          <p className="text-4xl font-bold">Backed by Amazing Sponsors</p>
-
-          <p className="pt-4 leading-tight font-normal">
+        <div className="mt-10 flex w-full flex-col items-center justify-center text-center">
+          <p className="text-2xl font-bold lg:text-4xl">
+            Backed by Amazing Sponsors
+          </p>
+          <p className="w-[85dvw] pt-2 text-sm leading-tight font-normal lg:w-full lg:pt-4 lg:text-lg">
             We&apos;re grateful to these incredible companies for supporting{" "}
-            <br />
+            <br className="hidden lg:block" />
             <span className="font-semibold">Pujo Atlas</span> and making this
             project possible.
           </p>
 
-          <div className="relative mx-auto mt-5 w-[98.75dvw]">
-            <div className="absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-white to-transparent" />
-            <div className="absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-white to-transparent" />
+          <div className="relative mt-5 w-full lg:mx-auto lg:w-[98.75dvw]">
+            <div className="absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-white to-transparent lg:w-24" />
+            <div className="absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-white to-transparent lg:w-24" />
             <Marquee
               items={Constants.sponsorsMarquee.map((item) => ({
                 ...item,
@@ -133,65 +131,65 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className="mt-10 flex flex-col items-center justify-center backdrop-blur-3xl">
-        <p className="text-3xl font-bold">Atlas v1 2024 Durga Pujo Stats</p>
-        <p className="pt-2 text-sm font-normal">
+      <div className="mt-8 flex flex-col items-center justify-center backdrop-blur-3xl lg:mt-10">
+        <p className="text-2xl font-bold lg:text-3xl">
+          Atlas v1 2024 Durga Pujo Stats
+        </p>
+        <p className="pt-1 text-base font-normal lg:pt-2 lg:text-sm">
           Measured over just 5 days
           <span className="animate-pulse">*</span>
         </p>
       </div>
 
-      <div className="mx-auto mt-6 flex w-[calc(100%-5rem)] flex-row items-center justify-between gap-4">
-        <EvervaultCard className="h-48 flex-1 rounded-2xl border-2 border-black bg-amber-300/20 shadow-[3px_3px_0_3px] backdrop-blur-3xl">
-          <div className="flex h-full w-full flex-col items-center justify-center gap-2 px-8">
+      <div className="mx-auto mt-4 flex w-full flex-col items-center justify-between gap-1 px-2 lg:mt-6 lg:w-[calc(100%-5rem)] lg:flex-row lg:gap-4 lg:px-0">
+        <EvervaultCard className="mb-4 h-64 w-full rounded-2xl border-2 border-black bg-amber-300/20 backdrop-blur-3xl lg:mb-0 lg:h-48 lg:flex-1 lg:shadow-[3px_3px_0_3px]">
+          <div className="flex h-full w-full flex-col items-center justify-center gap-2 px-4 lg:px-8">
             <div className="mb-2 flex items-center justify-center rounded-full bg-gray-100/40 p-2.5">
-              <Search className="size-8 text-black" />
+              <Search className="size-10 text-black lg:size-8" />
             </div>
-            <span className="text-3xl font-extrabold text-black">
+            <span className="text-4xl font-extrabold text-black lg:text-3xl">
               <NumberTicker
                 direction="up"
                 value={Constants.v1_stats.searches}
                 decimalPlaces={2}
                 startValue={0}
-                className="text-3xl font-extrabold tracking-normal text-black"
+                className="text-4xl font-extrabold tracking-normal text-black lg:text-3xl"
               />
               K
             </span>
             <span className="text-lg font-normal text-black">Searches</span>
           </div>
         </EvervaultCard>
-
-        <EvervaultCard className="h-48 w-full flex-1 rounded-2xl border-2 border-black bg-amber-300/20 shadow-[3px_3px_0_3px]">
-          <div className="flex h-full w-full flex-col items-center justify-center gap-2 px-8">
+        <EvervaultCard className="mb-4 h-64 w-full rounded-2xl border-2 border-black bg-amber-300/20 backdrop-blur-3xl lg:mb-0 lg:h-48 lg:flex-1 lg:shadow-[3px_3px_0_3px]">
+          <div className="flex h-full w-full flex-col items-center justify-center gap-2 px-4 lg:px-8">
             <div className="mb-2 flex items-center justify-center rounded-full bg-gray-100/40 p-2.5">
-              <Route className="size-8 text-black" />
+              <Route className="size-10 text-black lg:size-8" />
             </div>
-            <span className="text-3xl font-extrabold text-black">
+            <span className="text-4xl font-extrabold text-black lg:text-3xl">
               <NumberTicker
                 direction="up"
                 value={Constants.v1_stats.journeys}
                 decimalPlaces={2}
                 startValue={0}
-                className="text-3xl font-extrabold tracking-normal text-black"
+                className="text-4xl font-extrabold tracking-normal text-black lg:text-3xl"
               />
               K
             </span>
             <span className="text-lg font-normal text-black">Journeys</span>
           </div>
         </EvervaultCard>
-
-        <EvervaultCard className="h-48 flex-1 rounded-2xl border-2 border-black bg-amber-300/20 shadow-[3px_3px_0_3px]">
-          <div className="flex h-full w-full flex-col items-center justify-center gap-2 px-8">
+        <EvervaultCard className="mb-4 h-64 w-full rounded-2xl border-2 border-black bg-amber-300/20 backdrop-blur-3xl lg:mb-0 lg:h-48 lg:flex-1 lg:shadow-[3px_3px_0_3px]">
+          <div className="flex h-full w-full flex-col items-center justify-center gap-2 px-4 lg:px-8">
             <div className="mb-2 flex items-center justify-center rounded-full bg-gray-100/40 p-2.5">
-              <UsersRound className="size-8 text-black" />
+              <UsersRound className="size-10 text-black lg:size-8" />
             </div>
-            <span className="text-3xl font-extrabold text-black">
+            <span className="text-4xl font-extrabold text-black lg:text-3xl">
               <NumberTicker
                 direction="up"
                 value={Constants.v1_stats.visitorsPerDay}
                 decimalPlaces={1}
                 startValue={0}
-                className="text-3xl font-extrabold tracking-normal text-black"
+                className="text-4xl font-extrabold tracking-normal text-black lg:text-3xl"
               />
               K
             </span>

@@ -53,9 +53,6 @@
   --font-weight-base: var(--base-font-weight);
   --font-weight-heading: var(--heading-font-weight);
 
-  --animate-marquee: marquee 5s linear infinite;
-  --animate-marquee2: marquee2 5s linear infinite;
-
   --spacing-container: 1300px;
 
   --spacing-boxShadowX: 4px;

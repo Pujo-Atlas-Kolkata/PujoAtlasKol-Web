@@ -24,7 +24,7 @@ export default function Marquee({
       <div className="border-border text-foreground font-base relative flex w-full overflow-x-hidden border-t-2 border-b-2 bg-white/75">
         <div className="animate-marquee py-12 whitespace-nowrap">
           {items.map((item, index) => (
-            <span key={index} className="mx-8 inline-flex items-center">
+            <span key={index} className="mx-4 inline-flex items-center sm:mx-8">
               <Tooltip>
                 <TooltipTrigger asChild>
                   <a
@@ -36,7 +36,7 @@ export default function Marquee({
                     <Image
                       src={item.src}
                       alt={item.alt}
-                      className="h-12 w-36 object-contain"
+                      className="h-8 w-24 object-contain sm:h-12 sm:w-36"
                       priority={true}
                       draggable="false"
                       width={100}
@@ -52,7 +52,10 @@ export default function Marquee({
 
         <div className="animate-marquee2 absolute top-0 py-12 whitespace-nowrap">
           {items.map((item, index) => (
-            <span key={index} className="mx-8 inline-flex items-center">
+            <span
+              key={index}
+              className="mx-4 ml-64 inline-flex items-center sm:mx-8"
+            >
               <Tooltip>
                 <TooltipTrigger asChild>
                   <a
@@ -64,7 +67,7 @@ export default function Marquee({
                     <Image
                       src={item.src}
                       alt={item.alt}
-                      className="h-12 w-36 object-contain"
+                      className="h-8 w-24 object-contain sm:h-12 sm:w-36"
                       priority={true}
                       draggable="false"
                       width={100}

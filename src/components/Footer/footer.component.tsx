@@ -123,23 +123,25 @@ export const Footer = () => {
           </div>
 
           <div className="flex flex-row items-center justify-end gap-x-3">
-            {Object.entries(Constants.socials).map(([platform, url]) => (
-              <Link
-                key={platform}
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() =>
-                  posthog?.capture(PostHogEvents.FOOTER_CLICK, {
-                    link: platform,
-                  })
-                }
-              >
-                <Button className="cursor-pointer" variant={"neutral"}>
-                  {platform.charAt(0).toUpperCase() + platform.slice(1)}
-                </Button>
-              </Link>
-            ))}
+            {Object.entries(Constants.socials)
+              .filter(([platform]) => platform !== "sponsor")
+              .map(([platform, url]) => (
+                <Link
+                  key={platform}
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() =>
+                    posthog?.capture(PostHogEvents.FOOTER_CLICK, {
+                      link: platform,
+                    })
+                  }
+                >
+                  <Button className="cursor-pointer" variant={"neutral"}>
+                    {platform.charAt(0).toUpperCase() + platform.slice(1)}
+                  </Button>
+                </Link>
+              ))}
           </div>
         </div>
       </div>
