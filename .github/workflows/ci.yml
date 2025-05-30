@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  pull_request:
+    branches: ["*"]
+  merge_group:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    name: Run ESLint
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: ./.github/actions/setup
+
+      - run: pnpm lint
+
+  prettier:
+    runs-on: ubuntu-latest
+    name: Run Prettier
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: ./.github/actions/setup
+
+      - run: pnpm format:check
+
+  tsc:
+    runs-on: ubuntu-latest
+    name: Run Typechecker
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: ./.github/actions/setup
+
+      - run: pnpm typecheck
+
+  build:
+    runs-on: ubuntu-latest
+    name: Build Project
+    needs: [lint, prettier, tsc]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: ./.github/actions/setup
+
+      - run: pnpm build
