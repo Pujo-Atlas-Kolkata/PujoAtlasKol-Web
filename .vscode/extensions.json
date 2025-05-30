@@ -1,12 +1,10 @@
 {
   "recommendations": [
-    "astro-build.astro-vscode",
     "esbenp.prettier-vscode",
     "dbaeumer.vscode-eslint",
     "bradlc.vscode-tailwindcss",
     "eamodio.gitlens",
     "ms-vscode.vscode-typescript-next",
-    "csstools.postcss",
-    "dsznajder.es7-react-js-snippets"
+    "csstools.postcss"
   ]
 }
