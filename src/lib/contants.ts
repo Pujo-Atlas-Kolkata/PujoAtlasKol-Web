@@ -164,6 +164,7 @@ export const team: Record<string, MemberDetails[]> = {
       avatar:
         "https://api.dicebear.com/9.x/lorelei/svg?seed=inceptor&eyes=variant18",
       socials: {
+        website: "https://sayantan-basu.vercel.app/",
         discord: "https://discord.com/users/798395088593354762",
         linkedin: "https://www.linkedin.com/in/sayantan-basu-73ab4a92/",
         github: "https://github.com/Sbasu2512",
