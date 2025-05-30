@@ -28,10 +28,10 @@ export default function SponsorUsPage() {
             running and to make it better. If you are interested in sponsoring
             our project, please&nbsp; contact us at{" "}
             <a
-              href="mailto:sponsor@ourkolkata.in"
+              href={`mailto:${Constants.socials.sponsorMail}`}
               className="inline-flex items-center gap-x-0 font-semibold underline"
             >
-              sponsor@ourkolkata.in
+              {Constants.socials.sponsorMail}
             </a>
           </p>
 
@@ -43,28 +43,35 @@ export default function SponsorUsPage() {
           <div className="mt-1 flex max-w-[75dvw] flex-row items-center justify-start gap-x-2">
             {Constants.sponsorsMarquee.map((sponsor) => (
               <EvervaultCard
+                className="bg-main/15 flex h-[15rem] max-w-[15rem] flex-col justify-between rounded-3xl"
                 key={sponsor.alt}
-                className="bg-main/15 rounded-3xl"
               >
-                <Link
-                  href={sponsor.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() =>
-                    posthog?.capture(PostHogEvents.SPONSOR_LINK_CLICK, {
-                      sponsor: sponsor.alt,
-                      link: sponsor.link,
-                    })
-                  }
-                >
-                  <Image
-                    src={sponsor.src}
-                    alt={sponsor.alt}
-                    width={150}
-                    height={150}
-                    className="rounded-lg"
-                  />
-                </Link>
+                <div className="flex h-full flex-col items-center justify-between">
+                  <div className="mb-2 flex h-[10rem] w-full items-center justify-center">
+                    <Link
+                      href={sponsor.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() =>
+                        posthog?.capture(PostHogEvents.SPONSOR_LINK_CLICK, {
+                          sponsor: sponsor.alt,
+                          link: sponsor.link,
+                        })
+                      }
+                    >
+                      <Image
+                        src={sponsor.src}
+                        alt={sponsor.alt}
+                        width={150}
+                        height={150}
+                        className="rounded-lg object-contain"
+                      />
+                    </Link>
+                  </div>
+                  <p className="flex w-full items-center justify-center rounded-2xl bg-white/35 p-3 text-center text-sm font-semibold">
+                    {sponsor.description}
+                  </p>
+                </div>
               </EvervaultCard>
             ))}
           </div>

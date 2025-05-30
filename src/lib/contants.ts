@@ -20,6 +20,7 @@ export const Constants = {
     facebook: "https://www.facebook.com/profile.php?id=61566663481562",
     instagram: "https://www.instagram.com/pujoatlas/",
     twitter: "https://twitter.com/PujoAtlas",
+    sponsorMail: "sponsors@ourkolkata.in",
   },
   stats: {
     redditPost:
@@ -37,22 +38,31 @@ export const Constants = {
       src: "/sponsors/netlify.webp",
       alt: "Netlify",
       link: "https://www.netlify.com/",
+      description: "Deployment & Hosting",
     },
     {
       src: "/sponsors/cloudflare.svg",
       alt: "Cloudflare",
       link: "https://www.cloudflare.com/",
+      description: "CDN & Security",
     },
-    { src: "/sponsors/sentry.svg", alt: "Sentry", link: "https://sentry.io/" },
+    {
+      src: "/sponsors/sentry.svg",
+      alt: "Sentry",
+      link: "https://sentry.io/",
+      description: "Error Monitoring",
+    },
     {
       src: "/sponsors/fastly.svg",
       alt: "Fastly",
       link: "https://www.fastly.com/",
+      description: "Edge Computing",
     },
     {
       src: "/sponsors/browserStack.svg",
       alt: "BrowserStack",
       link: "https://www.browserstack.com/",
+      description: "Testing Platform",
     },
   ],
 };
