@@ -1,5 +1,3 @@
-# Pujo Atlas Site
-
 ![Hero Section](public/readmeImages/HeroSection.png)
 ![2024 Stats](public/readmeImages/2024Stats.png)
 
