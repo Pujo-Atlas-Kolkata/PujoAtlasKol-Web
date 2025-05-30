@@ -1,5 +1,7 @@
 ![Hero Section](public/readmeImages/HeroSection.png)
 ![2024 Stats](public/readmeImages/2024Stats.png)
+![About Section](public/readmeImages/AboutUs.png)
+![Sponsor Section](public/readmeImages/SponsorUs.png)
 
 ## Community
 
