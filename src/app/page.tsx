@@ -116,7 +116,9 @@ export default function HomePage() {
             project possible.
           </p>
 
-          <div className="mx-auto mt-2 w-[98dvw]">
+          <div className="relative mx-auto mt-5 w-[98.75dvw]">
+            <div className="absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-white to-transparent" />
+            <div className="absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-white to-transparent" />
             <Marquee
               items={Constants.sponsorsMarquee.map((item) => ({
                 ...item,
