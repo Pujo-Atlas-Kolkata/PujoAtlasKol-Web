@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 
 import { type Metadata } from "next";
-import { Geist } from "next/font/google";
+import { gilroy, geist } from "@/styles/fonts";
 import { AnimatedGridPattern, Footer, Navbar } from "@/components";
 import { Toaster } from "sonner";
 import { PostHogProvider } from "@/components/PostHogProvider";
@@ -12,16 +12,11 @@ export const metadata: Metadata = {
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
-const geist = Geist({
-  subsets: ["latin"],
-  variable: "--font-geist-sans",
-});
-
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${geist.variable}`}>
+    <html lang="en" className={`${gilroy.variable} ${geist.variable}`}>
       <body>
         <PostHogProvider>
           <AnimatedGridPattern className="pointer-events-none fixed inset-0 -z-10 h-full w-full" />
