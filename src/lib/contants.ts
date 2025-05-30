@@ -196,11 +196,11 @@ export const team: Record<string, MemberDetails[]> = {
     },
     {
       id: "babumosai",
-      name: "Babumosai",
+      name: "babumosai",
       avatar: "https://api.dicebear.com/9.x/lorelei/svg?seed=babumosai",
       socials: {
         discord: "https://discord.com/users/1265190463456022550",
-        github: "https://github.com/babumosai-dev",
+        github: "https://github.com/thebabumosai",
       },
       department: "DevOps",
     },
