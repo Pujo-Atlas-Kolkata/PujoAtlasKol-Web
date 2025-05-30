@@ -22,14 +22,14 @@ export default function AboutUsPage() {
   }, []);
 
   return (
-    <main className="mt-36 ml-10 flex min-h-screen flex-col backdrop-blur-xs">
+    <main className="mt-36 flex flex-col backdrop-blur-xs lg:ml-10">
       <div className="w-full rounded-2xl border-gray-500">
-        <div className="flex flex-col gap-y-2">
-          <p className="text-5xl font-bold">Meet the Team</p>
+        <div className="ml-4 flex flex-col gap-y-2">
+          <p className="text-5xl font-bold lg:text-left">Meet the Team</p>
 
           <p className="pt-1.5 pb-0.5 text-3xl font-semibold">Who are we?</p>
 
-          <p className="w-[60dvw] text-lg leading-tight font-normal">
+          <p className="w-[90dvw] text-lg leading-tight font-normal lg:w-[60dvw]">
             We are a collective of{" "}
             <span className="font-semibold">Durga Puja</span> enthusiasts
             committed to making Pandal Hopping in{" "}
@@ -62,9 +62,11 @@ export default function AboutUsPage() {
         <div className="mt-10">
           {Object.entries(team).map(([group, members]) => (
             <div key={group} className="mb-12">
-              <h2 className="mb-4 text-3xl font-bold">{group}</h2>
+              <h2 className="mb-4 text-center text-3xl font-bold lg:text-left">
+                {group}
+              </h2>
 
-              <div className="flex flex-wrap justify-start gap-4">
+              <div className="flex w-full flex-wrap justify-center gap-10 lg:justify-start lg:gap-4">
                 {members.map((member) => (
                   <div
                     id={member.name}

@@ -47,7 +47,7 @@ export const TeamCard: FC<TeamCardProps> = ({
   return (
     <EvervaultCard
       className={cn(
-        "flex h-auto w-64 items-center justify-center rounded-2xl border-2 border-black p-0 shadow-[3px_3px_0_3px] hover:bg-transparent",
+        "mx-auto flex h-auto w-[90dvw] items-center justify-center rounded-2xl border-2 border-black p-0 shadow-[3px_3px_0_3px] hover:bg-transparent lg:w-64",
         {
           "bg-purple-200/30": department === "Web",
           "bg-fuchsia-200/30": department === "Mobile",
@@ -68,21 +68,25 @@ export const TeamCard: FC<TeamCardProps> = ({
           className="fixed top-3 right-3 grid cursor-pointer place-items-center rounded-full bg-black/10 p-1 text-2xl hover:bg-white/70"
           onClick={handleCopyLink}
         >
-          <Link className="size-4" />
+          <Link className="size-6 lg:size-5" />
         </div>
 
         <Image
           priority={true}
           src={avatar}
           alt={name}
-          className="mb-2 h-20 w-20 rounded-full bg-gray-400/40 object-cover"
+          className="mb-2 h-32 w-32 rounded-full bg-gray-400/40 object-cover lg:h-20 lg:w-20"
           width={80}
           height={80}
         />
 
-        <div className="mt-2 text-xl font-bold break-words">{name}</div>
+        <div className="mt-2 text-2xl font-bold break-words lg:text-xl">
+          {name}
+        </div>
 
-        <div className="mb-6">{department}</div>
+        <div className="mt-1 mb-10 text-lg lg:mt-0 lg:mb-6 lg:text-base">
+          {department}
+        </div>
 
         <div className="flex flex-row items-center justify-center gap-4">
           {socials.website && (
@@ -99,10 +103,7 @@ export const TeamCard: FC<TeamCardProps> = ({
                 })
               }
             >
-              <RiGlobalLine
-                size={30}
-                className="grid place-items-center rounded-full bg-black/10 p-1 text-2xl hover:bg-white/70"
-              />
+              <RiGlobalLine className="grid size-10 place-items-center rounded-full bg-black/10 p-1 text-2xl hover:bg-white/70 lg:size-8" />
             </a>
           )}
 
@@ -120,10 +121,7 @@ export const TeamCard: FC<TeamCardProps> = ({
                 })
               }
             >
-              <RiDiscordFill
-                size={30}
-                className="rounded-full bg-black/10 p-1 hover:bg-white/70"
-              />
+              <RiDiscordFill className="size-10 rounded-full bg-black/10 p-1 hover:bg-white/70 lg:size-8" />
             </a>
           )}
 
@@ -141,10 +139,7 @@ export const TeamCard: FC<TeamCardProps> = ({
                 })
               }
             >
-              <RiGithubFill
-                size={30}
-                className="rounded-full bg-black/10 p-1 hover:bg-white/70"
-              />
+              <RiGithubFill className="size-10 rounded-full bg-black/10 p-1 hover:bg-white/70 lg:size-8" />
             </a>
           )}
 
@@ -162,10 +157,7 @@ export const TeamCard: FC<TeamCardProps> = ({
                 })
               }
             >
-              <RiTwitterXLine
-                size={30}
-                className="rounded-full bg-black/10 p-1 text-2xl hover:bg-white/70"
-              />
+              <RiTwitterXLine className="size-10 rounded-full bg-black/10 p-1 text-2xl hover:bg-white/70 lg:size-8" />
             </a>
           )}
 
@@ -183,10 +175,7 @@ export const TeamCard: FC<TeamCardProps> = ({
                 })
               }
             >
-              <RiLinkedinFill
-                size={30}
-                className="grid place-items-center rounded-full bg-black/10 p-1 text-2xl hover:bg-white/70"
-              />
+              <RiLinkedinFill className="grid size-10 place-items-center rounded-full bg-black/10 p-1 text-2xl hover:bg-white/70 lg:size-8" />
             </a>
           )}
         </div>
