@@ -19,7 +19,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Sponsors
 
-A special thank you to **Netlify**, **Cloudflare**, **Sentry**, **Fastly** and **BrowserStack** for sponsoring **Pujo Atlas**!
+A special thank you to **[Netlify](https://www.netlify.com/)**, **[Cloudflare](https://www.cloudflare.com/)**, **[Sentry](https://sentry.io/)**, **[Fastly](https://www.fastly.com/)** and **[BrowserStack](https://www.browserstack.com/)** for sponsoring **Pujo Atlas**!
 
 ## Support Us
 
