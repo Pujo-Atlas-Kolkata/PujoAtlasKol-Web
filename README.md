@@ -3,8 +3,6 @@
 ![Hero Section](public/readmeImages/HeroSection.png)
 ![2024 Stats](public/readmeImages/2024Stats.png)
 
-Welcome to Pujo Atlas - your ultimate guide for Pandal Hopping during Durga Puja in Kolkata! This open-source project aims to provide a comprehensive and user-friendly webapp that lists all the Durga Pujas happening around Kolkata and offers a host of features to make your pandal hopping experience seamless and enjoyable.
-
 ## Community
 
 For help, discussion about best practices, or any other conversation that would benefit **PujoAtlasKol-Web**: [Join the Pujo Atlas Discord Server](https://discord.com/invite/xxSXWYf6d4)
