@@ -24,7 +24,7 @@ export default function AboutUsPage() {
   return (
     <main className="mt-36 flex flex-col backdrop-blur-xs lg:ml-10">
       <div className="w-full rounded-2xl border-gray-500">
-        <div className="ml-4 flex flex-col gap-y-2">
+        <div className="ml-5 flex flex-col gap-y-2 lg:ml-0">
           <p className="text-5xl font-bold lg:text-left">Meet the Team</p>
 
           <p className="pt-1.5 pb-0.5 text-3xl font-semibold">Who are we?</p>

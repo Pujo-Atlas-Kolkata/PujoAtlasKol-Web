@@ -8,9 +8,11 @@ import { PostHogEvents } from "@/components/PostHogProvider";
 
 export const Navbar = () => {
   const router = useRouter();
+
   return (
     <header className="fixed inset-x-0 top-0 z-30 mx-auto w-[calc(100%-5rem)] rounded-full border-2 border-gray-500 bg-white/80 py-4 shadow backdrop-blur-xs md:top-6">
-      <div className="flex h-10 w-full flex-row items-center justify-between px-8">
+      {/* Large Screen Navbar */}
+      <div className="hidden h-10 w-full flex-row items-center justify-between px-8 lg:flex">
         <p
           className="cursor-pointer text-xl font-bold"
           onClick={() => {
@@ -61,6 +63,9 @@ export const Navbar = () => {
           </div>
         </div>
       </div>
+
+      {/* Mobile Navbar */}
+      <div className="block lg:hidden"></div>
     </header>
   );
 };
