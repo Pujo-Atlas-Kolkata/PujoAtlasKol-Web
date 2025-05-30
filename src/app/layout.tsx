@@ -7,6 +7,11 @@ import { Toaster } from "sonner";
 import { PostHogProvider } from "@/components/PostHogProvider";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NODE_ENV === "production"
+      ? "http://atlas.ourkolkata.in/"
+      : "https://deploy-preview-194.pr.pujo-atlas.ourkolkata.in/",
+  ),
   title: "Pujo Atlas - Interactive Maps and Real-Time Updates for Durga Puja",
   description:
     "Discover the best Pandals with Pujo Atlas! Real-time updates, interactive maps and emergency helplines, for the ultimate Durga Puja Porikormo experience in Kolkata.",
