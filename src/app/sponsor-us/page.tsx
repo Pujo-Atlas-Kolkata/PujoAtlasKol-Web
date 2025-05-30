@@ -1,7 +1,5 @@
 "use client";
 
-import { ArrowUpRight } from "lucide-react";
-
 import { Constants } from "@/lib";
 import Link from "next/link";
 import Image from "next/image";
@@ -28,20 +26,12 @@ export default function SponsorUsPage() {
           <p className="w-[60dvw] pt-2 text-lg leading-tight font-normal">
             We are currently looking for sponsors to help us keep the project
             running and to make it better. If you are interested in sponsoring
-            our project, please&nbsp;
+            our project, please&nbsp; contact us at{" "}
             <a
-              href={Constants.socials.discord}
+              href="mailto:sponsor@ourkolkata.in"
               className="inline-flex items-center gap-x-0 font-semibold underline"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() =>
-                posthog?.capture(PostHogEvents.SPONSOR_DISCORD_CLICK, {
-                  link: "sponsor_discord",
-                })
-              }
             >
-              contact us here in our discord server
-              <ArrowUpRight className="size-4 animate-pulse" />
+              sponsor@ourkolkata.in
             </a>
           </p>
 
