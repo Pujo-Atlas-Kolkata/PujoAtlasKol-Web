@@ -1,5 +1,8 @@
 # Pujo Atlas Site
 
+![Hero Section](public/readmeImages/HeroSection.png)
+![2024 Stats](public/readmeImages/2024Stats.png)
+
 Welcome to Pujo Atlas - your ultimate guide for Pandal Hopping during Durga Puja in Kolkata! This open-source project aims to provide a comprehensive and user-friendly webapp that lists all the Durga Pujas happening around Kolkata and offers a host of features to make your pandal hopping experience seamless and enjoyable.
 
 ## Community
@@ -19,14 +22,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Sponsors
 
 A special thank you to **Netlify**, **Cloudflare**, **Sentry**, **Fastly** and **BrowserStack** for sponsoring **Pujo Atlas**!
-
-<div>
-   <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer"><img src="https://www.netlify.com/v3/img/components/netlify-color-accent.svg" alt="Deploys by Netlify" /></a>
-   <a href="https://www.cloudflare.com" target="_blank" rel="noopener noreferrer"><img src="https://cf-assets.www.cloudflare.com/slt3lc6tev37/CHOl0sUhrumCxOXfRotGt/081f81d52274080b2d026fdf163e3009/cloudflare-icon-color_3x.png" alt="Cloudflare Badge" height="50px" width="100px" /></a>
-   <a href="https://www.sentry.io" target="_blank" rel="noopener noreferrer"><img src="https://avatars.githubusercontent.com/u/1396951?v=4" alt="Cloudflare Badge" height="50px" width="50px" /></a>
-   <a href="https://www.fastly.com" target="_blank" rel="noopener noreferrer"><img src="https://www.fastly.com/assets/images/logo-fastly-1200x630.png" alt="Fastly Badge" height="50px" width="100px" /></a>
-   <a href="https://www.browserstack.com" target="_blank" rel="noopener noreferrer"><img src="https://www.browserstack.com/images/layout/browserstack-logo-600x315.png" alt="BrowserStack Badge" height="50px" width="100px" /></a>
-</div>
 
 ## Support Us
 
