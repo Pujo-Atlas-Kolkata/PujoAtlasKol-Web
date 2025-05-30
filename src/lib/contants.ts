@@ -172,16 +172,6 @@ export const team: Record<string, MemberDetails[]> = {
       department: "Backend",
     },
     {
-      id: "Jethanand",
-      name: "Jethanand",
-      avatar: "https://api.dicebear.com/9.x/lorelei/svg?seed=Jethanand",
-      socials: {
-        discord: "https://discord.com/users/775623707011448852",
-        github: "https://github.com/pnaskardev",
-      },
-      department: "Backend",
-    },
-    {
       id: "thehappybaloney",
       name: "TheHappyBaloney",
       avatar:
@@ -306,6 +296,16 @@ export const team: Record<string, MemberDetails[]> = {
     },
   ],
   "Backend Team": [
+    {
+      id: "Jethanand",
+      name: "Jethanand",
+      avatar: "https://api.dicebear.com/9.x/lorelei/svg?seed=Jethanand",
+      socials: {
+        discord: "https://discord.com/users/775623707011448852",
+        github: "https://github.com/pnaskardev",
+      },
+      department: "Backend",
+    },
     {
       id: "akshay",
       name: "Akshay A Parmar",
