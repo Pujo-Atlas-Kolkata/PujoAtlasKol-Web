@@ -35,7 +35,7 @@ export default function RootLayout({
       <body>
         <PostHogProvider>
           <AnimatedGridPattern className="pointer-events-none fixed inset-0 -z-10 h-full w-full" />
-          <Navbar />
+          {/* <Navbar /> */}
           {children}
           <Footer />
           <Toaster

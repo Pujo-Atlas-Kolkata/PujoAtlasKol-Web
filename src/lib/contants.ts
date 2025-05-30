@@ -20,7 +20,7 @@ export const Constants = {
     facebook: "https://www.facebook.com/profile.php?id=61566663481562",
     instagram: "https://www.instagram.com/pujoatlas/",
     twitter: "https://twitter.com/PujoAtlas",
-    sponsorMail: "sponsors@ourkolkata.in",
+    sponsor: "sponsors@ourkolkata.in",
   },
   stats: {
     redditPost:
@@ -188,6 +188,7 @@ export const team: Record<string, MemberDetails[]> = {
       avatar:
         "https://api.dicebear.com/9.x/lorelei/svg?seed=baloon&glassesProbability=0",
       socials: {
+        website: "https://thehappybaloney.fyi",
         discord: "https://discord.com/users/1232913986689962078",
         github: "https://github.com/TheHappyBaloney",
         twitter: "https://x.com/TheHappyBaloney",
