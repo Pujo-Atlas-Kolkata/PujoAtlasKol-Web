@@ -1,7 +1,14 @@
 "use client";
 
 import { Constants } from "@/lib";
-import { ArrowUpRight, Menu } from "lucide-react";
+import {
+  ArrowUpRight,
+  Menu,
+  UsersRound,
+  HandCoins,
+  Github,
+} from "lucide-react";
+import { IoHomeOutline } from "react-icons/io5";
 import { useRouter, usePathname } from "next/navigation";
 import posthog from "posthog-js";
 import { PostHogEvents } from "@/components/PostHogProvider";
@@ -24,7 +31,7 @@ export const Navbar = () => {
   const [isSheetOpen, setIsSheetOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-30 mx-auto rounded-b-md border-gray-500 bg-white/40 py-3 shadow backdrop-blur-xs lg:w-[calc(100%-5rem)] lg:rounded-full lg:border-2 lg:bg-white/80 lg:py-4">
+    <header className="fixed inset-x-0 top-0 z-30 mx-auto rounded-b-md border-gray-500 bg-white/40 py-3 shadow backdrop-blur-xs lg:mt-5 lg:w-[calc(100%-5rem)] lg:rounded-full lg:border-2 lg:bg-white/80 lg:py-4">
       {/* Large Screen Navbar */}
       <div className="hidden h-10 w-full flex-row items-center justify-between px-8 lg:flex">
         <p
@@ -97,11 +104,10 @@ export const Navbar = () => {
 
           <SheetContent side="top" className="h-screen">
             <SheetHeader>
-              <SheetDescription className="flex h-[calc(100dvh-10rem)] flex-col items-center justify-center gap-y-5">
+              <SheetDescription className="mx-auto flex h-[calc(100dvh-10rem)] flex-col items-start justify-center gap-y-5">
                 <p
-                  className={cn("text-3xl", {
-                    "bg-main/30 rounded-md px-5 pt-2 pb-1":
-                      pathname === Constants.routes.home,
+                  className={cn("flex items-center gap-3 text-3xl", {
+                    hidden: pathname === Constants.routes.home,
                   })}
                   onClick={() => {
                     posthog?.capture(PostHogEvents.NAVBAR_CLICK, {
@@ -111,12 +117,12 @@ export const Navbar = () => {
                     setIsSheetOpen(false);
                   }}
                 >
-                  Home
+                  <IoHomeOutline className="mb-1 size-7" /> Home
                 </p>
 
                 <p
-                  className={cn("text-3xl", {
-                    "bg-main/30 rounded-md px-5 pt-2 pb-1":
+                  className={cn("flex items-center gap-3 text-3xl", {
+                    "bg-main/25 rounded-full px-12 pt-3 pb-2":
                       pathname === Constants.routes.aboutUs,
                   })}
                   onClick={() => {
@@ -127,12 +133,12 @@ export const Navbar = () => {
                     setIsSheetOpen(false);
                   }}
                 >
-                  About Us
+                  <UsersRound className="mb-2 size-7" /> About Us
                 </p>
 
                 <p
-                  className={cn("text-3xl", {
-                    "bg-main/30 rounded-md px-5 pt-2 pb-1":
+                  className={cn("flex items-center gap-3 text-3xl", {
+                    "bg-main/25 rounded-full px-12 pt-3 pb-2":
                       pathname === Constants.routes.sponsorUs,
                   })}
                   onClick={() => {
@@ -143,7 +149,7 @@ export const Navbar = () => {
                     setIsSheetOpen(false);
                   }}
                 >
-                  Sponsor Us
+                  <HandCoins className="mb-2 size-7" /> Sponsor Us
                 </p>
 
                 <div className="flex flex-row items-center text-3xl">
@@ -151,6 +157,7 @@ export const Navbar = () => {
                     href={Constants.socials.gitHub}
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="flex items-center gap-3"
                     onClick={() => {
                       posthog?.capture(PostHogEvents.NAVBAR_CLICK, {
                         link: "github",
@@ -158,7 +165,7 @@ export const Navbar = () => {
                       setIsSheetOpen(false);
                     }}
                   >
-                    <p>GitHub</p>
+                    <Github className="mb-1.5 size-7" /> <span>GitHub</span>
                   </a>
                   <div className="mb-1 ml-1">
                     <ArrowUpRight className="size-6" />
