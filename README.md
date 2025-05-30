@@ -1,29 +1,35 @@
-# Create T3 App
+# Pujo Atlas Site
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+Welcome to Pujo Atlas - your ultimate guide for Pandal Hopping during Durga Puja in Kolkata! This open-source project aims to provide a comprehensive and user-friendly webapp that lists all the Durga Pujas happening around Kolkata and offers a host of features to make your pandal hopping experience seamless and enjoyable.
 
-## What's next? How do I make an app with this?
+## Community
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+For help, discussion about best practices, or any other conversation that would benefit **PujoAtlasKol-Web**: [Join the Pujo Atlas Discord Server](https://discord.com/invite/xxSXWYf6d4)
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## Contributors
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+We 💖 contributors! Feel free to contribute to this project but **please read the [Contributing Guidelines](CONTRIBUTING.md) before opening an issue or PR** so you understand the branching strategy and local development environment. We also welcome you to join our [Discord](https://discord.com/invite/xxSXWYf6d4) community for either support or contributing guidance.
 
-## Learn More
+![Alt](https://repobeats.axiom.co/api/embed/093db6beff960e2f848bf55bfdb9463f82441031.svg "Repobeats analytics image")
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+## License
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+## Sponsors
 
-## How do I deploy this?
+A special thank you to **Netlify**, **Cloudflare**, **Sentry**, **Fastly** and **BrowserStack** for sponsoring **Pujo Atlas**!
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+<div>
+   <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer"><img src="https://www.netlify.com/v3/img/components/netlify-color-accent.svg" alt="Deploys by Netlify" /></a>
+   <a href="https://www.cloudflare.com" target="_blank" rel="noopener noreferrer"><img src="https://cf-assets.www.cloudflare.com/slt3lc6tev37/CHOl0sUhrumCxOXfRotGt/081f81d52274080b2d026fdf163e3009/cloudflare-icon-color_3x.png" alt="Cloudflare Badge" height="50px" width="100px" /></a>
+   <a href="https://www.sentry.io" target="_blank" rel="noopener noreferrer"><img src="https://avatars.githubusercontent.com/u/1396951?v=4" alt="Cloudflare Badge" height="50px" width="50px" /></a>
+   <a href="https://www.fastly.com" target="_blank" rel="noopener noreferrer"><img src="https://www.fastly.com/assets/images/logo-fastly-1200x630.png" alt="Fastly Badge" height="50px" width="100px" /></a>
+   <a href="https://www.browserstack.com" target="_blank" rel="noopener noreferrer"><img src="https://www.browserstack.com/images/layout/browserstack-logo-600x315.png" alt="BrowserStack Badge" height="50px" width="100px" /></a>
+</div>
+
+## Support Us
+
+Pujo Atlas is an open source project that is free to use and ad-free. We rely on the support of our users to keep the project running and to make it better. If you like what we do and want to support us, you can do so [by donating to our project](https://atlas.ourkolkata.in/support). For any doubts or queries regarding donating to Pujo Atlas, please enquire in our [Discord Server](https://discord.com/invite/xxSXWYf6d4).
+
+This project is tested with BrowserStack.
