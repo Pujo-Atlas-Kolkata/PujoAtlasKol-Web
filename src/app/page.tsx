@@ -139,7 +139,7 @@ export default function HomePage() {
         </p>
       </div>
 
-      <div className="mx-auto mt-6 flex w-[calc(100%-10rem)] flex-row items-center justify-between gap-4">
+      <div className="mx-auto mt-6 flex w-[calc(100%-5rem)] flex-row items-center justify-between gap-4">
         <EvervaultCard className="h-48 flex-1 rounded-2xl border-2 border-black bg-amber-300/20 shadow-[3px_3px_0_3px] backdrop-blur-3xl">
           <div className="flex h-full w-full flex-col items-center justify-center gap-2 px-8">
             <div className="mb-2 flex items-center justify-center rounded-full bg-gray-100/40 p-2.5">
