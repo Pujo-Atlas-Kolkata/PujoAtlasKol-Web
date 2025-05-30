@@ -10,9 +10,7 @@ export const metadata: Metadata = {
   metadataBase:
     process.env.ENVIRONMENT === "production"
       ? new URL("https://atlas.ourkolkata.in")
-      : process.env.ENVIRONMENT === "development"
-        ? new URL("https://deploy-preview-194.pr.pujo-atlas.ourkolkata.in")
-        : new URL("https://deploy-preview-194.pr.pujo-atlas.ourkolkata.in"),
+      : new URL("https://dev.pujo-atlas.ourkolkata.in"),
   title: "Pujo Atlas - Interactive Maps and Real-Time Updates for Durga Puja",
   description:
     "Discover the best Pandals with Pujo Atlas! Real-time updates, interactive maps and emergency helplines, for the ultimate Durga Puja Porikormo experience in Kolkata.",
