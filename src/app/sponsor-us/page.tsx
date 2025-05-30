@@ -11,7 +11,7 @@ export default function SponsorUsPage() {
   return (
     <main className="mt-24 mr-2 ml-2 flex flex-col backdrop-blur-xs sm:mt-36 sm:mr-0 sm:ml-10">
       <div className="w-full rounded-2xl border-gray-500">
-        <div className="flex flex-col gap-y-2">
+        <div className="flex flex-col gap-y-2 px-2 lg:px-0">
           <p className="text-3xl font-bold sm:text-5xl">Sponsor Pujo Atlas</p>
 
           <p className="w-full pt-2 text-base leading-tight font-normal sm:w-[60dvw] sm:text-lg">
