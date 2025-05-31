@@ -153,6 +153,7 @@ export const team: Record<string, MemberDetails[]> = {
       name: "Heisenberg",
       avatar: "https://api.dicebear.com/9.x/lorelei/svg?seed=heisenberg",
       socials: {
+        website: "https://iamrishi-dev.vercel.app",
         discord: "https://discord.com/users/758731279625093138",
         github: "https://github.com/Heisen47",
       },
