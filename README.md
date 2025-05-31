@@ -5,7 +5,7 @@
 
 ## Community
 
-For help, discussion about best practices, or any other conversation that would benefit **PujoAtlasKol-Web**: [Join the Pujo Atlas Discord Server](https://discord.com/invite/xxSXWYf6d4)
+For help, discussion about best practices, or any other conversation that would benefit this project, please [join our discord server.](https://discord.com/invite/xxSXWYf6d4)
 
 ## Contributors
 
