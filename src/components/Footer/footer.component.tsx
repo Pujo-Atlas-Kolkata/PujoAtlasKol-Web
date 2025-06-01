@@ -1,11 +1,11 @@
 "use client";
 
-import { Constants } from "@/lib/contants";
+import { Constants } from "@/lib";
 import { ArrowUpRight } from "lucide-react";
-import { Button } from "../ui/button";
 import Link from "next/link";
 import posthog from "posthog-js";
-import { PostHogEvents } from "@/components/PostHogProvider";
+import { PostHogEvents } from "@/Providers";
+import { Button } from "@/components";
 
 export const Footer = () => {
   return (

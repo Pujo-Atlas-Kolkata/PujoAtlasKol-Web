@@ -8,7 +8,7 @@ import {
   TooltipProvider,
 } from "@/components/ui/tooltip";
 
-export default function Marquee({
+export const Marquee = ({
   items,
 }: {
   items: {
@@ -18,7 +18,7 @@ export default function Marquee({
     description: string;
     onClick?: () => void;
   }[];
-}) {
+}) => {
   return (
     <TooltipProvider>
       <div className="border-border text-foreground font-base relative flex w-full overflow-x-hidden border-t-2 border-b-2 bg-white/75">
@@ -85,4 +85,4 @@ export default function Marquee({
       </div>
     </TooltipProvider>
   );
-}
+};

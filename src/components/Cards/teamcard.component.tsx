@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { type FC } from "react";
-import { EvervaultCard } from "./ui/evervault-card";
 import { cn } from "@/lib";
 import {
   RiDiscordFill,
@@ -14,7 +13,8 @@ import {
 import { Link } from "lucide-react";
 import { toast } from "sonner";
 import posthog from "posthog-js";
-import { PostHogEvents } from "@/components/PostHogProvider";
+import { PostHogEvents } from "@/Providers";
+import { EvervaultCard } from "@/components";
 
 export type TeamCardProps = {
   name: string;

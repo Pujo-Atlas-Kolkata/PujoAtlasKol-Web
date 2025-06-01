@@ -1,13 +1,16 @@
 "use client";
 
-import { InteractiveHoverButton, NumberTicker } from "@/components";
-import Star9 from "@/components/stars/s9";
-import Marquee from "@/components/ui/marquee";
+import {
+  EvervaultCard,
+  InteractiveHoverButton,
+  NumberTicker,
+  Marquee,
+  Star9,
+} from "@/components";
 import { Constants } from "@/lib";
 import { Route, Search, UsersRound } from "lucide-react";
-import { EvervaultCard } from "@/components/ui/evervault-card";
 import posthog from "posthog-js";
-import { PostHogEvents } from "@/components/PostHogProvider";
+import { PostHogEvents } from "@/Providers";
 
 export default function HomePage() {
   return (

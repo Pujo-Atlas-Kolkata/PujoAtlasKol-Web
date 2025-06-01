@@ -4,7 +4,7 @@ import { type Metadata } from "next";
 import { gilroy, geist } from "@/styles/fonts";
 import { AnimatedGridPattern, Footer, Navbar } from "@/components";
 import { Toaster } from "sonner";
-import { PostHogProvider } from "@/components/PostHogProvider";
+import { PostHogProvider } from "@/Providers";
 
 export const metadata: Metadata = {
   metadataBase:

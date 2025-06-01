@@ -5,7 +5,7 @@ import { Constants } from "@/lib";
 import { ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 import posthog from "posthog-js";
-import { PostHogEvents } from "@/components/PostHogProvider";
+import { PostHogEvents } from "@/Providers";
 
 export default function NotFound() {
   const router = useRouter();

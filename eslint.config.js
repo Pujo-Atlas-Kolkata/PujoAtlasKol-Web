@@ -1,5 +1,6 @@
 import { FlatCompat } from "@eslint/eslintrc";
 import tseslint from "typescript-eslint";
+import importAlias from "@limegrass/eslint-plugin-import-alias";
 
 const compat = new FlatCompat({
   baseDirectory: import.meta.dirname,
@@ -12,6 +13,9 @@ export default tseslint.config(
   ...compat.extends("next/core-web-vitals"),
   {
     files: ["**/*.ts", "**/*.tsx"],
+    plugins: {
+      "@limegrass/import-alias": importAlias,
+    },
     extends: [
       ...tseslint.configs.recommended,
       ...tseslint.configs.recommendedTypeChecked,
@@ -33,6 +37,7 @@ export default tseslint.config(
         "error",
         { checksVoidReturn: { attributes: false } },
       ],
+      "@limegrass/import-alias/import-alias": "error",
     },
   },
   {

@@ -11,7 +11,7 @@ import {
 import { IoHomeOutline } from "react-icons/io5";
 import { useRouter, usePathname } from "next/navigation";
 import posthog from "posthog-js";
-import { PostHogEvents } from "@/components/PostHogProvider";
+import { PostHogEvents } from "@/Providers";
 import {
   Sheet,
   SheetContent,
@@ -20,10 +20,10 @@ import {
   SheetFooter,
   SheetTrigger,
   SheetClose,
-} from "../ui/sheet";
-import { Button } from "../ui/button";
+  Button,
+} from "@/components";
 import { useState } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib";
 
 export const Navbar = () => {
   const router = useRouter();

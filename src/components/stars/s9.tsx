@@ -1,4 +1,4 @@
-export default function Star9({
+export const Star9 = ({
   color,
   size,
   stroke,
@@ -13,7 +13,7 @@ export default function Star9({
   stroke?: string;
   pathClassName?: string;
   strokeWidth?: number;
-}) {
+}) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -32,4 +32,4 @@ export default function Star9({
       />
     </svg>
   );
-}
+};

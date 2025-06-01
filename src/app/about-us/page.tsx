@@ -1,11 +1,11 @@
 "use client";
 
 import { Constants, team } from "@/lib";
-import TeamCard from "@/components/TeamCard";
 import { useEffect, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import posthog from "posthog-js";
-import { PostHogEvents } from "@/components/PostHogProvider";
+import { PostHogEvents } from "@/Providers";
+import { TeamCard } from "@/components";
 
 export default function AboutUsPage() {
   const [highlightedId, setHighlightedId] = useState<string | null>(null);
