@@ -4,7 +4,7 @@ import { Constants, team } from "@/lib";
 import { useEffect, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import posthog from "posthog-js";
-import { PostHogEvents } from "@/Providers";
+import { PostHogEvents } from "@/providers";
 import { TeamCard } from "@/components";
 
 export default function AboutUsPage() {

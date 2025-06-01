@@ -4,7 +4,7 @@ import { Constants } from "@/lib";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import posthog from "posthog-js";
-import { PostHogEvents } from "@/Providers";
+import { PostHogEvents } from "@/providers";
 import { Button } from "@/components";
 
 export const Footer = () => {

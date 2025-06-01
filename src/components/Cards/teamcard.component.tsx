@@ -13,7 +13,7 @@ import {
 import { Link } from "lucide-react";
 import { toast } from "sonner";
 import posthog from "posthog-js";
-import { PostHogEvents } from "@/Providers";
+import { PostHogEvents } from "@/providers";
 import { EvervaultCard } from "@/components";
 
 export type TeamCardProps = {

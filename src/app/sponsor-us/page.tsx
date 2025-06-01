@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { EvervaultCard } from "@/components";
 import posthog from "posthog-js";
-import { PostHogEvents } from "@/Providers";
+import { PostHogEvents } from "@/providers";
 
 export default function SponsorUsPage() {
   return (

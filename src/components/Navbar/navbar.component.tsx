@@ -11,7 +11,7 @@ import {
 import { IoHomeOutline } from "react-icons/io5";
 import { useRouter, usePathname } from "next/navigation";
 import posthog from "posthog-js";
-import { PostHogEvents } from "@/Providers";
+import { PostHogEvents } from "@/providers";
 import {
   Sheet,
   SheetContent,

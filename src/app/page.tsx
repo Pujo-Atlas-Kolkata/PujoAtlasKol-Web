@@ -10,7 +10,7 @@ import {
 import { Constants } from "@/lib";
 import { Route, Search, UsersRound } from "lucide-react";
 import posthog from "posthog-js";
-import { PostHogEvents } from "@/Providers";
+import { PostHogEvents } from "@/providers";
 
 export default function HomePage() {
   return (

@@ -1,1 +1,1 @@
-export * from "@/Providers/PostHogProvider";
+export * from "@/providers/PostHogProvider";
