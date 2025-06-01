@@ -44,12 +44,12 @@ export const Navbar = () => {
           Pujo Atlas
         </p>
 
-        <div className="flex flex-row items-center gap-4 text-lg font-medium">
+        <div className="flex flex-row items-center gap-4 text-lg font-semibold">
           <p
             className={cn(
               "hover:bg-main cursor-pointer rounded-full border-2 border-transparent px-5 pt-2 pb-1 hover:border-2 hover:border-black",
               {
-                "bg-background hover:bg-background border-2 border-black":
+                "border-2 border-black bg-gradient-to-r from-amber-300/30 to-orange-300/30 hover:bg-transparent":
                   pathname === Constants.routes.aboutUs,
               },
             )}
@@ -65,7 +65,7 @@ export const Navbar = () => {
             className={cn(
               "hover:bg-main cursor-pointer rounded-full border-2 border-transparent px-5 pt-2 pb-1 hover:border-2 hover:border-black",
               {
-                "bg-background hover:bg-background border-2 border-black":
+                "border-2 border-black bg-gradient-to-r from-amber-300/30 to-orange-300/30 hover:bg-transparent":
                   pathname === Constants.routes.sponsorUs,
               },
             )}
