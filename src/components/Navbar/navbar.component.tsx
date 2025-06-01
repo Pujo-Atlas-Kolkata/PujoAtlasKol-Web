@@ -46,7 +46,13 @@ export const Navbar = () => {
 
         <div className="flex flex-row items-center gap-4 text-lg font-medium">
           <p
-            className="hover:bg-main cursor-pointer rounded-full border-2 border-transparent px-5 pt-2 pb-1 hover:border-black"
+            className={cn(
+              "hover:bg-main cursor-pointer rounded-full border-2 border-transparent px-5 pt-2 pb-1 hover:border-2 hover:border-black",
+              {
+                "bg-background hover:bg-background border-2 border-black":
+                  pathname === Constants.routes.aboutUs,
+              },
+            )}
             onClick={() => {
               posthog?.capture(PostHogEvents.NAVBAR_CLICK, { link: "aboutUs" });
               router.push(Constants.routes.aboutUs);
@@ -56,7 +62,13 @@ export const Navbar = () => {
           </p>
 
           <p
-            className="hover:bg-main cursor-pointer rounded-full border-2 border-transparent px-5 pt-2 pb-1 hover:border-black"
+            className={cn(
+              "hover:bg-main cursor-pointer rounded-full border-2 border-transparent px-5 pt-2 pb-1 hover:border-2 hover:border-black",
+              {
+                "bg-background hover:bg-background border-2 border-black":
+                  pathname === Constants.routes.sponsorUs,
+              },
+            )}
             onClick={() => {
               posthog?.capture(PostHogEvents.NAVBAR_CLICK, {
                 link: "sponsorUs",
