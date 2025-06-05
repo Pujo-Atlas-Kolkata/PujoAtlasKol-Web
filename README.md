@@ -1,4 +1,5 @@
 ![Hero Section](public/readmeImages/HeroSection.png)
+
 <!-- ![2024 Stats](public/readmeImages/2024Stats.png)
 ![About Section](public/readmeImages/AboutUs.png)
 ![Sponsor Section](public/readmeImages/SponsorUs.png) -->
@@ -19,7 +20,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Sponsors
 
-A special thank you to **[Netlify](https://www.netlify.com/)**, **[Cloudflare](https://www.cloudflare.com/)**, **[Sentry](https://sentry.io/)**, **[Fastly](https://www.fastly.com/)** and **[BrowserStack](https://www.browserstack.com/)** for sponsoring **Pujo Atlas**!
+A special thank you to **[Netlify](https://www.netlify.com/)**, **[Cloudflare](https://www.cloudflare.com/)**, **[Sentry](https://sentry.io/)**, **[Fastly](https://www.fastly.com/)**, **[BrowserStack](https://www.browserstack.com/)** and **[PostHog](https://posthog.com/)** for sponsoring **Pujo Atlas**!
 
 ## Support Us
 

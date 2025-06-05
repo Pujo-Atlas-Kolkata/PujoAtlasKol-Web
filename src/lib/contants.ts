@@ -64,6 +64,12 @@ export const Constants = {
       link: "https://www.browserstack.com/",
       description: "Testing Platform",
     },
+    {
+      src: "/sponsors/posthog.svg",
+      alt: "PostHog",
+      link: "https://posthog.com/",
+      description: "Analytics",
+    },
   ],
 };
 

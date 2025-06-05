@@ -40,7 +40,7 @@ export default function SponsorUsPage() {
             <span className="font-semibold">Pujo Atlas</span> is here to stay.
           </p>
 
-          <div className="mt-1 flex max-w-full flex-row flex-wrap items-center justify-start gap-2 sm:max-w-[75dvw] sm:flex-nowrap sm:gap-x-2">
+          <div className="mt-1 flex max-w-full flex-row flex-wrap items-center justify-start gap-2 sm:max-w-[70dvw] sm:gap-x-2">
             {Constants.sponsorsMarquee.map((sponsor) => (
               <EvervaultCard
                 className="bg-main/15 flex h-[12rem] w-full max-w-full flex-col justify-between rounded-3xl border-1 border-black/30 sm:h-[15rem] sm:max-w-[15rem] lg:border-none"

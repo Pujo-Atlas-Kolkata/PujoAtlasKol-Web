@@ -54,7 +54,7 @@ export const Marquee = ({
           {items.map((item, index) => (
             <span
               key={index}
-              className="mx-4 ml-64 inline-flex items-center sm:mx-8"
+              className="mx-4 ml-96 inline-flex items-center sm:mx-8"
             >
               <Tooltip>
                 <TooltipTrigger asChild>
