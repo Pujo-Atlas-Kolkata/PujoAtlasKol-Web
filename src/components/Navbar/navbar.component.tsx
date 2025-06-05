@@ -1,6 +1,6 @@
 "use client";
 
-import { Constants } from "@/lib";
+import { cn, Constants } from "@/lib";
 import {
   ArrowUpRight,
   Menu,
@@ -23,7 +23,6 @@ import {
   Button,
 } from "@/components";
 import { useState } from "react";
-import { cn } from "@/lib";
 
 export const Navbar = () => {
   const router = useRouter();
