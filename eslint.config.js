@@ -1,55 +1,53 @@
-import globals from 'globals';
-import pluginJs from '@eslint/js';
-import tseslint from 'typescript-eslint';
-import eslintPluginReact from 'eslint-plugin-react';
-import eslintPluginReactHooks from 'eslint-plugin-react-hooks';
-import { fixupPluginRules } from '@eslint/compat';
-import eslintPluginAstro from 'eslint-plugin-astro';
+import { FlatCompat } from "@eslint/eslintrc";
+import tseslint from "typescript-eslint";
+import importAlias from "@limegrass/eslint-plugin-import-alias";
 
-export default [
+const compat = new FlatCompat({
+  baseDirectory: import.meta.dirname,
+});
+
+export default tseslint.config(
   {
-    ignores: ['node_modules', 'dist', '.astro'],
+    ignores: [".next"],
   },
-  { languageOptions: { globals: globals.browser } },
-  pluginJs.configs.recommended,
-  ...tseslint.configs.recommended,
-  eslintPluginReact.configs.flat.recommended,
-  ...eslintPluginAstro.configs.recommended,
+  ...compat.extends("next/core-web-vitals"),
   {
+    files: ["**/*.ts", "**/*.tsx"],
     plugins: {
-      'react-hooks': fixupPluginRules(eslintPluginReactHooks),
+      "@limegrass/import-alias": importAlias,
     },
+    extends: [
+      ...tseslint.configs.recommended,
+      ...tseslint.configs.recommendedTypeChecked,
+      ...tseslint.configs.stylisticTypeChecked,
+    ],
     rules: {
-      ...eslintPluginReactHooks.configs.recommended.rules,
-    },
-  },
-  {
-    rules: {
-      'react/jsx-uses-react': 'off',
-      'react/react-in-jsx-scope': 'off',
-      'no-restricted-imports': [
-        'error',
-        {
-          paths: [
-            {
-              name: 'react',
-              importNames: ['default'],
-              message:
-                'You do not need to import React namespace, use destructured imports instead',
-            },
-          ],
-        },
+      "@typescript-eslint/array-type": "off",
+      "@typescript-eslint/consistent-type-definitions": "off",
+      "@typescript-eslint/consistent-type-imports": [
+        "warn",
+        { prefer: "type-imports", fixStyle: "inline-type-imports" },
       ],
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        { argsIgnorePattern: "^_" },
+      ],
+      "@typescript-eslint/require-await": "off",
+      "@typescript-eslint/no-misused-promises": [
+        "error",
+        { checksVoidReturn: { attributes: false } },
+      ],
+      "@limegrass/import-alias/import-alias": "error",
     },
   },
   {
-    files: ['**/*.astro'],
-    rules: {
-      'react/jsx-key': 'off',
-      'react/no-unknown-property': 'off',
-      // override/add rules settings here, such as:
-
-      'astro/no-set-html-directive': 'error',
+    linterOptions: {
+      reportUnusedDisableDirectives: true,
+    },
+    languageOptions: {
+      parserOptions: {
+        projectService: true,
+      },
     },
   },
-];
+);

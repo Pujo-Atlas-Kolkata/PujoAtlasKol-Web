@@ -6,87 +6,113 @@ When contributing to `PujoAtlasKol-Web`, whether on GitHub or in other community
 - Before opening a new pull request, try searching through the [issue tracker](https://github.com/Pujo-Atlas-Kolkata/PujoAtlasKol-Web/issues) for known issues or fixes.
 - If you want to make code changes based on your personal opinion(s), make sure you open an issue first describing the changes you want to make, and open a pull request only when your suggestions get approved by maintainers.
 
+---
+
+## Project Structure & Stack
+
+- **Framework:** Next.js (App Router, TypeScript)
+- **Styling:** Tailwind CSS, Shadcn UI
+- **Analytics:** PostHog
+- **Error Tracking:** Sentry
+- **CI/CD:** GitHub Actions (see `.github/workflows/ci.yml`)
+- **Package Manager:** pnpm (use `pnpm install`, not npm/yarn)
+
+---
+
 ## How to Contribute
 
 ### Prerequisites
 
-In order to not waste your time implementing a change that has already been declined, or is generally not needed, start by [opening an issue](https://github.com/Pujo-Atlas-Kolkata/PujoAtlasKol-Web/issues/new) describing the problem you would like to solve.
+To avoid spending time on changes that may not be needed, [open an issue](https://github.com/Pujo-Atlas-Kolkata/PujoAtlasKol-Web/issues/new) describing the problem you would like to solve before starting work.
 
 ### Recommended VSCode Extensions
 
 To ensure a consistent development environment and code quality, please install the following VSCode extensions before contributing:
 
-1. **[Astro VSCode Extension](https://marketplace.visualstudio.com/items?itemName=astro-build.astro-vscode)**: Provides support for Astro framework with syntax highlighting, snippets, and more.
-2. **[Prettier - Code Formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)**: Automatically formats your code according to our project's style guide.
-3. **[ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)**: Lints JavaScript/TypeScript code to catch common errors and enforce coding standards.
-4. **[Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)**: Offers utilities for working with Tailwind CSS, including autocompletion and linting.
-5. **[GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)**: Enhances Git capabilities within VSCode with advanced visualization tools and features.
-6. **[TypeScript Next](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-next)**: Provides access to the latest TypeScript features and updates.
-7. **[PostCSS Language Support](https://marketplace.visualstudio.com/items?itemName=csstools.postcss)**: Adds syntax highlighting and linting for PostCSS files.
-8. **[ES7+ React/Redux/React-Native snippets](https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets)**: A collection of useful snippets for React and Redux development.
+1. **[Prettier - Code Formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)**
+2. **[ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)**
+3. **[Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)**
+4. **[GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)**
+5. **[TypeScript Next](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-next)**
+6. **[PostCSS Language Support](https://marketplace.visualstudio.com/items?itemName=csstools.postcss)**
 
-### Setup your environment locally
+---
 
-_Some commands will assume you have the Github CLI installed, if you haven't, consider [installing it](https://github.com/cli/cli#installation), but you can always use the Web UI if you prefer that instead._
+## Development Workflow
 
-In order to contribute to this project, you will need to fork the repository:
+1. **Install dependencies:**
 
-```bash
-gh repo fork Pujo-Atlas-Kolkata/PujoAtlasKol-Web
-```
+   ```bash
+   pnpm install
+   ```
 
-then, clone it to your local machine:
+2. **Start development server:**
 
-```bash
-gh repo clone <your-github-name>/PujoAtlasKol-Web
-```
+   ```bash
+   pnpm dev
+   ```
 
-This project uses [npm](https://www.npmjs.com/) as its package manager. Install it if you haven't already.
+3. **Run checks before pushing:**
+   ```bash
+   pnpm lint
+   pnpm format:check
+   pnpm typecheck
+   pnpm build
+   ```
 
-Then, install the Project's Dependencies:
+---
 
-```bash
-npm install
-```
+## Code Quality & Commits
 
-Setup your Husky Environment:
+- **Linting:** ESLint is enforced in CI.
+- **Formatting:** Prettier is enforced in CI.
+- **Type Safety:** TypeScript errors will block PRs.
+- **UI/UX:** Every component mush be mobile responsive unless stated otherwise.
+- **Commit Messages:** Use [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
-```bash
-npm run prepare
-```
+---
 
-Start the Local Developement Server:
+## Feature Flags & Custom Properties
 
-```bash
-npm run dev
-```
+- Store all feature flag and custom property names in a single enum (TypeScript) or const object (JavaScript).
+- Never hardcode API keys or sensitive values—use environment variables (see `.env.example`).
+- If a feature flag or custom property is referenced in multiple places, use a shared enum/const object to avoid duplication and ensure consistency.
 
-### Implement your changes
+---
 
-Now you're all setup and can start implementing your changes. Here are some useful scripts for when you are developing:
+## Component & File Organization
 
-| Command                | Description                                      |
-| ---------------------- | ------------------------------------------------ |
-| `npm run dev`          | Starts the development server for the site       |
-| `npm run build`        | Builds the Astro project                         |
-| `npm run format`       | Formats the code                                 |
-| `npm run format:check` | Checks formatting of the code                    |
-| `npm run lint`         | Checks Lint issues                               |
-| `npm run lint:fix`     | Lints the code and fixes any errors              |
-| `npm run prepare`      | Setup the Husky environment for pre-commit hooks |
+- Place reusable UI in `src/components/ui/`.
+- Use `src/constants/` for enums, config, and shared values.
+- Utilities go in `src/lib/`.
+- Static assets in `public/`.
 
-When making commits, make sure to follow the [conventional commit](https://www.conventionalcommits.org/en/v1.0.0/) guidelines, i.e. prepending the message with `feat:`, `fix:`, `chore:`, `docs:`. You can use `git status` to double check which files have not yet been staged for commit:
+---
 
-```bash
-git add <file> && git commit -m "feat/fix/chore/docs: commit message"
-```
+## Testing & Manual QA
 
-Please keep in mind that you will not be able to push commits if you're not following the [conventional commit](https://www.conventionalcommits.org/en/v1.0.0/) guidelines or Lint check is failing.
+- Manual functional testing is required before submitting a PR.
+- Automated tests are not present, but CI will enforce build, lint, and typecheck.
 
-### When you're done
+---
 
-When you're done implementing your changes, please also make a manual, functional test of your changes. When all that's done, it's time to file a pull request to upstream, and fill out the title and body appropriately. Again, make sure to follow the [conventional commit](https://www.conventionalcommits.org/en/v1.0.0/) guidelines for your title.
+## Pull Requests
 
-### Community
+- PR must be created from `dev` branch and PR should be raised against the `dev` branch unless stated otherwise
+- Use the provided PR template.
+- Fill out all sections, including testing steps and screenshots if UI is affected.
+- All PRs must pass CI (lint, format, typecheck, build) before merge.
+- Manual testing is required before submitting.
+
+---
+
+## Community
 
 For help, discussion about best practices, or any other conversation that would benefit this project: [Join the Pujo Atlas Discord Server.](https://discord.com/invite/xxSXWYf6d4)
+
+---
+
+## Etiquette
+
+- Be respectful, civil, and open-minded.
+- Follow the [Code of Conduct](CODE_OF_CONDUCT.md).

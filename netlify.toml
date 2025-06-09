@@ -1,59 +1,16 @@
 [[plugins]]
-  package = "@netlify/plugin-lighthouse"
+package = "@netlify/plugin-lighthouse"
 
-  # optional, deploy the lighthouse report to a path under your site
-  [plugins.inputs.audits]
-    output_path = "reports/lighthouse.html"
+[[redirects]]
+from = "/ingest/static/*"
+to = "https://us-assets.i.posthog.com/static/:splat"
+host = "us-assets.i.posthog.com"
+status = 200
+force = true
 
-[[headers]]
-  for = "/idols/*"
-    [headers.values]
-      cache-control = '''
-      max-age=365000000,
-      public,
-      immutable'''
-[[headers]]
-  for = "/_astro/icon.Db3K-ucu_Z2tceI0.webp"
-    [headers.values]
-      cache-control = '''
-      max-age=365000000,
-      public,
-      immutable'''
-[[headers]]
-  for = "/_astro/work-sans-latin-wght-normal.CkJCGd27.woff2"
-    [headers.values]
-      cache-control = '''
-      max-age=365000000,
-      public,
-      immutable'''
-[[headers]]
-  for = "/_astro/inter-latin-wght-normal.C2S99t-D.woff2"
-    [headers.values]
-      cache-control = '''
-      max-age=365000000,
-      public,
-      immutable'''
-[[headers]]
-  for = "/_astro/alkatra-latin-wght-normal.BjYTiUgM.woff2"
-    [headers.values]
-      cache-control = '''
-      max-age=365000000,
-      public,
-      immutable'''
-[[headers]]
-  for = "/_astro/noto-sans-bengali-latin-wght-normal.fcB03Oxl.woff2"
-    [headers.values]
-      cache-control = '''
-      max-age=365000000,
-      public,
-      immutable'''
 [[redirects]]
-  from = "https://ourkolkata.in"
-  to = "https://atlas.ourkolkata.in"
-  status = 200
-  force = true
-[[redirects]]
-  from = "https://pujoatlas.netlify.app"
-  to = "https://atlas.ourkolkata.in"
-  status = 200
-  force = true
+from = "/ingest/*"
+to = "https://us.i.posthog.com/:splat"
+host = "us.i.posthog.com"
+status = 200
+force = true
