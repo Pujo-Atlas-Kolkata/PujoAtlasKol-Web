@@ -67,6 +67,7 @@ To ensure a consistent development environment and code quality, please install 
 - **Linting:** ESLint is enforced in CI.
 - **Formatting:** Prettier is enforced in CI.
 - **Type Safety:** TypeScript errors will block PRs.
+- **UI/UX:** Every component mush be mobile responsive unless stated otherwise.
 - **Commit Messages:** Use [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
 ---
@@ -97,6 +98,7 @@ To ensure a consistent development environment and code quality, please install 
 
 ## Pull Requests
 
+- PR must be created from `dev` branch and PR should be raised against the `dev` branch unless stated otherwise
 - Use the provided PR template.
 - Fill out all sections, including testing steps and screenshots if UI is affected.
 - All PRs must pass CI (lint, format, typecheck, build) before merge.
