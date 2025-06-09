@@ -1,4 +1,8 @@
 export const Constants = {
+  urls: {
+    prod: "https://atlas.ourkolkata.in",
+    dev: "https://dev.pujo-atlas.ourkolkata.in",
+  },
   routes: {
     home: "/",
     aboutUs: "/about-us",

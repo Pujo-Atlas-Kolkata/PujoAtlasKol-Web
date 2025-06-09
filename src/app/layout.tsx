@@ -5,12 +5,13 @@ import { gilroy, geist } from "@/styles/fonts";
 import { AnimatedGridPattern, Footer, Navbar } from "@/components";
 import { Toaster } from "sonner";
 import { PostHogProvider } from "@/providers";
+import { Constants } from "@/lib";
 
 export const metadata: Metadata = {
   metadataBase:
     process.env.ENVIRONMENT === "production"
-      ? new URL("https://atlas.ourkolkata.in")
-      : new URL("https://dev.pujo-atlas.ourkolkata.in"),
+      ? new URL(Constants.urls.prod)
+      : new URL(Constants.urls.dev),
   title: "Pujo Atlas - Interactive Maps and Real-Time Updates for Durga Puja",
   description:
     "Discover the best Pandals with Pujo Atlas! Real-time updates, interactive maps and emergency helplines, for the ultimate Durga Puja Porikormo experience in Kolkata.",
