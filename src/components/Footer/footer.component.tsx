@@ -233,11 +233,11 @@ export const Footer = () => {
           </Link>
 
           <Link
-            href={Constants.socials.sponsor}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={Constants.routes.sponsorUs}
             onClick={() =>
-              posthog?.capture(PostHogEvents.FOOTER_CLICK, { link: "github" })
+              posthog?.capture(PostHogEvents.FOOTER_CLICK, {
+                link: "sponsor-us",
+              })
             }
             className="rounded-sm bg-black/45 px-3 pt-2.5 pb-2 font-medium text-white"
           >
