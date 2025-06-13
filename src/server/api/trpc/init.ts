@@ -17,7 +17,6 @@ const t = initTRPC.create({
   /**
    * @see https://trpc.io/docs/server/data-transformers
    */
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   transformer: superjson,
 });
 // Base router and procedure helpers
