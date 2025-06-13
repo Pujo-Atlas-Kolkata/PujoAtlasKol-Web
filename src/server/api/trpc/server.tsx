@@ -3,7 +3,7 @@ import { createHydrationHelpers } from "@trpc/react-query/rsc";
 import { cache } from "react";
 import { createCallerFactory, createTRPCContext } from "@/server/api/trpc/init";
 import { makeQueryClient } from "@/server/api/trpc/query-client";
-import { appRouter } from "@/server/api/trpc/routers/_app";
+import { appRouter } from "@/server/api/trpc/routers";
 
 // IMPORTANT: Create a stable getter for the query client that
 //            will return the same client during the same request.
