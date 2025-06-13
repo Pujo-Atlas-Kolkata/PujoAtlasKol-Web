@@ -23,9 +23,24 @@ importers:
       '@t3-oss/env-nextjs':
         specifier: ^0.12.0
         version: 0.12.0(typescript@5.8.3)(zod@3.25.28)
+      '@tanstack/react-query':
+        specifier: ^5.80.7
+        version: 5.80.7(react@19.1.0)
+      '@trpc/client':
+        specifier: ^11.4.1
+        version: 11.4.1(@trpc/server@11.4.1(typescript@5.8.3))(typescript@5.8.3)
+      '@trpc/react-query':
+        specifier: ^11.4.1
+        version: 11.4.1(@tanstack/react-query@5.80.7(react@19.1.0))(@trpc/client@11.4.1(@trpc/server@11.4.1(typescript@5.8.3))(typescript@5.8.3))(@trpc/server@11.4.1(typescript@5.8.3))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.8.3)
+      '@trpc/server':
+        specifier: ^11.4.1
+        version: 11.4.1(typescript@5.8.3)
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
+      client-only:
+        specifier: ^0.0.1
+        version: 0.0.1
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -53,14 +68,20 @@ importers:
       react-icons:
         specifier: ^5.5.0
         version: 5.5.0(react@19.1.0)
+      server-only:
+        specifier: ^0.0.1
+        version: 0.0.1
       sonner:
         specifier: ^2.0.3
         version: 2.0.3(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      superjson:
+        specifier: 1.1.0
+        version: 1.1.0
       tailwind-merge:
         specifier: ^3.3.0
         version: 3.3.0
       zod:
-        specifier: ^3.24.2
+        specifier: ^3.25.28
         version: 3.25.28
     devDependencies:
       '@eslint/eslintrc':
@@ -1275,6 +1296,35 @@ packages:
 
   '@tailwindcss/postcss@4.1.7':
     resolution: {integrity: sha512-88g3qmNZn7jDgrrcp3ZXEQfp9CVox7xjP1HN2TFKI03CltPVd/c61ydn5qJJL8FYunn0OqBaW5HNUga0kmPVvw==}
+
+  '@tanstack/query-core@5.80.7':
+    resolution: {integrity: sha512-s09l5zeUKC8q7DCCCIkVSns8zZrK4ZDT6ryEjxNBFi68G4z2EBobBS7rdOY3r6W1WbUDpc1fe5oY+YO/+2UVUg==}
+
+  '@tanstack/react-query@5.80.7':
+    resolution: {integrity: sha512-u2F0VK6+anItoEvB3+rfvTO9GEh2vb00Je05OwlUe/A0lkJBgW1HckiY3f9YZa+jx6IOe4dHPh10dyp9aY3iRQ==}
+    peerDependencies:
+      react: ^18 || ^19
+
+  '@trpc/client@11.4.1':
+    resolution: {integrity: sha512-h28HKqxOBu35Q3f7h2chOjkQnwmIFdZDqG6NxovPaxEGcUmQWdo63mthlPSiMThXpy9J1AUA8q4uZZ4a5d1JVA==}
+    peerDependencies:
+      '@trpc/server': 11.4.1
+      typescript: '>=5.7.2'
+
+  '@trpc/react-query@11.4.1':
+    resolution: {integrity: sha512-DpwmD9EkFX+dcpY0wH0T8MsNLERs8r1EJ4yyZy7o3v/g3DgcrfxGOeM3CNChEgSX2CcjBJsmhpQPz4spoy9wGA==}
+    peerDependencies:
+      '@tanstack/react-query': ^5.80.3
+      '@trpc/client': 11.4.1
+      '@trpc/server': 11.4.1
+      react: '>=18.2.0'
+      react-dom: '>=18.2.0'
+      typescript: '>=5.7.2'
+
+  '@trpc/server@11.4.1':
+    resolution: {integrity: sha512-2C7VWfOzjZUoQpQEhBTNNbyzPW429ielchJdUGPhaczWhlHH4+9M7KLIZDkxmBdx/DkDwPxdA2OX5No3TfmJkQ==}
+    peerDependencies:
+      typescript: '>=5.7.2'
 
   '@tybys/wasm-util@0.9.0':
     resolution: {integrity: sha512-6+7nlbMVX/PVDCwaIQ8nTOPveOcFLSt8GcXdx8hD0bt39uWxYT88uXzqTd4fTvqta7oeUJqudepapKNt2DYJFw==}
@@ -2986,6 +3036,9 @@ packages:
   serialize-javascript@6.0.2:
     resolution: {integrity: sha512-Saa1xPByTTq2gdeFZYLLo+RFE35NHZkAbqZeWNd3BpzppeVisAqpDjcp8dyf6uIvEqJRd46jemmyA4iFIeVk8g==}
 
+  server-only@0.0.1:
+    resolution: {integrity: sha512-qepMx2JxAa5jjfzxG79yPPq+8BuFToHd1hm7kI+Z4zAq1ftQiP7HcxMhDDItrbtwVeLg/cY2JnKnrcFkmiswNA==}
+
   set-function-length@1.2.2:
     resolution: {integrity: sha512-pgRc4hJ4/sNjWCSS9AmnS40x3bNMDTknHgL5UaMBTMyJnU90EgWh1Rz+MC9eFu4BuN/UwZjKQuY/1v3rM7HMfg==}
     engines: {node: '>= 0.4'}
@@ -3107,6 +3160,10 @@ packages:
         optional: true
       babel-plugin-macros:
         optional: true
+
+  superjson@1.1.0:
+    resolution: {integrity: sha512-LRbCPnR3c8rwkT3s4oSRekVXGOkfzCfTZqqLiGKadZWeO5F+xpYbgwmotgQfvT5sH/7GDkgx7aJbWHKV9XoR9w==}
+    engines: {node: '>=10'}
 
   supports-color@7.2.0:
     resolution: {integrity: sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==}
@@ -4523,6 +4580,31 @@ snapshots:
       '@tailwindcss/oxide': 4.1.7
       postcss: 8.5.3
       tailwindcss: 4.1.7
+
+  '@tanstack/query-core@5.80.7': {}
+
+  '@tanstack/react-query@5.80.7(react@19.1.0)':
+    dependencies:
+      '@tanstack/query-core': 5.80.7
+      react: 19.1.0
+
+  '@trpc/client@11.4.1(@trpc/server@11.4.1(typescript@5.8.3))(typescript@5.8.3)':
+    dependencies:
+      '@trpc/server': 11.4.1(typescript@5.8.3)
+      typescript: 5.8.3
+
+  '@trpc/react-query@11.4.1(@tanstack/react-query@5.80.7(react@19.1.0))(@trpc/client@11.4.1(@trpc/server@11.4.1(typescript@5.8.3))(typescript@5.8.3))(@trpc/server@11.4.1(typescript@5.8.3))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(typescript@5.8.3)':
+    dependencies:
+      '@tanstack/react-query': 5.80.7(react@19.1.0)
+      '@trpc/client': 11.4.1(@trpc/server@11.4.1(typescript@5.8.3))(typescript@5.8.3)
+      '@trpc/server': 11.4.1(typescript@5.8.3)
+      react: 19.1.0
+      react-dom: 19.1.0(react@19.1.0)
+      typescript: 5.8.3
+
+  '@trpc/server@11.4.1(typescript@5.8.3)':
+    dependencies:
+      typescript: 5.8.3
 
   '@tybys/wasm-util@0.9.0':
     dependencies:
@@ -6364,6 +6446,8 @@ snapshots:
     dependencies:
       randombytes: 2.1.0
 
+  server-only@0.0.1: {}
+
   set-function-length@1.2.2:
     dependencies:
       define-data-property: 1.1.4
@@ -6540,6 +6624,8 @@ snapshots:
       react: 19.1.0
     optionalDependencies:
       '@babel/core': 7.27.3
+
+  superjson@1.1.0: {}
 
   supports-color@7.2.0:
     dependencies:

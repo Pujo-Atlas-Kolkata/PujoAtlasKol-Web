@@ -11,8 +11,12 @@ import { Constants } from "@/lib";
 import { Route, Search, UsersRound } from "lucide-react";
 import posthog from "posthog-js";
 import { PostHogEvents } from "@/providers";
+import { trpc } from "@/server/api";
 
 export default function HomePage() {
+  const greeting = trpc.hello.useQuery({ text: "world" });
+  console.log(greeting);
+
   return (
     <main className="flex flex-col items-center justify-center pt-32 backdrop-blur-xs lg:pt-52">
       <div className="w-full rounded-2xl border-gray-500 lg:w-fit">
