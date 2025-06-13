@@ -6,6 +6,7 @@ import { AnimatedGridPattern, Footer, Navbar } from "@/components";
 import { Toaster } from "sonner";
 import { PostHogProvider } from "@/providers";
 import { Constants } from "@/lib";
+import { TRPCProvider } from "@/server/api";
 
 export const metadata: Metadata = {
   metadataBase:
@@ -34,25 +35,27 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${gilroy.variable} ${geist.variable}`}>
       <body>
-        <PostHogProvider>
-          <AnimatedGridPattern className="pointer-events-none fixed inset-0 -z-10 h-full w-full" />
-          <Navbar />
-          {children}
-          <Footer />
-          <Toaster
-            toastOptions={{
-              style: {
-                backgroundColor: "var(--color-background)",
-                color: "var(--color-main-foreground)",
-                fontFamily: "var(--font-sans)",
-                fontWeight: "var(--font-weight-base)",
-                boxShadow: "var(--shadow-shadow)",
-                borderRadius: "var(--radius-base)",
-                border: "1px solid var(--color-border)",
-              },
-            }}
-          />
-        </PostHogProvider>
+        <TRPCProvider>
+          <PostHogProvider>
+            <AnimatedGridPattern className="pointer-events-none fixed inset-0 -z-10 h-full w-full" />
+            <Navbar />
+            {children}
+            <Footer />
+            <Toaster
+              toastOptions={{
+                style: {
+                  backgroundColor: "var(--color-background)",
+                  color: "var(--color-main-foreground)",
+                  fontFamily: "var(--font-sans)",
+                  fontWeight: "var(--font-weight-base)",
+                  boxShadow: "var(--shadow-shadow)",
+                  borderRadius: "var(--radius-base)",
+                  border: "1px solid var(--color-border)",
+                },
+              }}
+            />
+          </PostHogProvider>
+        </TRPCProvider>
       </body>
     </html>
   );
