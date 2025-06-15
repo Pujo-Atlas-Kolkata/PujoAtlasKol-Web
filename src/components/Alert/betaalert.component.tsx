@@ -34,12 +34,9 @@ export const BetaAlert = () => {
     <AlertDialog open={open} onOpenChange={setOpen}>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle className="text-left">
-            Welcome to Pujo Atlas BETA
-          </AlertDialogTitle>
+          <AlertDialogTitle className="text-left">Welcome to Pujo Atlas BETA</AlertDialogTitle>
           <AlertDialogDescription className="text-left">
-            Pujo Atlas BETA may occasionally be unstable. Are you sure you want
-            to continue?
+            Pujo Atlas BETA may occasionally be unstable. Are you sure you want to continue?
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
@@ -50,9 +47,7 @@ export const BetaAlert = () => {
           >
             Nope
           </AlertDialogCancel>
-          <AlertDialogAction onClick={() => handleContinue()}>
-            Continue
-          </AlertDialogAction>
+          <AlertDialogAction onClick={() => handleContinue()}>Continue</AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

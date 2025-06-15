@@ -15,8 +15,7 @@ export const Footer = () => {
         <div className="flex w-full flex-row items-center justify-between">
           <div className="flex flex-row items-center justify-center text-center text-lg font-normal">
             Cooked with ❤️ by&nbsp;
-            <span className="font-medium">Pujo Atlas Kolkata</span>.
-            Checkout&nbsp;
+            <span className="font-medium">Pujo Atlas Kolkata</span>. Checkout&nbsp;
             <span className="font-medium">Atlas v1 Wrapped</span>
             &nbsp;2024&nbsp;
             <a
@@ -87,9 +86,7 @@ export const Footer = () => {
               href={Constants.socials.gitHub}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() =>
-                posthog?.capture(PostHogEvents.FOOTER_CLICK, { link: "github" })
-              }
+              onClick={() => posthog?.capture(PostHogEvents.FOOTER_CLICK, { link: "github" })}
             >
               <Button variant={"neutral"} className="cursor-pointer">
                 Contribute
@@ -224,9 +221,7 @@ export const Footer = () => {
             href={Constants.socials.gitHub}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() =>
-              posthog?.capture(PostHogEvents.FOOTER_CLICK, { link: "github" })
-            }
+            onClick={() => posthog?.capture(PostHogEvents.FOOTER_CLICK, { link: "github" })}
             className="rounded-sm bg-black/45 px-3 pt-2.5 pb-2 font-medium text-white"
           >
             Contribute
@@ -246,9 +241,7 @@ export const Footer = () => {
         </div>
 
         <div className="grid grid-cols-3 gap-3 pt-3.5 text-xs font-medium">
-          <p className="col-span-3 -mb-2 text-left text-sm font-medium">
-            Find us on
-          </p>
+          <p className="col-span-3 -mb-2 text-left text-sm font-medium">Find us on</p>
 
           {Object.entries(Constants.socials)
             .filter(([platform]) => platform !== "sponsor")
