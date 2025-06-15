@@ -11,9 +11,11 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-import Link from "next/link";
+import { Constants } from "@/lib";
+import { useRouter } from "next/navigation";
 
 export const BetaAlert = () => {
+  const router = useRouter();
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -25,7 +27,6 @@ export const BetaAlert = () => {
 
   // Function to handle the close action
   const handleContinue = () => {
-    setOpen(false);
     localStorage.setItem("acceptedBeta", "true");
   };
 
@@ -33,16 +34,22 @@ export const BetaAlert = () => {
     <AlertDialog open={open} onOpenChange={setOpen}>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Welcome to Pujo Atlas BETA</AlertDialogTitle>
-          <AlertDialogDescription>
+          <AlertDialogTitle className="text-left">
+            Welcome to Pujo Atlas BETA
+          </AlertDialogTitle>
+          <AlertDialogDescription className="text-left">
             Pujo Atlas BETA may occasionally be unstable. Are you sure you want
             to continue?
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <Link href={"https://atlas.ourkolkata.in"} rel="noopener noreferrer">
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
-          </Link>
+          <AlertDialogCancel
+            onClick={() => {
+              router.push(Constants.urls.prod);
+            }}
+          >
+            Nope
+          </AlertDialogCancel>
           <AlertDialogAction onClick={() => handleContinue()}>
             Continue
           </AlertDialogAction>
