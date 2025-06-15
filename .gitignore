@@ -47,4 +47,4 @@ yarn-error.log*
 # Sentry Config File
 .env.sentry-build-plugin
 package-lock.json
-
+.secrets
