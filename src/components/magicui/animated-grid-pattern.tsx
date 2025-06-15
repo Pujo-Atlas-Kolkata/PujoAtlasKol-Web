@@ -1,18 +1,11 @@
 "use client";
 
 import { motion } from "motion/react";
-import {
-  type ComponentPropsWithoutRef,
-  useEffect,
-  useId,
-  useRef,
-  useState,
-} from "react";
+import { type ComponentPropsWithoutRef, useEffect, useId, useRef, useState } from "react";
 
 import { cn } from "@/lib/utils";
 
-export interface AnimatedGridPatternProps
-  extends ComponentPropsWithoutRef<"svg"> {
+export interface AnimatedGridPatternProps extends ComponentPropsWithoutRef<"svg"> {
   width?: number;
   height?: number;
   x?: number;
@@ -113,14 +106,7 @@ export function AnimatedGridPattern({
       {...props}
     >
       <defs>
-        <pattern
-          id={id}
-          width={width}
-          height={height}
-          patternUnits="userSpaceOnUse"
-          x={x}
-          y={y}
-        >
+        <pattern id={id} width={width} height={height} patternUnits="userSpaceOnUse" x={x} y={y}>
           <path
             d={`M.5 ${height}V.5H${width}`}
             fill="none"
