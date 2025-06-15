@@ -13,11 +13,7 @@ import {
 //
 // ENUMS
 //
-export const UserTypeEnum = pgEnum("user_type_enum", [
-  "user",
-  "admin",
-  "superadmin",
-]);
+export const UserTypeEnum = pgEnum("user_type_enum", ["user", "admin", "superadmin"]);
 export const TermEnum = pgEnum("term_enum", ["search", "select", "navigate"]);
 
 //
