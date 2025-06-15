@@ -8,19 +8,19 @@ const compat = new FlatCompat({
 
 export default tseslint.config(
   {
-    ignores: [".next", "dist", "build"],
+    ignores: [".next"],
   },
+  ...compat.extends("next/core-web-vitals"),
   {
     files: ["**/*.ts", "**/*.tsx"],
     plugins: {
       "@limegrass/import-alias": importAlias,
     },
-    languageOptions: {
-      ecmaVersion: "latest", // ✅ explicitly define this
-      parserOptions: {
-        projectService: true,
-      },
-    },
+    extends: [
+      ...tseslint.configs.recommended,
+      ...tseslint.configs.recommendedTypeChecked,
+      ...tseslint.configs.stylisticTypeChecked,
+    ],
     rules: {
       "@typescript-eslint/array-type": "off",
       "@typescript-eslint/consistent-type-definitions": "off",
