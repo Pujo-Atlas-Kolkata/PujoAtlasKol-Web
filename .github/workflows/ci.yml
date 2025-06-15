@@ -59,7 +59,7 @@ jobs:
           mv snyk-report.html downloads/
 
       - name: Upload Snyk Report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: snyk-report
           path: downloads
