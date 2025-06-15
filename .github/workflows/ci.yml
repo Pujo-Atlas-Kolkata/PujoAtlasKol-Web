@@ -1,6 +1,8 @@
 name: CI
 
 on:
+  push:
+    branches: ["*"]
   pull_request:
     branches: ["*"]
   merge_group:
@@ -38,7 +40,26 @@ jobs:
       - uses: ./.github/actions/setup
 
       - run: pnpm typecheck
+  snyk:
+    runs-on: ubuntu-latest
+    name: Run Snyk for Vulnerability Scan
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: pnpm install
 
+      - name: Install Snyk
+        run: npm install -g snyk
+
+      - name: Authenticate Snyk
+        run: snyk auth ${{ secrets.SNYK_TOKEN }}
+
+      - name: Run Snyk Test
+        run: snyk test
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
   build:
     runs-on: ubuntu-latest
     name: Build Project
