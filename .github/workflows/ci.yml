@@ -53,7 +53,7 @@ jobs:
         run: npm install -g snyk
 
       - name: Run Snyk Test
-        run: snyk test
+        uses: snyk/actions/node@master
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
   build:
