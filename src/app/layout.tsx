@@ -5,7 +5,7 @@ import { gilroy, geist } from "@/styles/fonts";
 import { AnimatedGridPattern, Footer, Navbar, BetaAlert } from "@/components";
 import { Toaster } from "sonner";
 import { PostHogProvider } from "@/providers";
-import { Constants } from "@/lib";
+import { Constants, isBETA } from "@/lib";
 import { TRPCProvider } from "@/server/api";
 
 export const metadata: Metadata = {
@@ -37,7 +37,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <PostHogProvider>
             <AnimatedGridPattern className="pointer-events-none fixed inset-0 -z-10 h-full w-full" />
             <Navbar />
-            {process.env.ENVIRONMENT !== "production" && <BetaAlert />}
+            {isBETA() && <BetaAlert />}
             {children}
             <Footer />
             <Toaster

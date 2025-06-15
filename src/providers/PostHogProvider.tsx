@@ -67,4 +67,6 @@ export const PostHogEvents = {
   NOTFOUND_HOME_CLICK: "notfound_home_click",
   TEAMCARD_COPY_LINK: "teamcard_copy_link",
   TEAMCARD_SOCIAL_CLICK: "teamcard_social_click",
+  BETA_ALERT_ACCEPT: "beta_alert_accept",
+  BETA_ALERT_REJECT: "beta_alert_reject",
 };

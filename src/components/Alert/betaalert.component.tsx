@@ -13,6 +13,8 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Constants } from "@/lib";
 import { useRouter } from "next/navigation";
+import posthog from "posthog-js";
+import { PostHogEvents } from "@/providers";
 
 export const BetaAlert = () => {
   const router = useRouter();
@@ -25,9 +27,14 @@ export const BetaAlert = () => {
     }
   }, []);
 
-  // Function to handle the close action
   const handleContinue = () => {
     localStorage.setItem("acceptedBeta", "true");
+    posthog?.capture(PostHogEvents.BETA_ALERT_ACCEPT, {});
+  };
+
+  const handleReject = () => {
+    posthog?.capture(PostHogEvents.BETA_ALERT_REJECT, {});
+    router.push(Constants.urls.prod);
   };
 
   return (
@@ -40,13 +47,7 @@ export const BetaAlert = () => {
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel
-            onClick={() => {
-              router.push(Constants.urls.prod);
-            }}
-          >
-            Nope
-          </AlertDialogCancel>
+          <AlertDialogCancel onClick={handleReject}>Nope</AlertDialogCancel>
           <AlertDialogAction onClick={() => handleContinue()}>Continue</AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
