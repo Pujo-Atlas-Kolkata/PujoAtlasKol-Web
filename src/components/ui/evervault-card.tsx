@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  type MotionValue,
-  useMotionValue,
-  motion,
-  useMotionTemplate,
-} from "motion/react";
+import { type MotionValue, useMotionValue, motion, useMotionTemplate } from "motion/react";
 import React, { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
@@ -56,11 +51,7 @@ export const EvervaultCard = ({
         onMouseMove={onMouseMove}
         className="group/card relative flex h-full w-full items-center justify-center overflow-hidden rounded-xl bg-transparent"
       >
-        <CardPattern
-          mouseX={mouseX}
-          mouseY={mouseY}
-          randomString={randomString}
-        />
+        <CardPattern mouseX={mouseX} mouseY={mouseY} randomString={randomString} />
         <div className="relative flex items-center justify-center">
           {children ? (
             <div className="relative flex h-full w-full items-center justify-center">

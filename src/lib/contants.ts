@@ -27,15 +27,13 @@ export const Constants = {
     sponsor: "sponsors@ourkolkata.in",
   },
   stats: {
-    redditPost:
-      "https://www.reddit.com/r/kolkata/comments/1g4zf8n/আসছ_বছর_আবর_হব/",
+    redditPost: "https://www.reddit.com/r/kolkata/comments/1g4zf8n/আসছ_বছর_আবর_হব/",
   },
   misc: {
     feedbackForm: "https://forms.gle/AsZwTvmzwR9tptGH6",
     dataIngestionForm: "https://forms.gle/n394CrQpaHzS36hF6",
     statusPage: "https://status.ourkolkata.in/",
-    license:
-      "https://github.com/Pujo-Atlas-Kolkata/PujoAtlasKol-Web/blob/dev/LICENSE",
+    license: "https://github.com/Pujo-Atlas-Kolkata/PujoAtlasKol-Web/blob/dev/LICENSE",
   },
   sponsorsMarquee: [
     {
@@ -77,20 +75,9 @@ export const Constants = {
   ],
 };
 
-export const Tech = [
-  "Web",
-  "Mobile",
-  "Backend",
-  "DevOps",
-  "Data Science",
-] as const;
+export const Tech = ["Web", "Mobile", "Backend", "DevOps", "Data Science"] as const;
 
-export const NonTech = [
-  "Design",
-  "Content",
-  "Coordinator",
-  "Community",
-] as const;
+export const NonTech = ["Design", "Content", "Coordinator", "Community"] as const;
 
 type MemberDetails = {
   id: string;
@@ -172,8 +159,7 @@ export const team: Record<string, MemberDetails[]> = {
     {
       id: "inceptor",
       name: "Sbasu",
-      avatar:
-        "https://api.dicebear.com/9.x/lorelei/svg?seed=inceptor&eyes=variant18",
+      avatar: "https://api.dicebear.com/9.x/lorelei/svg?seed=inceptor&eyes=variant18",
       socials: {
         website: "https://sayantan-basu.vercel.app/",
         discord: "https://discord.com/users/798395088593354762",
@@ -196,8 +182,7 @@ export const team: Record<string, MemberDetails[]> = {
     {
       id: "thehappybaloney",
       name: "TheHappyBaloney",
-      avatar:
-        "https://api.dicebear.com/9.x/lorelei/svg?seed=baloon&glassesProbability=0",
+      avatar: "https://api.dicebear.com/9.x/lorelei/svg?seed=baloon&glassesProbability=0",
       socials: {
         website: "https://thehappybaloney.fyi",
         discord: "https://discord.com/users/1232913986689962078",
@@ -314,6 +299,19 @@ export const team: Record<string, MemberDetails[]> = {
         discord: "https://discord.com/users/615100553122414592",
         github: "https://github.com/yashchaurasia667",
         linkedin: "https://www.linkedin.com/in/yash-chaurasia-259553196/",
+      },
+      department: "Web",
+    },
+    {
+      id: "yaroteburu",
+      name: "Yaroteburu",
+      avatar:
+        "https://api.dicebear.com/9.x/lorelei/svg?seed=liam&eyes=variant02&frecklesProbability=0&glassesProbability=100&hair=variant07&eyebrows=variant07&glasses=variant04&nose=variant04",
+      socials: {
+        discord: "https://discord.com/users/422747998657839116",
+        linkedin: "https://www.linkedin.com/in/soumyadeep-bhattacharya-65b74b170/",
+        github: "https://github.com/SBhattacharya45",
+        website: "https://www.soumyadeep.info/",
       },
       department: "Web",
     },
