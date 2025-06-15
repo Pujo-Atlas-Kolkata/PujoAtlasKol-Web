@@ -63,6 +63,36 @@ jobs:
         with:
           name: snyk-report
           path: downloads
+
+      - name: Parse Snyk JSON & Create PR Summary
+        run: |
+          snyk test --json > snyk-output.json
+
+          # Extract counts per severity using jq
+          CRITICAL=$(jq '[.vulnerabilities[] | select(.severity == "critical")] | length' snyk-output.json)
+          HIGH=$(jq '[.vulnerabilities[] | select(.severity == "high")] | length' snyk-output.json)
+          MEDIUM=$(jq '[.vulnerabilities[] | select(.severity == "medium")] | length' snyk-output.json)
+          LOW=$(jq '[.vulnerabilities[] | select(.severity == "low")] | length' snyk-output.json)
+
+          echo "🔐 **Snyk Security Scan**" > snyk-summary.md
+          echo "" >> snyk-summary.md
+          echo "| Severity | Count |" >> snyk-summary.md
+          echo "|----------|-------|" >> snyk-summary.md
+          echo "| 🟥 Critical | $CRITICAL |" >> snyk-summary.md
+          echo "| 🟧 High     | $HIGH |" >> snyk-summary.md
+          echo "| 🟨 Medium   | $MEDIUM |" >> snyk-summary.md
+          echo "| 🟩 Low      | $LOW |" >> snyk-summary.md
+          echo "" >> snyk-summary.md
+          echo "> Full HTML report is available as a downloadable artifact 📦" >> snyk-summary.md
+
+      - name: Comment on PR with Snyk Summary
+        if: github.event_name == 'pull_request'
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body-file: snyk-summary.md
+
   build:
     runs-on: ubuntu-latest
     name: Build Project
