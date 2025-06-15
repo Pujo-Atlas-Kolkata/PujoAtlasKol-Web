@@ -4,3 +4,4 @@ export * from "@/components/stars";
 export * from "@/components/Navbar/navbar.component";
 export * from "@/components/Footer/footer.component";
 export * from "@/components/Cards";
+export * from "@/components/Alert";

@@ -55,10 +55,7 @@ export function NumberTicker({
   return (
     <span
       ref={ref}
-      className={cn(
-        "inline-block tracking-wider text-black tabular-nums",
-        className,
-      )}
+      className={cn("inline-block tracking-wider text-black tabular-nums", className)}
       {...props}
     >
       {startValue}

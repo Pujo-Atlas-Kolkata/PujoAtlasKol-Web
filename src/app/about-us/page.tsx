@@ -30,18 +30,15 @@ export default function AboutUsPage() {
           <p className="pt-1.5 pb-0.5 text-3xl font-semibold">Who are we?</p>
 
           <p className="w-[90dvw] text-lg leading-tight font-normal lg:w-[60dvw]">
-            We are a collective of{" "}
-            <span className="font-semibold">Durga Puja</span> enthusiasts
-            committed to making Pandal Hopping in{" "}
-            <span className="font-semibold">Kolkata</span> more enjoyable and
-            accessible for everyone. Our team, which includes{" "}
+            We are a collective of <span className="font-semibold">Durga Puja</span> enthusiasts
+            committed to making Pandal Hopping in <span className="font-semibold">Kolkata</span>{" "}
+            more enjoyable and accessible for everyone. Our team, which includes{" "}
             <span className="font-semibold">developers</span>,{" "}
             <span className="font-semibold">designers</span>,{" "}
             <span className="font-semibold">researchers</span>, and{" "}
-            <span className="font-semibold">content creators</span> from across
-            the country, has united in the spirit of open source to build this
-            experience. We&apos;re always looking for new members to contribute.
-            If you&apos;d like to get involved, please&nbsp;
+            <span className="font-semibold">content creators</span> from across the country, has
+            united in the spirit of open source to build this experience. We&apos;re always looking
+            for new members to contribute. If you&apos;d like to get involved, please&nbsp;
             <a
               href={Constants.socials.discord}
               className="inline-flex items-center gap-x-0 font-semibold underline"
@@ -62,17 +59,11 @@ export default function AboutUsPage() {
         <div className="mt-10">
           {Object.entries(team).map(([group, members]) => (
             <div key={group} className="mb-12">
-              <h2 className="mb-4 text-center text-3xl font-bold lg:text-left">
-                {group}
-              </h2>
+              <h2 className="mb-4 text-center text-3xl font-bold lg:text-left">{group}</h2>
 
               <div className="flex w-full flex-wrap justify-center gap-10 lg:justify-start lg:gap-4">
                 {members.map((member) => (
-                  <div
-                    id={member.name}
-                    key={member.id}
-                    className="scroll-mt-40"
-                  >
+                  <div id={member.name} key={member.id} className="scroll-mt-40">
                     <TeamCard
                       name={member.name}
                       avatar={member.avatar}

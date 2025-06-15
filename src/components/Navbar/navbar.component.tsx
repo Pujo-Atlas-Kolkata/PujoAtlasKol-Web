@@ -1,13 +1,7 @@
 "use client";
 
 import { cn, Constants } from "@/lib";
-import {
-  ArrowUpRight,
-  Menu,
-  UsersRound,
-  HandCoins,
-  Github,
-} from "lucide-react";
+import { ArrowUpRight, Menu, UsersRound, HandCoins, Github } from "lucide-react";
 import { IoHomeOutline } from "react-icons/io5";
 import { useRouter, usePathname } from "next/navigation";
 import posthog from "posthog-js";
@@ -83,9 +77,7 @@ export const Navbar = () => {
               href={Constants.socials.gitHub}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() =>
-                posthog?.capture(PostHogEvents.NAVBAR_CLICK, { link: "github" })
-              }
+              onClick={() => posthog?.capture(PostHogEvents.NAVBAR_CLICK, { link: "github" })}
             >
               <p>GitHub</p>
             </a>

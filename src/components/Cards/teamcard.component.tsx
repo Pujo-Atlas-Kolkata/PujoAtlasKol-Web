@@ -58,8 +58,7 @@ export const TeamCard: FC<TeamCardProps> = ({
           "bg-red-200/30": department === "Content",
           "bg-orange-200/30": department === "Coordinator",
           "bg-blue-200/30": department === "Community",
-          "animate-pulse bg-gradient-to-r from-orange-200 to-amber-200":
-            highlighted,
+          "animate-pulse bg-gradient-to-r from-orange-200 to-amber-200": highlighted,
         },
       )}
     >
@@ -80,13 +79,9 @@ export const TeamCard: FC<TeamCardProps> = ({
           height={80}
         />
 
-        <div className="mt-2 text-2xl font-bold break-words lg:text-xl">
-          {name}
-        </div>
+        <div className="mt-2 text-2xl font-bold break-words lg:text-xl">{name}</div>
 
-        <div className="mt-1 mb-10 text-lg lg:mt-0 lg:mb-6 lg:text-base">
-          {department}
-        </div>
+        <div className="mt-1 mb-10 text-lg lg:mt-0 lg:mb-6 lg:text-base">{department}</div>
 
         <div className="flex flex-row items-center justify-center gap-4">
           {socials.website && (
