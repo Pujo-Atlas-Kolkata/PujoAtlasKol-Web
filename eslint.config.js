@@ -6,20 +6,18 @@ const compat = new FlatCompat({
   baseDirectory: import.meta.dirname,
 });
 
-export default tseslint.config(
+export default [
   {
     ignores: [".next", "dist", "build"],
   },
+  ...compat.extends("next/core-web-vitals"),
+  ...tseslint.configs.recommended,
+  ...tseslint.configs.recommendedTypeChecked,
+  ...tseslint.configs.stylisticTypeChecked,
   {
     files: ["**/*.ts", "**/*.tsx"],
     plugins: {
       "@limegrass/import-alias": importAlias,
-    },
-    languageOptions: {
-      ecmaVersion: "latest", // ✅ explicitly define this
-      parserOptions: {
-        projectService: true,
-      },
     },
     rules: {
       "@typescript-eslint/array-type": "off",
@@ -47,4 +45,4 @@ export default tseslint.config(
       },
     },
   },
-);
+];

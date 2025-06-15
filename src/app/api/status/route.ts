@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 import { pool } from '@/server/db/client'; // assumes pool is exported
-import { sql } from 'drizzle-orm';
 
 export async function GET() {
   try {

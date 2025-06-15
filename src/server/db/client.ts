@@ -1,6 +1,6 @@
 import { drizzle } from 'drizzle-orm/node-postgres';
 import { Pool } from 'pg';
-import * as schema from './schema'; // import your schema
+import * as schema from '@/server/db/schema'; // import your schema
 const isProduction = process.env.NODE_ENV === 'production';
 
 export const pool = new Pool({
@@ -14,7 +14,7 @@ pool.connect()
     console.log('✅ Database connected successfully');
     client.release();
   })
-  .catch((err) => {
+  .catch((err:Error) => {
     console.error('❌ Database connection failed:', err.message);
   });
 export const db = drizzle(pool, { schema });
