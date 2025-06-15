@@ -1,25 +1,30 @@
 import { initTRPC } from "@trpc/server";
 import { cache } from "react";
 import superjson from "superjson";
+import type { FetchCreateContextFnOptions } from "@trpc/server/adapters/fetch";
+import { createAuthMiddleware } from "@/server/api/middleware/AuthMiddleware";
+import { createLoggerMiddleware } from "@/server/api/middleware/LoggerMiddleware";
 
-export const createTRPCContext = cache(async () => {
-  /**
-   * @see: https://trpc.io/docs/server/context
-   */
-  return { userId: "user_123" };
+// Context wit
+export const createTRPCContext = cache(async (_?: FetchCreateContextFnOptions) => {
+  return { req: null as unknown as Request };
 });
 
-// Avoid exporting the entire t-object
-// since it's not very descriptive.
-// For instance, the use of a t variable
-// is common in i18n libraries.
-const t = initTRPC.create({
-  /**
-   * @see https://trpc.io/docs/server/data-transformers
-   */
+// Initialize tRPC with inferred context
+const t = initTRPC.context<Awaited<ReturnType<typeof createTRPCContext>>>().create({
   transformer: superjson,
 });
-// Base router and procedure helpers
+
+// 4. Export helpers
+export const middleware = t.middleware;
+export const baseProcedure = t.procedure;
+// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+const isAuthed = createAuthMiddleware(t);
+// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+const loggerMiddleware = createLoggerMiddleware(t);
+// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+export const protectedProcedure = baseProcedure.use(loggerMiddleware).use(isAuthed);
 export const createTRPCRouter = t.router;
 export const createCallerFactory = t.createCallerFactory;
-export const baseProcedure = t.procedure;
+export type TRPCInstance = typeof t;
+export type TRPCContext = Parameters<typeof t.middleware>;
