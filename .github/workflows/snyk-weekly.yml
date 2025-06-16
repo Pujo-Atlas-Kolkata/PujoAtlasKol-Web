@@ -14,6 +14,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+      - name: Debug secret presence
+        run: | 
+            echo "Secret length: ${#ACTIONS_DEPLOY_KEY}"
+        env:
+            ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+
 
       - name: Install Snyk + HTML Generator
         run: npm install -g snyk snyk-to-html
