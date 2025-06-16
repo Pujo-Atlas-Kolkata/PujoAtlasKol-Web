@@ -3,11 +3,7 @@ name: Weekly Snyk Report
 on:
 #   schedule:
 #     - cron: '0 2 * * 1' # Every Monday at 2 AM UTC
-    push:
-        branches: ["*"]
-    pull_request:
-        branches: ["*"]
-    merge_group:
+    pull_request_target:
 jobs:
   snyk-report:
     runs-on: ubuntu-latest
