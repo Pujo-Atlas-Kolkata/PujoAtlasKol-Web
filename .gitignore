@@ -49,3 +49,5 @@ yarn-error.log*
 .secrets
 /.turbo
 
+gh-pages
+gh-pages.pub
