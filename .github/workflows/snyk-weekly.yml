@@ -4,6 +4,7 @@ on:
 #   schedule:
 #     - cron: '0 2 * * 1' # Every Monday at 2 AM UTC
     pull_request_target:
+        types: [opened, synchronize, reopened]
 jobs:
   snyk-report:
     runs-on: ubuntu-latest
