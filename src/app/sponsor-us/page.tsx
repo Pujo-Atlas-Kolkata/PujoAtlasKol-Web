@@ -16,17 +16,15 @@ export default function SponsorUsPage() {
 
           <p className="w-full pt-2 text-base leading-tight font-normal sm:w-[60dvw] sm:text-lg">
             <span className="font-semibold">Pujo Atlas</span> is an{" "}
-            <span className="font-semibold">open source</span> project that is
-            free to use and ad-free. We rely on the support of our users to keep
-            the project running and to make it better. If you like what we do
-            and want to support us, you can do so by{" "}
+            <span className="font-semibold">open source</span> project that is free to use and
+            ad-free. We rely on the support of our users to keep the project running and to make it
+            better. If you like what we do and want to support us, you can do so by{" "}
             <span className="font-semibold">sponsoring</span> our project.
           </p>
 
           <p className="w-full pt-2 text-base leading-tight font-normal sm:w-[60dvw] sm:text-lg">
-            We are currently looking for sponsors to help us keep the project
-            running and to make it better. If you are interested in sponsoring
-            our project, please&nbsp; contact us at{" "}
+            We are currently looking for sponsors to help us keep the project running and to make it
+            better. If you are interested in sponsoring our project, please&nbsp; contact us at{" "}
             <a
               href={`mailto:${Constants.socials.sponsor}`}
               className="inline-flex items-center gap-x-0 font-semibold underline"

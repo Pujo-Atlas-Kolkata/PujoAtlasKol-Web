@@ -1,6 +1,8 @@
 name: CI
 
 on:
+  push:
+    branches: ["*"]
   pull_request:
     branches: ["*"]
   merge_group:
@@ -38,6 +40,29 @@ jobs:
       - uses: ./.github/actions/setup
 
       - run: pnpm typecheck
+  snyk:
+    runs-on: ubuntu-latest
+    name: Snyk Vulnerability Scan
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+
+      - name: Install Snyk
+        run: npm install -g snyk snyk-to-html
+
+      - name: Run Snyk and export HTML
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        run: |
+          snyk test --json | snyk-to-html -o snyk-report.html
+          mkdir -p downloads
+          mv snyk-report.html downloads/
+
+      - name: Upload Snyk Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: snyk-report
+          path: downloads
 
   build:
     runs-on: ubuntu-latest

@@ -13,9 +13,7 @@ export default function NotFound() {
     <div className="flex h-screen flex-col items-center justify-center p-3">
       <div className="flex flex-col items-center justify-center backdrop-blur-3xl">
         <p className="text-9xl font-extrabold">404</p>
-        <p className="text-lg font-normal">
-          Uh oh! Looks like you lost your way.
-        </p>
+        <p className="text-lg font-normal">Uh oh! Looks like you lost your way.</p>
 
         <Button
           variant={"neutral"}

@@ -2,10 +2,10 @@ import "@/styles/globals.css";
 
 import { type Metadata } from "next";
 import { gilroy, geist } from "@/styles/fonts";
-import { AnimatedGridPattern, Footer, Navbar } from "@/components";
+import { AnimatedGridPattern, Footer, Navbar, BetaAlert } from "@/components";
 import { Toaster } from "sonner";
 import { PostHogProvider } from "@/providers";
-import { Constants } from "@/lib";
+import { Constants, isBETA } from "@/lib";
 import { TRPCProvider } from "@/server/api";
 
 export const metadata: Metadata = {
@@ -29,9 +29,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${gilroy.variable} ${geist.variable}`}>
       <body>
@@ -39,6 +37,7 @@ export default function RootLayout({
           <PostHogProvider>
             <AnimatedGridPattern className="pointer-events-none fixed inset-0 -z-10 h-full w-full" />
             <Navbar />
+            {isBETA() && <BetaAlert />}
             {children}
             <Footer />
             <Toaster

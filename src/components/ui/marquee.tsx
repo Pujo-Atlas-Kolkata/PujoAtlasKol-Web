@@ -1,12 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import {
-  Tooltip,
-  TooltipTrigger,
-  TooltipContent,
-  TooltipProvider,
-} from "@/components/ui/tooltip";
+import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/components/ui/tooltip";
 
 export const Marquee = ({
   items,
@@ -52,10 +47,7 @@ export const Marquee = ({
 
         <div className="animate-marquee2 absolute top-0 py-12 whitespace-nowrap">
           {items.map((item, index) => (
-            <span
-              key={index}
-              className="mx-4 ml-96 inline-flex items-center sm:mx-8"
-            >
+            <span key={index} className="mx-4 ml-96 inline-flex items-center sm:mx-8">
               <Tooltip>
                 <TooltipTrigger asChild>
                   <a
