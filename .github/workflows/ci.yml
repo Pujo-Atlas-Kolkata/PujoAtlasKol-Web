@@ -24,6 +24,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-turbo-
 
+      - uses: ./.github/actions/setup
+
       - run: pnpm add -D turbo
 
       - name: Build
