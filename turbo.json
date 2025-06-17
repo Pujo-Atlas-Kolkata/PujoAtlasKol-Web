@@ -1,0 +1,28 @@
+{
+    "$schema": "https://turborepo.com/schema.json",
+    "tasks": {
+        "build": {
+            "cache": true,
+            "persistent": true,
+            "dependsOn": [
+                "typecheck"
+            ]
+        },
+        "typecheck": {
+            "cache": true,
+            "dependsOn": [
+                "lint"
+            ]
+        },
+        "lint": {
+            "cache": true,
+            "dependsOn": [
+                "format:check"
+            ]
+        },
+        "format:check": {
+            "cache": true
+        }
+    },
+    "cacheDir": ".turbo"
+}
