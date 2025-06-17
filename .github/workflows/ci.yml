@@ -28,5 +28,5 @@ jobs:
 
       - run: pnpm add -D turbo
 
-      - name: Build
-        run: pnpm turbo ci:test
+      - name: Run CI checks
+        run: pnpm ci:test
