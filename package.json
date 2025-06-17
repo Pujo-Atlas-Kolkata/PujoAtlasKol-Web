@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "ci:build": "next build",
     "ci:test": "turbo ci:local:run-checks",
     "build": "turbo build:legacy",
     "build:legacy": "next build",

@@ -4,15 +4,28 @@
         "ci:local:run-checks": {
             "cache": true,
             "dependsOn": [
-                "lint",
-                "format:check",
-                "build:legacy"
+                "ci:build"
+            ]
+        },
+        "ci:build": {
+            "cache": true,
+            "dependsOn": [
+                "format:check"
+            ]
+        },
+        "format:check": {
+            "cache": true,
+            "dependsOn": [
+                "lint"
             ]
         },
         "lint": {
-            "cache": true
+            "cache": true,
+            "dependsOn": [
+                "typecheck"
+            ]
         },
-        "format:check": {
+        "typecheck": {
             "cache": true
         },
         "build:legacy": {
