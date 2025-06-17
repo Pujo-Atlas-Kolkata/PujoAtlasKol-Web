@@ -4,7 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "next build",
+    "ci:test": "turbo ci:local:run-checks",
+    "build": "turbo build:legacy",
+    "build:legacy": "next build",
     "check": "next lint && tsc --noEmit",
     "dev": "next dev --turbopack",
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,mdx}\" --cache",
