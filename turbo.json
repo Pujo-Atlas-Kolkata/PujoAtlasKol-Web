@@ -1,14 +1,19 @@
 {
     "$schema": "https://turborepo.com/schema.json",
     "tasks": {
-        "build": {
+        "ci:local:run-checks": {
             "cache": true,
-            "persistent": true,
             "dependsOn": [
-                "typecheck"
+                "ci:build"
             ]
         },
-        "typecheck": {
+        "ci:build": {
+            "cache": true,
+            "dependsOn": [
+                "format:check"
+            ]
+        },
+        "format:check": {
             "cache": true,
             "dependsOn": [
                 "lint"
@@ -17,10 +22,13 @@
         "lint": {
             "cache": true,
             "dependsOn": [
-                "format:check"
+                "typecheck"
             ]
         },
-        "format:check": {
+        "typecheck": {
+            "cache": true
+        },
+        "build:legacy": {
             "cache": true
         }
     },
