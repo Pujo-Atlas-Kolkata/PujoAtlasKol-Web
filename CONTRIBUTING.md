@@ -54,10 +54,7 @@ To ensure a consistent development environment and code quality, please install 
 
 3. **Run checks before pushing:**
    ```bash
-   pnpm lint
-   pnpm format:check
-   pnpm typecheck
-   pnpm build
+   pnpm turbo build
    ```
 
 ---
