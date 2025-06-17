@@ -3,6 +3,12 @@ import { withSentryConfig } from "@sentry/nextjs";
 
 /** @type {import("next").NextConfig} */
 const config = {
+  turbopack: {
+    resolveAlias: {
+      "@": "./src",
+    },
+    resolveExtensions: [".ts", ".tsx", ".js", ".jsx", ".json", ".mjs", ".cjs"],
+  },
   images: {
     dangerouslyAllowSVG: true,
     remotePatterns: [

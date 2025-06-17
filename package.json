@@ -4,9 +4,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "next build",
+    "ci:build": "next build",
+    "ci:test": "turbo ci:local:run-checks",
+    "build": "turbo build:legacy",
+    "build:legacy": "next build",
     "check": "next lint && tsc --noEmit",
-    "dev": "next dev",
+    "dev": "next dev --turbopack",
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,mdx}\" --cache",
     "format:write": "prettier --write \"**/*.{ts,tsx,js,jsx,mdx}\" --cache",
     "lint": "next lint",
@@ -56,6 +59,7 @@
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "tailwindcss": "^4.0.15",
+    "turbo": "^2.5.4",
     "tw-animate-css": "^1.3.0",
     "typescript": "^5.8.2",
     "typescript-eslint": "^8.27.0"

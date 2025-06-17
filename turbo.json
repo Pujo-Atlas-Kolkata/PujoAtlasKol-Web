@@ -1,0 +1,36 @@
+{
+    "$schema": "https://turborepo.com/schema.json",
+    "tasks": {
+        "ci:local:run-checks": {
+            "cache": true,
+            "dependsOn": [
+                "ci:build"
+            ]
+        },
+        "ci:build": {
+            "cache": true,
+            "dependsOn": [
+                "format:check"
+            ]
+        },
+        "format:check": {
+            "cache": true,
+            "dependsOn": [
+                "lint"
+            ]
+        },
+        "lint": {
+            "cache": true,
+            "dependsOn": [
+                "typecheck"
+            ]
+        },
+        "typecheck": {
+            "cache": true
+        },
+        "build:legacy": {
+            "cache": true
+        }
+    },
+    "cacheDir": ".turbo"
+}

@@ -6,47 +6,27 @@ on:
   merge_group:
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    name: Run ESLint
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - uses: ./.github/actions/setup
-
-      - run: pnpm lint
-
-  prettier:
-    runs-on: ubuntu-latest
-    name: Run Prettier
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - uses: ./.github/actions/setup
-
-      - run: pnpm format:check
-
-  tsc:
-    runs-on: ubuntu-latest
-    name: Run Typechecker
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - uses: ./.github/actions/setup
-
-      - run: pnpm typecheck
-
   build:
+    name: Build (Turbo)
     runs-on: ubuntu-latest
-    name: Build Project
-    needs: [lint, prettier, tsc]
+    timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out code
+        uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 2
+
+      - name: Cache turbo build setup
+        uses: actions/cache@v4
+        with:
+          path: .turbo
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
+
       - uses: ./.github/actions/setup
 
-      - run: pnpm build
+      - run: pnpm add -D turbo
+
+      - name: Run CI checks
+        run: pnpm ci:test

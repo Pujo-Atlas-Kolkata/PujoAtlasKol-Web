@@ -52,12 +52,16 @@ To ensure a consistent development environment and code quality, please install 
    pnpm dev
    ```
 
-3. **Run checks before pushing:**
+3. **Build the project:**
+
    ```bash
-   pnpm lint
-   pnpm format:check
-   pnpm typecheck
    pnpm build
+   ```
+
+4. **Run checks before pushing:**
+
+   ```bash
+   pnpm ci:test
    ```
 
 ---
