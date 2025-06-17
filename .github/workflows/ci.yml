@@ -15,4 +15,6 @@ jobs:
           fetch-depth: 0
       - uses: ./.github/actions/setup
 
+      - run: pnpm install
+
       - run: pnpm turbo run build
