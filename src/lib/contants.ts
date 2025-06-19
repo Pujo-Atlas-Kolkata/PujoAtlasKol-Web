@@ -157,18 +157,6 @@ export const team: Record<string, MemberDetails[]> = {
       department: "Web",
     },
     {
-      id: "inceptor",
-      name: "Sbasu",
-      avatar: "https://api.dicebear.com/9.x/lorelei/svg?seed=inceptor&eyes=variant18",
-      socials: {
-        website: "https://sayantan-basu.vercel.app/",
-        discord: "https://discord.com/users/798395088593354762",
-        linkedin: "https://www.linkedin.com/in/sayantan-basu-73ab4a92/",
-        github: "https://github.com/Sbasu2512",
-      },
-      department: "Backend",
-    },
-    {
       id: "indranil",
       name: "Indranil Chakraborty ",
       avatar: "https://api.dicebear.com/9.x/lorelei/svg?seed=nightcrwlrr",
@@ -226,49 +214,6 @@ export const team: Record<string, MemberDetails[]> = {
       department: "Coordinator",
     },
   ],
-  ["Content Creators"]: [
-    {
-      id: "Nghtcrwlrr",
-      name: "Nghtcrwlrr",
-      avatar:
-        "https://api.dicebear.com/9.x/lorelei/svg?seed=nghtcrwlrr&glassesProbability=100&glasses=variant04",
-      socials: {
-        discord: "https://discord.com/users/324413042639241226",
-      },
-      department: "Content",
-    },
-    {
-      id: "Suzi",
-      name: "Suzi",
-      avatar:
-        "https://api.dicebear.com/9.x/lorelei/svg?seed=baloon&eyes=variant23&frecklesProbability=0&glassesProbability=0&hair=variant18&eyebrows=variant09",
-      socials: {
-        discord: "https://discord.com/users/750464448044597269",
-        twitter: "https://x.com/itsssarkar",
-      },
-      department: "Content",
-    },
-    {
-      id: "Melancholic Sobdokar",
-      name: "Melancholic Sobdokar",
-      avatar:
-        "https://api.dicebear.com/9.x/lorelei/svg?seed=nightcrwlrr&beardProbability=0&glassesProbability=0",
-      socials: {
-        discord: "https://discord.com/users/1090698750068002877",
-      },
-      department: "Content",
-    },
-    {
-      id: "Achakita",
-      name: "Achakita",
-      avatar: "https://api.dicebear.com/9.x/lorelei/svg?seed=reddit",
-      socials: {
-        discord: "https://discord.com/users/903722676084949063",
-        twitter: "https://x.com/Achakita_TRUTH",
-      },
-      department: "Content",
-    },
-  ],
   "Web Team": [
     {
       id: "aizaysi",
@@ -316,6 +261,49 @@ export const team: Record<string, MemberDetails[]> = {
       department: "Web",
     },
   ],
+  ["Content Creators"]: [
+    {
+      id: "Nghtcrwlrr",
+      name: "Nghtcrwlrr",
+      avatar:
+        "https://api.dicebear.com/9.x/lorelei/svg?seed=nghtcrwlrr&glassesProbability=100&glasses=variant04",
+      socials: {
+        discord: "https://discord.com/users/324413042639241226",
+      },
+      department: "Content",
+    },
+    {
+      id: "Suzi",
+      name: "Suzi",
+      avatar:
+        "https://api.dicebear.com/9.x/lorelei/svg?seed=baloon&eyes=variant23&frecklesProbability=0&glassesProbability=0&hair=variant18&eyebrows=variant09",
+      socials: {
+        discord: "https://discord.com/users/750464448044597269",
+        twitter: "https://x.com/itsssarkar",
+      },
+      department: "Content",
+    },
+    {
+      id: "Melancholic Sobdokar",
+      name: "Melancholic Sobdokar",
+      avatar:
+        "https://api.dicebear.com/9.x/lorelei/svg?seed=nightcrwlrr&beardProbability=0&glassesProbability=0",
+      socials: {
+        discord: "https://discord.com/users/1090698750068002877",
+      },
+      department: "Content",
+    },
+    {
+      id: "Achakita",
+      name: "Achakita",
+      avatar: "https://api.dicebear.com/9.x/lorelei/svg?seed=reddit",
+      socials: {
+        discord: "https://discord.com/users/903722676084949063",
+        twitter: "https://x.com/Achakita_TRUTH",
+      },
+      department: "Content",
+    },
+  ],
   "Backend Team": [
     {
       id: "Jethanand",
@@ -334,6 +322,18 @@ export const team: Record<string, MemberDetails[]> = {
       socials: {
         discord: "https://discord.com/users/892804617128251452",
         github: "https://github.com/vitaminncpp",
+      },
+      department: "Backend",
+    },
+    {
+      id: "inceptor",
+      name: "Sbasu",
+      avatar: "https://api.dicebear.com/9.x/lorelei/svg?seed=inceptor&eyes=variant18",
+      socials: {
+        website: "https://sayantan-basu.vercel.app/",
+        discord: "https://discord.com/users/798395088593354762",
+        linkedin: "https://www.linkedin.com/in/sayantan-basu-73ab4a92/",
+        github: "https://github.com/Sbasu2512",
       },
       department: "Backend",
     },
