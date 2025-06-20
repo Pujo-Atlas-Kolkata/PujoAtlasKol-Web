@@ -40,7 +40,7 @@ export const Navbar = () => {
         <div className="flex flex-row items-center gap-4 text-lg font-semibold">
           <p
             className={cn(
-              "hover:bg-main cursor-pointer rounded-full border-2 border-transparent px-5 pt-2 pb-1 hover:border-2 hover:border-black",
+              "hover:bg-main cursor-pointer rounded-full border-2 border-transparent px-5 py-2 hover:border-2 hover:border-black",
               {
                 "border-2 border-black bg-gradient-to-r from-amber-300/30 to-orange-300/30 hover:bg-transparent":
                   pathname === Constants.routes.aboutUs,
@@ -56,7 +56,7 @@ export const Navbar = () => {
 
           <p
             className={cn(
-              "hover:bg-main cursor-pointer rounded-full border-2 border-transparent px-5 pt-2 pb-1 hover:border-2 hover:border-black",
+              "hover:bg-main cursor-pointer rounded-full border-2 border-transparent px-5 py-2 hover:border-2 hover:border-black",
               {
                 "border-2 border-black bg-gradient-to-r from-amber-300/30 to-orange-300/30 hover:bg-transparent":
                   pathname === Constants.routes.sponsorUs,
@@ -72,7 +72,7 @@ export const Navbar = () => {
             Sponsor Us
           </p>
 
-          <div className="hover:bg-main flex cursor-pointer flex-row items-center rounded-full border-2 border-transparent px-5 pt-2 pb-1 hover:border-black">
+          <div className="hover:bg-main flex cursor-pointer flex-row items-center rounded-full border-2 border-transparent px-5 py-2 hover:border-black">
             <a
               href={Constants.socials.gitHub}
               target="_blank"
@@ -81,7 +81,7 @@ export const Navbar = () => {
             >
               <p>GitHub</p>
             </a>
-            <div className="mb-1 ml-1">
+            <div className="ml-1">
               <ArrowUpRight className="size-4" />
             </div>
           </div>
@@ -125,8 +125,7 @@ export const Navbar = () => {
 
                 <p
                   className={cn("flex items-center gap-3 text-3xl", {
-                    "bg-main/25 rounded-full px-12 pt-3 pb-2":
-                      pathname === Constants.routes.aboutUs,
+                    "bg-main/25 rounded-full p-3 px-12": pathname === Constants.routes.aboutUs,
                   })}
                   onClick={() => {
                     posthog?.capture(PostHogEvents.NAVBAR_CLICK, {
@@ -136,13 +135,12 @@ export const Navbar = () => {
                     setIsSheetOpen(false);
                   }}
                 >
-                  <UsersRound className="mb-2 size-7" /> About Us
+                  <UsersRound className="size-7" /> About Us
                 </p>
 
                 <p
                   className={cn("flex items-center gap-3 text-3xl", {
-                    "bg-main/25 rounded-full px-12 pt-3 pb-2":
-                      pathname === Constants.routes.sponsorUs,
+                    "bg-main/25 rounded-full p-3 px-12": pathname === Constants.routes.sponsorUs,
                   })}
                   onClick={() => {
                     posthog?.capture(PostHogEvents.NAVBAR_CLICK, {
@@ -152,7 +150,7 @@ export const Navbar = () => {
                     setIsSheetOpen(false);
                   }}
                 >
-                  <HandCoins className="mb-2 size-7" /> Sponsor Us
+                  <HandCoins className="size-7" /> Sponsor Us
                 </p>
 
                 <div className="flex flex-row items-center text-3xl">
@@ -168,9 +166,9 @@ export const Navbar = () => {
                       setIsSheetOpen(false);
                     }}
                   >
-                    <Github className="mb-1.5 size-7" /> <span>GitHub</span>
+                    <Github className="size-7" /> <span>GitHub</span>
                   </a>
-                  <div className="mb-1 ml-1">
+                  <div className="ml-1">
                     <ArrowUpRight className="size-6" />
                   </div>
                 </div>
