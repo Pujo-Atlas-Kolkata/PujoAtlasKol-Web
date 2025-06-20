@@ -13,7 +13,7 @@ export default function HomePage() {
         <div className="flex flex-col gap-y-4 text-center">
           <p className="text-7xl font-extrabold lg:text-9xl">
             Pujo{" "}
-            <span className="bg-main/50 border-border/40 dark:border-border/70 relative mr-0 -ml-3 rounded-lg border-2 px-3 pt-3 pb-1 lg:mr-2 lg:ml-0 lg:pt-6 lg:pb-1 lg:[&_svg]:size-7 xl:[&_svg]:size-[45px]">
+            <span className="bg-main/50 border-border/40 dark:border-border/70 relative mr-0 -ml-3 rounded-lg border-2 px-3 py-1 lg:px-6 lg:py-1.5 lg:[&_svg]:size-7 xl:[&_svg]:size-[45px]">
               Atlas
               <Star9
                 className="absolute -right-2.5 -bottom-2.5 hidden animate-pulse lg:block xl:-right-5 xl:-bottom-4"
