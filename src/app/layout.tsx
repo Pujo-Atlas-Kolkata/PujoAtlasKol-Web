@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 
 import { type Metadata } from "next";
-import { gilroy, geist } from "@/styles/fonts";
+import { geist, spaceGrotesk } from "@/styles/fonts";
 import { AnimatedGridPattern, Footer, Navbar, BetaAlert } from "@/components";
 import { Toaster } from "sonner";
 import { PostHogProvider } from "@/providers";
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${gilroy.variable} ${geist.variable}`}>
+    <html lang="en" className={`${spaceGrotesk.variable} ${geist.variable}`}>
       <body>
         <TRPCProvider>
           <PostHogProvider>
