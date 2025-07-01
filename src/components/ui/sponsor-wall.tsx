@@ -16,7 +16,7 @@ export const SponsorWall = ({
 }) => {
   return (
     <TooltipProvider>
-      <div className="mx-auto mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:my-10 lg:w-[calc(100%-5rem)] lg:grid-cols-6">
+      <div className="mx-auto mt-4 grid grid-cols-3 gap-4 lg:my-10 lg:w-[calc(100%-5rem)] lg:grid-cols-6">
         {items.map((item, index) => (
           <span key={index} className="mx-2 inline-flex items-center sm:mx-4 md:mx-6">
             <Tooltip>
