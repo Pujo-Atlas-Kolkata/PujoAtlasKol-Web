@@ -9,34 +9,39 @@ import { Button } from "@/components";
 
 export const Footer = () => {
   return (
-    <footer className="mx-auto my-3 flex w-[calc(100%-1rem)] flex-col items-center border-black p-2 backdrop-blur-sm lg:my-10 lg:w-[calc(100%-5rem)] lg:rounded-lg lg:border-2 lg:bg-amber-300/30 lg:p-12">
+    <footer className="flex-w mx-auto my-3 flex w-[calc(100%-1rem)] flex-col items-center rounded-lg border-2 border-black bg-amber-300/30 p-2 backdrop-blur-sm lg:my-10 lg:w-[calc(100%-5rem)] lg:p-12">
       {/* Footer for large screens */}
-      <div className="hidden w-full lg:block">
-        <div className="flex w-full flex-row items-center justify-between">
-          <div className="flex flex-row items-center justify-center text-center text-lg font-normal">
-            Cooked with ❤️ by&nbsp;
-            <span className="font-medium">Pujo Atlas Kolkata</span>. Checkout&nbsp;
-            <span className="font-medium">Atlas v1 Wrapped</span>
-            &nbsp;2024&nbsp;
-            <a
-              href={Constants.stats.redditPost}
-              className="font-semibold underline"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() =>
-                posthog?.capture(PostHogEvents.FOOTER_CLICK, {
-                  link: "redditPost",
-                })
-              }
-            >
-              <div className="flex flex-row items-center justify-center">
-                here
-                <ArrowUpRight className="size-4 animate-pulse" />
-              </div>
-            </a>
+      <div className="block w-full lg:block">
+        <div className="lg:items:center flex w-full flex-col items-start justify-between gap-3 lg:flex-row">
+          <div className="text-normal flex flex-row flex-wrap items-center gap-2 text-center font-normal lg:text-lg">
+            <div>
+              Cooked with ❤️ by&nbsp;
+              <span className="font-medium">Pujo Atlas Kolkata</span>.
+            </div>
+            <div className="flex flex-row items-center justify-center">
+              Checkout&nbsp;
+              <span className="font-medium">Atlas v1 Wrapped</span>
+              &nbsp;2024&nbsp;
+              <a
+                href={Constants.stats.redditPost}
+                className="font-semibold underline"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() =>
+                  posthog?.capture(PostHogEvents.FOOTER_CLICK, {
+                    link: "redditPost",
+                  })
+                }
+              >
+                <div className="flex flex-row items-center justify-center">
+                  here
+                  <ArrowUpRight className="size-4 animate-pulse" />
+                </div>
+              </a>
+            </div>
           </div>
 
-          <div className="flex flex-row items-center justify-center gap-x-3">
+          <div className="flex flex-row flex-wrap items-center justify-start gap-3 lg:flex-nowrap">
             <Link
               href={Constants.socials.discord}
               target="_blank"
@@ -95,11 +100,11 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="my-10 h-0.5 w-full bg-black" />
+        <div className="mt-5 mb-4 h-0.5 w-full bg-black lg:my-10" />
 
-        <div className="flex w-full flex-row items-center justify-between">
-          <div className="flex font-normal">
-            Copyright © 2025 Pujo Atlas Kolkata.&nbsp;
+        <div className="flex w-full flex-col flex-wrap items-start justify-between gap-3 lg:flex-row lg:flex-nowrap lg:items-center">
+          <div className="text-normal flex flex-wrap gap-2 font-normal lg:text-lg">
+            <div>Copyright © 2025 Pujo Atlas Kolkata.</div>
             <Link
               href={Constants.misc.license}
               target="_blank"
@@ -119,7 +124,7 @@ export const Footer = () => {
             </Link>
           </div>
 
-          <div className="flex flex-row items-center justify-end gap-x-3">
+          <div className="flex flex-row flex-wrap items-center justify-start gap-3 md:flex-nowrap">
             {Object.entries(Constants.socials)
               .filter(([platform]) => platform !== "sponsor")
               .map(([platform, url]) => (
@@ -144,7 +149,7 @@ export const Footer = () => {
       </div>
 
       {/* Footer for mobile screens */}
-      <div className="block w-full text-center lg:hidden">
+      <div className="hidden w-full text-center lg:hidden">
         <div className="flex flex-col items-start justify-start text-sm font-normal">
           <div>
             Cooked with ❤️ by&nbsp;
