@@ -11,7 +11,7 @@ export const Footer = () => {
   return (
     <footer className="flex-w mx-auto my-3 flex w-[calc(100%-1rem)] flex-col items-center rounded-lg border-2 border-black bg-amber-300/30 p-2 backdrop-blur-sm lg:my-10 lg:w-[calc(100%-5rem)] lg:p-12">
       {/* Footer for large screens */}
-      <div className="block w-full lg:block">
+      <div className="block w-full">
         <div className="lg:items:center flex w-full flex-col items-start justify-between gap-3 lg:flex-row">
           <div className="text-normal flex flex-row flex-wrap items-center gap-2 text-center font-normal lg:text-lg">
             <div>
@@ -149,7 +149,7 @@ export const Footer = () => {
       </div>
 
       {/* Footer for mobile screens */}
-      <div className="hidden w-full text-center lg:hidden">
+      <div className="hidden w-full text-center">
         <div className="flex flex-col items-start justify-start text-sm font-normal">
           <div>
             Cooked with ❤️ by&nbsp;
