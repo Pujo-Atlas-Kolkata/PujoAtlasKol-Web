@@ -24,7 +24,7 @@ export const Navbar = () => {
   const [isSheetOpen, setIsSheetOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-30 mx-auto rounded-b-md border-gray-500 bg-white/40 py-3 shadow backdrop-blur-xs lg:mt-5 lg:w-[calc(100%-5rem)] lg:rounded-full lg:border-2 lg:bg-white/80 lg:py-4">
+    <header className="w-full max-w-screen-xl mx-auto fixed inset-x-0 top-0 z-30 mx-auto rounded-b-md border-gray-500 bg-white/40 py-3 shadow backdrop-blur-xs lg:mt-5 lg:w-[calc(100%-5rem)] lg:rounded-full lg:border-2 lg:bg-white/80 lg:py-4">
       {/* Large Screen Navbar */}
       <div className="hidden h-10 w-full flex-row items-center justify-between px-8 lg:flex">
         <p
