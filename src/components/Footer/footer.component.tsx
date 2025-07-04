@@ -18,7 +18,7 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="w-full max-w-screen-xl mx-auto flex-w mx-auto my-3 flex w-[calc(100%-1rem)] flex-col items-center rounded-lg border-2 border-black bg-amber-300/30 p-2 backdrop-blur-sm lg:my-10 lg:w-[calc(100%-5rem)] lg:p-12">
+    <footer className="w-full max-w-screen-xl flex-w mx-auto my-3 flex w-[calc(100%-1rem)] flex-col items-center rounded-lg border-2 border-black bg-amber-300/30 p-2 backdrop-blur-sm lg:my-10 lg:w-[calc(100%-5rem)] lg:p-12">
       {/* Footer for large screens */}
       <div className="hidden w-full lg:block">
         <div className="lg:items:center flex w-full flex-col items-start justify-between gap-3 lg:flex-row">

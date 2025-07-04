@@ -121,7 +121,7 @@ export default function HomePage() {
         </p>
       </div>
 
-      <div className="w-full max-w-screen-xl mx-auto mx-auto mt-4 flex w-full flex-col items-center justify-between gap-1 px-2 lg:mt-6 lg:w-[calc(100%-5rem)] lg:flex-row lg:gap-4 lg:px-0">
+      <div className="w-full max-w-screen-xl mx-auto mt-4 flex flex-col items-center justify-between gap-1 px-2 lg:mt-6 lg:w-[calc(100%-5rem)] lg:flex-row lg:gap-4 lg:px-0">
         <EvervaultCard className="mb-4 h-64 w-full rounded-2xl border-2 border-black bg-amber-300/20 backdrop-blur-3xl lg:mb-0 lg:h-48 lg:flex-1 lg:shadow-[3px_3px_0_3px]">
           <div className="flex h-full w-full flex-col items-center justify-center gap-2 px-4 lg:px-8">
             <div className="mb-2 flex items-center justify-center rounded-full bg-gray-100/40 p-2.5">
