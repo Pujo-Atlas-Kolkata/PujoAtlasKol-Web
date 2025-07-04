@@ -29,7 +29,7 @@ export default function AboutUsPage() {
 
           <p className="pt-1.5 pb-0.5 text-3xl font-semibold">Who are we?</p>
 
-          <p className="mx-auto w-full max-w-screen-xl text-lg leading-tight font-normal lg:w-[60dvw]">
+          <p className="mx-auto w-full max-w-screen-xl text-lg leading-tight font-normal">
             We are a collective of <span className="font-semibold">Durga Puja</span> enthusiasts
             committed to making Pandal Hopping in <span className="font-semibold">Kolkata</span>{" "}
             more enjoyable and accessible for everyone. Our team, which includes{" "}

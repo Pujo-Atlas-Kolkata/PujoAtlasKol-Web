@@ -14,7 +14,7 @@ export default function SponsorUsPage() {
         <div className="flex flex-col gap-y-2 px-2 lg:px-0">
           <p className="text-3xl font-bold sm:text-5xl">Sponsor Pujo Atlas</p>
 
-          <p className="mx-auto w-full max-w-screen-xl pt-2 text-base leading-tight font-normal sm:w-[60dvw] sm:text-lg">
+          <p className="mx-auto w-full max-w-screen-xl pt-2 text-base leading-tight font-normal sm:text-lg">
             <span className="font-semibold">Pujo Atlas</span> is an{" "}
             <span className="font-semibold">open source</span> project that is free to use and
             ad-free. We rely on the support of our users to keep the project running and to make it
@@ -22,7 +22,7 @@ export default function SponsorUsPage() {
             <span className="font-semibold">sponsoring</span> our project.
           </p>
 
-          <p className="mx-auto w-full max-w-screen-xl pt-2 text-base leading-tight font-normal sm:w-[60dvw] sm:text-lg">
+          <p className="mx-auto w-full max-w-screen-xl pt-2 text-base leading-tight font-normal sm:text-lg">
             We are currently looking for sponsors to help us keep the project running and to make it
             better. If you are interested in sponsoring our project, please&nbsp; contact us at{" "}
             <a
