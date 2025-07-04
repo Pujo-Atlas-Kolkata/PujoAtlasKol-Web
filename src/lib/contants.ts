@@ -9,7 +9,7 @@ export const Constants = {
     sponsorUs: "/sponsor-us",
   },
   launchCountdown: {
-    daysTillOpenBeta: "2025-08-21",
+    daysTillOpenBeta: "2025-09-01",
     daysTillWeLaunchV2: "2025-09-21",
     daysTillDurgaPuja2025: "2025-09-27",
   },
@@ -87,7 +87,7 @@ type MemberDetails = {
   | {
       department: (typeof Tech)[number];
       socials: {
-        discord: string;
+        discord?: string;
         github: string;
         linkedin?: string;
         twitter?: string;
@@ -97,7 +97,7 @@ type MemberDetails = {
   | {
       department: (typeof NonTech)[number];
       socials: {
-        discord: string;
+        discord?: string;
         github?: string;
         linkedin?: string;
         twitter?: string;
@@ -204,8 +204,8 @@ export const team: Record<string, MemberDetails[]> = {
       department: "Community",
     },
     {
-      id: "rishi",
-      name: "rishi",
+      id: "kochurighugni",
+      name: "kochurighugni",
       avatar: "https://api.dicebear.com/9.x/lorelei/svg?seed=rishi",
       socials: {
         discord: "https://discord.com/users/283499137977024513",
@@ -248,12 +248,11 @@ export const team: Record<string, MemberDetails[]> = {
       department: "Web",
     },
     {
-      id: "yaroteburu",
-      name: "Yaroteburu",
+      id: "soumyadeep",
+      name: "Soumyadeep",
       avatar:
         "https://api.dicebear.com/9.x/lorelei/svg?seed=liam&eyes=variant02&frecklesProbability=0&glassesProbability=100&hair=variant07&eyebrows=variant07&glasses=variant04&nose=variant04",
       socials: {
-        discord: "https://discord.com/users/422747998657839116",
         linkedin: "https://www.linkedin.com/in/soumyadeep-bhattacharya-65b74b170/",
         github: "https://github.com/SBhattacharya45",
         website: "https://www.soumyadeep.info/",

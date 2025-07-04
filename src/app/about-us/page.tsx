@@ -22,14 +22,14 @@ export default function AboutUsPage() {
   }, []);
 
   return (
-    <main className="mt-36 flex flex-col backdrop-blur-xs lg:ml-10">
+    <main className="mx-auto mt-36 flex w-full max-w-screen-xl flex-col backdrop-blur-xs">
       <div className="w-full rounded-2xl border-gray-500">
         <div className="ml-5 flex flex-col gap-y-2 lg:ml-0">
           <p className="text-5xl font-bold lg:text-left">Meet the Team</p>
 
           <p className="pt-1.5 pb-0.5 text-3xl font-semibold">Who are we?</p>
 
-          <p className="w-[90dvw] text-lg leading-tight font-normal lg:w-[60dvw]">
+          <p className="mx-auto w-full max-w-screen-xl text-lg leading-tight font-normal">
             We are a collective of <span className="font-semibold">Durga Puja</span> enthusiasts
             committed to making Pandal Hopping in <span className="font-semibold">Kolkata</span>{" "}
             more enjoyable and accessible for everyone. Our team, which includes{" "}

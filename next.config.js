@@ -18,6 +18,11 @@ const config = {
       },
     ],
   },
+  compiler: {
+    removeConsole: {
+      exclude: ["error", "warn", "info"],
+    },
+  },
   async rewrites() {
     return [
       {

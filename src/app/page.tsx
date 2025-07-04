@@ -1,10 +1,11 @@
 "use client";
 
-import { EvervaultCard, InteractiveHoverButton, NumberTicker, Marquee, Star9 } from "@/components";
+import { EvervaultCard, InteractiveHoverButton, NumberTicker, Star9 } from "@/components";
 import { Constants } from "@/lib";
 import { Route, Search, UsersRound } from "lucide-react";
 import posthog from "posthog-js";
 import { PostHogEvents } from "@/providers";
+import { SponsorWall } from "@/components/ui/sponsor-wall";
 
 export default function HomePage() {
   return (
@@ -99,25 +100,20 @@ export default function HomePage() {
             <br className="hidden lg:block" />
             <span className="font-semibold">Pujo Atlas</span> and making this project possible.
           </p>
-
-          <div className="relative mt-5 w-full lg:mx-auto lg:w-[98.75dvw]">
-            <div className="absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-white to-transparent lg:w-24" />
-            <div className="absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-white to-transparent lg:w-24" />
-            <Marquee
-              items={Constants.sponsorsMarquee.map((item) => ({
-                ...item,
-                onClick: () =>
-                  posthog?.capture(PostHogEvents.HOMEPAGE_SPONSOR_CLICK, {
-                    sponsor: item.alt,
-                    link: item.link,
-                  }),
-              }))}
-            />
-          </div>
+          <SponsorWall
+            items={Constants.sponsorsMarquee.map((item) => ({
+              ...item,
+              onClick: () =>
+                posthog?.capture(PostHogEvents.HOMEPAGE_SPONSOR_CLICK, {
+                  sponsor: item.alt,
+                  link: item.link,
+                }),
+            }))}
+          />
         </div>
       </div>
 
-      <div className="mt-8 flex flex-col items-center justify-center backdrop-blur-3xl lg:mt-10">
+      <div className="mx-auto mt-8 flex w-full max-w-screen-xl flex-col items-center justify-center backdrop-blur-3xl lg:mt-10">
         <p className="text-2xl font-bold lg:text-3xl">Atlas v1 2024 Durga Pujo Stats</p>
         <p className="pt-1 text-base font-normal lg:pt-2 lg:text-sm">
           Measured over just 5 days
@@ -125,7 +121,7 @@ export default function HomePage() {
         </p>
       </div>
 
-      <div className="mx-auto mt-4 flex w-full flex-col items-center justify-between gap-1 px-2 lg:mt-6 lg:w-[calc(100%-5rem)] lg:flex-row lg:gap-4 lg:px-0">
+      <div className="mx-auto mt-4 flex w-full max-w-screen-xl flex-col items-center justify-between gap-1 px-2 lg:mt-6 lg:w-[calc(100%-5rem)] lg:flex-row lg:gap-4 lg:px-0">
         <EvervaultCard className="mb-4 h-64 w-full rounded-2xl border-2 border-black bg-amber-300/20 backdrop-blur-3xl lg:mb-0 lg:h-48 lg:flex-1 lg:shadow-[3px_3px_0_3px]">
           <div className="flex h-full w-full flex-col items-center justify-center gap-2 px-4 lg:px-8">
             <div className="mb-2 flex items-center justify-center rounded-full bg-gray-100/40 p-2.5">
