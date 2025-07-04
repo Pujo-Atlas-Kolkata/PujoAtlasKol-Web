@@ -9,7 +9,7 @@ export const Constants = {
     sponsorUs: "/sponsor-us",
   },
   launchCountdown: {
-    daysTillOpenBeta: "2025-08-21",
+    daysTillOpenBeta: "2025-09-01",
     daysTillWeLaunchV2: "2025-09-21",
     daysTillDurgaPuja2025: "2025-09-27",
   },

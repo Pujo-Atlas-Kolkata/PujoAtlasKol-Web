@@ -113,7 +113,7 @@ export const Footer = () => {
 
         <div className="flex w-full flex-col flex-wrap items-start justify-between gap-3 lg:flex-row lg:flex-nowrap lg:items-center">
           <div className="text-normal flex flex-wrap gap-2 font-normal lg:text-lg">
-            <div>Copyright © 2025 Pujo Atlas Kolkata.</div>
+            <div>Copyright © 2025 Pujo Atlas.</div>
             <Link
               href={Constants.misc.license}
               target="_blank"
@@ -159,107 +159,96 @@ export const Footer = () => {
 
       {/* Footer for mobile screens */}
       <div className="block w-full lg:hidden">
-        <div className="mt-5 flex w-full flex-col items-center justify-between gap-3">
-          <div className="text-normal flex flex-col flex-wrap items-center gap-2 text-center font-normal">
-            <div>
-              Cooked with ❤️ by&nbsp;
-              <span className="font-medium">Pujo Atlas Kolkata</span>.
-            </div>
+        <div className="mx-5 mt-5 mb-8 flex flex-row items-center justify-between gap-3 text-sm underline decoration-dotted">
+          <Link
+            href={Constants.stats.redditPost}
+            className="font-semibold"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() =>
+              posthog?.capture(PostHogEvents.FOOTER_CLICK, {
+                link: "redditPost",
+              })
+            }
+          >
             <div className="flex flex-row items-center justify-center">
-              Checkout&nbsp;
-              <span className="font-medium">Atlas v1 Wrapped</span>
-              &nbsp;2024&nbsp;
-              <a
-                href={Constants.stats.redditPost}
-                className="font-semibold underline"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() =>
-                  posthog?.capture(PostHogEvents.FOOTER_CLICK, {
-                    link: "redditPost",
-                  })
-                }
-              >
-                <div className="flex flex-row items-center justify-center">
-                  here
-                  <ArrowUpRight className="size-4 animate-pulse" />
-                </div>
-              </a>
+              v1 Wrapped
+              <ArrowUpRight className="size-4 animate-pulse" />
             </div>
-          </div>
+          </Link>
 
-          <div className="flex flex-row flex-wrap items-center justify-start gap-3 text-sm underline">
-            <Link
-              href={Constants.socials.discord}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() =>
-                posthog?.capture(PostHogEvents.FOOTER_CLICK, {
-                  link: "discord",
-                })
-              }
-            >
-              Bug?
-            </Link>
+          <Link
+            href={Constants.socials.discord}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() =>
+              posthog?.capture(PostHogEvents.FOOTER_CLICK, {
+                link: "discord",
+              })
+            }
+          >
+            Bug?
+          </Link>
 
-            <Link
-              href={Constants.misc.feedbackForm}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() =>
-                posthog?.capture(PostHogEvents.FOOTER_CLICK, {
-                  link: "feedbackForm",
-                })
-              }
-            >
-              Feedback
-            </Link>
+          <Link
+            href={Constants.misc.feedbackForm}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() =>
+              posthog?.capture(PostHogEvents.FOOTER_CLICK, {
+                link: "feedbackForm",
+              })
+            }
+          >
+            Feedback
+          </Link>
 
-            <Link
-              href={Constants.misc.statusPage}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() =>
-                posthog?.capture(PostHogEvents.FOOTER_CLICK, {
-                  link: "statusPage",
-                })
-              }
-            >
-              Status
-            </Link>
+          <Link
+            href={Constants.misc.statusPage}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() =>
+              posthog?.capture(PostHogEvents.FOOTER_CLICK, {
+                link: "statusPage",
+              })
+            }
+          >
+            Status
+          </Link>
+        </div>
+
+        <div className="mt-3 flex w-full flex-col gap-3">
+          <div className="mx-5 mb-2 flex flex-row items-center justify-between gap-3">
+            {Object.entries(Constants.socials)
+              .filter(([platform]) => platform !== "sponsor")
+              .map(([platform, url]) => (
+                <Link
+                  key={platform}
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() =>
+                    posthog?.capture(PostHogEvents.FOOTER_CLICK, {
+                      link: platform,
+                    })
+                  }
+                >
+                  {socialIcons[platform as keyof typeof socialIcons]
+                    ? (() => {
+                        const Icon = socialIcons[platform as keyof typeof socialIcons];
+                        return <Icon size={28} className="inline-block" />;
+                      })()
+                    : platform.charAt(0).toUpperCase() + platform.slice(1)}
+                </Link>
+              ))}
           </div>
         </div>
 
-        <div className="text-large mt-5 flex flex-row items-center justify-center gap-3">
-          {Object.entries(Constants.socials)
-            .filter(([platform]) => platform !== "sponsor")
-            .map(([platform, url]) => (
-              <Link
-                key={platform}
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() =>
-                  posthog?.capture(PostHogEvents.FOOTER_CLICK, {
-                    link: platform,
-                  })
-                }
-              >
-                {socialIcons[platform as keyof typeof socialIcons]
-                  ? (() => {
-                      const Icon = socialIcons[platform as keyof typeof socialIcons];
-                      return <Icon size={24} className="inline-block" />;
-                    })()
-                  : platform.charAt(0).toUpperCase() + platform.slice(1)}
-              </Link>
-            ))}
-        </div>
+        <div className="my-5 w-full" />
 
-        <div className="mt-5 mb-4 h-0.5 w-full bg-black" />
-
-        <div className="flex w-full flex-col flex-wrap items-center justify-between gap-3">
-          <div className="flex flex-wrap gap-2 text-sm font-normal">
-            <div>Copyright © 2025 Pujo Atlas Kolkata.</div>
+        <div className="flex w-full flex-col items-center justify-between gap-3">
+          <div className="flex gap-2 text-sm font-normal">
+            <div>Copyright © 2025 Pujo Atlas.</div>
             <Link
               href={Constants.misc.license}
               target="_blank"
