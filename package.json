@@ -16,7 +16,8 @@
     "lint:fix": "next lint --fix",
     "preview": "next build && next start",
     "start": "next start",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "scan": "next dev & npx react-scan http://localhost:3000"
   },
   "dependencies": {
     "@radix-ui/react-alert-dialog": "^1.1.14",
@@ -40,6 +41,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0",
+    "react-scan": "^0.4.3",
     "server-only": "^0.0.1",
     "sonner": "^2.0.3",
     "superjson": "^1.8.1",
