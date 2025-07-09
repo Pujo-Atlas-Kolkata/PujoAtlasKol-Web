@@ -17,7 +17,7 @@
     "preview": "next build && next start",
     "start": "next start",
     "typecheck": "tsc --noEmit",
-    "scan": "next dev & npx react-scan http://localhost:3000"
+    "scan": "pnpm dev & npx react-scan http://localhost:3000"
   },
   "dependencies": {
     "@radix-ui/react-alert-dialog": "^1.1.14",
