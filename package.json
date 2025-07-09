@@ -16,7 +16,8 @@
     "lint:fix": "next lint --fix",
     "preview": "next build && next start",
     "start": "next start",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "scan": "pnpm dev & npx react-scan http://localhost:3000"
   },
   "dependencies": {
     "@radix-ui/react-alert-dialog": "^1.1.14",
@@ -58,6 +59,7 @@
     "postcss": "^8.5.3",
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
+    "react-scan": "^0.4.3",
     "tailwindcss": "^4.0.15",
     "trpc-ui": "^1.0.15",
     "turbo": "^2.5.4",
