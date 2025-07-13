@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { isBETA } from "@/lib/utils";
-import { Constants } from "@/lib/contants";
+import { Constants } from "@/lib/constants";
 import posthog from "posthog-js";
 import { PostHogEvents } from "@/providers/PostHogProvider";
 
