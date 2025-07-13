@@ -4,9 +4,18 @@ export const Constants = {
     dev: "https://dev.pujo-atlas.ourkolkata.in",
   },
   routes: {
-    home: "/",
-    aboutUs: "/about-us",
-    sponsorUs: "/sponsor-us",
+    landing: {
+      home: "/",
+      aboutUs: "/about-us",
+      sponsorUs: "/sponsor-us",
+    },
+    misc: {
+      sentry: "/sentry-example",
+      notFound: "/not-found",
+    },
+    app: {
+      test: "/test",
+    },
   },
   launchCountdown: {
     daysTillOpenBeta: "2025-09-01",
