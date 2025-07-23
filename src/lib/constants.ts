@@ -14,7 +14,7 @@ export const Constants = {
       notFound: "/not-found",
     },
     app: {
-      test: "/test",
+      test: "/app/test",
     },
   },
   launchCountdown: {
