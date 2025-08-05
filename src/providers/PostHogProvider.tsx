@@ -69,4 +69,5 @@ export const PostHogEvents = {
   TEAMCARD_SOCIAL_CLICK: "teamcard_social_click",
   BETA_ALERT_ACCEPT: "beta_alert_accept",
   BETA_ALERT_REJECT: "beta_alert_reject",
+  BETA_REDIRECT_404: "beta_redirect_404",
 };

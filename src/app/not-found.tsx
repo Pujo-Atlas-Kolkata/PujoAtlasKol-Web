@@ -22,7 +22,7 @@ export default function NotFound() {
             posthog?.capture(PostHogEvents.NOTFOUND_HOME_CLICK, {
               link: "notfound_home",
             });
-            router.push(Constants.routes.home);
+            router.push(Constants.routes.landing.home);
           }}
         >
           Go back to the home page <ArrowRight className="size-4" />
