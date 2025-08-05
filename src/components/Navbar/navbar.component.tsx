@@ -31,7 +31,7 @@ export const Navbar = () => {
           className="cursor-pointer text-xl font-bold"
           onClick={() => {
             posthog?.capture(PostHogEvents.NAVBAR_CLICK, { link: "home" });
-            router.push(Constants.routes.home);
+            router.push(Constants.routes.landing.home);
           }}
         >
           Pujo Atlas
@@ -43,12 +43,12 @@ export const Navbar = () => {
               "hover:bg-main cursor-pointer rounded-full border-2 border-transparent px-5 py-2 hover:border-2 hover:border-black",
               {
                 "border-2 border-black bg-gradient-to-r from-amber-300/30 to-orange-300/30 hover:bg-transparent":
-                  pathname === Constants.routes.aboutUs,
+                  pathname === Constants.routes.landing.aboutUs,
               },
             )}
             onClick={() => {
               posthog?.capture(PostHogEvents.NAVBAR_CLICK, { link: "aboutUs" });
-              router.push(Constants.routes.aboutUs);
+              router.push(Constants.routes.landing.aboutUs);
             }}
           >
             About Us
@@ -59,14 +59,14 @@ export const Navbar = () => {
               "hover:bg-main cursor-pointer rounded-full border-2 border-transparent px-5 py-2 hover:border-2 hover:border-black",
               {
                 "border-2 border-black bg-gradient-to-r from-amber-300/30 to-orange-300/30 hover:bg-transparent":
-                  pathname === Constants.routes.sponsorUs,
+                  pathname === Constants.routes.landing.sponsorUs,
               },
             )}
             onClick={() => {
               posthog?.capture(PostHogEvents.NAVBAR_CLICK, {
                 link: "sponsorUs",
               });
-              router.push(Constants.routes.sponsorUs);
+              router.push(Constants.routes.landing.sponsorUs);
             }}
           >
             Sponsor Us
@@ -94,7 +94,7 @@ export const Navbar = () => {
           className="cursor-pointer text-xl font-bold"
           onClick={() => {
             posthog?.capture(PostHogEvents.NAVBAR_CLICK, { link: "home" });
-            router.push(Constants.routes.home);
+            router.push(Constants.routes.landing.home);
           }}
         >
           Pujo Atlas
@@ -110,13 +110,13 @@ export const Navbar = () => {
               <SheetDescription className="mx-auto flex h-[calc(100dvh-10rem)] flex-col items-start justify-center gap-y-5">
                 <p
                   className={cn("flex items-center gap-3 text-3xl", {
-                    hidden: pathname === Constants.routes.home,
+                    hidden: pathname === Constants.routes.landing.home,
                   })}
                   onClick={() => {
                     posthog?.capture(PostHogEvents.NAVBAR_CLICK, {
                       link: "home",
                     });
-                    router.push(Constants.routes.home);
+                    router.push(Constants.routes.landing.home);
                     setIsSheetOpen(false);
                   }}
                 >
@@ -125,13 +125,14 @@ export const Navbar = () => {
 
                 <p
                   className={cn("flex items-center gap-3 text-3xl", {
-                    "bg-main/25 rounded-full p-3 px-12": pathname === Constants.routes.aboutUs,
+                    "bg-main/25 rounded-full p-3 px-12":
+                      pathname === Constants.routes.landing.aboutUs,
                   })}
                   onClick={() => {
                     posthog?.capture(PostHogEvents.NAVBAR_CLICK, {
                       link: "aboutUs",
                     });
-                    router.push(Constants.routes.aboutUs);
+                    router.push(Constants.routes.landing.aboutUs);
                     setIsSheetOpen(false);
                   }}
                 >
@@ -140,13 +141,14 @@ export const Navbar = () => {
 
                 <p
                   className={cn("flex items-center gap-3 text-3xl", {
-                    "bg-main/25 rounded-full p-3 px-12": pathname === Constants.routes.sponsorUs,
+                    "bg-main/25 rounded-full p-3 px-12":
+                      pathname === Constants.routes.landing.sponsorUs,
                   })}
                   onClick={() => {
                     posthog?.capture(PostHogEvents.NAVBAR_CLICK, {
                       link: "sponsorUs",
                     });
-                    router.push(Constants.routes.sponsorUs);
+                    router.push(Constants.routes.landing.sponsorUs);
                     setIsSheetOpen(false);
                   }}
                 >

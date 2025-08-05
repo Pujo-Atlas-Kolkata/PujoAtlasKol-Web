@@ -4,7 +4,7 @@ import { type Metadata } from "next";
 import { geist, spaceGrotesk } from "@/styles/fonts";
 import { AnimatedGridPattern, Footer, Navbar, BetaAlert } from "@/components";
 import { Toaster } from "sonner";
-import { PostHogProvider } from "@/providers";
+import { PostHogProvider, RouteProvider } from "@/providers";
 import { Constants, isBETA } from "@/lib";
 import { TRPCProvider } from "@/server/api";
 
@@ -34,26 +34,28 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en" className={`${spaceGrotesk.variable} ${geist.variable}`}>
       <body>
         <TRPCProvider>
-          <PostHogProvider>
-            <AnimatedGridPattern className="pointer-events-none fixed inset-0 -z-10 h-full w-full" />
-            <Navbar />
-            {isBETA() && <BetaAlert />}
-            {children}
-            <Footer />
-            <Toaster
-              toastOptions={{
-                style: {
-                  backgroundColor: "var(--color-background)",
-                  color: "var(--color-main-foreground)",
-                  fontFamily: "var(--font-sans)",
-                  fontWeight: "var(--font-weight-base)",
-                  boxShadow: "var(--shadow-shadow)",
-                  borderRadius: "var(--radius-base)",
-                  border: "1px solid var(--color-border)",
-                },
-              }}
-            />
-          </PostHogProvider>
+          <RouteProvider>
+            <PostHogProvider>
+              <AnimatedGridPattern className="pointer-events-none fixed inset-0 -z-10 h-full w-full" />
+              <Navbar />
+              {isBETA() && <BetaAlert />}
+              {children}
+              <Footer />
+              <Toaster
+                toastOptions={{
+                  style: {
+                    backgroundColor: "var(--color-background)",
+                    color: "var(--color-main-foreground)",
+                    fontFamily: "var(--font-sans)",
+                    fontWeight: "var(--font-weight-base)",
+                    boxShadow: "var(--shadow-shadow)",
+                    borderRadius: "var(--radius-base)",
+                    border: "1px solid var(--color-border)",
+                  },
+                }}
+              />
+            </PostHogProvider>
+          </RouteProvider>
         </TRPCProvider>
       </body>
     </html>
