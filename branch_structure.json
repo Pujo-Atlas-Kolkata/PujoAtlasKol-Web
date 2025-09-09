@@ -1,0 +1,33 @@
+{
+  "default_branch": "dev",
+  "branches": [
+    "dev",
+    "pujo_apis",
+    "snyk-fix-58fe5adf754c34bddd0124518f44adfb",
+    "snyk-fix-9ab092770fd9cea3a7d52d361e97d89f",
+    "snyk-fix-fd7d4571a090901f17dea831a1d0621c",
+    "snyk-upgrade-5c2d110457f7a1d4807a858aaf68e8ec",
+    "snyk-upgrade-b19c9ab7d87a177e50b71af164479d2e",
+    "snyk-upgrade-dc74c0713d6eb08397ab53f9b0eca1f3"
+  ],
+  "parent": {
+    "dev": null,
+    "pujo_apis": "dev",
+    "snyk-fix-58fe5adf754c34bddd0124518f44adfb": "dev",
+    "snyk-fix-9ab092770fd9cea3a7d52d361e97d89f": "dev",
+    "snyk-fix-fd7d4571a090901f17dea831a1d0621c": "dev",
+    "snyk-upgrade-5c2d110457f7a1d4807a858aaf68e8ec": "dev",
+    "snyk-upgrade-b19c9ab7d87a177e50b71af164479d2e": "dev",
+    "snyk-upgrade-dc74c0713d6eb08397ab53f9b0eca1f3": "dev"
+  },
+  "order": [
+    "dev",
+    "pujo_apis",
+    "snyk-fix-58fe5adf754c34bddd0124518f44adfb",
+    "snyk-fix-9ab092770fd9cea3a7d52d361e97d89f",
+    "snyk-fix-fd7d4571a090901f17dea831a1d0621c",
+    "snyk-upgrade-5c2d110457f7a1d4807a858aaf68e8ec",
+    "snyk-upgrade-b19c9ab7d87a177e50b71af164479d2e",
+    "snyk-upgrade-dc74c0713d6eb08397ab53f9b0eca1f3"
+  ]
+}

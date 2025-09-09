@@ -9,7 +9,7 @@ import { miscRouter } from "@/server/api/trpc/routers/misc";
  */
 export const appRouter = createTRPCRouter({
   misc: miscRouter,
-  pujo: pujoRouter
+  pujo: pujoRouter,
 });
 
 // export type definition of API
