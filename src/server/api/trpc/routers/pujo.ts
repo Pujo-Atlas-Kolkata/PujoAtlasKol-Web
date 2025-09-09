@@ -69,17 +69,18 @@ export const pujoRouter = {
     const records = parse(fileContent, {
       columns: true,
       skip_empty_lines: true,
-    }) as PujoRecord[];
+    });
 
     for (const record of records) {
+      const typedRecord = record as PujoRecord;
       const dbRecord = {
-        ...record,
-        created_at: record.created_at ? new Date(record.created_at) : undefined,
-        updated_at: record.updated_at ? new Date(record.updated_at) : undefined,
+        ...typedRecord,
+        created_at: typedRecord.created_at ? new Date(typedRecord.created_at) : undefined,
+        updated_at: typedRecord.updated_at ? new Date(typedRecord.updated_at) : undefined,
       };
       await db
         .insert(pujos)
-        .values(dbRecord as any)
+        .values(dbRecord)
         .onConflictDoUpdate({
           target: [pujos.id],
           set: dbRecord,
