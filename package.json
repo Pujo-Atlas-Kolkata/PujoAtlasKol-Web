@@ -45,7 +45,7 @@
     "sonner": "^2.0.3",
     "superjson": "^1.8.1",
     "tailwind-merge": "^3.3.0",
-    "zod": "^3.25.28"
+    "zod": "^3.25.76"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
