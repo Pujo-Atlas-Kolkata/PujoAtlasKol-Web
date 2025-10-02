@@ -6,16 +6,16 @@
   "scripts": {
     "ci:build": "next build",
     "ci:test": "turbo ci:local:run-checks",
-    "build": "turbo build:legacy",
+    "build": "node api.js && turbo build:legacy",
     "build:legacy": "next build",
     "check": "next lint && tsc --noEmit",
-    "dev": "next dev --turbopack",
+    "dev": "node api.js && next dev --turbopack",
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,mdx}\" --cache",
     "format:write": "prettier --write \"**/*.{ts,tsx,js,jsx,mdx}\" --cache",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "preview": "next build && next start",
-    "start": "next start",
+    "start": "node api.js && next start",
     "typecheck": "tsc --noEmit",
     "scan": "pnpm dev & npx react-scan http://localhost:3000"
   },
@@ -45,7 +45,7 @@
     "sonner": "^2.0.3",
     "superjson": "^1.8.1",
     "tailwind-merge": "^3.3.0",
-    "zod": "^3.25.28"
+    "zod": "^3.25.76"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
