@@ -1,4 +1,5 @@
 import { createCallerFactory, createTRPCRouter } from "@/server/api/trpc/init";
+import { pujoRouter } from "@/server/api/trpc/routers/pujo";
 import { miscRouter } from "@/server/api/trpc/routers/misc";
 
 /**
@@ -8,6 +9,7 @@ import { miscRouter } from "@/server/api/trpc/routers/misc";
  */
 export const appRouter = createTRPCRouter({
   misc: miscRouter,
+  pujo: pujoRouter,
 });
 
 // export type definition of API
