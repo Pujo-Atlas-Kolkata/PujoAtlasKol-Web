@@ -34,7 +34,7 @@
     "client-only": "^0.0.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.511.0",
-    "motion": "^12.14.0",
+    "motion": "^12.23.12",
     "next": "^15.2.3",
     "posthog-js": "^1.248.1",
     "posthog-node": "^4.18.0",
